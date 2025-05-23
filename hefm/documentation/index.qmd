@@ -1,0 +1,60 @@
+---
+title: "Getting Started"
+---
+
+Welcome! This page will help you get up and running with the library. Whether you're an experienced user or just starting out, follow the steps below to install and begin using the core features.
+
+## Installation
+
+Follow the instructions below depending on your environment.
+
+### Python
+
+```bash
+pip install your-library-name
+```
+
+### R
+
+```r
+install.packages("yourLibraryName")
+```
+
+### Julia
+
+```julia
+using Pkg
+Pkg.add("YourLibraryName")
+```
+
+> You can also clone the GitHub repository if you're installing a development version.
+
+## Basic Usage
+
+Here’s a minimal example to get started:
+
+```python
+import your_library_name as lib
+
+result = lib.run_model(data="path/to/data.csv")
+print(result.summary())
+```
+
+## Requirements
+
+Make sure your system meets the following requirements:
+
+- Python 3.8+ or R 4.1+ or Julia 1.8+
+- Required packages: `numpy`, `pandas`, `matplotlib`, etc.
+- (Optional) Jupyter Notebook support
+
+## 4. Where to Go Next
+
+- 📖 [Full Documentation](../documentation/)
+- 🧪 [Examples](../examples/)
+- 📊 [Results](../results/)
+- 💬 [FAQ or Support](../support/)
+
+---
+
+If you encounter any issues, please consult the [documentation](../documentation/) or open an issue on [GitHub](https://github.com/your-org/your-library).

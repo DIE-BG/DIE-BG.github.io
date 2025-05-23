@@ -1,0 +1,29 @@
+---
+title: "Our Team"
+---
+
+We are a multidisciplinary team of economists, developers, and analysts dedicated to advancing model-based tools for economic research and forecasting.
+
+## Core Members
+
+### Marshall D. Teach  
+*Team Lead – Strategic Modeling and Integration*  
+Responsible for overall coordination, model consistency, and methodological direction.
+
+### Jesus Burgess  
+*Infrastructure and Codebase Manager*  
+Focuses on implementation pipelines, technical deployment, and performance optimization.
+
+## Collaborators
+
+### Doc Q  
+*Research Analyst – Forecast Evaluation*  
+Works on empirical validation, error diagnostics, and predictive accuracy assessment.
+
+### Van Augur  
+*Data Acquisition and Pipeline Specialist*  
+Leads efforts on time series gathering, preprocessing workflows, and data integrity.
+
+---
+
+For further information or to contact the team, please visit the [About page](about.qmd).

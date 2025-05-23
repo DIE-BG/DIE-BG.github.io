@@ -1,0 +1,72 @@
+---
+title: "Article Placeholder"
+author: "Your Name Here"
+date: today
+---
+
+## Abstract
+
+This is a placeholder abstract. Summarize your study's objective, methodology, and key findings here in 100–200 words.
+
+## Introduction
+
+Introduce the problem, provide background, and explain the relevance of the research.
+
+## Literature Review
+
+Brief overview of related work and how this article fits within the broader context.
+
+## Data and Methods
+
+### Data
+
+Description of data sources, sampling methods, and any preprocessing.
+
+**Table 1.** Summary of main variables. *(Insert actual table here)*
+
+| Variable  | Description               |
+|-----------|----------------------------|
+| GDP       | Gross Domestic Product     |
+| Inflation | CPI Annual Change          |
+
+### Methodology
+
+Present the methodology used. Include equations if relevant.
+
+\begin{equation}
+Y_t = \alpha + \beta X_t + \varepsilon_t
+\end{equation}
+
+## Results
+
+### Main Results
+
+**Figure 1.** Placeholder for main results plot.
+
+{{< placeholder 600 400 >}}
+
+### Additional Analysis
+
+**Figure 2.** Placeholder for supplementary analysis.
+
+{{< placeholder 600 400 format="svg" >}}
+
+## Discussion
+
+Interpret your results in the context of existing research.
+
+## Conclusion
+
+Summarize the study, its implications, and suggest directions for future research.
+
+## References
+
+Add citations here using `[@key]` notation and include a `.bib` file if needed.
+
+## Appendix
+
+### A. Additional Figures
+
+**Figure A1.** Placeholder for appendix figure.
+
+{{< placeholder 500 300 >}}

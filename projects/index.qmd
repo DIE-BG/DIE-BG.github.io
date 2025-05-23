@@ -1,0 +1,32 @@
+---
+title: "Research Projects"
+---
+
+This section compiles ongoing and completed research projects conducted by DIE-BG that go beyond the scope of our core tools.
+
+Projects hosted here typically involve applied macroeconomic research, forecasting exercises, structural analysis, or experimental modeling initiatives.
+
+## Purpose
+
+The *Projects* section serves as a flexible space to:
+
+- Document exploratory or complementary studies.
+- Share empirical investigations not tied to HEFM or HEMI.
+- Publish internal working drafts, validation reports, or topic-specific models.
+- Host specialized forecasting tools such as Nowcasting modules.
+
+## Active Projects
+
+- [Nowcasting](./nowcasting/index.qmd): A real-time indicator system integrating news and statistical signals.
+
+## How to Navigate
+
+Each project has its own subfolder and includes:
+- A short description and purpose
+- Methodological notes and documents
+- Results, simulations, and visualizations
+- Supplementary files, when applicable
+
+---
+
+> For more structured modeling tools, visit the [HEFM](../hefm/index.qmd) or [HEMI](../hemi/index.qmd) sections.

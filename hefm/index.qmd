@@ -1,0 +1,26 @@
+---
+title: "HEFM"
+format: html
+---
+
+## Overview
+
+HEFM is a ...
+
+This section of the site provides all related materials for the HEFM, including documentation, results, technical resources, and methodological references.
+
+## Sections
+
+- 📄 [Documentation](./documentation/index.qmd): Technical manuals, code usage, and API references.  
+- 📊 [Results](./results/index.qmd): Forecasts, simulation outputs, and model validation figures.  
+- 📁 [Resources](./resources/index.qmd): Presentations, papers, supporting documents, and internal material.  
+
+## Purpose
+
+The HEFM project aims to ...
+
+For an in-depth explanation of the model’s structure and assumptions, see the resources section.
+
+---
+
+> Looking for the economic logic behind the tool? Visit the [Resources](./resources/index.qmd) section.

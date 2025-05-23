@@ -1,0 +1,28 @@
+---
+title: "DIE-BG: BG Economic Research"
+---
+
+Welcome to the official website of DIE-BG. Our work focuses on macroeconomic series, model-based policy analysis, and real-time indicators.
+
+## What you will find here
+
+- Theoretical foundations and modeling approaches
+- Code libraries and technical documentation
+- Forecasting results and model applications
+- Team members and collaborators
+- Downloadable resources
+
+## Explore our tools
+
+- [HEFM](../hefm/): Hybrid Expectations Forecasting Model
+- [HEMI](../hemi/): High-frequency Economic Monitoring Index
+
+## Research Projects
+
+Explore our additional research lines and experimental developments:
+
+- [Nowcasting](../projects/nowcasting/): Real-time indicators with Mixed Frequencies Machine Learning (MFML)
+
+## Contact
+
+For questions or collaborations, please reach out via the [team section](../team.qmd).

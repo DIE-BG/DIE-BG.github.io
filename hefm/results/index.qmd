@@ -1,0 +1,12 @@
+---
+title: "Results"
+---
+
+## Slide Deck Placeholder
+
+This is an example of a file with an embedded Slide Deck.
+
+[**Fullscreen ⛶**](/hefm/results/slidePlaceholder/slidePlaceholder.qmd)
+```{=html}
+<iframe class="slide-deck" src="/hefm/results/slidePlaceholder/slidePlaceholder.html" width="100%" height="600px" style="border: none;"></iframe>
+```

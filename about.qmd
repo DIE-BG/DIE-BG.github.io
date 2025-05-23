@@ -1,0 +1,35 @@
+---
+title: "About Us"
+---
+
+## Who We Are
+
+We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis.
+
+## Our Mission
+
+Our mission is to support decision-making and foster technical collaboration by producing robust models, clear documentation, and accessible research outputs.
+
+## What We Do
+
+We work on the design and implementation of analytical frameworks, model-based simulations, and empirical projects related to economic dynamics.
+
+## Who It's For
+
+This website is intended for researchers, analysts, and institutions interested in macroeconomic modeling, forecasting, and applied time series tools.
+
+## What You Will Find Here
+
+- Theoretical and technical materials  
+- Code libraries and implementation guides  
+- Forecasting results and research outputs  
+- Presentations, downloads, and supporting files  
+- Information about the team and our collaborators
+
+## Collaborations
+
+We engage with internal and external partners to share methodologies, co-develop tools, and advance the understanding of key economic phenomena.
+
+## Contact
+
+For questions or collaboration inquiries, please visit the [team section](../team.qmd).

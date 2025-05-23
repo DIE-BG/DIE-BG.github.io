@@ -15,7 +15,6 @@ Welcome to the official website of DIE-BG. Our work focuses on macroeconomic ser
 ## Explore our tools
 
 - [HEFM](../hefm/): Hybrid Expectations Forecasting Model
-- [HEMI](../hemi/): High-frequency Economic Monitoring Index
 
 ## Research Projects
 

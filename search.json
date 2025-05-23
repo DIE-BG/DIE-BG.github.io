@@ -1,0 +1,651 @@
+[
+  {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Our Team",
+    "section": "",
+    "text": "We are a multidisciplinary team of economists, developers, and analysts dedicated to advancing model-based tools for economic research and forecasting."
+  },
+  {
+    "objectID": "team.html#core-members",
+    "href": "team.html#core-members",
+    "title": "Our Team",
+    "section": "Core Members",
+    "text": "Core Members\n\nMarshall D. Teach\nTeam Lead – Strategic Modeling and Integration\nResponsible for overall coordination, model consistency, and methodological direction.\n\n\nJesus Burgess\nInfrastructure and Codebase Manager\nFocuses on implementation pipelines, technical deployment, and performance optimization."
+  },
+  {
+    "objectID": "team.html#collaborators",
+    "href": "team.html#collaborators",
+    "title": "Our Team",
+    "section": "Collaborators",
+    "text": "Collaborators\n\nDoc Q\nResearch Analyst – Forecast Evaluation\nWorks on empirical validation, error diagnostics, and predictive accuracy assessment.\n\n\nVan Augur\nData Acquisition and Pipeline Specialist\nLeads efforts on time series gathering, preprocessing workflows, and data integrity.\n\nFor further information or to contact the team, please visit the About page."
+  },
+  {
+    "objectID": "hefm/results/index.html",
+    "href": "hefm/results/index.html",
+    "title": "Results",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶",
+    "crumbs": [
+      "Results",
+      "Index"
+    ]
+  },
+  {
+    "objectID": "hefm/results/index.html#slide-deck-placeholder",
+    "href": "hefm/results/index.html#slide-deck-placeholder",
+    "title": "Results",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶",
+    "crumbs": [
+      "Results",
+      "Index"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "title": "Slide Deck Placeholder",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "title": "Slide Deck Placeholder",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "title": "Slide Deck Placeholder",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "title": "Slide Deck Placeholder",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "hefm/documentation/index.html",
+    "href": "hefm/documentation/index.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Welcome! This page will help you get up and running with the library. Whether you’re an experienced user or just starting out, follow the steps below to install and begin using the core features.",
+    "crumbs": [
+      "Documentation",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "hefm/documentation/index.html#installation",
+    "href": "hefm/documentation/index.html#installation",
+    "title": "Getting Started",
+    "section": "Installation",
+    "text": "Installation\nFollow the instructions below depending on your environment.\n\nPython\npip install your-library-name\n\n\nR\ninstall.packages(\"yourLibraryName\")\n\n\nJulia\nusing Pkg\nPkg.add(\"YourLibraryName\")\n\nYou can also clone the GitHub repository if you’re installing a development version.",
+    "crumbs": [
+      "Documentation",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "hefm/documentation/index.html#basic-usage",
+    "href": "hefm/documentation/index.html#basic-usage",
+    "title": "Getting Started",
+    "section": "Basic Usage",
+    "text": "Basic Usage\nHere’s a minimal example to get started:\nimport your_library_name as lib\n\nresult = lib.run_model(data=\"path/to/data.csv\")\nprint(result.summary())",
+    "crumbs": [
+      "Documentation",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "hefm/documentation/index.html#requirements",
+    "href": "hefm/documentation/index.html#requirements",
+    "title": "Getting Started",
+    "section": "Requirements",
+    "text": "Requirements\nMake sure your system meets the following requirements:\n\nPython 3.8+ or R 4.1+ or Julia 1.8+\nRequired packages: numpy, pandas, matplotlib, etc.\n(Optional) Jupyter Notebook support",
+    "crumbs": [
+      "Documentation",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "hefm/documentation/index.html#where-to-go-next",
+    "href": "hefm/documentation/index.html#where-to-go-next",
+    "title": "Getting Started",
+    "section": "4. Where to Go Next",
+    "text": "4. Where to Go Next\n\n📖 Full Documentation\n🧪 Examples\n📊 Results\n💬 FAQ or Support\n\n\nIf you encounter any issues, please consult the documentation or open an issue on GitHub.",
+    "crumbs": [
+      "Documentation",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#abstract",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#abstract",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#introduction",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#introduction",
+    "title": "Article Placeholder",
+    "section": "Introduction",
+    "text": "Introduction\nIntroduce the problem, provide background, and explain the relevance of the research.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#literature-review",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#literature-review",
+    "title": "Article Placeholder",
+    "section": "Literature Review",
+    "text": "Literature Review\nBrief overview of related work and how this article fits within the broader context.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#data-and-methods",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#data-and-methods",
+    "title": "Article Placeholder",
+    "section": "Data and Methods",
+    "text": "Data and Methods\n\nData\nDescription of data sources, sampling methods, and any preprocessing.\nTable 1. Summary of main variables. (Insert actual table here)\n\n\n\nVariable\nDescription\n\n\n\n\nGDP\nGross Domestic Product\n\n\nInflation\nCPI Annual Change\n\n\n\n\n\nMethodology\nPresent the methodology used. Include equations if relevant.\n\\[\\begin{equation}\nY_t = \\alpha + \\beta X_t + \\varepsilon_t\n\\end{equation}\\]",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#results",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#results",
+    "title": "Article Placeholder",
+    "section": "Results",
+    "text": "Results\n\nMain Results\nFigure 1. Placeholder for main results plot.\n\n\n\nAdditional Analysis\nFigure 2. Placeholder for supplementary analysis.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#discussion",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#discussion",
+    "title": "Article Placeholder",
+    "section": "Discussion",
+    "text": "Discussion\nInterpret your results in the context of existing research.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#conclusion",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#conclusion",
+    "title": "Article Placeholder",
+    "section": "Conclusion",
+    "text": "Conclusion\nSummarize the study, its implications, and suggest directions for future research.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#references",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#references",
+    "title": "Article Placeholder",
+    "section": "References",
+    "text": "References\nAdd citations here using [@key] notation and include a .bib file if needed.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#appendix",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#appendix",
+    "title": "Article Placeholder",
+    "section": "Appendix",
+    "text": "Appendix\n\nA. Additional Figures\nFigure A1. Placeholder for appendix figure.",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/slides/index.html",
+    "href": "projects/nowcasting/slides/index.html",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "projects/nowcasting/slides/index.html#slide-deck-placeholder",
+    "href": "projects/nowcasting/slides/index.html#slide-deck-placeholder",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶",
+    "crumbs": [
+      "Nowcasting",
+      "Resources",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Research Projects",
+    "section": "",
+    "text": "This section compiles ongoing and completed research projects conducted by DIE-BG that go beyond the scope of our core tools.\nProjects hosted here typically involve applied macroeconomic research, forecasting exercises, structural analysis, or experimental modeling initiatives.",
+    "crumbs": [
+      "Projects"
+    ]
+  },
+  {
+    "objectID": "projects/index.html#purpose",
+    "href": "projects/index.html#purpose",
+    "title": "Research Projects",
+    "section": "Purpose",
+    "text": "Purpose\nThe Projects section serves as a flexible space to:\n\nDocument exploratory or complementary studies.\nShare empirical investigations not tied to HEFM or HEMI.\nPublish internal working drafts, validation reports, or topic-specific models.\nHost specialized forecasting tools such as Nowcasting modules.",
+    "crumbs": [
+      "Projects"
+    ]
+  },
+  {
+    "objectID": "projects/index.html#active-projects",
+    "href": "projects/index.html#active-projects",
+    "title": "Research Projects",
+    "section": "Active Projects",
+    "text": "Active Projects\n\nNowcasting: A real-time indicator system integrating news and statistical signals.",
+    "crumbs": [
+      "Projects"
+    ]
+  },
+  {
+    "objectID": "projects/index.html#how-to-navigate",
+    "href": "projects/index.html#how-to-navigate",
+    "title": "Research Projects",
+    "section": "How to Navigate",
+    "text": "How to Navigate\nEach project has its own subfolder and includes: - A short description and purpose - Methodological notes and documents - Results, simulations, and visualizations - Supplementary files, when applicable\n\n\nFor more structured modeling tools, visit the HEFM or HEMI sections.",
+    "crumbs": [
+      "Projects"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "",
+    "text": "Welcome to the official website of DIE-BG. Our work focuses on macroeconomic series, model-based policy analysis, and real-time indicators."
+  },
+  {
+    "objectID": "index.html#what-you-will-find-here",
+    "href": "index.html#what-you-will-find-here",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "What you will find here",
+    "text": "What you will find here\n\nTheoretical foundations and modeling approaches\nCode libraries and technical documentation\nForecasting results and model applications\nTeam members and collaborators\nDownloadable resources"
+  },
+  {
+    "objectID": "index.html#explore-our-tools",
+    "href": "index.html#explore-our-tools",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "Explore our tools",
+    "text": "Explore our tools\n\nHEFM: Hybrid Expectations Forecasting Model\nHEMI: High-frequency Economic Monitoring Index"
+  },
+  {
+    "objectID": "index.html#research-projects",
+    "href": "index.html#research-projects",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "Research Projects",
+    "text": "Research Projects\nExplore our additional research lines and experimental developments:\n\nNowcasting: Real-time indicators with Mixed Frequencies Machine Learning (MFML)"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "Contact",
+    "text": "Contact\nFor questions or collaborations, please reach out via the team section."
+  },
+  {
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "title": "Slide Deck Placeholder",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "title": "Slide Deck Placeholder",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "title": "Slide Deck Placeholder",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "title": "Slide Deck Placeholder",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Us",
+    "section": "",
+    "text": "We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis."
+  },
+  {
+    "objectID": "about.html#who-we-are",
+    "href": "about.html#who-we-are",
+    "title": "About Us",
+    "section": "",
+    "text": "We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis."
+  },
+  {
+    "objectID": "about.html#our-mission",
+    "href": "about.html#our-mission",
+    "title": "About Us",
+    "section": "Our Mission",
+    "text": "Our Mission\nOur mission is to support decision-making and foster technical collaboration by producing robust models, clear documentation, and accessible research outputs."
+  },
+  {
+    "objectID": "about.html#what-we-do",
+    "href": "about.html#what-we-do",
+    "title": "About Us",
+    "section": "What We Do",
+    "text": "What We Do\nWe work on the design and implementation of analytical frameworks, model-based simulations, and empirical projects related to economic dynamics."
+  },
+  {
+    "objectID": "about.html#who-its-for",
+    "href": "about.html#who-its-for",
+    "title": "About Us",
+    "section": "Who It’s For",
+    "text": "Who It’s For\nThis website is intended for researchers, analysts, and institutions interested in macroeconomic modeling, forecasting, and applied time series tools."
+  },
+  {
+    "objectID": "about.html#what-you-will-find-here",
+    "href": "about.html#what-you-will-find-here",
+    "title": "About Us",
+    "section": "What You Will Find Here",
+    "text": "What You Will Find Here\n\nTheoretical and technical materials\n\nCode libraries and implementation guides\n\nForecasting results and research outputs\n\nPresentations, downloads, and supporting files\n\nInformation about the team and our collaborators"
+  },
+  {
+    "objectID": "about.html#collaborations",
+    "href": "about.html#collaborations",
+    "title": "About Us",
+    "section": "Collaborations",
+    "text": "Collaborations\nWe engage with internal and external partners to share methodologies, co-develop tools, and advance the understanding of key economic phenomena."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Us",
+    "section": "Contact",
+    "text": "Contact\nFor questions or collaboration inquiries, please visit the team section."
+  },
+  {
+    "objectID": "hefm/index.html",
+    "href": "hefm/index.html",
+    "title": "HEFM",
+    "section": "",
+    "text": "HEFM is a …\nThis section of the site provides all related materials for the HEFM, including documentation, results, technical resources, and methodological references.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/index.html#overview",
+    "href": "hefm/index.html#overview",
+    "title": "HEFM",
+    "section": "",
+    "text": "HEFM is a …\nThis section of the site provides all related materials for the HEFM, including documentation, results, technical resources, and methodological references.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/index.html#sections",
+    "href": "hefm/index.html#sections",
+    "title": "HEFM",
+    "section": "Sections",
+    "text": "Sections\n\n📄 Documentation: Technical manuals, code usage, and API references.\n\n📊 Results: Forecasts, simulation outputs, and model validation figures.\n\n📁 Resources: Presentations, papers, supporting documents, and internal material.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/index.html#purpose",
+    "href": "hefm/index.html#purpose",
+    "title": "HEFM",
+    "section": "Purpose",
+    "text": "Purpose\nThe HEFM project aims to …\nFor an in-depth explanation of the model’s structure and assumptions, see the resources section.\n\n\nLooking for the economic logic behind the tool? Visit the Resources section.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/slides/index.html",
+    "href": "hefm/resources/slides/index.html",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶",
+    "crumbs": [
+      "Resources",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/slides/index.html#slide-deck-placeholder",
+    "href": "hefm/resources/slides/index.html#slide-deck-placeholder",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶",
+    "crumbs": [
+      "Resources",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html",
+    "href": "hefm/resources/articles/articlePlaceholder.html",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#abstract",
+    "href": "hefm/resources/articles/articlePlaceholder.html#abstract",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#introduction",
+    "href": "hefm/resources/articles/articlePlaceholder.html#introduction",
+    "title": "Article Placeholder",
+    "section": "Introduction",
+    "text": "Introduction\nIntroduce the problem, provide background, and explain the relevance of the research.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#literature-review",
+    "href": "hefm/resources/articles/articlePlaceholder.html#literature-review",
+    "title": "Article Placeholder",
+    "section": "Literature Review",
+    "text": "Literature Review\nBrief overview of related work and how this article fits within the broader context.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#data-and-methods",
+    "href": "hefm/resources/articles/articlePlaceholder.html#data-and-methods",
+    "title": "Article Placeholder",
+    "section": "Data and Methods",
+    "text": "Data and Methods\n\nData\nDescription of data sources, sampling methods, and any preprocessing.\nTable 1. Summary of main variables. (Insert actual table here)\n\n\n\nVariable\nDescription\n\n\n\n\nGDP\nGross Domestic Product\n\n\nInflation\nCPI Annual Change\n\n\n\n\n\nMethodology\nPresent the methodology used. Include equations if relevant.\n\\[\\begin{equation}\nY_t = \\alpha + \\beta X_t + \\varepsilon_t\n\\end{equation}\\]",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#results",
+    "href": "hefm/resources/articles/articlePlaceholder.html#results",
+    "title": "Article Placeholder",
+    "section": "Results",
+    "text": "Results\n\nMain Results\nFigure 1. Placeholder for main results plot.\n\n\n\nAdditional Analysis\nFigure 2. Placeholder for supplementary analysis.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#discussion",
+    "href": "hefm/resources/articles/articlePlaceholder.html#discussion",
+    "title": "Article Placeholder",
+    "section": "Discussion",
+    "text": "Discussion\nInterpret your results in the context of existing research.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#conclusion",
+    "href": "hefm/resources/articles/articlePlaceholder.html#conclusion",
+    "title": "Article Placeholder",
+    "section": "Conclusion",
+    "text": "Conclusion\nSummarize the study, its implications, and suggest directions for future research.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#references",
+    "href": "hefm/resources/articles/articlePlaceholder.html#references",
+    "title": "Article Placeholder",
+    "section": "References",
+    "text": "References\nAdd citations here using [@key] notation and include a .bib file if needed.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#appendix",
+    "href": "hefm/resources/articles/articlePlaceholder.html#appendix",
+    "title": "Article Placeholder",
+    "section": "Appendix",
+    "text": "Appendix\n\nA. Additional Figures\nFigure A1. Placeholder for appendix figure.",
+    "crumbs": [
+      "Resources",
+      "Articles",
+      "Article Placeholder"
+    ]
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "title": "Slide Deck Placeholder",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "title": "Slide Deck Placeholder",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#dinner",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#dinner",
+    "title": "Slide Deck Placeholder",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "title": "Slide Deck Placeholder",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  }
+]

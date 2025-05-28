@@ -1,0 +1,256 @@
+---
+title: "Pronósticos, dentro de muestra con periodos de estimación iniciales"
+author: "DIE"
+format: 
+    revealjs:
+        scrollable: true
+        incremental: true
+        slide-number: true
+---
+
+
+
+# Introducción
+<!--
+Explicar qué es lo que el ejercicio pretende responder.
+tales que el modelo con mayor rango 
+de estimación del conjunto, tiene una fecha 
+inicial de estimación cada vez más reciente.
+
+-->
+
+Las pautas principales para este ejercicio son:
+
+::: {.incremental}
+- La función de pérdida de los errores 
+de pronóstico se obtiene de un conjunto de modelos. 
+
+- En este conjunto de modelos, 
+la evaluación se realiza dentro de muestra
+y en periodos posteriores a la estimación.
+:::
+
+#
+
+Se examinan varios conjuntos de submuestras
+con el objetivo de mostrar el comportamiento
+de la función de pérdida de los errores de 
+pronóstico en un horizonte específico.
+
+# Metodología
+<!---
+Detalles de cómo se configuró el ejercicio.
+Explicar cómo se estiman los modelos por submuestras, 
+es decir, ¿qué es lo que va cambiando
+en cada modelo?
+¿Cómo se arman los ModelPools?
+--->
+
+
+## Estimación 
+::: {.incremental}
+-  Para la realización de este ejercicio
+se tienen varios subconjuntos de un 
+conjunto (ModelPool) que contiene 
+submuestras con periodos de estimación 
+que inician con fechas más atrás en el tiempo. 
+
+-  Es decir, este conjunto inicia con 
+un modelo que tiene un rango de estimación
+"2005Q1-2024Q4", el segundo, tendrá un 
+rango de estimación entre "2005Q2-2024Q4", 
+así sucesivamente hasta el $n$-ésimo modelo 
+que tiene un rango de estimación "2012Q4-2024Q4".
+  
+- Los subconjuntos se obtienen al 
+filtrando la clase ModelPool. 
+:::
+
+## Subconjuntos de Model Pool
+::: {.incremental}
+
+- El primer subconjunto es el conjunto completo.
+
+- Un segundo subconjunto, inicia con el modelo
+cuya estimación se realiza en el periodo 
+"2005Q2-2024Q4", continua con el modelo con un 
+un rango de estimación "2005Q3-2024Q4", 
+y así sucesivamente hasta el $n$-ésimo 
+modelo con el rango de estimación "2012Q4-2024Q4".
+
+- De esta forma el último subconjunto, 
+contendrá los modelos con fechas iniciales
+de estimación más recientes. Éste inicia 
+con un modelo con un rango de estimación 
+"2010Q4-2024Q4" y termina con un modelo 
+con un rango de estimación en los 
+periodos "2012Q4-2024Q4".
+:::
+## Validación
+
+::: {.incremental}
+- Para cualquier subconjunto, la validación 
+en este ejercicio se realiza en los mismos 
+periodos de estimación. 
+## RMSE
+- En cada uno de estos subconjuntos es posible 
+obtener la función de pérdida, tomando el 
+$RMSE_h$ en función de los errores de cada 
+uno de los modelos, por cada horizonte $h$. 
+
+:::
+
+
+## Diagrama
+
+```{mermaid}
+%%| fig-width: 6
+
+
+%%{
+init: {
+  "securityLevel": "loose",
+  "theme": "forest"   
+}
+}%%
+gantt
+    title Model Pool
+    dateFormat  YYYY-QQ
+    section Model 1
+    Training           :a1, 2005-01, 237M
+    Validation      :a2, 2005-01, 237M
+    section Model 2
+    Training           :a1, 2005-04, 234M
+    Validation      :a2, 2005-04, 234M
+    section Model 3
+    Training          :a1, 2005-07, 231M
+    Validation      :a2, 2005-07, 231M
+    section ...
+    ... :a1, 2015-01-02, 
+    section Model n
+    Training          :a1, 2012-10, 144M
+    Validation      :a2, 2012-10, 144M
+
+```
+
+```{mermaid}
+%%| fig-width: 6
+
+
+%%{
+init: {
+  "securityLevel": "loose",
+  "theme": "forest"   
+}
+}%%
+gantt
+    title Subconjunto 2
+    dateFormat  YYYY-MM
+    section Model 2
+    Training           :a1, 2005-04, 237M
+    Validation      :a2, 2005-04, 237M
+    section Model 3
+    Training           :a1, 2005-07, 234M
+    Validation      :a2, 2005-07, 234M
+    section ...
+    ... :a1, 2015-01-02, 1d
+    section Model n
+    Training          :a1, 2012-10, 144M
+    Validation      :a2, 2012-10, 144M
+
+```
+
+```{mermaid}
+%%| fig-width: 6
+
+%%{
+init: {
+  "gantt": {
+  "displayMode":"compact"
+  },
+  "securityLevel": "loose",
+  "theme": "forest"   
+}
+}%%
+gantt
+    title Subconjunto p
+    dateFormat  YYYY-MM
+    section Model p
+    Training           :a1, 2010-10, 169M
+    Validation      :a2, 2010-10, 169M
+    section Model p+1
+    Training           :a1, 2011-01, 166M
+    Validation      :a2, 2011-01, 166M
+    section ...
+    ... :a1, 2017-10-01, 
+    section Model n
+    Training          :a1, 2012-10, 144M
+    Validation      :a2, 2012-10, 144M
+
+```
+
+
+
+# Resultados del RMSE
+<!---
+Gráficas que expliquen los resultados.
+Deben contener gráficas del RMSE 
+de las 4 variables objetivo
+ ({'d4_ln_cpi', 'd4_ln_s',
+'d4_ln_y_sm', 'i'}) 
+y el promedio de estas.
+Horizontes de análisis: 1,2,3,4,8,10,12.
+--->## Variables objetivo 
+![RMSE de todas las variables, todos los horizontes ](./images/RMSEByVariables.png){#fig-allVar}
+
+
+
+
+## Promedio de las variables objetivo
+
+![Promedio de las variables objetivo, todos los horizontes](./images/RMSEAverage.png){#fig-avgVar}
+
+
+
+# Conclusiones o  Hallazgos
+<!---
+Describir los aspectos relevantes de sus resultados.
+--->
+## En los primeros cuatro horizontes
+::: {.incremental}
+- La función de pérdida para cada una de la 
+variables tiene un comportamiento similar en los
+primeros cuatro horizontes. 
+  + La inflación, el crecimiento doméstico y 
+  la tasa de interés tienen un mínimo en el 
+  subconjunto que incluye  menos submuestras.
+  + El tipo de cambio  tiene un mínimo en el 
+  subconjunto en el que se tienen submuestra
+  con fechas de estimación iniciales más antiguas. 
+
+  
+:::
+
+## En los horizontes 8, 10, 12 ...
+::: {.incremental}
+  
+  + El tipo de cambio y la tasa de interés, 
+  tienen un mínimo en los subconjuntos con modelos, 
+  que tiene un inicio de estimación más reciente.
+ 
+  + El crecimiento doméstico tiene un mínimo en el
+  subconjunto en el que se tienen en el 
+  subconjunto que incluye todas las submuestras.
+
+:::
+
+## Promedio de las variables objetivo
+
+:::{.incrementa}
+- En general, el mínimo del RMSE del promedio
+de las cuatro variables objetivo se encuentra
+cuando se toma fechas de estimación más 
+adelante en el tiempo. Indicando que el 
+error de pronóstico se va reduciendo 
+cuando se estima con datos más recientes.
+:::

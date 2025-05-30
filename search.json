@@ -270,55 +270,7 @@
     "href": "hefm/results/SVAR50_4B/index.html",
     "title": "All SVAR50-4B Results",
     "section": "",
-    "text": "Fullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50_4B",
-      "Index"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/index.html#section",
-    "href": "hefm/results/SVAR50_4B/index.html#section",
-    "title": "All SVAR50-4B Results",
-    "section": "",
-    "text": "Fullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50_4B",
-      "Index"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/index.html#section-1",
-    "href": "hefm/results/SVAR50_4B/index.html#section-1",
-    "title": "All SVAR50-4B Results",
-    "section": "Variable Initial Estimation Date (IS)",
-    "text": "Variable Initial Estimation Date (IS)\nFullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50_4B",
-      "Index"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/index.html#section-2",
-    "href": "hefm/results/SVAR50_4B/index.html#section-2",
-    "title": "All SVAR50-4B Results",
-    "section": "Variable Initial Estimation Date (OS)",
-    "text": "Variable Initial Estimation Date (OS)\nFullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50_4B",
-      "Index"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/index.html#section-3",
-    "href": "hefm/results/SVAR50_4B/index.html#section-3",
-    "title": "All SVAR50-4B Results",
-    "section": "Variable Sample Size",
-    "text": "Variable Sample Size\nFullscreen ⛶",
+    "text": "Variable Final Estimation Date: This exercise examines the impact on RMSE of adding new observations to the estimation sample. The effect is evaluated both in-sample and out-of-sample, using fixed and rolling validation sets.\nVariable Initial Estimation Date (IS): This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured in-sample.\nVariable Initial Estimation Date (OS): This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured out-of-sample.\nVariable Sample Size: This exercise explores the impact of sample size on RMSE. An HV-type evaluation scheme is used to isolate the effect of autocorrelation on RMSE.",
     "crumbs": [
       "Results",
       "SVAR50_4B",

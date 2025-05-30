@@ -212,17 +212,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">Variable Final Estimation Date</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">Variable Initial Estimation Date (IS)</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">Variable Initial Estimation Date (OS)</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">Variable Sample Size</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -246,28 +237,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">Variable Final Estimation Date</h2>
-<p><a href="../../../hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html"><strong>Fullscreen ⛶</strong></a></p>
-<iframe src="../../../hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html" height="400px" width="100%" style="border: none;"></iframe>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">Variable Initial Estimation Date (IS)</h2>
-<p><a href="../../../hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html"><strong>Fullscreen ⛶</strong></a></p>
-<iframe src="../../../hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html" height="400px" width="100%" style="border: none;"></iframe>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">Variable Initial Estimation Date (OS)</h2>
-<p><a href="../../../hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html"><strong>Fullscreen ⛶</strong></a></p>
-<iframe src="../../../hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html" height="400px" width="100%" style="border: none;"></iframe>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">Variable Sample Size</h2>
-<p><a href="../../../hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html"><strong>Fullscreen ⛶</strong></a></p>
-<iframe src="../../../hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html" height="400px" width="100%" style="border: none;"></iframe>
+<ul>
+<li><p><a href="../../../hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html"><strong>Variable Final Estimation Date</strong></a>: This exercise examines the impact on RMSE of adding new observations to the estimation sample. The effect is evaluated both in-sample and out-of-sample, using fixed and rolling validation sets.</p></li>
+<li><p><a href="../../../hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html"><strong>Variable Initial Estimation Date (IS)</strong></a>: This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured <em>in-sample</em>.</p></li>
+<li><p><a href="../../../hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html"><strong>Variable Initial Estimation Date (OS)</strong></a>: This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured <em>out-of-sample</em>.</p></li>
+<li><p><a href="../../../hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html"><strong>Variable Sample Size</strong></a>: This exercise explores the impact of sample size on RMSE. An <em>HV</em>-type evaluation scheme is used to isolate the effect of autocorrelation on RMSE.</p></li>
+</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

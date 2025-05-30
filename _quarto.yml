@@ -47,6 +47,8 @@ website:
             
             - section: "SVAR50_4B"
               contents:
+              - text: "Index"
+                href: hefm/results/index.qmd#SVAR50-4B
               - text: "Variable Final Estimation Date"
                 href: /hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html
               - text: "Variable Initial Estimation Date (IS)"

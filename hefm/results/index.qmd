@@ -1,12 +1,74 @@
 ---
 title: "Results"
+
+frame_height: "400px"
+frame_width: "100%"
+
+SVAR50_4B: 
+    dir: "/hefm/results/SVAR50_4B"
+    name: "SVAR50-4B"
+    decks: 
+        - dir: "SVAR50_4B_forecast_OS_finalEstPeriod"
+          filename: "SVAR50_4B_forecast_OS_finalEstPeriod"
+          title: "Variable Final Estimation Date"
+        - dir: "SVAR50_forecast_IS_initialEstPeriod"
+          filename: "forecast_IS_initialEstPeriod"
+          title: "Variable Initial Estimation Date (IS)"
+        - dir: "SVAR50_forecast_OS_initialEstPeriod"
+          filename: "forecast_OS_initialEstPeriod"
+          title: "Variable Initial Estimation Date (OS)"
+        - dir: "SVAR50_4B_HV"
+          filename: "SVAR50_4B_HV"
+          title: "Variable Sample Size"
 ---
 
-## Slide Deck Placeholder
+## {{< meta SVAR50_4B.name >}}
 
-This is an example of a file with an embedded Slide Deck.
 
-[**Fullscreen ⛶**](/hefm/results/slidePlaceholder/slidePlaceholder.qmd)
+### {{< meta SVAR50_4B.decks.1.title >}}
+
+[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.qmd)
 ```{=html}
-<iframe class="slide-deck" src="/hefm/results/slidePlaceholder/slidePlaceholder.html" width="100%" height="600px" style="border: none;"></iframe>
+<iframe 
+    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.html"
+    height={{< meta frame_height >}}
+    width={{< meta frame_width >}}
+    style="border: none;"
+></iframe>
+```
+
+### {{< meta SVAR50_4B.decks.2.title >}}
+
+[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.2.dir >}}/{{< meta SVAR50_4B.decks.2.filename >}}.qmd)
+```{=html}
+<iframe 
+    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.2.dir >}}/{{< meta SVAR50_4B.decks.2.filename >}}.html"
+    height={{< meta frame_height >}}
+    width={{< meta frame_width >}}
+    style="border: none;"
+></iframe>
+```
+
+### {{< meta SVAR50_4B.decks.3.title >}}
+
+[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.3.dir >}}/{{< meta SVAR50_4B.decks.3.filename >}}.qmd)
+```{=html}
+<iframe 
+    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.3.dir >}}/{{< meta SVAR50_4B.decks.3.filename >}}.html"
+    height={{< meta frame_height >}}
+    width={{< meta frame_width >}}
+    style="border: none;"
+></iframe>
+```
+
+### {{< meta SVAR50_4B.decks.4.title >}}
+
+[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.4.dir >}}/{{< meta SVAR50_4B.decks.4.filename >}}.qmd)
+```{=html}
+<iframe 
+    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.4.dir >}}/{{< meta SVAR50_4B.decks.4.filename >}}.html"
+    height={{< meta frame_height >}}
+    width={{< meta frame_width >}}
+    style="border: none;"
+></iframe>
 ```

@@ -8,13 +8,13 @@ Welcome to the official website of DIE-BG. Our work focuses on macroeconomic ser
 
 - Theoretical foundations and modeling approaches
 - Code libraries and technical documentation
-- Forecasting results and model applications
+- Results and applications
 - Team members and collaborators
 - Downloadable resources
 
 ## Explore our tools
 
-- [HEFM](../hefm/): Hybrid Expectations Forecasting Model
+- [HEFM](../hefm/): Out-of-Sample Evaluation Tool (Herramienta de Evaluación Fuera de Muestra)
 
 ## Research Projects
 

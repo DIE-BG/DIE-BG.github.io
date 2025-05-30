@@ -14,10 +14,10 @@ website:
       - text: Home
         href: index.qmd
       - sidebar:hefm
-      - sidebar:projects
-      - text: "Team"
-        href: team.qmd
-      - about.qmd
+      #- sidebar:projects
+      #- text: "Team"
+        #href: team.qmd
+      #- about.qmd
 
   sidebar:
     - id: hefm
@@ -27,42 +27,52 @@ website:
       contents:
         - href: hefm/index.qmd
           text: "HEFM"
-        - section: "Resources"
-          contents:
-            - text: "Slides"
-              href: hefm/resources/slides/index.qmd
-            - section: "Articles"
-              contents:
-                - text: "Article Placeholder"
-                  href: hefm/resources/articles/articlePlaceholder.qmd
-        - section: "Documentation"
-          contents:
-            - text: "Getting Started"
-              href: hefm/documentation/index.qmd
+        #- section: "Resources"
+          #contents:
+            #- text: "Slides"
+              #href: hefm/resources/slides/index.qmd
+            #- section: "Articles"
+              #contents:
+                #- text: "Article Placeholder"
+                  #href: hefm/resources/articles/articlePlaceholder.qmd
+        #- section: "Documentation"
+          #contents:
+            #- text: "Getting Started"
+              #href: hefm/documentation/index.qmd
         - section: "Results"
           contents:
+            - section: "SVAR50_4B"
+              contents:
+              - text: "Variable Final Estimation Date"
+                href: /hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html
+              - text: "Variable Initial Estimation Date (IS)"
+                href: /hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html
+              - text: "Variable Initial Estimation Date (OS)"
+                href: /hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html
+              - text: "Variable Sample Size"
+                href: /hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html
+
             - text: "Index"
               href: hefm/results/index.qmd
-
-    - id: projects 
-      title: "Projects"
-      style: "docked"
-      search: true
-      contents:
-        - href: projects/index.qmd
-          text: "Projects"
-        - section: "Nowcasting"
-          contents:
-            - href: projects/nowcasting/index.qmd
-              text: "Nowcasting"
-            - section: "Resources"
-              contents:
-                - text: "Slides"
-                  href: projects/nowcasting/slides/index.qmd
-                - section: "Articles"
-                  contents:
-                    - text: "Article Placeholder"
-                      href: projects/nowcasting/articles/articlePlaceholder.qmd
+    #- id: projects 
+      #title: "Projects"
+      #style: "docked"
+      #search: true
+      #contents:
+        #- href: projects/index.qmd
+          #text: "Projects"
+        #- section: "Nowcasting"
+          #contents:
+            #- href: projects/nowcasting/index.qmd
+              #text: "Nowcasting"
+            #- section: "Resources"
+              #contents:
+                #- text: "Slides"
+                  #href: projects/nowcasting/slides/index.qmd
+                #- section: "Articles"
+                  #contents:
+                    #- text: "Article Placeholder"
+                      #href: projects/nowcasting/articles/articlePlaceholder.qmd
 
 
 format:

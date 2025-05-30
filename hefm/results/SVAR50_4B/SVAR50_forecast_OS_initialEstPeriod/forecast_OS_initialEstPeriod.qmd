@@ -6,6 +6,10 @@ format:
         scrollable: true
         incremental: true
         slide-number: true
+        smaller: true
+        progress: true
+        controls: true
+        controls-back-arrows: faded
 ---
 
 

@@ -5,9 +5,11 @@ format: html
 
 ## Overview
 
-HEFM is a ...
+**HEFM** stands for *Herramienta de Evaluación Fuera de Muestra* — or **Pseudo Out-of-Sample Evaluation Tool** (POSET) in English.
 
-This section of the site provides all related materials for the HEFM, including documentation, results, technical resources, and methodological references.
+This platform was developed in 2021 in response to a key question: *How can we assess whether a given SVAR model is a reliable guide for macroeconomic analysis?* Since then, various methodological approaches have been designed to quantify both the **predictive accuracy** and **explanatory robustness** of these models.
+
+The site presents a concrete implementation of that effort, grounded in **statistical model selection techniques**, particularly **time series cross-validation**. The platform enables users to evaluate forecast errors and examine the consistency of structural responses across different estimation windows.
 
 ## Sections
 
@@ -17,9 +19,11 @@ This section of the site provides all related materials for the HEFM, including 
 
 ## Purpose
 
-The HEFM project aims to ...
+HEFM serves as a tool to diagnose the performance of SVAR models along two critical dimensions: their ability to **predict** key macroeconomic variables out of sample, and their ability to **explain** the empirical regularities in the data through structural responses.
 
-For an in-depth explanation of the model’s structure and assumptions, see the resources section.
+It does this by combining pseudo out-of-sample forecasting exercises with analysis of the dispersion in impulse-response functions (IRFs) across multiple estimation windows. This dual focus allows practitioners to identify models that are not only statistically robust, but also consistent with the theoretical causal mechanisms embedded in their structure.
+
+For a deeper look at the underlying assumptions and implementation details, see the [Resources](./resources/index.qmd) section.
 
 ---
 

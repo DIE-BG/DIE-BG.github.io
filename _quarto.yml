@@ -41,6 +41,9 @@ website:
               #href: hefm/documentation/index.qmd
         - section: "Results"
           contents:
+            - text: "Index"
+              href: hefm/results/index.qmd
+            
             - section: "SVAR50_4B"
               contents:
               - text: "Variable Final Estimation Date"
@@ -52,8 +55,6 @@ website:
               - text: "Variable Sample Size"
                 href: /hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html
 
-            - text: "Index"
-              href: hefm/results/index.qmd
     #- id: projects 
       #title: "Projects"
       #style: "docked"

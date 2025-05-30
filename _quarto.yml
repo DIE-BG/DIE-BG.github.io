@@ -41,6 +41,7 @@ website:
               #href: hefm/documentation/index.qmd
         - section: "Results"
           contents:
+            
             - text: "Index"
               href: hefm/results/index.qmd
             

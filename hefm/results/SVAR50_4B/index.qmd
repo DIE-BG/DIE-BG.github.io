@@ -22,50 +22,18 @@ SVAR50_4B:
           title: "Variable Sample Size"
 ---
 
-## {{< meta SVAR50_4B.decks.1.title >}}
+- [**Variable Final Estimation Date**](/hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.qmd):
+This exercise examines the impact on RMSE of adding new observations to the estimation sample.
+The effect is evaluated both in-sample and out-of-sample, using fixed and rolling validation sets.
 
-[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.qmd)
-```{=html}
-<iframe 
-    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.html"
-    height={{< meta frame_height >}}
-    width={{< meta frame_width >}}
-    style="border: none;"
-></iframe>
-```
+- [**Variable Initial Estimation Date (IS)**](/hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.qmd):
+This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample.
+The effect is measured *in-sample*.
 
-## {{< meta SVAR50_4B.decks.2.title >}}
+- [**Variable Initial Estimation Date (OS)**](/hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.qmd):
+This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample.
+The effect is measured *out-of-sample*.
 
-[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.2.dir >}}/{{< meta SVAR50_4B.decks.2.filename >}}.qmd)
-```{=html}
-<iframe 
-    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.2.dir >}}/{{< meta SVAR50_4B.decks.2.filename >}}.html"
-    height={{< meta frame_height >}}
-    width={{< meta frame_width >}}
-    style="border: none;"
-></iframe>
-```
-
-## {{< meta SVAR50_4B.decks.3.title >}}
-
-[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.3.dir >}}/{{< meta SVAR50_4B.decks.3.filename >}}.qmd)
-```{=html}
-<iframe 
-    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.3.dir >}}/{{< meta SVAR50_4B.decks.3.filename >}}.html"
-    height={{< meta frame_height >}}
-    width={{< meta frame_width >}}
-    style="border: none;"
-></iframe>
-```
-
-## {{< meta SVAR50_4B.decks.4.title >}}
-
-[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.4.dir >}}/{{< meta SVAR50_4B.decks.4.filename >}}.qmd)
-```{=html}
-<iframe 
-    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.4.dir >}}/{{< meta SVAR50_4B.decks.4.filename >}}.html"
-    height={{< meta frame_height >}}
-    width={{< meta frame_width >}}
-    style="border: none;"
-></iframe>
-```
+- [**Variable Sample Size**](/hefm/results/SVAR50_4B/SVAR50_4B_HV/index.qmd):
+This exercise explores the impact of sample size on RMSE.
+An *HV*-type evaluation scheme is used to isolate the effect of autocorrelation on RMSE.

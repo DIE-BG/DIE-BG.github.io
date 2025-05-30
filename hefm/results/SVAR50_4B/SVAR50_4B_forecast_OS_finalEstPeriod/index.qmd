@@ -1,0 +1,24 @@
+---
+frame_height: "400px"
+frame_width: "100%"
+
+SVAR50_4B: 
+    dir: "/hefm/results/SVAR50_4B"
+    name: "SVAR50-4B"
+    decks: 
+        - dir: "SVAR50_4B_forecast_OS_finalEstPeriod"
+          filename: "SVAR50_4B_forecast_OS_finalEstPeriod"
+          title: "Variable Final Estimation Date"
+---
+
+# {{< meta SVAR50_4B.decks.1.title >}}
+
+[**Fullscreen ⛶**]({{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.qmd)
+```{=html}
+<iframe 
+    src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.html"
+    height={{< meta frame_height >}}
+    width={{< meta frame_width >}}
+    style="border: none;"
+></iframe>
+```

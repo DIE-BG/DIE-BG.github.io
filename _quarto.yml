@@ -27,6 +27,20 @@ website:
       contents:
         - href: hefm/index.qmd
           text: "HEFM"
+        - section: "Results"
+          contents:
+            - section: "SVAR50_4B"
+              contents:
+                - text: "Index"
+                  href: hefm/results/SVAR50_4B/index.qmd
+                - text: "Variable Final Estimation Date"
+                  href: hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.qmd
+                - text: "Variable Initial Estimation Date (IS)"
+                  href: hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.qmd
+                - text: "Variable Initial Estimation Date (OS)"
+                  href: hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.qmd
+                - text: "Variable Sample Size"
+                  href: hefm/results/SVAR50_4B/SVAR50_4B_HV/index.qmd
         #- section: "Resources"
           #contents:
             #- text: "Slides"
@@ -39,24 +53,6 @@ website:
           #contents:
             #- text: "Getting Started"
               #href: hefm/documentation/index.qmd
-        - section: "Results"
-          contents:
-            
-            - text: "Index"
-              href: hefm/results/index.qmd
-            
-            - section: "SVAR50_4B"
-              contents:
-              - text: "Index"
-                href: hefm/results/index.qmd#SVAR50-4B
-              - text: "Variable Final Estimation Date"
-                href: /hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html
-              - text: "Variable Initial Estimation Date (IS)"
-                href: /hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html
-              - text: "Variable Initial Estimation Date (OS)"
-                href: /hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html
-              - text: "Variable Sample Size"
-                href: /hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html
 
     #- id: projects 
       #title: "Projects"

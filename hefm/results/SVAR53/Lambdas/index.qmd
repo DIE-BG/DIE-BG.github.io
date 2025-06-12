@@ -1,0 +1,12 @@
+# Calibración del parámetro $\lambda$
+
+[**Fullscreen ⛶**](/hefm/results/SVAR53/Lambdas/SVAR53.qmd)
+
+```{=html}
+<iframe 
+    src="/hefm/results/SVAR53/Lambdas/SVAR53.html"
+    height= {{< var frame_height >}}
+    width= {{< var frame_width >}}
+    style="border: none;"
+></iframe>
+```

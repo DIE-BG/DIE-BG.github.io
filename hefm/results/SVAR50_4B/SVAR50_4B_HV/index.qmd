@@ -1,7 +1,4 @@
 ---
-frame_height: "400px"
-frame_width: "100%"
-
 SVAR50_4B: 
     dir: "/hefm/results/SVAR50_4B"
     name: "SVAR50-4B"
@@ -17,8 +14,8 @@ SVAR50_4B:
 ```{=html}
 <iframe 
     src="{{< meta SVAR50_4B.dir >}}/{{< meta SVAR50_4B.decks.1.dir >}}/{{< meta SVAR50_4B.decks.1.filename >}}.html"
-    height={{< meta frame_height >}}
-    width={{< meta frame_width >}}
+    height={{< var frame_height >}}
+    width={{< var frame_width >}}
     style="border: none;"
 ></iframe>
 ```

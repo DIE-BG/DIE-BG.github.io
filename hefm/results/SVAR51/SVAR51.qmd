@@ -1,0 +1,47 @@
+---
+title: "Documentación SVAR51"
+format: html
+lang: es
+---
+
+## Motivación
+La razón por la cual se planteo la creación de una variante del **SVAR50_5B** es debido a que existen diferencias que causan un grado de incompatiblidad entre dicho modelo y el **QPM**. La primera fuente de incompatibilidad proviende del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).
+
+**Pronósticos SVAR50 -corrimiento mayo 2025-**
+<figure markdown>
+![](plots\d4_ln_ipei_short.png){ width=900 } 
+
+**Pronósticos QPM -corrimiento mayo 2025-**
+![](plots\D4L_IPEI_short.png){ width=900 }
+</figure>
+
+La razón de ello se debe a que esta variable presenta una gran volatilidad de un mes a otro, algo que no es capaz de capturar el SVAR50_4B debido a que el método de trimestralización utilizado para este modelo es el promedio de los datos durante trimestre, en comparación con el QPM que es el último valor observado durante el trimestre. 
+
+Otra fuente de incompatibilidad proviene de los estados estacionarios de algúnas variables que son de interés al momento de observar sus pronósticos en cada corrimiento. Como se observó en las gráficas el IPEI posee un estado estacionario de 1.98 en el SVAR50_4B mientras que en el QPM es de 0. Diferencias que comparten variables como inflación total, subyacente y no subyacente.^[La selección de esta variables corresponde a la importancia que tienen tanto para el Banco Central como dentro de los modelos SVAR50_4B y QPM.]
+
+Las fuentes de incompatbilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de variables de interés. A continuación se presenta un resumen de las mismas:
+
+::: {#tbl-panel layout-ncol=2}
+| SVAR50_4B                    | QPM                                         | 
+|------------------------------|:--------------------------------------------|
+| Método de trimestralización: Promedio dentro del trimestres | Método de trimestralización: último valor observado dentro del trimestre|  
+: Datos
+
+| SVAR50_4B | QPM |
+|------|------|
+| IPEI = 1.98                    | IPEI = 0                    |
+| Inflación total = 4.98         | Inflación total = 4         |
+| Inflación subyacente = 4.49    | Inflación subyacente = 4    |
+| Inflación no subyacente = 0.44 | Inflación no subyacente = 0 |
+: Estados estacionarios
+
+: Fuentes de incompatibilidades
+:::
+
+Por lo anterior se procedió a estimar un nuevo modelo SVAR que tuviera como propósito subsanar las incompatibilidades entre el SVAR50_4B y el QPM, dicho modelo fué denominado **SVAR51** el cual es una variante del SVAR50_4B que comparte con este las mimas varialbes, restricciones en la matriz de coeficientes y método de estimación, pero cambiando los datos usados para su estimación, por lo que el modelo se estimó con datos trimestrales cuyo método de trimestralización es el *mismo que el QPM* además de imponer los estados estacionarios de las variables antes mencionadas de la misma forma que se encuentran en el QPM.
+
+## Resultados de la evaluación
+Utilizando la metodología de selección y evaluaicón de modelos tipo SVAR se realizó un comparativo entre el SVAR51 y SVAR50_4B con el propósito de evaluar la capacidad explicativa y predictiva de la nueva variante del SVAR50_4B.
+
+### Capacidad predictiva
+

@@ -41,6 +41,10 @@ website:
                   href: hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.qmd
                 - text: "Variable Sample Size"
                   href: hefm/results/SVAR50_4B/SVAR50_4B_HV/index.qmd
+            - section: "SVAR51"
+              contents:
+                - text: "SVAR51"
+                  href: hefm/results/SVAR51/SVAR51.qmd
         #- section: "Resources"
           #contents:
             #- text: "Slides"

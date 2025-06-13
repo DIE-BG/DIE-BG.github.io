@@ -1,0 +1,12 @@
+# SVAR50_AR1
+
+[**Fullscreen ⛶**](/hefm/results/SVAR50_AR1/SVAR50_AR1_OS.qmd)
+
+```{=html}
+<iframe 
+    src="/hefm/results/SVAR50_AR1/SVAR_AR1_OS.html"
+    height= {{< var frame_height >}}
+    width= {{< var frame_width >}}
+    style="border: none;"
+></iframe>
+```

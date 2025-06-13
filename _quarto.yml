@@ -41,6 +41,20 @@ website:
                   href: hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.qmd
                 - text: "Variable Sample Size"
                   href: hefm/results/SVAR50_4B/SVAR50_4B_HV/index.qmd
+            - section: "SVAR50_AR1"
+              contents: 
+                - text: "Comparación del SVAR50_4B y el SVAR50_AR1"
+                  href: hefm/results/SVAR50_AR1/index.qmd
+            - section: "SVAR52"
+              contents: 
+                - text: "Comparación del SVAR50_4B y el SVAR52"
+                  href: hefm/results/SVAR52/index.qmd
+            - section: "SVAR53"
+              contents:
+                - text: "Index"
+                  href: hefm/results/SVAR53/index.qmd  
+                - text: "Calibración de lambdas"
+                  href: hefm/results/SVAR53/Lambdas/index.qmd
         #- section: "Resources"
           #contents:
             #- text: "Slides"

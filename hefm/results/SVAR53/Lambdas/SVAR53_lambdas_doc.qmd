@@ -40,7 +40,6 @@ en la forma compacta $Y = BZ + U$
    para regularizar en el vector $\gamma$.
 
 
-## 
 4. Escoger el valor de $\lambda$ para la penalización. El parámetro 
 $\lambda$ representa el peso que tiene la penalización.
 
@@ -57,7 +56,7 @@ Así, la idea es balancear la varianza y el sesgo de forma
 óptima para que el RMSE disminuya para algún peso de 
 regularización $\lambda > 0$.
 
-## 
+
 5. Estimar los parámetros del VAR Ridge como:
 $$ 
 \hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R+\lambda Q^{\prime}Q\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}. $$ {#eq-ridge-penalty}
@@ -95,7 +94,7 @@ endógenas y con el mismo ordenamiento:
 ## Matriz de restricción del SVAR50_4B
 El modelo SVAR50_4B se estima con GLS y la matriz 
 de restricciones para este modelo es
-$$ \small
+$$ \tiny
 \begin{pmatrix}
     NaN& NaN&0 &  0&   0&   0&   0&   0&   0&   0\\
     NaN& 0&   NaN& 0&   0&   0&   0&   0&   0&   0\\
@@ -122,7 +121,7 @@ son los que corresponden a los coeficientes
 de las variables domésticas para modelar el 
 comportamiento de las variables de Estados Unidos. 
 
-$$ \small
+$$ \tiny
 \begin{pmatrix}
     NaN& NaN&NaN &  NaN&   0&   0&   0&   0&   0&  0\\
     NaN& NaN&   NaN& NaN&   0&   0&   0&   0&   0& 0\\

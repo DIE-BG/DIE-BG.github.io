@@ -271,20 +271,17 @@ todas las submuestras.
 :::
 
 ## Promedio de las variables objetivo
-
-:::{.incremental}
-- En general, el promedio representa el 
+En general, el promedio representa el 
 comportamiento de la mayoría de las variables.
   
-- El mínimo del RMSE en los primeros cuatro
+El mínimo del RMSE en los primeros cuatro
   horizontes y en el horizonte 8
   se encuentra cuando se toma
   fechas de estimación pasadas.
 
-- En los horizontes 10 y 12, el mínimo del
+En los horizontes 10 y 12, el mínimo del
   RMSE se encuentra cuando se toma fechas de 
   estimación más adelante en el tiempo. 
   Indicando que el error de pronóstico 
   se va reduciendo cuando se estima 
   con datos más recientes.
-:::

@@ -248,13 +248,14 @@ primeros cuatro horizontes.
 
 :::
 
-## Promedio de las variables objetivo
+## Promedio de las variables objetivos
+::: {.incremental}
 
-:::{.incremental}
-- En general, el mínimo del RMSE del promedio
+En general, el mínimo del RMSE del promedio
 de las cuatro variables objetivo se encuentra
 cuando se toma fechas de estimación más 
 adelante en el tiempo. Indicando que el 
 error de pronóstico se va reduciendo 
 cuando se estima con datos más recientes.
+
 :::

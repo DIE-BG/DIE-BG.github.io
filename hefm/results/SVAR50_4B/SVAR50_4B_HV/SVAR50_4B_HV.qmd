@@ -169,7 +169,7 @@ tiene un comportamiento similar en los primeros cuatro horizontes.
 
 ## Promedio de las variables objetivo
 
-:::{.incrementa}
+:::{.incremental}
 - En general, el mínimo del RMSE del promedio 
 de las cuatro variables objetivo se encuentra 
 cuando se toma un tamaño de estimación más grande.

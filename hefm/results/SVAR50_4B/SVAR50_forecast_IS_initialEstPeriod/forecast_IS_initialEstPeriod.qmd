@@ -225,10 +225,10 @@ Describir los aspectos relevantes de sus resultados.
 - La función de pérdida para cada una de la 
 variables tiene un comportamiento similar en los
 primeros cuatro horizontes. 
-  + La inflación, el crecimiento doméstico y 
+  + La inflación, el tipo de cambio y
   la tasa de interés tienen un mínimo en el 
   subconjunto que incluye  menos submuestras.
-  + El tipo de cambio  tiene un mínimo en el 
+  + El crecimiento doméstico  tiene un mínimo en el 
   subconjunto en el que se tienen submuestra
   con fechas de estimación iniciales más antiguas. 
 
@@ -238,9 +238,9 @@ primeros cuatro horizontes.
 ## En los horizontes 8, 10, 12 ...
 ::: {.incremental}
   
-  + El tipo de cambio y la tasa de interés, 
+  + La inflación, el tipo de cambio y la tasa de interés, 
   tienen un mínimo en los subconjuntos con modelos, 
-  que tiene un inicio de estimación más reciente.
+  que tiene un inicio de estimación más recientes.
  
   + El crecimiento doméstico tiene un mínimo en el
   subconjunto en el que se tienen en el 
@@ -250,7 +250,7 @@ primeros cuatro horizontes.
 
 ## Promedio de las variables objetivo
 
-:::{.incrementa}
+:::{.incremental}
 - En general, el mínimo del RMSE del promedio
 de las cuatro variables objetivo se encuentra
 cuando se toma fechas de estimación más 

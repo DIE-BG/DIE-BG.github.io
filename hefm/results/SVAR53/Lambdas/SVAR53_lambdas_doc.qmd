@@ -238,11 +238,11 @@ podrían ser cero, enfoncándose en mejorar el pronóstico.
 
 # Presentación
 
-[**Fullscreen ⛶**](/hefm/results/SVAR53/Lambdas/SVAR53.qmd)
+[**Fullscreen ⛶**](/hefm/results/SVAR53/Lambdas/SVAR53_pst.qmd)
 
 ```{=html}
 <iframe 
-    src="/hefm/results/SVAR53/Lambdas/SVAR53.html"
+    src="/hefm/results/SVAR53/Lambdas/SVAR53_pst.html"
     height= {{< var frame_height >}}
     width= {{< var frame_width >}}
     style="border: none;"

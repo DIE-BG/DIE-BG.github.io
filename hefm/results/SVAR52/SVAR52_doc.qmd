@@ -195,11 +195,11 @@ en el modelo SVAR52
 ![Choque en la tasa](./images/s_i.png){#fig-i}
 
 # Presentación 
-[**Fullscreen ⛶**](/hefm/results/SVAR52/SVAR52.qmd)
+[**Fullscreen ⛶**](/hefm/results/SVAR52/SVAR52_pst.qmd)
 
 ```{=html}
 <iframe 
-    src="/hefm/results/SVAR52/SVAR52.html"
+    src="/hefm/results/SVAR52/SVAR52_pst.html"
     height= {{< var frame_height >}}
     width= {{< var frame_width >}}
     style="border: none;"

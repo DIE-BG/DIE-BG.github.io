@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <meta name="author" content="DIE">
+  <title>DIE-BG – SVAR 53</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link href="../../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">SVAR 53</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+DIE 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="introducción" class="title-slide slide level1 center">
+<h1>Introducción</h1>
+<p>El objetivo de este documento es presentar un nuevo modelo (SVAR53), principalmente con una estimación diferente a la utilizada en el SVAR50-4B. En el SVAR53 se utiliza la estimación de Ridge con restricción. Además las restricciones de este nuevo modelo son diferentes.</p>
+<p>Sin embargo las especificaciones generales para ambos modelos (SVAR53 y SVAR50-4B) son que, la realización de la evaluación es fuera de muestra. Las fechas con las que se modeló van desde 2005Q1 hasta 2024Q4.</p>
+</section>
+<section id="estimación-ridge-con-restricción" class="slide level2 scrollable">
+<h2>Estimación Ridge con restricción</h2>
+<p>Para estimar una regressión de Ridge con restricción se debe seguir el siguiente procedimiento:</p>
+<ol type="1">
+<li class="fragment"><p>Seleccionar los parámetros restringidos <span class="math inline">\(B\)</span> en la forma compacta <span class="math inline">\(Y = BZ + U\)</span></p></li>
+<li class="fragment"><p>Formar la matriz <span class="math inline">\(R\)</span> y el vector <span class="math inline">\(r\)</span> en la forma vectorizada <span class="math inline">\(\beta = R\gamma + r\)</span> que dependen del vector no restringido <span class="math inline">\(\gamma\)</span>.</p></li>
+<li class="fragment"><p>De los parámetros libres, formar la matriz <span class="math inline">\(Q\)</span> para seleccionar (o darles un peso) las entradas para regularizar en el vector <span class="math inline">\(\gamma\)</span>.</p></li>
+<li class="fragment"><p>Escoger el valor de <span class="math inline">\(\lambda\)</span> para la penalización. El parámetro <span class="math inline">\(\lambda\)</span> representa el peso que tiene la penalización.</p></li>
+</ol>
+<p>Si <span class="math inline">\(\lambda\)</span> es muy grande implica que el modelo se optimizará el modelo penalizando más los coeficientes, encogiéndolos y así disminuyendo la varianza. Si <span class="math inline">\(\lambda\)</span> es cero, se obtiene una función de mínimos cuadrados ordinaria.</p>
+<p>A medida que <span class="math inline">\(\lambda\)</span> aumenta, el sesgo del modelo aumenta, mientras que la varianza disminuye. Así, la idea es balancear la varianza y el sesgo de forma óptima para que el RMSE disminuya para algún peso de regularización <span class="math inline">\(\lambda &gt; 0\)</span>.</p>
+<ol start="5" type="1">
+<li class="fragment">Estimar los parámetros del VAR Ridge como: <span id="eq-ridge-penalty"><span class="math display">\[
+\hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R+\lambda Q^{\prime}Q\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}.
+\qquad(1)\]</span></span></li>
+</ol>
+<p>Como <span class="math inline">\(\Sigma_{u}^{-1}\)</span> es desconocida, se puede usar el mismo procedimiento iterado GLS.</p>
+<ol start="6" type="1">
+<li class="fragment">Finalmente, obtener el conjunto entero de coeficientes de Ridge + los coeficientes restringidos usando: <span class="math display">\[ \hat{\beta}=R\hat{\gamma}+r \]</span></li>
+</ol>
+</section></section>
+<section>
+<section id="metodología" class="title-slide slide level1 center">
+<h1>Metodología</h1>
+<p>Ambos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:</p>
+<ul>
+<li class="fragment">Tasa de Variación Interanual del PIB de EEUU: <code>d4_ln_y_star</code></li>
+<li class="fragment">Tasa de Variación Interanual del Índice de Precios de Transables: <code>d4_ln_ipei</code></li>
+<li class="fragment">Tasa de Interes de fondos federales: <code>i_star</code></li>
+<li class="fragment">Inflacion No Subyacente Interanual: <code>d4_ln_cpi_nosub</code></li>
+<li class="fragment">Tasa de Variación Interanual del PIB de Guatemala: <code>d4_ln_y</code></li>
+<li class="fragment">Inflación Subyacente Optima MSE Interanual: <code>d4_ln_cpi_sub</code></li>
+<li class="fragment">Tasa de Variación Interanual del Tipo de Cambio Nominal: <code>d4_ln_s</code></li>
+<li class="fragment">Tasa de Variación Interanual de la Base Monetaria: <code>d4_ln_bm</code></li>
+<li class="fragment">Tasa de Interes Lider de Politica Monetaria: <code>i</code></li>
+</ul>
+</section>
+<section id="variables-objetivo" class="slide level2">
+<h2>Variables objetivo:</h2>
+<ul>
+<li class="fragment">Tasa de Variación Interanual del PIB de Guatemala: <code>d4_ln_y</code></li>
+<li class="fragment">Inflación Subyacente Optima MSE Interanual: <code>d4_ln_cpi_sub</code></li>
+<li class="fragment">Tasa de Variación Interanual del Tipo de Cambio Nominal: <code>d4_ln_s</code></li>
+<li class="fragment">Tasa de Interes Lider de Politica Monetaria: <code>i</code></li>
+</ul>
+</section>
+<section id="matriz-de-restricción-del-svar50-4b" class="slide level2">
+<h2>Matriz de restricción del SVAR50-4B</h2>
+<p>El modelo SVAR50-4B se estima con GLS y la matriz de restricciones para este modelo es <span class="math display">\[
+\begin{pmatrix}
+    NaN&amp; NaN&amp;0 &amp;  0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0\\
+    NaN&amp; 0&amp;   NaN&amp; 0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0\\
+    NaN&amp; 0&amp;   0&amp;   NaN&amp; 0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0\\
+    NaN&amp; 0&amp;   0&amp;   0&amp;   NaN&amp; 0&amp;   0&amp;   0&amp;   NaN&amp; 0\\
+    NaN&amp; 0&amp;   0&amp;   0&amp;   0&amp;   NaN&amp; 0&amp;   0&amp;   NaN&amp; 0\\
+    NaN&amp; 0&amp;   NaN&amp; 0&amp;   0&amp;   0&amp;   0.9&amp; 0&amp;   NaN&amp; 0\\
+    NaN&amp; 0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0&amp;   NaN&amp; NaN&amp; NaN\\
+    NaN&amp; 0&amp;   0&amp;   0&amp;   NaN&amp; 0&amp;   0&amp;   0&amp;   NaN&amp; NaN\\
+    NaN&amp; 0&amp;   0&amp;   NaN&amp; NaN&amp; 0&amp;   NaN&amp; 0&amp;   NaN&amp; NaN\\
+\end{pmatrix}
+\]</span></p>
+<p>donde <span class="math inline">\(NaN\)</span> son los parámetros libres que se estiman.</p>
+</section>
+<section id="matriz-de-restricciones-svar53" class="slide level2">
+<h2>Matriz de restricciones SVAR53</h2>
+<p>Mientras que para el SVAR53 la matriz de restricción es la siguiente, en donde se decidió respetar los ceros de las primeras 3 filas y últimas 6 columnas porque son los que corresponden a los coeficientes de las variables domésticas para modelar el comportamiento de las variables de Estados Unidos.</p>
+<p><span id="eq-restriction_matrix_53"><span class="math display">\[
+\begin{pmatrix}
+    NaN&amp; NaN&amp;NaN &amp;  NaN&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0&amp;  0\\
+    NaN&amp; NaN&amp;   NaN&amp; NaN&amp;   0&amp;   0&amp;   0&amp;   0&amp;   0&amp; 0\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp; 0&amp;   0&amp;   0&amp;   0&amp;   0&amp; 0\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp; NaN\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp; NaN&amp;   NaN&amp;   NaN&amp; NaN\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp; NaN&amp;   NaN&amp; NaN\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp; NaN&amp; NaN\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;  NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp; NaN\\
+    NaN&amp; NaN&amp;   NaN&amp;   NaN&amp;   NaN&amp;  NaN&amp;   NaN&amp;   NaN&amp;    NaN&amp; NaN\\
+\end{pmatrix}.
+\qquad(2)\]</span></span></p>
+</section>
+<section id="matriz-de-regularización-y-q" class="slide level2">
+<h2>Matriz de regularización y Q</h2>
+<p>Debido a que los coeficientes, que se quieren regularizar en este modelo, son todos excpeto la primera columna (constantes). En este caso, todos tendrán el mismo peso. Por lo tanto, para obtener la matriz <span class="math inline">\(Q\)</span> apropiada de la <a href="#/eq-ridge-penalty" class="quarto-xref">ecuación&nbsp;1</a>, se debe ralizar lo siguiente. A la matriz que tiene 1 en todas las entradas, excepto en la primera columna donde tiene ceros, llamada “matriz de regularización”, se le aplica una máscara lógica dada por la <a href="#/eq-restriction_matrix_53" class="quarto-xref">ecuación&nbsp;2</a>. Así se obtiene los elementos de la matriz de regularización. Así la matriz Q, debe ser la matriz diagonal, en la que cada entrada en la diagonal son los elementos obtenidos al aplicar la máscara a la matriz de regularización.</p>
+<p>Ahora para escoger un <span class="math inline">\(\lambda\)</span> óptimo se deber realizar una calibración. En este ejercicio se hace la estimación con 41 <span class="math inline">\(\lambda\)</span>’s (múltiplos de 5 de 0 a 200), con el fin de obtener un <span class="math inline">\(\lambda\)</span> óptimo.</p>
+</section></section>
+<section>
+<section id="resultados" class="title-slide slide level1 center">
+<h1>Resultados</h1>
+<p>La función que se anliza para buscar el <span class="math inline">\(\lambda\)</span> es el RMSE de las variables objetivo y el promedio de los RMSE de las variables objetivo.</p>
+<!-- Sin embargo para $\lambda$'s 
+mayores a 100 el comportamiento 
+del RMSE es creciente de forma muy lenta.-->
+<p>Al analizar individualmente las variables objetivo, se puede observar que la inflación y la tasa pueden tener una <span class="math inline">\(\lambda\)</span> óptima relativamente pequeña. Mientras que el tipo de cambio pareciera indicar que el <span class="math inline">\(\lambda\)</span> óptimo es muy grande indicando que los coeficientes que modelan esta variable deben representar un modelo AR(1).</p>
+
+<img data-src="./images/RMSEByVariables_0_200.png" class="r-stretch quarto-figure-center" id="fig-RMSEByVariable"><p class="caption">
+Figura&nbsp;1: RMSE de las variables objetivo vrs <span class="math inline">\(\lambda\)</span>’s, en diferentes horizontes de pronóstico
+</p></section>
+<section id="rmse-del-svar50-4b" class="slide level2">
+<h2>RMSE del SVAR50-4B</h2>
+<p>Sin embargo, los valores del RMSE de las variables objetivo y el promedio correspondientes al SVAR50-4B, se presentan en la siguiente tabla</p>
+<table class="caption-top" style="width:100%;">
+<caption>RMSE de la inflación y la tasa de interés en el SVAR50-4B</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 22%">
+<col style="width: 13%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Periodos</th>
+<th>Inflación</th>
+<th>Tipo de cambio</th>
+<th>Crecimiento doméstico</th>
+<th>Tasa</th>
+<th>Promedio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1.248</td>
+<td>1.7118</td>
+<td>0.58475</td>
+<td>0.33552</td>
+<td>0.97001</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2.0206</td>
+<td>2.8192</td>
+<td>1.074</td>
+<td>0.62348</td>
+<td>1.6343</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2.5448</td>
+<td>3.4519</td>
+<td>1.5001</td>
+<td>0.87575</td>
+<td>2.0931</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2.8783</td>
+<td>3.7489</td>
+<td>1.8558</td>
+<td>1.0863</td>
+<td>2.3923</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>2.9947</td>
+<td>3.8208</td>
+<td>1.898</td>
+<td>1.2338</td>
+<td>2.4868</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>3.0304</td>
+<td>3.7686</td>
+<td>1.9233</td>
+<td>1.3215</td>
+<td>2.511</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>3.0812</td>
+<td>3.6594</td>
+<td>1.9654</td>
+<td>1.3679</td>
+<td>2.5185</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rmse-promedio-del-svar53" class="slide level2">
+<h2>RMSE promedio del SVAR53</h2>
+<p>Observando los valores de la tabla y los mínimos del RMSE en la inflación y la tasa de interés en la <a href="#/fig-RMSEByVariable" class="quarto-xref">Figura&nbsp;1</a> se ve que el SVAR50-4B sigue teniendo un menor error de pronóstico.</p>
+
+<img data-src="./images/RMSEAverage_0_200.png" class="r-stretch quarto-figure-center" id="fig-RMSEAverage"><p class="caption">
+Figura&nbsp;2: RMSE promedio de las variables objetivo vrs <span class="math inline">\(\lambda\)</span>’s, en diferentes horizontes de pronóstico
+</p><p>En los primeros horizontes, es claro que <span class="math inline">\(\lambda\)</span> tiene un óptimo en el mínimo de cada una de las gráficas, sin embargo para horizontes más grandes el óptimo no se observa claramente.</p>
+</section></section>
+<section id="conclusiones" class="title-slide slide level1 center">
+<h1>Conclusiones</h1>
+<p>Se obtuvieron resultados mixtos, sin embargo es posible escoger un <span class="math inline">\(\lambda\)</span> óptimo utilizando los resultados de dos de las variables objetivo. Este resultado puede compararse con el RMSE del SVAR50-4B y comprobar que el error del SVAR50-4B sigue estando mejor que el del SVAR53 incluso, con un <span class="math inline">\(\lambda\)</span> calibrado.</p>
+<p>Para el promedio de las variables, el SVAR50-4B tiene un RMSE menor para los primeros horizontes, pero para horizontes mayores el RMSE del SVAR53 podría ser menor con un lambda lo suficientemente calibrado.</p>
+<p>La información más importante, revelada con estos resultados es que algunas variables tendrán pesos de regularización muy altos lo que podría indicar que habría una justificación para que algunos de los coeficientes en la matriz de restricción podrían ser cero, enfoncándose en mejorar el pronóstico.</p>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiado");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiado");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

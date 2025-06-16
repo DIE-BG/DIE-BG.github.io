@@ -1,4 +1,4 @@
-- [**Calibración de lambdas**](/hefm/results/SVAR53/Lambdas/index.qmd):
+- [**Calibración de hiperparámetro para regresión Ridge**](/hefm/results/SVAR53/Lambdas/index.qmd):
 This exercise evaluates multiple values of the regularization
 parameter $\lambda$ to identify the optimal Ridge regression estimate 
-and compare with SVAR50_4B model. The effect is evaluated  out-of-sample.
+and compare with the SVAR50-4B model. The effect is evaluated  out-of-sample.

@@ -1,6 +1,7 @@
 ---
 title: "SVAR 53"
 author: "DIE"
+lang: es
 format: 
     revealjs:
         scrollable: true
@@ -17,13 +18,13 @@ format:
 El objetivo de este documento es
 presentar un nuevo modelo (SVAR53), principalmente
 con una estimación
-diferente a la utilizada en el SVAR50_4B.
+diferente a la utilizada en el SVAR50-4B.
 En el SVAR53 se utiliza la estimación de Ridge con restricción. 
 Además las restricciones de este nuevo 
 modelo son diferentes.
 
 Sin embargo las especificaciones generales para 
-ambos modelos (SVAR53 y SVAR50_4B) son que, 
+ambos modelos (SVAR53 y SVAR50-4B) son que, 
 la realización de la evaluación es fuera de muestra.
 Las fechas con las que se modeló van 
 desde 2005Q1 hasta 2024Q4. 
@@ -49,7 +50,6 @@ en la forma compacta $Y = BZ + U$
    para regularizar en el vector $\gamma$.
 
 
-## 
 4. Escoger el valor de $\lambda$ para la penalización. El parámetro 
 $\lambda$ representa el peso que tiene la penalización.
 
@@ -66,10 +66,10 @@ Así, la idea es balancear la varianza y el sesgo de forma
 óptima para que el RMSE disminuya para algún peso de 
 regularización $\lambda > 0$.
 
-## 
 5. Estimar los parámetros del VAR Ridge como:
 $$ 
-\hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R+\lambda Q^{\prime}Q\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}. $$ {#eq-ridge-penalty}
+\hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R+\lambda Q^{\prime}Q\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}.
+$$ {#eq-ridge-penalty}
 
 Como $\Sigma_{u}^{-1}$ es desconocida, 
 se puede usar el mismo procedimiento iterado GLS. 
@@ -101,8 +101,8 @@ endógenas y con el mismo ordenamiento:
 - Tasa de Variación Interanual del Tipo de Cambio Nominal: `d4_ln_s`
 - Tasa de Interes Lider de Politica Monetaria: `i`
   
-## Matriz de restricción del SVAR50_4B
-El modelo SVAR50_4B se estima con GLS y la matriz 
+## Matriz de restricción del SVAR50-4B
+El modelo SVAR50-4B se estima con GLS y la matriz 
 de restricciones para este modelo es
 $$
 \begin{pmatrix}
@@ -194,9 +194,9 @@ deben representar un modelo AR(1).
 
 ![RMSE de las variables objetivo vrs $\lambda$'s, en diferentes horizontes de pronóstico](./images/RMSEByVariables_0_200.png){#fig-RMSEByVariable}
 
-## RMSE del SVAR50_4B
+## RMSE del SVAR50-4B
 Sin embargo, los valores del RMSE de las variables
-objetivo y el promedio correspondientes al SVAR50_4B,
+objetivo y el promedio correspondientes al SVAR50-4B,
 se presentan en la siguiente tabla
 
 | Periodos | Inflación | Tipo de cambio | Crecimiento doméstico| Tasa | Promedio |
@@ -210,12 +210,12 @@ se presentan en la siguiente tabla
 | 12       | 3.0812              | 3.6594            | 1.9654               | 1.3679      | 2.5185     |
 
 
-:RMSE de la inflación y la tasa de interés en el SVAR50_4B
+:RMSE de la inflación y la tasa de interés en el SVAR50-4B
 
 ## RMSE promedio del SVAR53
 Observando los valores de la tabla y los mínimos del RMSE 
 en la inflación y la tasa de interés en la 
-[figura @fig-RMSEByVariable] se ve que el SVAR50_4B sigue teniendo 
+@fig-RMSEByVariable se ve que el SVAR50-4B sigue teniendo 
 un menor error de pronóstico.
 
 ![RMSE promedio de las variables objetivo vrs $\lambda$'s, en diferentes horizontes de pronóstico](./images/RMSEAverage_0_200.png){#fig-RMSEAverage}
@@ -230,11 +230,11 @@ no se observa claramente.
 Se obtuvieron resultados mixtos, sin embargo es posible
 escoger un $\lambda$ óptimo utilizando los resultados de
 dos de las variables objetivo. Este resultado puede 
-compararse con el RMSE del SVAR50_4B y comprobar que el error
-del SVAR50_4B sigue estando mejor que el del SVAR53 incluso, con un $\lambda$
+compararse con el RMSE del SVAR50-4B y comprobar que el error
+del SVAR50-4B sigue estando mejor que el del SVAR53 incluso, con un $\lambda$
 calibrado.
 
-Para el promedio de las variables, el SVAR50_4B tiene un RMSE menor
+Para el promedio de las variables, el SVAR50-4B tiene un RMSE menor
 para los primeros horizontes, pero para horizontes mayores el 
 RMSE del SVAR53 podría ser menor con un lambda lo suficientemente calibrado.
 

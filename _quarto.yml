@@ -29,7 +29,7 @@ website:
           text: "HEFM"
         - section: "Results"
           contents:
-            - section: "SVAR50_4B"
+            - section: "SVAR50-4B"
               contents:
                 - text: "Index"
                   href: hefm/results/SVAR50_4B/index.qmd
@@ -43,17 +43,17 @@ website:
                   href: hefm/results/SVAR50_4B/SVAR50_4B_HV/index.qmd
             - section: "SVAR50_AR1"
               contents: 
-                - text: "Comparación del SVAR50_4B y el SVAR50_AR1"
+                - text: "Comparación del SVAR50-4B y el SVAR50-AR1"
                   href: hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.qmd
             - section: "SVAR52"
               contents: 
-                - text: "Comparación del SVAR50_4B y el SVAR52"
+                - text: "Comparación del SVAR50-4B y el SVAR52"
                   href: hefm/results/SVAR52/SVAR52_doc.qmd
             - section: "SVAR53"
               contents:
                 - text: "Index"
                   href: hefm/results/SVAR53/index.qmd  
-                - text: "Calibración de lambdas"
+                - text: "Calibración de hiperparámetros"
                   href: hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.qmd
         #- section: "Resources"
           #contents:

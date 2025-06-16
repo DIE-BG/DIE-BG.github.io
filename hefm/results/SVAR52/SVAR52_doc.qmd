@@ -1,6 +1,5 @@
 ---
 title: "Comparación entre el modelo SVAR504B y SVAR52"
-author: "DIE"
 format: html
 ---
 

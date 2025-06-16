@@ -1,0 +1,59 @@
+---
+title: "Documentación SVAR51"
+format: html
+lang: es
+---
+
+## Introducción
+El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo **SVAR50-4B** para subsanar las fuentes de incompatibilidad de este respecto al **QPM**, las cuales se pueden dividir en diferencias en *datos* y *estados estacionarios* de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.
+
+## Motivación
+La razón por la cual se planteó la creación de una variante del **SVAR50-4B**  es debido a que existen diferencias que causan un grado de incompatibilidad entre dicho modelo y el **QPM**. Las fuentes de incompatibilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de ciertas variables de interés. La primera fuente de incompatibilidad proviene del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).
+
+**Pronósticos SVAR50 -corrimiento mayo 2025-**
+<figure markdown>
+![](plots\d4_ln_ipei_short.png){ width=900 } 
+
+**Pronósticos QPM -corrimiento mayo 2025-**
+![](plots\D4L_IPEI_short.png){ width=900 }
+</figure>
+
+La razón de ello se debe a que esta variable presenta una gran volatilidad de un mes a otro, algo que no es capaz de capturar el SVAR50-4B debido a que el método de trimestralización utilizado para este modelo es el promedio de los datos durante trimestre, en comparación con el QPM que es el último valor observado durante el trimestre. 
+
+Otra fuente de incompatibilidad proviene de los estados estacionarios de algunas variables que son de interés al momento de observar sus pronósticos en cada corrimiento. Como se observó en las gráficas el IPEI posee un estado estacionario de 1.98 en el SVAR50-4B mientras que en el QPM es de 0. Estas diferencias se observan en variables como inflación total, subyacente y no subyacente.^[La selección de esta variables corresponde a la importancia que tienen tanto para el Banco Central como dentro de los modelos SVAR50-4B y QPM.]
+
+A continuación, se presenta un resumen de las fuentes de incompatibilidad entre el SVAR50-4B y el QPM:
+
+::: {#tbl-panel layout-ncol=2}
+| SVAR50-4B                    | QPM                                         | 
+|------------------------------|:--------------------------------------------|
+| Método de trimestralización: Promedio dentro del trimestres | Método de trimestralización: último valor observado dentro del trimestre|  
+: Datos
+
+| SVAR50-4B | QPM |
+|------|------|
+| IPEI = 1.98                    | IPEI = 0                    |
+| Inflación total = 4.98         | Inflación total = 4         |
+| Inflación subyacente = 4.49    | Inflación subyacente = 4    |
+| Inflación no subyacente = 0.44 | Inflación no subyacente = 0 |
+: Estados estacionarios
+
+: Fuentes de incompatibilidades
+:::
+
+Por lo anterior, se procedió a estimar un nuevo modelo SVAR que tuviera como propósito subsanar las incompatibilidades entre el SVAR50-4B y el QPM, dicho modelo fue denominado **SVAR51** el cual es una variante del SVAR50-4B que comparte con este las mimas variables, restricciones en la matriz de coeficientes y método de estimación, pero cambiando los datos usados para su estimación, por lo que el modelo se estimó con datos trimestrales cuyo método de trimestralización es el *mismo que el QPM* además de imponer los estados estacionarios de las variables antes mencionadas de la misma forma que se encuentran en el QPM.
+
+## Resultados de la evaluación
+Utilizando la metodología de selección y evaluación de modelos tipo SVAR se realizó un comparativo entre el SVAR51 y SVAR50-4B con el propósito de evaluar la capacidad explicativa y predictiva de la nueva variante del SVAR50-4B.
+
+### Capacidad explicativa
+Para un horizonte de evaluación de 10 horizontes (el mismo se utilizó para la capacidad predictiva) y para el promedio de las 4 variables objetivo, el SVAR51 presenta valores más altos de la métrica de dispersión comparado con el SVAR50-4B. Lo cual lo vuelve un modelo con mayor dispersión en las respuestas de las IRF.
+
+![](plots\ComparativeDispersion.png)
+
+### Capacidad predictiva
+En cuanto a la medida de error de pronóstico ambos modelos tienen un desempeño bastante similar, aunque durante los primeros periodos de pronóstico el SVAR50-4B evidencia un menor error comparado con el SVAR51. Cabe aclarar que, al existir cambios de datos entre los modelos, los pronósticos de las variables objetivos son construidos y evaluados con las mismas transformaciones de datos mensuales a trimestrales. Es decir, los pronósticos del SVAR50-4B se evalúan contra los datos trimestrales observados resultado del promedio de las observaciones del trimestre, mientras que los pronósticos del SVAR51 son evaluados contra los datos trimestrales observados al fin del trimestre. 
+
+![](plots\ComparativeLossAccum.png)
+
+Dado el desempeño del SVAR51 en términos de su capacidad explicativa y predictiva comparado con el SVAR50-4B, este último es mejor valorado dentro de la metodología de selección de modelos tipo SVAR.

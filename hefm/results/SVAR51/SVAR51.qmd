@@ -43,5 +43,14 @@ Por lo anterior se procedió a estimar un nuevo modelo SVAR que tuviera como pro
 ## Resultados de la evaluación
 Utilizando la metodología de selección y evaluaicón de modelos tipo SVAR se realizó un comparativo entre el SVAR51 y SVAR50_4B con el propósito de evaluar la capacidad explicativa y predictiva de la nueva variante del SVAR50_4B.
 
-### Capacidad predictiva
+### Capacidad explicativa
+Para un horizonte de evaluación de 10 horizontes (el mismo se utilizó para la capacidad predictiva) y para el promedio de las 4 variables objetivo, el SVAR51 presenta valores más altos de la métrica de disperción comparado con el SVAR50_4B. Lo cual lo vuelve un modelo con mayor dispersión en las respuesas de las IRF.
 
+![](plots\ComparativeDispersion.png)
+
+### Capacidad predictiva
+En cuanto a la medida de error de pronóstico ambos modelos tienen un desempeño similar aunque durante los primeros periodos de pronósico el SVAR50_4B evidencia un menor error comparado con el SVAR511.
+
+![](plots\ComparativeLossAccum.png)
+
+Dado el desempeño del SVAR51 en términos de su capacidad explicativa y predictiva compado con el SVAR50_4B, este último es mejor valorado dentro de la metodología de Evaluación de Modelos tipo SVAR.

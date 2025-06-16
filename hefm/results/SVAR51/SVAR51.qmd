@@ -4,8 +4,11 @@ format: html
 lang: es
 ---
 
+## Introducción
+El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo **SVAR50-4B** para subsanar las fuentes de incompatibilidad de este respecto al **QPM**, las cuales se pueden dividir en diferencias en *datos* y *estados estacionarios* de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.
+
 ## Motivación
-La razón por la cual se planteó la creación de una variante del **SVAR50-5B**  es debido a que existen diferencias que causan un grado de incompatibilidad entre dicho modelo y el **QPM**. Las fuentes de incompatibilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de ciertas variables de interés. La primera fuente de incompatibilidad proviene del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).
+La razón por la cual se planteó la creación de una variante del **SVAR50-4B**  es debido a que existen diferencias que causan un grado de incompatibilidad entre dicho modelo y el **QPM**. Las fuentes de incompatibilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de ciertas variables de interés. La primera fuente de incompatibilidad proviene del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).
 
 **Pronósticos SVAR50 -corrimiento mayo 2025-**
 <figure markdown>

@@ -44,17 +44,17 @@ website:
             - section: "SVAR50_AR1"
               contents: 
                 - text: "Comparación del SVAR50_4B y el SVAR50_AR1"
-                  href: hefm/results/SVAR50_AR1/index.qmd
+                  href: hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.qmd
             - section: "SVAR52"
               contents: 
                 - text: "Comparación del SVAR50_4B y el SVAR52"
-                  href: hefm/results/SVAR52/index.qmd
+                  href: hefm/results/SVAR52/SVAR52_doc.qmd
             - section: "SVAR53"
               contents:
                 - text: "Index"
                   href: hefm/results/SVAR53/index.qmd  
                 - text: "Calibración de lambdas"
-                  href: hefm/results/SVAR53/Lambdas/index.qmd
+                  href: hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.qmd
         #- section: "Resources"
           #contents:
             #- text: "Slides"

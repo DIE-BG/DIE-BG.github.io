@@ -1,0 +1,251 @@
+---
+title: "Calibración del parámetro lambda"
+format: html
+---
+
+
+# Introducción
+El objetivo de este documento es
+presentar un nuevo modelo (SVAR53), principalmente
+con una estimación
+diferente a la utilizada en el SVAR50_4B.
+En el SVAR53 se utiliza la estimación de Ridge con restricción. 
+Además las restricciones de este nuevo 
+modelo son diferentes.
+
+Sin embargo las especificaciones generales para 
+ambos modelos (SVAR53 y SVAR50_4B) son que, 
+la realización de la evaluación es fuera de muestra.
+Las fechas con las que se modeló van 
+desde 2005Q1 hasta 2024Q4. 
+
+
+
+
+
+## Estimación Ridge con restricción 
+Para estimar una regressión de Ridge con restricción 
+se debe seguir el siguiente procedimiento:
+
+1. Seleccionar los parámetros restringidos $B$
+en la forma compacta $Y = BZ + U$
+
+2. Formar la matriz $R$ y el vector $r$ en la forma 
+   vectorizada  $\beta = R\gamma + r$ que dependen 
+   del vector no restringido $\gamma$.
+
+   
+3. De los parámetros libres, formar la matriz $Q$ 
+   para seleccionar (o darles un peso) las entradas 
+   para regularizar en el vector $\gamma$.
+
+
+## 
+4. Escoger el valor de $\lambda$ para la penalización. El parámetro 
+$\lambda$ representa el peso que tiene la penalización.
+
+
+Si $\lambda$ es muy grande implica que el modelo se
+optimizará el modelo penalizando más 
+los coeficientes, encogiéndolos y así disminuyendo la varianza.
+Si $\lambda$ es cero, se obtiene una función de mínimos cuadrados
+ordinaria.
+
+A medida que $\lambda$ aumenta, el sesgo del modelo
+aumenta, mientras que la varianza disminuye.
+Así, la idea es balancear la varianza y el sesgo de forma
+óptima para que el RMSE disminuya para algún peso de 
+regularización $\lambda > 0$.
+
+## 
+5. Estimar los parámetros del VAR Ridge como:
+$$ 
+\hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R+\lambda Q^{\prime}Q\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}. $$ {#eq-ridge-penalty}
+
+Como $\Sigma_{u}^{-1}$ es desconocida, 
+se puede usar el mismo procedimiento iterado GLS. 
+
+6. Finalmente, obtener el conjunto entero de coeficientes
+   de Ridge + los coeficientes restringidos 
+   usando: $$ \hat{\beta}=R\hat{\gamma}+r $$
+
+
+
+# Metodología
+Ambos modelos cuentan con las siguientes variables 
+endógenas y con el mismo ordenamiento:
+
+- Tasa de Variación Interanual del PIB de EEUU: `d4_ln_y_star`
+- Tasa de Variación Interanual del Índice de Precios de Transables: `d4_ln_ipei`
+- Tasa de Interes de fondos federales: `i_star`
+- Inflacion No Subyacente Interanual: `d4_ln_cpi_nosub`
+- Tasa de Variación Interanual del PIB de Guatemala: `d4_ln_y`
+- Inflación Subyacente Optima MSE Interanual: `d4_ln_cpi_sub`
+- Tasa de Variación Interanual del Tipo de Cambio Nominal: `d4_ln_s`
+- Tasa de Variación Interanual de la Base Monetaria: `d4_ln_bm`
+- Tasa de Interes Lider de Politica Monetaria: `i`
+  
+## Variables objetivo:
+
+- Tasa de Variación Interanual del PIB de Guatemala: `d4_ln_y`
+- Inflación Subyacente Optima MSE Interanual: `d4_ln_cpi_sub`
+- Tasa de Variación Interanual del Tipo de Cambio Nominal: `d4_ln_s`
+- Tasa de Interes Lider de Politica Monetaria: `i`
+  
+## Matriz de restricción del SVAR50_4B
+El modelo SVAR50_4B se estima con GLS y la matriz 
+de restricciones para este modelo es
+$$ \small
+\begin{pmatrix}
+    NaN& NaN&0 &  0&   0&   0&   0&   0&   0&   0\\
+    NaN& 0&   NaN& 0&   0&   0&   0&   0&   0&   0\\
+    NaN& 0&   0&   NaN& 0&   0&   0&   0&   0&   0\\
+    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& 0\\
+    NaN& 0&   0&   0&   0&   NaN& 0&   0&   NaN& 0\\
+    NaN& 0&   NaN& 0&   0&   0&   0.9& 0&   NaN& 0\\
+    NaN& 0&   0&   0&   0&   0&   0&   NaN& NaN& NaN\\
+    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& NaN\\
+    NaN& 0&   0&   NaN& NaN& 0&   NaN& 0&   NaN& NaN\\
+\end{pmatrix}
+$$ 
+
+donde $NaN$ son los parámetros libres que 
+se estiman.
+
+## Matriz de restricciones SVAR53
+Mientras que para el SVAR53 la matriz de 
+restricción es la siguiente, en donde se
+decidió respetar
+los ceros de las primeras 3 filas y 
+últimas 6 columnas porque
+son los que corresponden a los coeficientes 
+de las variables domésticas para modelar el 
+comportamiento de las variables de Estados Unidos. 
+
+$$ \small
+\begin{pmatrix}
+    NaN& NaN&NaN &  NaN&   0&   0&   0&   0&   0&  0\\
+    NaN& NaN&   NaN& NaN&   0&   0&   0&   0&   0& 0\\
+    NaN& NaN&   NaN&   NaN& 0&   0&   0&   0&   0& 0\\
+    NaN& NaN&   NaN&   NaN&   NaN& NaN&   NaN&   NaN&   NaN& NaN\\
+    NaN& NaN&   NaN&   NaN&   NaN&   NaN& NaN&   NaN&   NaN& NaN\\
+    NaN& NaN&   NaN&   NaN&   NaN&   NaN&   NaN& NaN&   NaN& NaN\\
+    NaN& NaN&   NaN&   NaN&   NaN&   NaN&   NaN&   NaN& NaN& NaN\\
+    NaN& NaN&   NaN&   NaN&   NaN&  NaN&   NaN&   NaN&   NaN& NaN\\
+    NaN& NaN&   NaN&   NaN&   NaN&  NaN&   NaN&   NaN&    NaN& NaN\\
+\end{pmatrix}.
+$$ {#eq-restriction_matrix_53}
+
+
+## Matriz de regularización y Q
+
+Debido a que los coeficientes, que se quieren regularizar 
+en este modelo, son todos excpeto 
+la primera columna (constantes). En este caso, 
+todos tendrán el mismo peso. 
+Por lo tanto, para obtener la matriz 
+$Q$ apropiada de la [ecuación @eq-ridge-penalty], 
+se debe ralizar lo siguiente. A la matriz que tiene
+1 en todas las entradas,
+excepto en la primera columna donde tiene ceros,
+llamada "matriz de regularización",
+se le aplica una máscara lógica dada por la
+[ecuación @eq-restriction_matrix_53]. Así se obtiene
+los elementos de la matriz de regularización. Así la matriz Q,
+debe ser la matriz diagonal, en la que cada
+entrada en la diagonal son los elementos obtenidos 
+al aplicar la máscara a la matriz de regularización.
+
+Ahora para escoger un $\lambda$ óptimo se deber realizar 
+una calibración. En este ejercicio se hace la estimación
+con 41 $\lambda$'s (múltiplos de 5 de 0 a 200), con el fin de
+obtener un $\lambda$ óptimo. 
+
+
+# Resultados
+La función que se anliza para buscar el $\lambda$ es el RMSE
+de las variables objetivo y el promedio de los RMSE de
+ las variables objetivo. 
+
+
+
+
+<!-- Sin embargo para $\lambda$'s 
+mayores a 100 el comportamiento 
+del RMSE es creciente de forma muy lenta.-->
+
+Al analizar individualmente las variables objetivo, 
+se puede observar que la inflación y la tasa pueden tener 
+una $\lambda$ óptima relativamente pequeña.
+Mientras que el tipo de cambio pareciera 
+indicar que el $\lambda$ óptimo es muy grande 
+indicando que los coeficientes que modelan esta variable
+deben representar un modelo AR(1).
+
+
+![RMSE de las variables objetivo vrs $\lambda$'s, en diferentes horizontes de pronóstico](./images/RMSEByVariables_0_200.png){#fig-RMSEByVariable}
+
+## RMSE del SVAR50_4B
+Sin embargo, los valores del RMSE de las variables
+objetivo y el promedio correspondientes al SVAR50_4B,
+se presentan en la siguiente tabla
+
+| Periodos | Inflación | Tipo de cambio | Crecimiento doméstico| Tasa | Promedio |
+|----------|---------------------|-------------------|----------------------|-------------|------------|
+| 1        | 1.248               | 1.7118            | 0.58475              | 0.33552     | 0.97001    |
+| 2        | 2.0206              | 2.8192            | 1.074                | 0.62348     | 1.6343     |
+| 3        | 2.5448              | 3.4519            | 1.5001               | 0.87575     | 2.0931     |
+| 4        | 2.8783              | 3.7489            | 1.8558               | 1.0863      | 2.3923     |
+| 8        | 2.9947              | 3.8208            | 1.898                | 1.2338      | 2.4868     |
+| 10       | 3.0304              | 3.7686            | 1.9233               | 1.3215      | 2.511      |
+| 12       | 3.0812              | 3.6594            | 1.9654               | 1.3679      | 2.5185     |
+
+
+:RMSE de la inflación y la tasa de interés en el SVAR50_4B
+
+## RMSE promedio del SVAR53
+Observando los valores de la tabla y los mínimos del RMSE 
+en la inflación y la tasa de interés en la 
+[figura @fig-RMSEByVariable] se ve que el SVAR50_4B sigue teniendo 
+un menor error de pronóstico.
+
+![RMSE promedio de las variables objetivo vrs $\lambda$'s, en diferentes horizontes de pronóstico](./images/RMSEAverage_0_200.png){#fig-RMSEAverage}
+
+En los primeros horizontes, es claro que $\lambda$ tiene 
+un óptimo en el mínimo de cada una de las gráficas, 
+sin embargo para horizontes más grandes el óptimo
+no se observa claramente.
+
+# Conclusiones
+
+Se obtuvieron resultados mixtos, sin embargo es posible
+escoger un $\lambda$ óptimo utilizando los resultados de
+dos de las variables objetivo. Este resultado puede 
+compararse con el RMSE del SVAR50_4B y comprobar que el error
+del SVAR50_4B sigue estando mejor que el del SVAR53 incluso, con un $\lambda$
+calibrado.
+
+Para el promedio de las variables, el SVAR50_4B tiene un RMSE menor
+para los primeros horizontes, pero para horizontes mayores el 
+RMSE del SVAR53 podría ser menor con un lambda lo suficientemente calibrado.
+
+
+La información más importante, revelada con estos resultados
+es que algunas variables tendrán pesos de regularización muy altos
+lo que podría indicar que habría una justificación para que 
+algunos de los coeficientes en la matriz de restricción 
+podrían ser cero, enfoncándose en mejorar el pronóstico.
+
+
+# Presentación
+
+[**Fullscreen ⛶**](/hefm/results/SVAR53/Lambdas/SVAR53.qmd)
+
+```{=html}
+<iframe 
+    src="/hefm/results/SVAR53/Lambdas/SVAR53.html"
+    height= {{< var frame_height >}}
+    width= {{< var frame_width >}}
+    style="border: none;"
+></iframe>
+```

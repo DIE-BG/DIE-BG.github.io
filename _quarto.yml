@@ -41,10 +41,14 @@ website:
                   href: hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.qmd
                 - text: "Variable Sample Size"
                   href: hefm/results/SVAR50_4B/SVAR50_4B_HV/index.qmd
-            - section: "SVAR50_AR1"
+            - section: "SVAR50-AR1"
               contents: 
                 - text: "Comparación del SVAR50-4B y el SVAR50-AR1"
                   href: hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.qmd
+            - section: "SVAR51"
+              contents:
+                - text: "Acercamiento QPM con el SVAR51"
+                  href: hefm/results/SVAR51/SVAR51.qmd
             - section: "SVAR52"
               contents: 
                 - text: "Comparación del SVAR50-4B y el SVAR52"

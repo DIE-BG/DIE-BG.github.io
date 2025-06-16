@@ -235,7 +235,7 @@ los primeros cuatro horizontes.
 un mínimo en el conjunto que incluye 
 todas las submuestras.
   + El crecimiento doméstico y el tipo de cambio
-  tiene un mínimo en el subconjunto en el que 
+  tiene un mínimo en un subconjunto en el que 
   se tienen submuestra con fechas de estimación 
   iniciales más recientes. 
 
@@ -255,7 +255,7 @@ todas las submuestras.
  
   + De igual forma, la inflación, y el 
   crecimiento doméstico tiene un mínimo 
-  en el subconjunto en el que se tienen
+  en un subconjunto en el que se tienen
   submuestra con fechas de estimación 
   iniciales más recientes en los 
   horizontes 8, 10,12. 
@@ -271,19 +271,17 @@ todas las submuestras.
 :::
 
 ## Promedio de las variables objetivo
-
-:::{.incrementa}
-- En general, el promedio representa el 
+En general, el promedio representa el 
 comportamiento de la mayoría de las variables.
   
-- El mínimo del RMSE en los primeros cuatro
-  horizontes se encuentra cuando se toma
+El mínimo del RMSE en los primeros cuatro
+  horizontes y en el horizonte 8
+  se encuentra cuando se toma
   fechas de estimación pasadas.
 
-- En los horizontes 8, 10 y 12, el mínimo del
+En los horizontes 10 y 12, el mínimo del
   RMSE se encuentra cuando se toma fechas de 
   estimación más adelante en el tiempo. 
   Indicando que el error de pronóstico 
   se va reduciendo cuando se estima 
   con datos más recientes.
-:::

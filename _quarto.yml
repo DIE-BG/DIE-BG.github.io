@@ -92,6 +92,8 @@ website:
                     #- text: "Article Placeholder"
                       #href: projects/nowcasting/articles/articlePlaceholder.qmd
 
+execute: 
+  freeze: auto
 
 format:
   html:

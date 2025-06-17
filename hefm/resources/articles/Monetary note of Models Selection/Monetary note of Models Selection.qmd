@@ -1,0 +1,45 @@
+---
+title: "Herramienta para la selección de modelos de vectores autorregresivos estructurales"
+format: html
+bibliography: references.bib
+author: 
+    - Juan Carlos Castañeda
+    - Rodrigo Chang
+    - Jorge Orenos
+    - Rubí Ramírez
+    - Mauricio Vargas
+lang: es
+---
+
+## Introducción: Modelos macroeconómicos
+Los modelos macroeconómicos son herramientas indispensables para la elaboración de pronósticos en cualquier banco central. Estos permiten analizar la coyuntura económica y estudiar, bajo un marco unificado de análisis, el comportamiento de las variables agregadas. Asimismo, ayudan a entender cómo los diferentes choques, ya sean internos o externos, se propagan a través de la economía y posibilitan el análisis de escenarios alternativos sobre su evolución futura. Dentro de este conjunto de herramientas, los modelos de vectores autorregresivos estructurales (SVAR) se han consolidado como un estándar del análisis económico, ya que permiten capturar las interrelaciones dinámicas entre las variables de acuerdo con su comportamiento histórico, realizar ejercicios de pronósticos y de escenarios contrafactuales de política monetaria.
+
+En el Departamento de Investigaciones Económicas (DIE) del Banco de Guatemala (Banguat) se ha construido y desarrollado una plataforma para la selección de modelos de tipo SVAR. Esta herramienta empieza su desarrollo en 2021, inmediatamente después de que el DIE recibiera una asistencia técnica brindada por el Fondo Monetario Internacional en relación con el Modelo Macroeconómico Semiestructural (MMS)^[El MMS no es un modelo de tipo SVAR sino más bien, como su nombre lo indica, es un modelo de tipo semiestructural; una versión estándar de este tipo de modelos ha sido desarrollada por el Fondo Monetario Internacional bajo la denominación “QPM” (o *Quarterly Projection Model*).] del Banguat.  En dicha ocasión, se propuso utilizar un modelo de tipo SVAR para orientar la calibración del modelo semiestructural bajo revisión. No obstante, surgió la interrogante fundamental: ¿cómo se puede saber si un determinado modelo de tipo SVAR es una buena guía? En otras palabras, se requería un mecanismo de evaluación para este tipo de modelos. Desde entonces, se han trabajado diferentes propuestas metodológicas que pretenden cuantificar la precisión y robustez de los modelos. Este artículo presenta una propuesta concreta para responder a esta interrogante, la cual está fuertemente basada en métodos estadísticos de selección de modelos. Se inicia con una breve descripción de los modelos SVAR, abordando los métodos de estimación e identificación. Posteriormente, se describe el uso de dicha plataforma para seleccionar modelos con ciertas características de precisión y robustez.
+
+## 2 ¿Qué son los modelos de vectores autorregresivos estructurales (SVAR)?
+Los modelos de vectores autorregresivos (VAR) se utilizan en el análisis de series de tiempo multivariadas para modelar la interrelación dinámica de variables endógenas. En el marco de los modelos dinámicos con ecuaciones simultáneas, el modelo VAR en su forma reducida consiste en representar los valores actuales de las variables como combinaciones lineales de sus propios rezagos y de los rezagos de las demás variables incluidas en el sistema, hasta un determinado orden de rezago p. El modelo VAR en forma reducida ha mostrado ser una herramienta eficaz para describir las propiedades dinámicas de los datos, generar pronósticos, y medir la velocidad de ajuste hacia el equilibrio luego de una perturbación [@killian_Lutke_2017].
+
+Sin embargo, los modelos VAR en forma reducida no son suficientes para identificar las relaciones causales en los datos, que son clave en el análisis económico. Por esta razón, se han desarrollado los modelos VAR estructurales (SVAR, por sus siglas en inglés), los cuales incorporan relaciones estructurales fundamentadas en la teoría económica acerca de cómo interactúan las variables. Estos modelos permiten identificar los efectos causales, lo que resulta esencial para evaluar el impacto de choques económicos y realizar análisis de políticas económicas.
+
+El modelo SVAR está dado por:
+
+$$
+B_0y_t = B_1y_{t-1} + B_2y_{t-2} + \cdots + B_{p}y_{t-p} + w_t, \quad t = 1, \ldots,T,
+$$ {#eq-ec_1}
+
+donde $y_t$ es un vector de datos  $K×1$ que contiene las $K$ variables del sistema, $B_l,l=1,...,p$, son matrices de coeficientes de dimensión $K×K$, la matriz $B_0$ refleja las relaciones instantáneas entre las variables del modelo y $w_t$ es el vector $K×1$ de choques estructurales, los cuales no están correlacionados entre sí y cada uno posee una interpretación económica específica. Por otra parte, la representación del VAR reducido se obtiene de multiplicar por la izquierda la matriz $B_0^{-1}$:
+
+$y_t = A_1y_{t-1} + A_2y_{t-2} + \cdots + A_{p}y_{t-p} + u_t, \quad t = 1, \ldots, T,$ {#eq-ec_2}
+
+En donde $A_l = B_0^{-1}B_l$ y $u_t = B_0^{-1}w_t$
+
+Dada una estimación de la forma reducida, lo único que se necesita para recuperar el modelo estructural @eq-ec_1 es conocer la matriz $B_0^{-1}$. Para identificar los choques estructurales $w_t=B_0 u_t$, es necesario imponer restricciones que permitan estimar la matriz $B_0$. El problema de encontrar restricciones económicamente adecuadas en $B_0$ se conoce como el problema de identificación en el análisis VAR estructural [@killian_Lutke_2017].
+
+## 3 Estimación e identificación de modelos SVAR
+La estimación de un modelo SVAR comprende dos etapas fundamentales: primero, la estimación de su forma reducida mediante el método de Mínimos Cuadrados Ordinarios (MCO); y segundo, el cálculo de su forma estructural. Este orden es crucial, ya que la forma estructural no puede estimarse directamente a partir de los datos observados. La “estructura” se refiere a la combinación de la dinámica intrínseca de la economía y los eventos exógenos e independientes (denominados “choques”), no predeterminados, que conjuntamente determinan el estado actual del sistema económico. No obstante, las variables económicas que se miden son el resultado combinado de estos dos componentes: la dinámica y los choques. Si no se conoce previamente uno de estos componentes, resulta imposible aislar el otro utilizando únicamente los datos disponibles.
+
+Dada esta dificultad para discernir simultáneamente la dinámica y los choques a partir de los datos, el proceso de estimación del SVAR persigue dos objetivos. Primero, la estimación por MCO captura la dinámica “aparente” de los datos, es decir, la mejor proyección posible del comportamiento futuro de las variables, basada en su evolución pasada. Segundo, la identificación estructural utiliza esta dinámica aparente (obtenida mediante MCO) y la combina con restricciones impuestas por el modelador para derivar la forma estructural que sea más congruente tanto con la dinámica observada como con dichas restricciones. Es crucial destacar que estas restricciones impuestas por el modelador son exógenas a los datos y se basan en criterios externos, como la teoría económica, resultados de investigaciones previas sobre la estimación de choques, o incluso la intuición fundamentada del investigador. No obstante, no existe un consenso metodológico unificado para validar la idoneidad de estas restricciones, lo cual es un desafío que la plataforma de evaluación busca abordar.
+
+En cuanto a la estimación de la forma reducida del VAR mediante MCO, el objetivo principal es minimizar el error (o desviación) entre los datos de la muestra y las proyecciones que el modelo VAR genera para esos mismos datos. Este proceso implica determinar la parametrización del modelo, definida por sus coeficientes representados como $A_1,A_2,\cdots,A_p$ en la @eq-ec_2, de manera que se alcance dicho mínimo. El nombre “Mínimos Cuadrados Ordinarios” (MCO) proviene, precisamente, de la métrica empleada para cuantificar este error, el Error Cuadrático Medio (ECM), y del objetivo de minimizarla. Una ventaja significativa de emplear MCO para esta estimación es la disponibilidad de una “solución analítica”, lo que significa que existe una fórmula matemática explícita para calcular directamente los coeficientes que minimizan el ECM, dados la muestra de estimación y el orden p del VAR reducido propuesto.
+
+En lo referente a los métodos de identificación, existen diversas alternativas para imponer restricciones. Una de las más comunes es la identificación de Cholesky, que se fundamenta en ordenar las variables según su grado de exogeneidad relativa; es decir, las variables se disponen en función de su dependencia con respecto a las demás variables del modelo. Otras técnicas de identificación frecuentemente utilizadas incluyen las restricciones de largo plazo o aquellas que se basan en el aprovechamiento de los cambios en la volatilidad de las variables a lo largo del tiempo (identificación por heterocedasticidad).

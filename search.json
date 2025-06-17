@@ -21,6 +21,125 @@
     "text": "Collaborators\n\nDoc Q\nResearch Analyst – Forecast Evaluation\nWorks on empirical validation, error diagnostics, and predictive accuracy assessment.\n\n\nVan Augur\nData Acquisition and Pipeline Specialist\nLeads efforts on time series gathering, preprocessing workflows, and data integrity.\n\nFor further information or to contact the team, please visit the About page."
   },
   {
+    "objectID": "projects/nowcasting/slides/index.html",
+    "href": "projects/nowcasting/slides/index.html",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶"
+  },
+  {
+    "objectID": "projects/nowcasting/slides/index.html#slide-deck-placeholder",
+    "href": "projects/nowcasting/slides/index.html#slide-deck-placeholder",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶"
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#abstract",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#abstract",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#introduction",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#introduction",
+    "title": "Article Placeholder",
+    "section": "Introduction",
+    "text": "Introduction\nIntroduce the problem, provide background, and explain the relevance of the research."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#literature-review",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#literature-review",
+    "title": "Article Placeholder",
+    "section": "Literature Review",
+    "text": "Literature Review\nBrief overview of related work and how this article fits within the broader context."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#data-and-methods",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#data-and-methods",
+    "title": "Article Placeholder",
+    "section": "Data and Methods",
+    "text": "Data and Methods\n\nData\nDescription of data sources, sampling methods, and any preprocessing.\nTable 1. Summary of main variables. (Insert actual table here)\n\n\n\nVariable\nDescription\n\n\n\n\nGDP\nGross Domestic Product\n\n\nInflation\nCPI Annual Change\n\n\n\n\n\nMethodology\nPresent the methodology used. Include equations if relevant.\n\\[\\begin{equation}\nY_t = \\alpha + \\beta X_t + \\varepsilon_t\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#results",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#results",
+    "title": "Article Placeholder",
+    "section": "Results",
+    "text": "Results\n\nMain Results\nFigure 1. Placeholder for main results plot.\n\n\n\nAdditional Analysis\nFigure 2. Placeholder for supplementary analysis."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#discussion",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#discussion",
+    "title": "Article Placeholder",
+    "section": "Discussion",
+    "text": "Discussion\nInterpret your results in the context of existing research."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#conclusion",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#conclusion",
+    "title": "Article Placeholder",
+    "section": "Conclusion",
+    "text": "Conclusion\nSummarize the study, its implications, and suggest directions for future research."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#references",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#references",
+    "title": "Article Placeholder",
+    "section": "References",
+    "text": "References\nAdd citations here using [@key] notation and include a .bib file if needed."
+  },
+  {
+    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#appendix",
+    "href": "projects/nowcasting/articles/articlePlaceholder.html#appendix",
+    "title": "Article Placeholder",
+    "section": "Appendix",
+    "text": "Appendix\n\nA. Additional Figures\nFigure A1. Placeholder for appendix figure."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "",
+    "text": "Welcome to the official website of DIE-BG. Our work focuses on macroeconomic series, model-based policy analysis, and real-time indicators."
+  },
+  {
+    "objectID": "index.html#what-you-will-find-here",
+    "href": "index.html#what-you-will-find-here",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "What you will find here",
+    "text": "What you will find here\n\nTheoretical foundations and modeling approaches\nCode libraries and technical documentation\nResults and applications\nTeam members and collaborators\nDownloadable resources"
+  },
+  {
+    "objectID": "index.html#explore-our-tools",
+    "href": "index.html#explore-our-tools",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "Explore our tools",
+    "text": "Explore our tools\n\nHEFM: Herramienta de Evaluación Fuera de Muestra — or Pseudo Out-of-Sample Evaluation Tool (POSET) in English."
+  },
+  {
+    "objectID": "index.html#research-projects",
+    "href": "index.html#research-projects",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "Research Projects",
+    "text": "Research Projects\nExplore our additional research lines and experimental developments:\n\nNowcasting: Real-time indicators with Mixed Frequencies Machine Learning (MFML)"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "DIE-BG: BG Economic Research",
+    "section": "Contact",
+    "text": "Contact\nFor questions or collaborations, please reach out via the team section."
+  },
+  {
     "objectID": "hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.html",
     "href": "hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.html",
     "title": "Calibración del parámetro lambda",
@@ -117,16 +236,899 @@
     ]
   },
   {
-    "objectID": "hefm/results/SVAR53/index.html",
-    "href": "hefm/results/SVAR53/index.html",
-    "title": "DIE-BG",
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#variables-endógenas",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#variables-endógenas",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Variables Endógenas",
+    "text": "Variables Endógenas\nLas especificaciones generales para ambos modelos son que, la realización de la evaluación es fuera de muestra. Las fechas con las que se modeló van desde 2005Q1 hasta 2024Q4. Ambos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:\n\nTasa de Variación Interanual del PIB de EEUU: d4_ln_y_star\nTasa de Variación Interanual del Índice de Precios de Transables: d4_ln_ipei\nTasa de Interes de fondos federales: i_star\nInflacion No Subyacente Interanual: d4_ln_cpi_nosub\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Variación Interanual de la Base Monetaria: d4_ln_bm\nTasa de Interes Lider de Politica Monetaria: i"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#variables-objetivo",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#variables-objetivo",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Variables objetivo:",
+    "text": "Variables objetivo:\n\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Interes Lider de Politica Monetaria: i"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar50_4b",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar50_4b",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Matriz de restricción del SVAR50_4B",
+    "text": "Matriz de restricción del SVAR50_4B\nLa principal distinción entre modelos es la matriz de restricciones para el modelo SVAR50_4B es \\[\n\\begin{pmatrix}\n    NaN& NaN&0 &  0&   0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   NaN& 0&   0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   0&   NaN& 0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   NaN& 0&   0&   NaN& 0\\\\\n    NaN& 0&   NaN& 0&   0&   0&   0.9& 0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   0&   0&   NaN& NaN& NaN\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& NaN\\\\\n    NaN& 0&   0&   NaN& NaN& 0&   NaN& 0&   NaN& NaN\\\\\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar52",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar52",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Matriz de restricción del SVAR52",
+    "text": "Matriz de restricción del SVAR52\nMientras que para el SVAR52 es \\[\n\\begin{pmatrix}\n    NaN& NaN& NaN & NaN &   0&   0&   0&   0&   0&   0\\\\\n    NaN& NaN& NaN & NaN &   0&   0&   0&   0&   0&   0\\\\\n    NaN& NaN& NaN & NaN & 0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   NaN& 0&   0&   NaN& 0\\\\\n    NaN& 0&   NaN& 0&   0&   0&   0.9& 0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   0&   0&   NaN& NaN& NaN\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& NaN\\\\\n    NaN& 0&   0&   NaN& NaN& 0&   NaN& 0&   NaN& NaN\\\\\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-explicativa",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-explicativa",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Capacidad explicativa",
+    "text": "Capacidad explicativa\nEl promedio acumulada del coeficiente de variación de las variables objetivo, resulta ser menor en el modelo SVAR50_4B, en todos los horizontes:\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR52\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Comparación entre ambos modelos\n\n\n\n\n\n\n\nFigure 1: Coeficientes de variación"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-predictiva",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-predictiva",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Capacidad predictiva",
+    "text": "Capacidad predictiva\nLa función de perdida utilizada para medir la magnitud promedio de los errores de predicción es el RMSE de los errores en las submuestras por horizonte de las variable objetivo.\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR52\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Comparación de ambos modelos\n\n\n\n\n\n\n\nFigure 2: Función de pérdida (RMSE)"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-entre-modelos",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-entre-modelos",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Cocientes entre modelos",
+    "text": "Cocientes entre modelos\nPara comparar los resultados predictivos de ambos modelos se realiza un cociente de los resultados del SVAR52 entre los resultados del SVAR50_4B, por horizonte de cada una de las variables. Se espera que el cociente sea mayor a 1, cuando los errores del SVAR50_4B sean menores que los que se obtienen en el SVAR52.\n\nResultados de los cocientes entre resultados\n\n\n\n\n\n\n\n\n\nPeriodos\nCociente d4_ln_cpi\nCociente d4_ln_s\nCociente d4_ln_y_sm\nCociente i\n\n\n\n\n1\n0.976535157\n0.999629858\n1.005898396\n0.969602229\n\n\n2\n0.999653774\n1.002390557\n1.003742315\n0.971788686\n\n\n3\n1.032648221\n1.00795756\n1.002363462\n0.982181049\n\n\n4\n1.067476241\n1.017116795\n1.00180524\n0.999068988\n\n\n5\n1.093996465\n1.028085084\n1.005809254\n1.020216075\n\n\n6\n1.097090618\n1.039899372\n1.01287104\n1.043464953\n\n\n7\n1.082699403\n1.049351083\n1.019361463\n1.064621313\n\n\n8\n1.054512183\n1.052915798\n1.021956182\n1.081208548\n\n\n9\n1.026928722\n1.050997267\n1.021525416\n1.085502937\n\n\n10\n1.014254736\n1.044706504\n1.022104374\n1.083003673\n\n\n11\n1.008415416\n1.042832934\n1.023292229\n1.078236423\n\n\n12\n1.000539426\n1.04699611\n1.023183054\n1.068107965"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-promedios-de-los-modelos",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-promedios-de-los-modelos",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Cocientes promedios de los modelos",
+    "text": "Cocientes promedios de los modelos\nLos cocientes de los RMSE de las variables objetivo entre los modelos son en la mayoría de los periodos es mayor a la unidad excepto en los primeros dos periodos. Lo que indica que en ese periodo la medida del error es menor en el SVAR52.\n\nResultados de los cocientes en promedio y promedio de los cocientes.\n\n\nPeriodos\nCociente Promedios\nPromedio de los cocientes\n\n\n\n\n1\n0.99047739\n0.98791641\n\n\n2\n0.998880318\n0.994393833\n\n\n3\n1.011748211\n1.006287573\n\n\n4\n1.027007668\n1.021366816\n\n\n5\n1.042244972\n1.037026719\n\n\n6\n1.052092912\n1.048331496\n\n\n7\n1.055493631\n1.054008315\n\n\n8\n1.050727799\n1.052648178\n\n\n9\n1.041985186\n1.046238585\n\n\n10\n1.035874262\n1.041017322\n\n\n11\n1.033275026\n1.038194251\n\n\n12\n1.031032977\n1.034706639\n\n\n\nEn ambos promedios, el RMSE en los primeros periodos el SVAR50_4B es ligeramente mayor. Aunque la desviaciones de error de ambos modelos quedan contenidos (ver Figure 2) y luego empieza a ser menor que el del SVAR52.\nLas funciones impulso respuesta de las variables respecto a cada uno de los choques, en el modelo SVAR52"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-externo",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-externo",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en crecimiento externo",
+    "text": "Choque en crecimiento externo\n\n\nFigure 3: Choque en crecimiento externo"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-precios-de-los-transables",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-precios-de-los-transables",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en precios de los transables",
+    "text": "Choque en precios de los transables\n\n\nFigure 4: Choque en precios de los transables"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa-de-interés-externa",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa-de-interés-externa",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en la tasa de interés externa",
+    "text": "Choque en la tasa de interés externa\n\nChoque en la tasa de interés externa"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inflación-no-subyacente",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inflación-no-subyacente",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en la inflación no subyacente",
+    "text": "Choque en la inflación no subyacente\n\n\nFigure 5: Choque en la inflación no subyacente"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-doméstico",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-doméstico",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en crecimiento doméstico",
+    "text": "Choque en crecimiento doméstico\n\n\nFigure 6: Choque en crecimiento doméstico"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inlfación-subyacente",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inlfación-subyacente",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en la inlfación subyacente",
+    "text": "Choque en la inlfación subyacente\n\n\nFigure 7: Choque en la inlfación subyacente"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-el-tipo-de-cambio-nominal",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-el-tipo-de-cambio-nominal",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en el tipo de cambio nominal",
+    "text": "Choque en el tipo de cambio nominal\n\n\nFigure 8: Choque en el tipo de cambio nominal"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-base-monetaria",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-base-monetaria",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en la base monetaria",
+    "text": "Choque en la base monetaria\n\n\nFigure 9: Choque en la base monetaria"
+  },
+  {
+    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa",
+    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa",
+    "title": "Comparación entre el modelo SVAR504B y SVAR52",
+    "section": "Choque en la tasa",
+    "text": "Choque en la tasa\n\n\n\n\nFigure 10: Choque en la tasa"
+  },
+  {
+    "objectID": "hefm/results/SVAR51/SVAR51.html",
+    "href": "hefm/results/SVAR51/SVAR51.html",
+    "title": "Documentación SVAR51",
     "section": "",
-    "text": "Calibración de hiperparámetro para regresión Ridge: This exercise evaluates multiple values of the regularization parameter \\(\\lambda\\) to identify the optimal Ridge regression estimate and compare with the SVAR50-4B model. The effect is evaluated out-of-sample.",
+    "text": "El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo SVAR50-4B para subsanar las fuentes de incompatibilidad de este respecto al QPM, las cuales se pueden dividir en diferencias en datos y estados estacionarios de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.",
     "crumbs": [
       "Results",
-      "SVAR53",
+      "SVAR51",
+      "Acercamiento QPM con el SVAR51"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR51/SVAR51.html#introducción",
+    "href": "hefm/results/SVAR51/SVAR51.html#introducción",
+    "title": "Documentación SVAR51",
+    "section": "",
+    "text": "El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo SVAR50-4B para subsanar las fuentes de incompatibilidad de este respecto al QPM, las cuales se pueden dividir en diferencias en datos y estados estacionarios de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.",
+    "crumbs": [
+      "Results",
+      "SVAR51",
+      "Acercamiento QPM con el SVAR51"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR51/SVAR51.html#motivación",
+    "href": "hefm/results/SVAR51/SVAR51.html#motivación",
+    "title": "Documentación SVAR51",
+    "section": "Motivación",
+    "text": "Motivación\nLa razón por la cual se planteó la creación de una variante del SVAR50-4B es debido a que existen diferencias que causan un grado de incompatibilidad entre dicho modelo y el QPM. Las fuentes de incompatibilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de ciertas variables de interés. La primera fuente de incompatibilidad proviene del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).\nPronósticos SVAR50 -corrimiento mayo 2025-\n\n\nPronósticos QPM -corrimiento mayo 2025- \n\nLa razón de ello se debe a que esta variable presenta una gran volatilidad de un mes a otro, algo que no es capaz de capturar el SVAR50-4B debido a que el método de trimestralización utilizado para este modelo es el promedio de los datos durante trimestre, en comparación con el QPM que es el último valor observado durante el trimestre.\nOtra fuente de incompatibilidad proviene de los estados estacionarios de algunas variables que son de interés al momento de observar sus pronósticos en cada corrimiento. Como se observó en las gráficas el IPEI posee un estado estacionario de 1.98 en el SVAR50-4B mientras que en el QPM es de 0. Estas diferencias se observan en variables como inflación total, subyacente y no subyacente.1\nA continuación, se presenta un resumen de las fuentes de incompatibilidad entre el SVAR50-4B y el QPM:\n\n\n\nTabla 1: : Fuentes de incompatibilidades\n\n\n\n\n\nDatos\n\n\n\n\n\n\nSVAR50-4B\nQPM\n\n\n\n\nMétodo de trimestralización: Promedio dentro del trimestres\nMétodo de trimestralización: último valor observado dentro del trimestre\n\n\n\n\n\n\nEstados estacionarios\n\n\nSVAR50-4B\nQPM\n\n\n\n\nIPEI = 1.98\nIPEI = 0\n\n\nInflación total = 4.98\nInflación total = 4\n\n\nInflación subyacente = 4.49\nInflación subyacente = 4\n\n\nInflación no subyacente = 0.44\nInflación no subyacente = 0\n\n\n\n\n\n\n\n\nPor lo anterior, se procedió a estimar un nuevo modelo SVAR que tuviera como propósito subsanar las incompatibilidades entre el SVAR50-4B y el QPM, dicho modelo fue denominado SVAR51 el cual es una variante del SVAR50-4B que comparte con este las mimas variables, restricciones en la matriz de coeficientes y método de estimación, pero cambiando los datos usados para su estimación, por lo que el modelo se estimó con datos trimestrales cuyo método de trimestralización es el mismo que el QPM además de imponer los estados estacionarios de las variables antes mencionadas de la misma forma que se encuentran en el QPM.",
+    "crumbs": [
+      "Results",
+      "SVAR51",
+      "Acercamiento QPM con el SVAR51"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR51/SVAR51.html#resultados-de-la-evaluación",
+    "href": "hefm/results/SVAR51/SVAR51.html#resultados-de-la-evaluación",
+    "title": "Documentación SVAR51",
+    "section": "Resultados de la evaluación",
+    "text": "Resultados de la evaluación\nUtilizando la metodología de selección y evaluación de modelos tipo SVAR se realizó un comparativo entre el SVAR51 y SVAR50-4B con el propósito de evaluar la capacidad explicativa y predictiva de la nueva variante del SVAR50-4B.\n\nCapacidad explicativa\nPara un horizonte de evaluación de 10 horizontes (el mismo se utilizó para la capacidad predictiva) y para el promedio de las 4 variables objetivo, el SVAR51 presenta valores más altos de la métrica de dispersión comparado con el SVAR50-4B. Lo cual lo vuelve un modelo con mayor dispersión en las respuestas de las IRF.\n\n\n\nCapacidad predictiva\nEn cuanto a la medida de error de pronóstico ambos modelos tienen un desempeño bastante similar, aunque durante los primeros periodos de pronóstico el SVAR50-4B evidencia un menor error comparado con el SVAR51. Cabe aclarar que, al existir cambios de datos entre los modelos, los pronósticos de las variables objetivos son construidos y evaluados con las mismas transformaciones de datos mensuales a trimestrales. Es decir, los pronósticos del SVAR50-4B se evalúan contra los datos trimestrales observados resultado del promedio de las observaciones del trimestre, mientras que los pronósticos del SVAR51 son evaluados contra los datos trimestrales observados al fin del trimestre.\n\nDado el desempeño del SVAR51 en términos de su capacidad explicativa y predictiva comparado con el SVAR50-4B, este último es mejor valorado dentro de la metodología de selección de modelos tipo SVAR.",
+    "crumbs": [
+      "Results",
+      "SVAR51",
+      "Acercamiento QPM con el SVAR51"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR51/SVAR51.html#footnotes",
+    "href": "hefm/results/SVAR51/SVAR51.html#footnotes",
+    "title": "Documentación SVAR51",
+    "section": "Notas",
+    "text": "Notas\n\n\nLa selección de esta variables corresponde a la importancia que tienen tanto para el Banco Central como dentro de los modelos SVAR50-4B y QPM.↩︎",
+    "crumbs": [
+      "Results",
+      "SVAR51",
+      "Acercamiento QPM con el SVAR51"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "",
+    "text": "El objetivo de este documento es comparar concretamente los principales resultados de comparar el modelo SVAR50_4B y una variación del modelo con una matriz de restricción diferente, que represente un proceso autoregresivo de orden 1 para cada una de las variables (SVAR50_AR1).",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-endógenas",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-endógenas",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Variables endógenas",
+    "text": "Variables endógenas\nAmbos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:\n\nTasa de Variación Interanual del PIB de EEUU: d4_ln_y_star\nTasa de Variación Interanual del Índice de Precios de Transables: d4_ln_ipei\nTasa de Interes de fondos federales: i_star\nInflacion No Subyacente Interanual: d4_ln_cpi_nosub\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Variación Interanual de la Base Monetaria: d4_ln_bm\nTasa de Interes Lider de Politica Monetaria: i",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-objetivo",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-objetivo",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Variables objetivo:",
+    "text": "Variables objetivo:\n\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Interes Lider de Politica Monetaria: i",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-explicativa",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-explicativa",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Capacidad explicativa",
+    "text": "Capacidad explicativa\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 1: Coeficientes de variación\n\n\n\nEl promedio acumulada del coeficiente de variación de las variables objetivo, resulta ser menor en el modelo AR(1)",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-predictiva",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-predictiva",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Capacidad predictiva",
+    "text": "Capacidad predictiva\nLa función de perdida utilizada para medir la magnitud promedio de los errores de predicción es el RMSE de los errores en las submuestras por horizonte de las variable objetivo.\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 2: Raíz del error cuadrático medio (RMSE)",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-entre-resultados",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-entre-resultados",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Cocientes entre resultados",
+    "text": "Cocientes entre resultados\nPara comparar los resultados predictivos de ambos modelos se realiza un cociente de los resultados del SVAR50_4B entre los resultados del AR(1), por horizonte de cada una de las variables y se espera que el cociente sea menor a 1, lo que indicaría que los errores del AR(1) son mayores que los que se obtienen en el SVAR50_4B.\n\nResultados de los cocientes entre resultados\n\n\n\n\n\n\n\n\n\nHorizontes\nd4_ln_cpi\nd4_ln_s\nd4_ln_y_sm\ni\n\n\n\n\n1\n0.894\n1.108\n0.983\n0.828\n\n\n2\n0.905\n1.087\n0.966\n0.840\n\n\n3\n0.922\n1.066\n0.954\n0.844\n\n\n4\n0.932\n1.049\n0.940\n0.847\n\n\n5\n0.930\n1.039\n0.948\n0.841\n\n\n6\n0.922\n1.034\n0.968\n0.821\n\n\n7\n0.920\n1.031\n0.986\n0.793\n\n\n8\n0.928\n1.025\n1.007\n0.765\n\n\n9\n0.926\n1.025\n1.019\n0.755\n\n\n10\n0.925\n1.036\n1.014\n0.763\n\n\n11\n0.923\n1.048\n1.001\n0.789\n\n\n12\n0.927\n1.052\n0.986\n0.819",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-promedios",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-promedios",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Cocientes promedios",
+    "text": "Cocientes promedios\nEn la mayoría de variables el cociente es menor a 1, excepto en el tipo de cambio.\n\nResultados de promedios\n\n\n\n\n\n\n\nHorizontes\nCociente entre promedios del RMSE de las var. objetivo\nPromedio de cocientes entre RMSE de las var. objetivo\n\n\n\n\n1\n0.982\n0.953\n\n\n2\n0.976\n0.950\n\n\n3\n0.971\n0.947\n\n\n4\n0.964\n0.942\n\n\n5\n0.959\n0.939\n\n\n6\n0.954\n0.936\n\n\n7\n0.950\n0.932\n\n\n8\n0.948\n0.931\n\n\n9\n0.946\n0.931\n\n\n10\n0.948\n0.935\n\n\n11\n0.952\n0.940\n\n\n12\n0.957\n0.946\n\n\n\nEn ambos promedio el cociente es menor a la unidad.",
+    "crumbs": [
+      "Results",
+      "SVAR50-AR1",
+      "Comparación del SVAR50-4B y el SVAR50-AR1"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#estimación",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#estimación",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Estimación",
+    "text": "Estimación\n\nPara la realización de este ejercicio se tienen varios subconjuntos de un conjunto (ModelPool) que contiene submuestras con periodos de estimación que inician con fechas más atrás en el tiempo.\nEs decir, este conjunto inicia con un modelo que tiene un rango de estimación “2005Q1-2021Q4”, el segundo, tendrá un rango de estimación entre “2005Q2-2021Q4”, así sucesivamente hasta el \\(n\\)-ésimo modelo que tiene un rango de estimación “2012Q4-2021Q4”.\nLos subconjuntos se obtienen al filtrando la clase ModelPool."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#subconjuntos-de-model-pool",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#subconjuntos-de-model-pool",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Subconjuntos de Model Pool",
+    "text": "Subconjuntos de Model Pool\n\nEl primer subconjunto es el conjunto completo.\nUn segundo subconjunto, inicia con el modelo cuya estimación se realiza en el periodo “2005Q2-2021Q4”, continua con el modelo con un un rango de estimación “2005Q3-2021Q4”, y así sucesivamente hasta el \\(n\\)-ésimo modelo con el rango de estimación “2012Q4-2021Q4”.\nDe esta forma el último subconjunto, contendrá los modelos con fechas iniciales de estimación más recientes. Éste inicia con un modelo con un rango de estimación “2010Q4-2021Q4” y termina con un modelo con un rango de estimación en los periodos “2012Q4-2021Q4”."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#validación",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#validación",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Validación",
+    "text": "Validación\n\nPara cualquier subconjunto, la validación en este ejercicio se realiza en los periodos comprendidos entre “2021Q4 - 2024Q4”. Y este rango se mantiene constante en todos los modelos del subconjunto.\n\nRMSE\n\nEn cada uno de estos subconjuntos es posible obtener la función de pérdida, tomando el \\(RMSE_h\\) en función de los errores de cada uno de los modelos, por cada horizonte \\(h\\)."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#diagrama",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#diagrama",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Diagrama",
+    "text": "Diagrama\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Model Pool\n    dateFormat  YYYY-QQ\n    section Model 1\n    Training           :a1, 2005-01, 191M\n    Validation      :a2, 2021-01, 47M\n    section Model 2\n    Training           :a1, 2005-04, 188M\n    Validation      :a2, 2021-01, 47M\n    section Model 3\n    Training          :a1, 2005-07, 185M\n    Validation      :a2, 2021-01, 47M\n    section ...\n    ... :a1, 2015-01-02, \n    section Model n\n    Training          :a1, 2012-10, 98M\n    Validation      :a2, 2021-01, 47M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto 2\n    dateFormat  YYYY-MM\n    section Model 2\n    Training           :a1, 2005-04, 188M\n    Validation      :a2, 2021-01, 47M\n    section Model 3\n    Training           :a1, 2005-07, 185M\n    Validation      :a2, 2021-01, 47M\n    section ...\n    ... :a1, 2015-01-02, 1d\n    section Model n\n    Training          :a1, 2012-10, 98M\n    Validation      :a2, 2021-01, 47M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto p\n    dateFormat  YYYY-MM\n    section Model p\n    Training           :a1, 2010-10, 122M\n    Validation      :a2, 2021-01, 47M\n    section Model p+1\n    Training           :a1, 2011-01, 119M\n    Validation      :a2, 2021-01, 47M\n    section ...\n    ... :a1, 2017-10-01, \n    section Model n\n    Training          :a1, 2012-10, 98M\n    Validation      :a2, 2021-01, 47M"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#variables-objetivo",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#variables-objetivo",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Variables objetivo",
+    "text": "Variables objetivo\n\n\nFigure 1: RMSE de todas las variables, todos los horizontes"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Promedio de las variables objetivo",
+    "text": "Promedio de las variables objetivo\n\n\nFigure 2: Promedio de las variables objetivo, todos los horizontes"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "En los primeros cuatro horizontes",
+    "text": "En los primeros cuatro horizontes\n\nLa función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.\n\nLa inflación y la tasa de interés tienen un mínimo en el conjunto que incluye todas las submuestras.\nEl crecimiento doméstico y el tipo de cambio tiene un mínimo en un subconjunto en el que se tienen submuestra con fechas de estimación iniciales más recientes."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-horizontes-8-10-12",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-horizontes-8-10-12",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "En los horizontes 8, 10, 12 …",
+    "text": "En los horizontes 8, 10, 12 …\n\nLa tasa de interés, para el horizonte 8 sigue manteniendo un mínimo en el conjunto que incluye todas las submuestras. Y sufre un cambio en los horizontes 10 y 12, en los que el error mínimo se encuentra en subconjuntos de modelos con estimaciones más recientes.\nDe igual forma, la inflación, y el crecimiento doméstico tiene un mínimo en un subconjunto en el que se tienen submuestra con fechas de estimación iniciales más recientes en los horizontes 8, 10,12.\nFinalmente para al el tipo de cambio, en el horizonte 8 y 10 tiene un mínimo en los subconjuntos con modelos, que tiene un inicio de estimación más reciente. Y hasta el horizonte 12 que reduce el error cuando los modelos se estiman más atrás en el tiempo."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo-1",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo-1",
+    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
+    "section": "Promedio de las variables objetivo",
+    "text": "Promedio de las variables objetivo\nEn general, el promedio representa el comportamiento de la mayoría de las variables.\nEl mínimo del RMSE en los primeros cuatro horizontes y en el horizonte 8 se encuentra cuando se toma fechas de estimación pasadas.\nEn los horizontes 10 y 12, el mínimo del RMSE se encuentra cuando se toma fechas de estimación más adelante en el tiempo. Indicando que el error de pronóstico se va reduciendo cuando se estima con datos más recientes."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#estimación",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#estimación",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Estimación",
+    "text": "Estimación\n\nPara la realización de este ejercicio se tienen varios subconjuntos de un conjunto (ModelPool) que contiene submuestras con periodos de estimación que inician con fechas más atrás en el tiempo.\nEs decir, este conjunto inicia con un modelo que tiene un rango de estimación “2005Q1-2024Q4”, el segundo, tendrá un rango de estimación entre “2005Q2-2024Q4”, así sucesivamente hasta el \\(n\\)-ésimo modelo que tiene un rango de estimación “2012Q4-2024Q4”.\nLos subconjuntos se obtienen al filtrando la clase ModelPool."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#subconjuntos-de-model-pool",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#subconjuntos-de-model-pool",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Subconjuntos de Model Pool",
+    "text": "Subconjuntos de Model Pool\n\nEl primer subconjunto es el conjunto completo.\nUn segundo subconjunto, inicia con el modelo cuya estimación se realiza en el periodo “2005Q2-2024Q4”, continua con el modelo con un un rango de estimación “2005Q3-2024Q4”, y así sucesivamente hasta el \\(n\\)-ésimo modelo con el rango de estimación “2012Q4-2024Q4”.\nDe esta forma el último subconjunto, contendrá los modelos con fechas iniciales de estimación más recientes. Éste inicia con un modelo con un rango de estimación “2010Q4-2024Q4” y termina con un modelo con un rango de estimación en los periodos “2012Q4-2024Q4”."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#validación",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#validación",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Validación",
+    "text": "Validación\n\nPara cualquier subconjunto, la validación en este ejercicio se realiza en los mismos periodos de estimación. ## RMSE\nEn cada uno de estos subconjuntos es posible obtener la función de pérdida, tomando el \\(RMSE_h\\) en función de los errores de cada uno de los modelos, por cada horizonte \\(h\\)."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#diagrama",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#diagrama",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Diagrama",
+    "text": "Diagrama\n\n\n\n\n\n%%{\ninit: {\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Model Pool\n    dateFormat  YYYY-QQ\n    section Model 1\n    Training           :a1, 2005-01, 237M\n    Validation      :a2, 2005-01, 237M\n    section Model 2\n    Training           :a1, 2005-04, 234M\n    Validation      :a2, 2005-04, 234M\n    section Model 3\n    Training          :a1, 2005-07, 231M\n    Validation      :a2, 2005-07, 231M\n    section ...\n    ... :a1, 2015-01-02, \n    section Model n\n    Training          :a1, 2012-10, 144M\n    Validation      :a2, 2012-10, 144M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto 2\n    dateFormat  YYYY-MM\n    section Model 2\n    Training           :a1, 2005-04, 237M\n    Validation      :a2, 2005-04, 237M\n    section Model 3\n    Training           :a1, 2005-07, 234M\n    Validation      :a2, 2005-07, 234M\n    section ...\n    ... :a1, 2015-01-02, 1d\n    section Model n\n    Training          :a1, 2012-10, 144M\n    Validation      :a2, 2012-10, 144M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto p\n    dateFormat  YYYY-MM\n    section Model p\n    Training           :a1, 2010-10, 169M\n    Validation      :a2, 2010-10, 169M\n    section Model p+1\n    Training           :a1, 2011-01, 166M\n    Validation      :a2, 2011-01, 166M\n    section ...\n    ... :a1, 2017-10-01, \n    section Model n\n    Training          :a1, 2012-10, 144M\n    Validation      :a2, 2012-10, 144M"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#variables-objetivo",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#variables-objetivo",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Variables objetivo",
+    "text": "Variables objetivo\n\n\nFigure 1: RMSE de todas las variables, todos los horizontes"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Promedio de las variables objetivo",
+    "text": "Promedio de las variables objetivo\n\n\nFigure 2: Promedio de las variables objetivo, todos los horizontes"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "En los primeros cuatro horizontes",
+    "text": "En los primeros cuatro horizontes\n\nLa función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.\n\nLa inflación, el tipo de cambio y la tasa de interés tienen un mínimo en el subconjunto que incluye menos submuestras.\nEl crecimiento doméstico tiene un mínimo en el subconjunto en el que se tienen submuestra con fechas de estimación iniciales más antiguas."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-horizontes-8-10-12",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-horizontes-8-10-12",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "En los horizontes 8, 10, 12 …",
+    "text": "En los horizontes 8, 10, 12 …\n\nLa inflación, el tipo de cambio y la tasa de interés, tienen un mínimo en los subconjuntos con modelos, que tiene un inicio de estimación más recientes.\nEl crecimiento doméstico tiene un mínimo en el subconjunto en el que se tienen en el subconjunto que incluye todas las submuestras."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivos",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivos",
+    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
+    "section": "Promedio de las variables objetivos",
+    "text": "Promedio de las variables objetivos\nEn general, el mínimo del RMSE del promedio de las cuatro variables objetivo se encuentra cuando se toma fechas de estimación más adelante en el tiempo. Indicando que el error de pronóstico se va reduciendo cuando se estima con datos más recientes."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html",
+    "title": "Variable Sample Size",
+    "section": "",
+    "text": "Variable Sample Size\nFullscreen ⛶",
+    "crumbs": [
+      "Results",
+      "SVAR50-4B",
+      "Variable Sample Size"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html",
+    "title": "Variable Final Estimation Date",
+    "section": "",
+    "text": "Variable Final Estimation Date\nFullscreen ⛶",
+    "crumbs": [
+      "Results",
+      "SVAR50-4B",
+      "Variable Final Estimation Date"
+    ]
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "title": "Slide Deck Placeholder",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "title": "Slide Deck Placeholder",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#dinner",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#dinner",
+    "title": "Slide Deck Placeholder",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "title": "Slide Deck Placeholder",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "title": "Slide Deck Placeholder",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "title": "Slide Deck Placeholder",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "title": "Slide Deck Placeholder",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "title": "Slide Deck Placeholder",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "hefm/index.html",
+    "href": "hefm/index.html",
+    "title": "HEFM",
+    "section": "",
+    "text": "HEFM stands for Herramienta de Evaluación Fuera de Muestra — or Pseudo Out-of-Sample Evaluation Tool (POSET) in English.\nThis platform was developed in 2021 in response to a key question: How can we assess whether a given SVAR model is a reliable guide for macroeconomic analysis? Since then, various methodological approaches have been designed to quantify both the predictive accuracy and explanatory robustness of these models.\nThe site presents a concrete implementation of that effort, grounded in statistical model selection techniques, particularly time series cross-validation. The platform enables users to evaluate forecast errors and examine the consistency of structural responses across different estimation windows.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/index.html#overview",
+    "href": "hefm/index.html#overview",
+    "title": "HEFM",
+    "section": "",
+    "text": "HEFM stands for Herramienta de Evaluación Fuera de Muestra — or Pseudo Out-of-Sample Evaluation Tool (POSET) in English.\nThis platform was developed in 2021 in response to a key question: How can we assess whether a given SVAR model is a reliable guide for macroeconomic analysis? Since then, various methodological approaches have been designed to quantify both the predictive accuracy and explanatory robustness of these models.\nThe site presents a concrete implementation of that effort, grounded in statistical model selection techniques, particularly time series cross-validation. The platform enables users to evaluate forecast errors and examine the consistency of structural responses across different estimation windows.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/index.html#sections",
+    "href": "hefm/index.html#sections",
+    "title": "HEFM",
+    "section": "Sections",
+    "text": "Sections\n\n📄 Documentation: Technical manuals, code usage, and API references.\n\n📊 Results: Forecasts, simulation outputs, and model validation figures.\n\n📁 Resources: Presentations, papers, supporting documents, and internal material.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "hefm/index.html#purpose",
+    "href": "hefm/index.html#purpose",
+    "title": "HEFM",
+    "section": "Purpose",
+    "text": "Purpose\nHEFM serves as a tool to diagnose the performance of SVAR models along two critical dimensions: their ability to predict key macroeconomic variables out of sample, and their ability to explain the empirical regularities in the data through structural responses.\nIt does this by combining pseudo out-of-sample forecasting exercises with analysis of the dispersion in impulse-response functions (IRFs) across multiple estimation windows. This dual focus allows practitioners to identify models that are not only statistically robust, but also consistent with the theoretical causal mechanisms embedded in their structure.\nFor a deeper look at the underlying assumptions and implementation details, see the Resources section.\n\n\nLooking for the economic logic behind the tool? Visit the Resources section.",
+    "crumbs": [
+      "HEFM"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Us",
+    "section": "",
+    "text": "We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis."
+  },
+  {
+    "objectID": "about.html#who-we-are",
+    "href": "about.html#who-we-are",
+    "title": "About Us",
+    "section": "",
+    "text": "We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis."
+  },
+  {
+    "objectID": "about.html#our-mission",
+    "href": "about.html#our-mission",
+    "title": "About Us",
+    "section": "Our Mission",
+    "text": "Our Mission\nOur mission is to support decision-making and foster technical collaboration by producing robust models, clear documentation, and accessible research outputs."
+  },
+  {
+    "objectID": "about.html#what-we-do",
+    "href": "about.html#what-we-do",
+    "title": "About Us",
+    "section": "What We Do",
+    "text": "What We Do\nWe work on the design and implementation of analytical frameworks, model-based simulations, and empirical projects related to economic dynamics."
+  },
+  {
+    "objectID": "about.html#who-its-for",
+    "href": "about.html#who-its-for",
+    "title": "About Us",
+    "section": "Who It’s For",
+    "text": "Who It’s For\nThis website is intended for researchers, analysts, and institutions interested in macroeconomic modeling, forecasting, and applied time series tools."
+  },
+  {
+    "objectID": "about.html#what-you-will-find-here",
+    "href": "about.html#what-you-will-find-here",
+    "title": "About Us",
+    "section": "What You Will Find Here",
+    "text": "What You Will Find Here\n\nTheoretical and technical materials\n\nCode libraries and implementation guides\n\nForecasting results and research outputs\n\nPresentations, downloads, and supporting files\n\nInformation about the team and our collaborators"
+  },
+  {
+    "objectID": "about.html#collaborations",
+    "href": "about.html#collaborations",
+    "title": "About Us",
+    "section": "Collaborations",
+    "text": "Collaborations\nWe engage with internal and external partners to share methodologies, co-develop tools, and advance the understanding of key economic phenomena."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Us",
+    "section": "Contact",
+    "text": "Contact\nFor questions or collaboration inquiries, please visit the team section."
+  },
+  {
+    "objectID": "hefm/documentation/index.html",
+    "href": "hefm/documentation/index.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Welcome! This page will help you get up and running with the library. Whether you’re an experienced user or just starting out, follow the steps below to install and begin using the core features."
+  },
+  {
+    "objectID": "hefm/documentation/index.html#installation",
+    "href": "hefm/documentation/index.html#installation",
+    "title": "Getting Started",
+    "section": "Installation",
+    "text": "Installation\nFollow the instructions below depending on your environment.\n\nPython\npip install your-library-name\n\n\nR\ninstall.packages(\"yourLibraryName\")\n\n\nJulia\nusing Pkg\nPkg.add(\"YourLibraryName\")\n\nYou can also clone the GitHub repository if you’re installing a development version."
+  },
+  {
+    "objectID": "hefm/documentation/index.html#basic-usage",
+    "href": "hefm/documentation/index.html#basic-usage",
+    "title": "Getting Started",
+    "section": "Basic Usage",
+    "text": "Basic Usage\nHere’s a minimal example to get started:\nimport your_library_name as lib\n\nresult = lib.run_model(data=\"path/to/data.csv\")\nprint(result.summary())"
+  },
+  {
+    "objectID": "hefm/documentation/index.html#requirements",
+    "href": "hefm/documentation/index.html#requirements",
+    "title": "Getting Started",
+    "section": "Requirements",
+    "text": "Requirements\nMake sure your system meets the following requirements:\n\nPython 3.8+ or R 4.1+ or Julia 1.8+\nRequired packages: numpy, pandas, matplotlib, etc.\n(Optional) Jupyter Notebook support"
+  },
+  {
+    "objectID": "hefm/documentation/index.html#where-to-go-next",
+    "href": "hefm/documentation/index.html#where-to-go-next",
+    "title": "Getting Started",
+    "section": "4. Where to Go Next",
+    "text": "4. Where to Go Next\n\n📖 Full Documentation\n🧪 Examples\n📊 Results\n💬 FAQ or Support\n\n\nIf you encounter any issues, please consult the documentation or open an issue on GitHub."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html",
+    "href": "hefm/resources/articles/articlePlaceholder.html",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#abstract",
+    "href": "hefm/resources/articles/articlePlaceholder.html#abstract",
+    "title": "Article Placeholder",
+    "section": "",
+    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#introduction",
+    "href": "hefm/resources/articles/articlePlaceholder.html#introduction",
+    "title": "Article Placeholder",
+    "section": "Introduction",
+    "text": "Introduction\nIntroduce the problem, provide background, and explain the relevance of the research."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#literature-review",
+    "href": "hefm/resources/articles/articlePlaceholder.html#literature-review",
+    "title": "Article Placeholder",
+    "section": "Literature Review",
+    "text": "Literature Review\nBrief overview of related work and how this article fits within the broader context."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#data-and-methods",
+    "href": "hefm/resources/articles/articlePlaceholder.html#data-and-methods",
+    "title": "Article Placeholder",
+    "section": "Data and Methods",
+    "text": "Data and Methods\n\nData\nDescription of data sources, sampling methods, and any preprocessing.\nTable 1. Summary of main variables. (Insert actual table here)\n\n\n\nVariable\nDescription\n\n\n\n\nGDP\nGross Domestic Product\n\n\nInflation\nCPI Annual Change\n\n\n\n\n\nMethodology\nPresent the methodology used. Include equations if relevant.\n\\[\\begin{equation}\nY_t = \\alpha + \\beta X_t + \\varepsilon_t\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#results",
+    "href": "hefm/resources/articles/articlePlaceholder.html#results",
+    "title": "Article Placeholder",
+    "section": "Results",
+    "text": "Results\n\nMain Results\nFigure 1. Placeholder for main results plot.\n\n\n\nAdditional Analysis\nFigure 2. Placeholder for supplementary analysis."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#discussion",
+    "href": "hefm/resources/articles/articlePlaceholder.html#discussion",
+    "title": "Article Placeholder",
+    "section": "Discussion",
+    "text": "Discussion\nInterpret your results in the context of existing research."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#conclusion",
+    "href": "hefm/resources/articles/articlePlaceholder.html#conclusion",
+    "title": "Article Placeholder",
+    "section": "Conclusion",
+    "text": "Conclusion\nSummarize the study, its implications, and suggest directions for future research."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#references",
+    "href": "hefm/resources/articles/articlePlaceholder.html#references",
+    "title": "Article Placeholder",
+    "section": "References",
+    "text": "References\nAdd citations here using [@key] notation and include a .bib file if needed."
+  },
+  {
+    "objectID": "hefm/resources/articles/articlePlaceholder.html#appendix",
+    "href": "hefm/resources/articles/articlePlaceholder.html#appendix",
+    "title": "Article Placeholder",
+    "section": "Appendix",
+    "text": "Appendix\n\nA. Additional Figures\nFigure A1. Placeholder for appendix figure."
+  },
+  {
+    "objectID": "hefm/resources/slides/index.html",
+    "href": "hefm/resources/slides/index.html",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "Fullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶"
+  },
+  {
+    "objectID": "hefm/resources/slides/index.html#section",
+    "href": "hefm/resources/slides/index.html#section",
+    "title": "Lectures, Summaries and More",
+    "section": "",
+    "text": "Fullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶"
+  },
+  {
+    "objectID": "hefm/results/index.html",
+    "href": "hefm/results/index.html",
+    "title": "Results",
+    "section": "",
+    "text": "Fullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶"
+  },
+  {
+    "objectID": "hefm/results/index.html#section",
+    "href": "hefm/results/index.html#section",
+    "title": "Results",
+    "section": "",
+    "text": "Fullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/index.html",
+    "href": "hefm/results/SVAR50_4B/index.html",
+    "title": "All SVAR50-4B Results",
+    "section": "",
+    "text": "Variable Final Estimation Date: This exercise examines the impact on RMSE of adding new observations to the estimation sample. The effect is evaluated both in-sample and out-of-sample, using fixed and rolling validation sets.\nVariable Initial Estimation Date (IS): This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured in-sample.\nVariable Initial Estimation Date (OS): This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured out-of-sample.\nVariable Sample Size: This exercise explores the impact of sample size on RMSE. An HV-type evaluation scheme is used to isolate the effect of autocorrelation on RMSE.",
+    "crumbs": [
+      "Results",
+      "SVAR50-4B",
       "Index"
     ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-1",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-1",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Descripción del experimento No. 1",
+    "text": "Descripción del experimento No. 1\nEn el primer experimento, los ejercicios de evaluación se definen de la siguiente manera:\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nCorrimiento de la HEFM No. 2\n\nEstimaciones incluidas (18 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2019Q1\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-2",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-2",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Descripción del experimento No. 2",
+    "text": "Descripción del experimento No. 2\nEl segundo experimento es una variante del primero, en el que se restringe la muestra de validación para que sea la misma en todos los ejercicios de evaluación.\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestra de validación: 2022Q1 - 2024Q4\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\nMuestra de validación: 2022Q1 - 2024Q4"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-3",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-3",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Descripción del experimento No. 3",
+    "text": "Descripción del experimento No. 3\nEl tercer experimento es una variante del primero, en el que la muestra de validación se encuentra contenida en la muestra de estimación.\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestras de validación: La misma que la de estimación.\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\n\nMuestras de validación: La misma que la de estimación."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-1",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-1",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Experimento No. 1",
+    "text": "Experimento No. 1\nEn este experimento, el RMSE promedio de las variables objetivo disminuye al agregar consecutivamente estimaciones del modelo con submuestras más amplias y actualizadas (Figura 1). Al aumentar el horizonte de pronóstico evaluado, el RMSE promedio se invierte, pasando de mostrar una caída constante a lo largo de los ejercicios de evaluación a adoptar una forma de “U”.\nLa Figura 2 muestra el RMSE de las variables que componen el promedio en la Figura 1. En general, el RMSE de estas variables aumenta al incorporar consecutivamente nuevas estimaciones con submuestras más amplias y actualizadas.\nEl ritmo al que crece el RMSE varía entre las distintas variables, siendo notable el caso de d4_ln_y_sm, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras de estimación con datos del período de COVID-19."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-2",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-2",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Experimento No. 2",
+    "text": "Experimento No. 2\nAl fijar la muestra de validación en todos los ejercicios de evaluación, se observa que el promedio de los RMSE de las variables objetivo disminuye en los horizontes cortos a medida que se agregan submuestras de estimación más extensas y actualizadas, pero esta tendencia se invierte conforme aumenta el horizonte de pronóstico (Figura 3). Este resultado es similar al encontrado en el experimento No. 1.\nAl observar el resultado por variable objetivo (Figura 4), los resultados son similares a los del experimento No. 1, destacando nuevamente el comportamiento de d4_ln_y_sm, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras con datos del período de COVID-19."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-3",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-3",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Experimento 3",
+    "text": "Experimento 3\nAl evaluar dentro de la muestra, el incremento en el número de submuestras de estimación perjudica, en general, el resultado del RMSE (Figura 5 y Figura 6), siendo consistente con los experimentos No. 1 y No. 2."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#comparación-entre-experimentos",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#comparación-entre-experimentos",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Comparación entre experimentos",
+    "text": "Comparación entre experimentos\nEn las siguientes gráficas se muestra el resultados de los tres experimentos simultáneamente.\n\n Experimento 1 (OS)\n Experimento 2 (OS mismo conjunto de validación)\n Experimento 3 (IS)"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nPara un modelo con un procedimiento de estimación que logra capturar la dinámica conjunta de los datos, y asumiendo que dicha dinámica se mantiene a lo largo del tiempo, se espera que el error de pronóstico a un mismo horizonte disminuya al incrementar el tamaño de las submuestras de estimación incluidas en cada ejercicio de evaluación.\nLos resultados muestran que el RMSE tiende a incrementarse al añadir nuevas estimaciones con submuestras más grandes y actualizadas, lo que sugiere que esta combinación de modelo y procedimiento de estimación no es capaz de mejorar su poder predictivo al actualizar e incrementar la muestra de estimación."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#estimación",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#estimación",
+    "title": "Ejercicio de HV-Block",
+    "section": "Estimación",
+    "text": "Estimación\n\nEl ejercicio del bloque \\(hv\\) busca estimar el modelo SVAR50_4B utilizando el esquema \\(hv\\) con diferentes tamaños de muestra.\nDonde \\(h\\) es el número de periodos de espaciamiento entre la validación y la estimación.\nEl periodo de validación tiene una duración de \\(2v+1\\) periodos.\nPara ello, se establecen los parámetros \\(h\\) que va de 4 a 16 y \\(v\\) que va de 6 a 14."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#filtro",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#filtro",
+    "title": "Ejercicio de HV-Block",
+    "section": "Filtro",
+    "text": "Filtro\n\nLa fecha inicial es “2005Q1” y la fecha final es “2023Q4”, son 76 periodos disponibles.\nPara este ejercicio se evalúa si el tamaño de muestra de estimación \\(N_t=76-2h-2v-1\\) se encuentra en el rango de 40 a 70."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#rmse",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#rmse",
+    "title": "Ejercicio de HV-Block",
+    "section": "RMSE",
+    "text": "RMSE\n\nEn cada uno de estos conjuntos es posible obtener la función de pérdida, tomando el \\(RMSE_k\\) en función de los errores de cada uno de los modelos, por cada horizonte \\(k\\)."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#diagrama",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#diagrama",
+    "title": "Ejercicio de HV-Block",
+    "section": "Diagrama",
+    "text": "Diagrama\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Pool N\n    dateFormat  YYYY-QQ\n    axisFormat %Y-%m\n    section Model 1\n    V  :a3, 2005-01, 36M\n    H  :a4,2008-02,14M\n    T  :a5, 2009-05,176M\n    section Model 2\n    V  :a3, 2005-04, 36M\n    H  :a4,2008-05,14M\n    T  :a5, 2009-08,173M\n    section Model 3\n    V   :a3, 2005-07, 36M\n    H   :a4,2008-08,14M\n    T   :a5, 2009-011,170M\n    section .\n    ... :a1, 2015-01-02, \n    section Model p\n    T    :a1, 2005-01, 24M\n    H    :a2,2007-02,12M\n    V    :a3, 2008-03,36M\n    H    :a4,2011-04,12M\n    T     :a5, 2012-05,140M\n    section Model (p+1)\n    T    :a1, 2005-01, 27M\n    H    :a2,2007-05,12M\n    V    :a3, 2008-06,36M\n    H    :a4,2011-07,12M\n    T     :a5, 2012-08,137M\n    section ..\n    ... :a1, 2015-01-02,\n    section Model z\n    T    :a1, 2005-01, 176M\n    H    :a2,2019-010,14M\n    V    :a3, 2021-01,36M"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#variables-objetivo",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#variables-objetivo",
+    "title": "Ejercicio de HV-Block",
+    "section": "Variables objetivo",
+    "text": "Variables objetivo\n\n\nFigure 1: RMSE de todas las variables, todos los horizontes"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo",
+    "title": "Ejercicio de HV-Block",
+    "section": "Promedio de las variables objetivo",
+    "text": "Promedio de las variables objetivo\n\n\nFigure 2: Promedio de las variables objetivo, todos los horizontes"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-primeros-cuatro-horizontes",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-primeros-cuatro-horizontes",
+    "title": "Ejercicio de HV-Block",
+    "section": "En los primeros cuatro horizontes",
+    "text": "En los primeros cuatro horizontes\n\nLa función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.\n\nLa inflación, el crecimiento doméstico tienen un mínimo en el conjunto con muestras que tiene un tamaño de estimación más reducido.\nEl tipo de cambio y la tasa de interés tiene un mínimo en el conjunto con modelos con un tamaño de estimación mayor."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-horizontes-8-10-12",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-horizontes-8-10-12",
+    "title": "Ejercicio de HV-Block",
+    "section": "En los horizontes 8, 10, 12 …",
+    "text": "En los horizontes 8, 10, 12 …\n\nEl tipo de cambio, cambia de comportamiento y se obtiene un mínimo en el conjunto con modelos con una estimación mayor."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo-1",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo-1",
+    "title": "Ejercicio de HV-Block",
+    "section": "Promedio de las variables objetivo",
+    "text": "Promedio de las variables objetivo\nEn general, el mínimo del RMSE del promedio de las cuatro variables objetivo se encuentra cuando se toma un tamaño de estimación más grande. Indicando que el error de pronóstico se va reduciendo cuando se estima con más muestras."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html",
+    "title": "Variable Initial Estimation Date (IS)",
+    "section": "",
+    "text": "Variable Initial Estimation Date (IS)\nFullscreen ⛶",
+    "crumbs": [
+      "Results",
+      "SVAR50-4B",
+      "Variable Initial Estimation Date (IS)"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html",
+    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html",
+    "title": "Variable Initial Estimation Date (OS)",
+    "section": "",
+    "text": "Variable Initial Estimation Date (OS)\nFullscreen ⛶",
+    "crumbs": [
+      "Results",
+      "SVAR50-4B",
+      "Variable Initial Estimation Date (OS)"
+    ]
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-endógenas",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-endógenas",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Variables endógenas",
+    "text": "Variables endógenas\nAmbos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:\n\nTasa de Variación Interanual del PIB de EEUU: d4_ln_y_star\nTasa de Variación Interanual del Índice de Precios de Transables: d4_ln_ipei\nTasa de Interes de fondos federales: i_star\nInflacion No Subyacente Interanual: d4_ln_cpi_nosub\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Variación Interanual de la Base Monetaria: d4_ln_bm\nTasa de Interes Lider de Politica Monetaria: i"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-objetivo",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-objetivo",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Variables objetivo:",
+    "text": "Variables objetivo:\n\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Interes Lider de Politica Monetaria: i"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-explicativa",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-explicativa",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Capacidad explicativa",
+    "text": "Capacidad explicativa\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 1: Coeficientes de variación\n\n\n\nEl promedio acumulada del coeficiente de variación de las variables objetivo, resulta ser menor en el modelo AR(1)"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-predictiva",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-predictiva",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Capacidad predictiva",
+    "text": "Capacidad predictiva\nLa función de perdida utilizada para medir la magnitud promedio de los errores de predicción es el RMSE de los errores en las submuestras por horizonte de las variable objetivo.\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 2: Raíz del error cuadrático medio (RMSE)"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-entre-resultados",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-entre-resultados",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Cocientes entre resultados",
+    "text": "Cocientes entre resultados\nPara comparar los resultados predictivos de ambos modelos se realiza un cociente de los resultados del SVAR50_4B entre los resultados del AR(1), por horizonte de cada una de las variables y se espera que el cociente sea menor a 1, lo que indicaría que los errores del AR(1) son mayores que los que se obtienen en el SVAR50_4B.\n\nResultados de los cocientes entre resultados\n\n\n\n\n\n\n\n\n\nHorizontes\nd4_ln_cpi\nd4_ln_s\nd4_ln_y_sm\ni\n\n\n\n\n1\n0.894\n1.108\n0.983\n0.828\n\n\n2\n0.905\n1.087\n0.966\n0.840\n\n\n3\n0.922\n1.066\n0.954\n0.844\n\n\n4\n0.932\n1.049\n0.940\n0.847\n\n\n5\n0.930\n1.039\n0.948\n0.841\n\n\n6\n0.922\n1.034\n0.968\n0.821\n\n\n7\n0.920\n1.031\n0.986\n0.793\n\n\n8\n0.928\n1.025\n1.007\n0.765\n\n\n9\n0.926\n1.025\n1.019\n0.755\n\n\n10\n0.925\n1.036\n1.014\n0.763\n\n\n11\n0.923\n1.048\n1.001\n0.789\n\n\n12\n0.927\n1.052\n0.986\n0.819"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-promedios",
+    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-promedios",
+    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
+    "section": "Cocientes promedios",
+    "text": "Cocientes promedios\nEn la mayoría de variables el cociente es menor a 1, excepto en el tipo de cambio.\n\nResultados de promedios\n\n\n\n\n\n\n\nHorizontes\nCociente entre promedios del RMSE de las var. objetivo\nPromedio de cocientes entre RMSE de las var. objetivo\n\n\n\n\n1\n0.982\n0.953\n\n\n2\n0.976\n0.950\n\n\n3\n0.971\n0.947\n\n\n4\n0.964\n0.942\n\n\n5\n0.959\n0.939\n\n\n6\n0.954\n0.936\n\n\n7\n0.950\n0.932\n\n\n8\n0.948\n0.931\n\n\n9\n0.946\n0.931\n\n\n10\n0.948\n0.935\n\n\n11\n0.952\n0.940\n\n\n12\n0.957\n0.946\n\n\n\nEn ambos promedio el cociente es menor a la unidad."
   },
   {
     "objectID": "hefm/results/SVAR52/SVAR52_doc.html",
@@ -333,1045 +1335,15 @@
     ]
   },
   {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#estimación",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#estimación",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Estimación",
-    "text": "Estimación\n\n\nPara la realización de este ejercicio se tienen varios subconjuntos de un conjunto (ModelPool) que contiene submuestras con periodos de estimación que inician con fechas más atrás en el tiempo.\nEs decir, este conjunto inicia con un modelo que tiene un rango de estimación “2005Q1-2021Q4”, el segundo, tendrá un rango de estimación entre “2005Q2-2021Q4”, así sucesivamente hasta el \\(n\\)-ésimo modelo que tiene un rango de estimación “2012Q4-2021Q4”.\nLos subconjuntos se obtienen al filtrando la clase ModelPool."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#subconjuntos-de-model-pool",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#subconjuntos-de-model-pool",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Subconjuntos de Model Pool",
-    "text": "Subconjuntos de Model Pool\n\n\nEl primer subconjunto es el conjunto completo.\nUn segundo subconjunto, inicia con el modelo cuya estimación se realiza en el periodo “2005Q2-2021Q4”, continua con el modelo con un un rango de estimación “2005Q3-2021Q4”, y así sucesivamente hasta el \\(n\\)-ésimo modelo con el rango de estimación “2012Q4-2021Q4”.\nDe esta forma el último subconjunto, contendrá los modelos con fechas iniciales de estimación más recientes. Éste inicia con un modelo con un rango de estimación “2010Q4-2021Q4” y termina con un modelo con un rango de estimación en los periodos “2012Q4-2021Q4”."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#validación",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#validación",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Validación",
-    "text": "Validación\n\n\nPara cualquier subconjunto, la validación en este ejercicio se realiza en los periodos comprendidos entre “2021Q4 - 2024Q4”. Y este rango se mantiene constante en todos los modelos del subconjunto.\n\nRMSE\n\nEn cada uno de estos subconjuntos es posible obtener la función de pérdida, tomando el \\(RMSE_h\\) en función de los errores de cada uno de los modelos, por cada horizonte \\(h\\)."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#diagrama",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#diagrama",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Diagrama",
-    "text": "Diagrama\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Model Pool\n    dateFormat  YYYY-QQ\n    section Model 1\n    Training           :a1, 2005-01, 191M\n    Validation      :a2, 2021-01, 47M\n    section Model 2\n    Training           :a1, 2005-04, 188M\n    Validation      :a2, 2021-01, 47M\n    section Model 3\n    Training          :a1, 2005-07, 185M\n    Validation      :a2, 2021-01, 47M\n    section ...\n    ... :a1, 2015-01-02, \n    section Model n\n    Training          :a1, 2012-10, 98M\n    Validation      :a2, 2021-01, 47M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto 2\n    dateFormat  YYYY-MM\n    section Model 2\n    Training           :a1, 2005-04, 188M\n    Validation      :a2, 2021-01, 47M\n    section Model 3\n    Training           :a1, 2005-07, 185M\n    Validation      :a2, 2021-01, 47M\n    section ...\n    ... :a1, 2015-01-02, 1d\n    section Model n\n    Training          :a1, 2012-10, 98M\n    Validation      :a2, 2021-01, 47M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto p\n    dateFormat  YYYY-MM\n    section Model p\n    Training           :a1, 2010-10, 122M\n    Validation      :a2, 2021-01, 47M\n    section Model p+1\n    Training           :a1, 2011-01, 119M\n    Validation      :a2, 2021-01, 47M\n    section ...\n    ... :a1, 2017-10-01, \n    section Model n\n    Training          :a1, 2012-10, 98M\n    Validation      :a2, 2021-01, 47M"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#variables-objetivo",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#variables-objetivo",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Variables objetivo",
-    "text": "Variables objetivo\n\n\nFigure 1: RMSE de todas las variables, todos los horizontes"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Promedio de las variables objetivo",
-    "text": "Promedio de las variables objetivo\n\n\nFigure 2: Promedio de las variables objetivo, todos los horizontes"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "En los primeros cuatro horizontes",
-    "text": "En los primeros cuatro horizontes\n\n\nLa función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.\n\nLa inflación y la tasa de interés tienen un mínimo en el conjunto que incluye todas las submuestras.\nEl crecimiento doméstico y el tipo de cambio tiene un mínimo en un subconjunto en el que se tienen submuestra con fechas de estimación iniciales más recientes."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-horizontes-8-10-12",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#en-los-horizontes-8-10-12",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "En los horizontes 8, 10, 12 …",
-    "text": "En los horizontes 8, 10, 12 …\n\n\nLa tasa de interés, para el horizonte 8 sigue manteniendo un mínimo en el conjunto que incluye todas las submuestras. Y sufre un cambio en los horizontes 10 y 12, en los que el error mínimo se encuentra en subconjuntos de modelos con estimaciones más recientes.\nDe igual forma, la inflación, y el crecimiento doméstico tiene un mínimo en un subconjunto en el que se tienen submuestra con fechas de estimación iniciales más recientes en los horizontes 8, 10,12.\nFinalmente para al el tipo de cambio, en el horizonte 8 y 10 tiene un mínimo en los subconjuntos con modelos, que tiene un inicio de estimación más reciente. Y hasta el horizonte 12 que reduce el error cuando los modelos se estiman más atrás en el tiempo."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo-1",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html#promedio-de-las-variables-objetivo-1",
-    "title": "Pronósticos, fuera de muestra con periodos de estimación iniciales",
-    "section": "Promedio de las variables objetivo",
-    "text": "Promedio de las variables objetivo\nEn general, el promedio representa el comportamiento de la mayoría de las variables.\nEl mínimo del RMSE en los primeros cuatro horizontes y en el horizonte 8 se encuentra cuando se toma fechas de estimación pasadas.\nEn los horizontes 10 y 12, el mínimo del RMSE se encuentra cuando se toma fechas de estimación más adelante en el tiempo. Indicando que el error de pronóstico se va reduciendo cuando se estima con datos más recientes."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-1",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-1",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Descripción del experimento No. 1",
-    "text": "Descripción del experimento No. 1\nEn el primer experimento, los ejercicios de evaluación se definen de la siguiente manera:\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nCorrimiento de la HEFM No. 2\n\nEstimaciones incluidas (18 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2019Q1\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-2",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-2",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Descripción del experimento No. 2",
-    "text": "Descripción del experimento No. 2\nEl segundo experimento es una variante del primero, en el que se restringe la muestra de validación para que sea la misma en todos los ejercicios de evaluación.\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestra de validación: 2022Q1 - 2024Q4\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\nMuestra de validación: 2022Q1 - 2024Q4"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-3",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-3",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Descripción del experimento No. 3",
-    "text": "Descripción del experimento No. 3\nEl tercer experimento es una variante del primero, en el que la muestra de validación se encuentra contenida en la muestra de estimación.\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestras de validación: La misma que la de estimación.\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\n\nMuestras de validación: La misma que la de estimación."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-1",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-1",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Experimento No. 1",
-    "text": "Experimento No. 1\nEn este experimento, el RMSE promedio de las variables objetivo disminuye al agregar consecutivamente estimaciones del modelo con submuestras más amplias y actualizadas (Figura 1). Al aumentar el horizonte de pronóstico evaluado, el RMSE promedio se invierte, pasando de mostrar una caída constante a lo largo de los ejercicios de evaluación a adoptar una forma de “U”.\nLa Figura 2 muestra el RMSE de las variables que componen el promedio en la Figura 1. En general, el RMSE de estas variables aumenta al incorporar consecutivamente nuevas estimaciones con submuestras más amplias y actualizadas.\nEl ritmo al que crece el RMSE varía entre las distintas variables, siendo notable el caso de d4_ln_y_sm, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras de estimación con datos del período de COVID-19."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-2",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-2",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Experimento No. 2",
-    "text": "Experimento No. 2\nAl fijar la muestra de validación en todos los ejercicios de evaluación, se observa que el promedio de los RMSE de las variables objetivo disminuye en los horizontes cortos a medida que se agregan submuestras de estimación más extensas y actualizadas, pero esta tendencia se invierte conforme aumenta el horizonte de pronóstico (Figura 3). Este resultado es similar al encontrado en el experimento No. 1.\nAl observar el resultado por variable objetivo (Figura 4), los resultados son similares a los del experimento No. 1, destacando nuevamente el comportamiento de d4_ln_y_sm, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras con datos del período de COVID-19."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-3",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-3",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Experimento 3",
-    "text": "Experimento 3\nAl evaluar dentro de la muestra, el incremento en el número de submuestras de estimación perjudica, en general, el resultado del RMSE (Figura 5 y Figura 6), siendo consistente con los experimentos No. 1 y No. 2."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#comparación-entre-experimentos",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#comparación-entre-experimentos",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Comparación entre experimentos",
-    "text": "Comparación entre experimentos\nEn las siguientes gráficas se muestra el resultados de los tres experimentos simultáneamente.\n\n Experimento 1 (OS)\n Experimento 2 (OS mismo conjunto de validación)\n Experimento 3 (IS)"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Conclusiones",
-    "text": "Conclusiones\nPara un modelo con un procedimiento de estimación que logra capturar la dinámica conjunta de los datos, y asumiendo que dicha dinámica se mantiene a lo largo del tiempo, se espera que el error de pronóstico a un mismo horizonte disminuya al incrementar el tamaño de las submuestras de estimación incluidas en cada ejercicio de evaluación.\nLos resultados muestran que el RMSE tiende a incrementarse al añadir nuevas estimaciones con submuestras más grandes y actualizadas, lo que sugiere que esta combinación de modelo y procedimiento de estimación no es capaz de mejorar su poder predictivo al actualizar e incrementar la muestra de estimación."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#estimación",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#estimación",
-    "title": "Ejercicio de HV-Block",
-    "section": "Estimación",
-    "text": "Estimación\n\n\nEl ejercicio del bloque \\(hv\\) busca estimar el modelo SVAR50_4B utilizando el esquema \\(hv\\) con diferentes tamaños de muestra.\nDonde \\(h\\) es el número de periodos de espaciamiento entre la validación y la estimación.\nEl periodo de validación tiene una duración de \\(2v+1\\) periodos.\nPara ello, se establecen los parámetros \\(h\\) que va de 4 a 16 y \\(v\\) que va de 6 a 14."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#filtro",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#filtro",
-    "title": "Ejercicio de HV-Block",
-    "section": "Filtro",
-    "text": "Filtro\n\n\nLa fecha inicial es “2005Q1” y la fecha final es “2023Q4”, son 76 periodos disponibles.\nPara este ejercicio se evalúa si el tamaño de muestra de estimación \\(N_t=76-2h-2v-1\\) se encuentra en el rango de 40 a 70."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#rmse",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#rmse",
-    "title": "Ejercicio de HV-Block",
-    "section": "RMSE",
-    "text": "RMSE\n\n\nEn cada uno de estos conjuntos es posible obtener la función de pérdida, tomando el \\(RMSE_k\\) en función de los errores de cada uno de los modelos, por cada horizonte \\(k\\)."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#diagrama",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#diagrama",
-    "title": "Ejercicio de HV-Block",
-    "section": "Diagrama",
-    "text": "Diagrama\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Pool N\n    dateFormat  YYYY-QQ\n    axisFormat %Y-%m\n    section Model 1\n    V  :a3, 2005-01, 36M\n    H  :a4,2008-02,14M\n    T  :a5, 2009-05,176M\n    section Model 2\n    V  :a3, 2005-04, 36M\n    H  :a4,2008-05,14M\n    T  :a5, 2009-08,173M\n    section Model 3\n    V   :a3, 2005-07, 36M\n    H   :a4,2008-08,14M\n    T   :a5, 2009-011,170M\n    section .\n    ... :a1, 2015-01-02, \n    section Model p\n    T    :a1, 2005-01, 24M\n    H    :a2,2007-02,12M\n    V    :a3, 2008-03,36M\n    H    :a4,2011-04,12M\n    T     :a5, 2012-05,140M\n    section Model (p+1)\n    T    :a1, 2005-01, 27M\n    H    :a2,2007-05,12M\n    V    :a3, 2008-06,36M\n    H    :a4,2011-07,12M\n    T     :a5, 2012-08,137M\n    section ..\n    ... :a1, 2015-01-02,\n    section Model z\n    T    :a1, 2005-01, 176M\n    H    :a2,2019-010,14M\n    V    :a3, 2021-01,36M"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#variables-objetivo",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#variables-objetivo",
-    "title": "Ejercicio de HV-Block",
-    "section": "Variables objetivo",
-    "text": "Variables objetivo\n\n\nFigure 1: RMSE de todas las variables, todos los horizontes"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo",
-    "title": "Ejercicio de HV-Block",
-    "section": "Promedio de las variables objetivo",
-    "text": "Promedio de las variables objetivo\n\n\nFigure 2: Promedio de las variables objetivo, todos los horizontes"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-primeros-cuatro-horizontes",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-primeros-cuatro-horizontes",
-    "title": "Ejercicio de HV-Block",
-    "section": "En los primeros cuatro horizontes",
-    "text": "En los primeros cuatro horizontes\n\n\nLa función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.\n\nLa inflación, el crecimiento doméstico tienen un mínimo en el conjunto con muestras que tiene un tamaño de estimación más reducido.\nEl tipo de cambio y la tasa de interés tiene un mínimo en el conjunto con modelos con un tamaño de estimación mayor."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-horizontes-8-10-12",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#en-los-horizontes-8-10-12",
-    "title": "Ejercicio de HV-Block",
-    "section": "En los horizontes 8, 10, 12 …",
-    "text": "En los horizontes 8, 10, 12 …\n\n\nEl tipo de cambio, cambia de comportamiento y se obtiene un mínimo en el conjunto con modelos con una estimación mayor."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo-1",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html#promedio-de-las-variables-objetivo-1",
-    "title": "Ejercicio de HV-Block",
-    "section": "Promedio de las variables objetivo",
-    "text": "Promedio de las variables objetivo\nEn general, el mínimo del RMSE del promedio de las cuatro variables objetivo se encuentra cuando se toma un tamaño de estimación más grande. Indicando que el error de pronóstico se va reduciendo cuando se estima con más muestras."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#estimación",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#estimación",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Estimación",
-    "text": "Estimación\n\n\nPara la realización de este ejercicio se tienen varios subconjuntos de un conjunto (ModelPool) que contiene submuestras con periodos de estimación que inician con fechas más atrás en el tiempo.\nEs decir, este conjunto inicia con un modelo que tiene un rango de estimación “2005Q1-2024Q4”, el segundo, tendrá un rango de estimación entre “2005Q2-2024Q4”, así sucesivamente hasta el \\(n\\)-ésimo modelo que tiene un rango de estimación “2012Q4-2024Q4”.\nLos subconjuntos se obtienen al filtrando la clase ModelPool."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#subconjuntos-de-model-pool",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#subconjuntos-de-model-pool",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Subconjuntos de Model Pool",
-    "text": "Subconjuntos de Model Pool\n\n\nEl primer subconjunto es el conjunto completo.\nUn segundo subconjunto, inicia con el modelo cuya estimación se realiza en el periodo “2005Q2-2024Q4”, continua con el modelo con un un rango de estimación “2005Q3-2024Q4”, y así sucesivamente hasta el \\(n\\)-ésimo modelo con el rango de estimación “2012Q4-2024Q4”.\nDe esta forma el último subconjunto, contendrá los modelos con fechas iniciales de estimación más recientes. Éste inicia con un modelo con un rango de estimación “2010Q4-2024Q4” y termina con un modelo con un rango de estimación en los periodos “2012Q4-2024Q4”."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#validación",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#validación",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Validación",
-    "text": "Validación\n\n\nPara cualquier subconjunto, la validación en este ejercicio se realiza en los mismos periodos de estimación. ## RMSE\nEn cada uno de estos subconjuntos es posible obtener la función de pérdida, tomando el \\(RMSE_h\\) en función de los errores de cada uno de los modelos, por cada horizonte \\(h\\)."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#diagrama",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#diagrama",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Diagrama",
-    "text": "Diagrama\n\n\n\n\n\n%%{\ninit: {\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Model Pool\n    dateFormat  YYYY-QQ\n    section Model 1\n    Training           :a1, 2005-01, 237M\n    Validation      :a2, 2005-01, 237M\n    section Model 2\n    Training           :a1, 2005-04, 234M\n    Validation      :a2, 2005-04, 234M\n    section Model 3\n    Training          :a1, 2005-07, 231M\n    Validation      :a2, 2005-07, 231M\n    section ...\n    ... :a1, 2015-01-02, \n    section Model n\n    Training          :a1, 2012-10, 144M\n    Validation      :a2, 2012-10, 144M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto 2\n    dateFormat  YYYY-MM\n    section Model 2\n    Training           :a1, 2005-04, 237M\n    Validation      :a2, 2005-04, 237M\n    section Model 3\n    Training           :a1, 2005-07, 234M\n    Validation      :a2, 2005-07, 234M\n    section ...\n    ... :a1, 2015-01-02, 1d\n    section Model n\n    Training          :a1, 2012-10, 144M\n    Validation      :a2, 2012-10, 144M\n\n\n\n\n\n\n\n\n\n\n\n\n%%{\ninit: {\n  \"gantt\": {\n  \"displayMode\":\"compact\"\n  },\n  \"securityLevel\": \"loose\",\n  \"theme\": \"forest\"   \n}\n}%%\ngantt\n    title Subconjunto p\n    dateFormat  YYYY-MM\n    section Model p\n    Training           :a1, 2010-10, 169M\n    Validation      :a2, 2010-10, 169M\n    section Model p+1\n    Training           :a1, 2011-01, 166M\n    Validation      :a2, 2011-01, 166M\n    section ...\n    ... :a1, 2017-10-01, \n    section Model n\n    Training          :a1, 2012-10, 144M\n    Validation      :a2, 2012-10, 144M"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#variables-objetivo",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#variables-objetivo",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Variables objetivo",
-    "text": "Variables objetivo\n\n\nFigure 1: RMSE de todas las variables, todos los horizontes"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivo",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Promedio de las variables objetivo",
-    "text": "Promedio de las variables objetivo\n\n\nFigure 2: Promedio de las variables objetivo, todos los horizontes"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-primeros-cuatro-horizontes",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "En los primeros cuatro horizontes",
-    "text": "En los primeros cuatro horizontes\n\n\nLa función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.\n\nLa inflación, el tipo de cambio y la tasa de interés tienen un mínimo en el subconjunto que incluye menos submuestras.\nEl crecimiento doméstico tiene un mínimo en el subconjunto en el que se tienen submuestra con fechas de estimación iniciales más antiguas."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-horizontes-8-10-12",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#en-los-horizontes-8-10-12",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "En los horizontes 8, 10, 12 …",
-    "text": "En los horizontes 8, 10, 12 …\n\n\nLa inflación, el tipo de cambio y la tasa de interés, tienen un mínimo en los subconjuntos con modelos, que tiene un inicio de estimación más recientes.\nEl crecimiento doméstico tiene un mínimo en el subconjunto en el que se tienen en el subconjunto que incluye todas las submuestras."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivos",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html#promedio-de-las-variables-objetivos",
-    "title": "Pronósticos, dentro de muestra con periodos de estimación iniciales",
-    "section": "Promedio de las variables objetivos",
-    "text": "Promedio de las variables objetivos\n\nEn general, el mínimo del RMSE del promedio de las cuatro variables objetivo se encuentra cuando se toma fechas de estimación más adelante en el tiempo. Indicando que el error de pronóstico se va reduciendo cuando se estima con datos más recientes."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/index.html",
-    "href": "hefm/results/SVAR50_4B/index.html",
-    "title": "All SVAR50-4B Results",
+    "objectID": "hefm/results/SVAR53/index.html",
+    "href": "hefm/results/SVAR53/index.html",
+    "title": "DIE-BG",
     "section": "",
-    "text": "Variable Final Estimation Date: This exercise examines the impact on RMSE of adding new observations to the estimation sample. The effect is evaluated both in-sample and out-of-sample, using fixed and rolling validation sets.\nVariable Initial Estimation Date (IS): This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured in-sample.\nVariable Initial Estimation Date (OS): This exercise examines the impact on RMSE of excluding earlier observations from the estimation sample. The effect is measured out-of-sample.\nVariable Sample Size: This exercise explores the impact of sample size on RMSE. An HV-type evaluation scheme is used to isolate the effect of autocorrelation on RMSE.",
+    "text": "Calibración de hiperparámetro para regresión Ridge: This exercise evaluates multiple values of the regularization parameter \\(\\lambda\\) to identify the optimal Ridge regression estimate and compare with the SVAR50-4B model. The effect is evaluated out-of-sample.",
     "crumbs": [
       "Results",
-      "SVAR50-4B",
+      "SVAR53",
       "Index"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-endógenas",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-endógenas",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Variables endógenas",
-    "text": "Variables endógenas\nAmbos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:\n\nTasa de Variación Interanual del PIB de EEUU: d4_ln_y_star\nTasa de Variación Interanual del Índice de Precios de Transables: d4_ln_ipei\nTasa de Interes de fondos federales: i_star\nInflacion No Subyacente Interanual: d4_ln_cpi_nosub\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Variación Interanual de la Base Monetaria: d4_ln_bm\nTasa de Interes Lider de Politica Monetaria: i"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-objetivo",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#variables-objetivo",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Variables objetivo:",
-    "text": "Variables objetivo:\n\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Interes Lider de Politica Monetaria: i"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-explicativa",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-explicativa",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Capacidad explicativa",
-    "text": "Capacidad explicativa\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 1: Coeficientes de variación\n\n\n\nEl promedio acumulada del coeficiente de variación de las variables objetivo, resulta ser menor en el modelo AR(1)"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-predictiva",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#capacidad-predictiva",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Capacidad predictiva",
-    "text": "Capacidad predictiva\nLa función de perdida utilizada para medir la magnitud promedio de los errores de predicción es el RMSE de los errores en las submuestras por horizonte de las variable objetivo.\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 2: Raíz del error cuadrático medio (RMSE)"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-entre-resultados",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-entre-resultados",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Cocientes entre resultados",
-    "text": "Cocientes entre resultados\nPara comparar los resultados predictivos de ambos modelos se realiza un cociente de los resultados del SVAR50_4B entre los resultados del AR(1), por horizonte de cada una de las variables y se espera que el cociente sea menor a 1, lo que indicaría que los errores del AR(1) son mayores que los que se obtienen en el SVAR50_4B.\n\nResultados de los cocientes entre resultados\n\n\n\n\n\n\n\n\n\nHorizontes\nd4_ln_cpi\nd4_ln_s\nd4_ln_y_sm\ni\n\n\n\n\n1\n0.894\n1.108\n0.983\n0.828\n\n\n2\n0.905\n1.087\n0.966\n0.840\n\n\n3\n0.922\n1.066\n0.954\n0.844\n\n\n4\n0.932\n1.049\n0.940\n0.847\n\n\n5\n0.930\n1.039\n0.948\n0.841\n\n\n6\n0.922\n1.034\n0.968\n0.821\n\n\n7\n0.920\n1.031\n0.986\n0.793\n\n\n8\n0.928\n1.025\n1.007\n0.765\n\n\n9\n0.926\n1.025\n1.019\n0.755\n\n\n10\n0.925\n1.036\n1.014\n0.763\n\n\n11\n0.923\n1.048\n1.001\n0.789\n\n\n12\n0.927\n1.052\n0.986\n0.819"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-promedios",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html#cocientes-promedios",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Cocientes promedios",
-    "text": "Cocientes promedios\nEn la mayoría de variables el cociente es menor a 1, excepto en el tipo de cambio.\n\nResultados de promedios\n\n\n\n\n\n\n\nHorizontes\nCociente entre promedios del RMSE de las var. objetivo\nPromedio de cocientes entre RMSE de las var. objetivo\n\n\n\n\n1\n0.982\n0.953\n\n\n2\n0.976\n0.950\n\n\n3\n0.971\n0.947\n\n\n4\n0.964\n0.942\n\n\n5\n0.959\n0.939\n\n\n6\n0.954\n0.936\n\n\n7\n0.950\n0.932\n\n\n8\n0.948\n0.931\n\n\n9\n0.946\n0.931\n\n\n10\n0.948\n0.935\n\n\n11\n0.952\n0.940\n\n\n12\n0.957\n0.946\n\n\n\nEn ambos promedio el cociente es menor a la unidad."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html",
-    "href": "hefm/resources/articles/articlePlaceholder.html",
-    "title": "Article Placeholder",
-    "section": "",
-    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#abstract",
-    "href": "hefm/resources/articles/articlePlaceholder.html#abstract",
-    "title": "Article Placeholder",
-    "section": "",
-    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#introduction",
-    "href": "hefm/resources/articles/articlePlaceholder.html#introduction",
-    "title": "Article Placeholder",
-    "section": "Introduction",
-    "text": "Introduction\nIntroduce the problem, provide background, and explain the relevance of the research."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#literature-review",
-    "href": "hefm/resources/articles/articlePlaceholder.html#literature-review",
-    "title": "Article Placeholder",
-    "section": "Literature Review",
-    "text": "Literature Review\nBrief overview of related work and how this article fits within the broader context."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#data-and-methods",
-    "href": "hefm/resources/articles/articlePlaceholder.html#data-and-methods",
-    "title": "Article Placeholder",
-    "section": "Data and Methods",
-    "text": "Data and Methods\n\nData\nDescription of data sources, sampling methods, and any preprocessing.\nTable 1. Summary of main variables. (Insert actual table here)\n\n\n\nVariable\nDescription\n\n\n\n\nGDP\nGross Domestic Product\n\n\nInflation\nCPI Annual Change\n\n\n\n\n\nMethodology\nPresent the methodology used. Include equations if relevant.\n\\[\\begin{equation}\nY_t = \\alpha + \\beta X_t + \\varepsilon_t\n\\end{equation}\\]"
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#results",
-    "href": "hefm/resources/articles/articlePlaceholder.html#results",
-    "title": "Article Placeholder",
-    "section": "Results",
-    "text": "Results\n\nMain Results\nFigure 1. Placeholder for main results plot.\n\n\n\nAdditional Analysis\nFigure 2. Placeholder for supplementary analysis."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#discussion",
-    "href": "hefm/resources/articles/articlePlaceholder.html#discussion",
-    "title": "Article Placeholder",
-    "section": "Discussion",
-    "text": "Discussion\nInterpret your results in the context of existing research."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#conclusion",
-    "href": "hefm/resources/articles/articlePlaceholder.html#conclusion",
-    "title": "Article Placeholder",
-    "section": "Conclusion",
-    "text": "Conclusion\nSummarize the study, its implications, and suggest directions for future research."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#references",
-    "href": "hefm/resources/articles/articlePlaceholder.html#references",
-    "title": "Article Placeholder",
-    "section": "References",
-    "text": "References\nAdd citations here using [@key] notation and include a .bib file if needed."
-  },
-  {
-    "objectID": "hefm/resources/articles/articlePlaceholder.html#appendix",
-    "href": "hefm/resources/articles/articlePlaceholder.html#appendix",
-    "title": "Article Placeholder",
-    "section": "Appendix",
-    "text": "Appendix\n\nA. Additional Figures\nFigure A1. Placeholder for appendix figure."
-  },
-  {
-    "objectID": "hefm/resources/slides/index.html",
-    "href": "hefm/resources/slides/index.html",
-    "title": "Lectures, Summaries and More",
-    "section": "",
-    "text": "Fullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶"
-  },
-  {
-    "objectID": "hefm/resources/slides/index.html#section",
-    "href": "hefm/resources/slides/index.html#section",
-    "title": "Lectures, Summaries and More",
-    "section": "",
-    "text": "Fullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶\n\nFullscreen ⛶"
-  },
-  {
-    "objectID": "hefm/index.html",
-    "href": "hefm/index.html",
-    "title": "HEFM",
-    "section": "",
-    "text": "HEFM stands for Herramienta de Evaluación Fuera de Muestra — or Pseudo Out-of-Sample Evaluation Tool (POSET) in English.\nThis platform was developed in 2021 in response to a key question: How can we assess whether a given SVAR model is a reliable guide for macroeconomic analysis? Since then, various methodological approaches have been designed to quantify both the predictive accuracy and explanatory robustness of these models.\nThe site presents a concrete implementation of that effort, grounded in statistical model selection techniques, particularly time series cross-validation. The platform enables users to evaluate forecast errors and examine the consistency of structural responses across different estimation windows.",
-    "crumbs": [
-      "HEFM"
-    ]
-  },
-  {
-    "objectID": "hefm/index.html#overview",
-    "href": "hefm/index.html#overview",
-    "title": "HEFM",
-    "section": "",
-    "text": "HEFM stands for Herramienta de Evaluación Fuera de Muestra — or Pseudo Out-of-Sample Evaluation Tool (POSET) in English.\nThis platform was developed in 2021 in response to a key question: How can we assess whether a given SVAR model is a reliable guide for macroeconomic analysis? Since then, various methodological approaches have been designed to quantify both the predictive accuracy and explanatory robustness of these models.\nThe site presents a concrete implementation of that effort, grounded in statistical model selection techniques, particularly time series cross-validation. The platform enables users to evaluate forecast errors and examine the consistency of structural responses across different estimation windows.",
-    "crumbs": [
-      "HEFM"
-    ]
-  },
-  {
-    "objectID": "hefm/index.html#sections",
-    "href": "hefm/index.html#sections",
-    "title": "HEFM",
-    "section": "Sections",
-    "text": "Sections\n\n📄 Documentation: Technical manuals, code usage, and API references.\n\n📊 Results: Forecasts, simulation outputs, and model validation figures.\n\n📁 Resources: Presentations, papers, supporting documents, and internal material.",
-    "crumbs": [
-      "HEFM"
-    ]
-  },
-  {
-    "objectID": "hefm/index.html#purpose",
-    "href": "hefm/index.html#purpose",
-    "title": "HEFM",
-    "section": "Purpose",
-    "text": "Purpose\nHEFM serves as a tool to diagnose the performance of SVAR models along two critical dimensions: their ability to predict key macroeconomic variables out of sample, and their ability to explain the empirical regularities in the data through structural responses.\nIt does this by combining pseudo out-of-sample forecasting exercises with analysis of the dispersion in impulse-response functions (IRFs) across multiple estimation windows. This dual focus allows practitioners to identify models that are not only statistically robust, but also consistent with the theoretical causal mechanisms embedded in their structure.\nFor a deeper look at the underlying assumptions and implementation details, see the Resources section.\n\n\nLooking for the economic logic behind the tool? Visit the Resources section.",
-    "crumbs": [
-      "HEFM"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Us",
-    "section": "",
-    "text": "We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis."
-  },
-  {
-    "objectID": "about.html#who-we-are",
-    "href": "about.html#who-we-are",
-    "title": "About Us",
-    "section": "",
-    "text": "We are a technical and research-focused unit dedicated to the development, evaluation, and dissemination of tools and insights for applied economic analysis."
-  },
-  {
-    "objectID": "about.html#our-mission",
-    "href": "about.html#our-mission",
-    "title": "About Us",
-    "section": "Our Mission",
-    "text": "Our Mission\nOur mission is to support decision-making and foster technical collaboration by producing robust models, clear documentation, and accessible research outputs."
-  },
-  {
-    "objectID": "about.html#what-we-do",
-    "href": "about.html#what-we-do",
-    "title": "About Us",
-    "section": "What We Do",
-    "text": "What We Do\nWe work on the design and implementation of analytical frameworks, model-based simulations, and empirical projects related to economic dynamics."
-  },
-  {
-    "objectID": "about.html#who-its-for",
-    "href": "about.html#who-its-for",
-    "title": "About Us",
-    "section": "Who It’s For",
-    "text": "Who It’s For\nThis website is intended for researchers, analysts, and institutions interested in macroeconomic modeling, forecasting, and applied time series tools."
-  },
-  {
-    "objectID": "about.html#what-you-will-find-here",
-    "href": "about.html#what-you-will-find-here",
-    "title": "About Us",
-    "section": "What You Will Find Here",
-    "text": "What You Will Find Here\n\nTheoretical and technical materials\n\nCode libraries and implementation guides\n\nForecasting results and research outputs\n\nPresentations, downloads, and supporting files\n\nInformation about the team and our collaborators"
-  },
-  {
-    "objectID": "about.html#collaborations",
-    "href": "about.html#collaborations",
-    "title": "About Us",
-    "section": "Collaborations",
-    "text": "Collaborations\nWe engage with internal and external partners to share methodologies, co-develop tools, and advance the understanding of key economic phenomena."
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About Us",
-    "section": "Contact",
-    "text": "Contact\nFor questions or collaboration inquiries, please visit the team section."
-  },
-  {
-    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
-    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
-    "title": "Slide Deck Placeholder",
-    "section": "Getting up",
-    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
-  },
-  {
-    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
-    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
-    "title": "Slide Deck Placeholder",
-    "section": "Breakfast",
-    "text": "Breakfast\n\nEat eggs\nDrink coffee"
-  },
-  {
-    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#dinner",
-    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#dinner",
-    "title": "Slide Deck Placeholder",
-    "section": "Dinner",
-    "text": "Dinner\n\nEat spaghetti\nDrink wine"
-  },
-  {
-    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
-    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
-    "title": "Slide Deck Placeholder",
-    "section": "Going to sleep",
-    "text": "Going to sleep\n\nGet in bed\nCount sheep"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DIE-BG: BG Economic Research",
-    "section": "",
-    "text": "Welcome to the official website of DIE-BG. Our work focuses on macroeconomic series, model-based policy analysis, and real-time indicators."
-  },
-  {
-    "objectID": "index.html#what-you-will-find-here",
-    "href": "index.html#what-you-will-find-here",
-    "title": "DIE-BG: BG Economic Research",
-    "section": "What you will find here",
-    "text": "What you will find here\n\nTheoretical foundations and modeling approaches\nCode libraries and technical documentation\nResults and applications\nTeam members and collaborators\nDownloadable resources"
-  },
-  {
-    "objectID": "index.html#explore-our-tools",
-    "href": "index.html#explore-our-tools",
-    "title": "DIE-BG: BG Economic Research",
-    "section": "Explore our tools",
-    "text": "Explore our tools\n\nHEFM: Herramienta de Evaluación Fuera de Muestra — or Pseudo Out-of-Sample Evaluation Tool (POSET) in English."
-  },
-  {
-    "objectID": "index.html#research-projects",
-    "href": "index.html#research-projects",
-    "title": "DIE-BG: BG Economic Research",
-    "section": "Research Projects",
-    "text": "Research Projects\nExplore our additional research lines and experimental developments:\n\nNowcasting: Real-time indicators with Mixed Frequencies Machine Learning (MFML)"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "DIE-BG: BG Economic Research",
-    "section": "Contact",
-    "text": "Contact\nFor questions or collaborations, please reach out via the team section."
-  },
-  {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Research Projects",
-    "section": "",
-    "text": "This section compiles ongoing and completed research projects conducted by DIE-BG that go beyond the scope of our core tools.\nProjects hosted here typically involve applied macroeconomic research, forecasting exercises, structural analysis, or experimental modeling initiatives."
-  },
-  {
-    "objectID": "projects/index.html#purpose",
-    "href": "projects/index.html#purpose",
-    "title": "Research Projects",
-    "section": "Purpose",
-    "text": "Purpose\nThe Projects section serves as a flexible space to:\n\nDocument exploratory or complementary studies.\nShare empirical investigations not tied to HEFM or HEMI.\nPublish internal working drafts, validation reports, or topic-specific models.\nHost specialized forecasting tools such as Nowcasting modules."
-  },
-  {
-    "objectID": "projects/index.html#active-projects",
-    "href": "projects/index.html#active-projects",
-    "title": "Research Projects",
-    "section": "Active Projects",
-    "text": "Active Projects\n\nNowcasting: A real-time indicator system integrating news and statistical signals."
-  },
-  {
-    "objectID": "projects/index.html#how-to-navigate",
-    "href": "projects/index.html#how-to-navigate",
-    "title": "Research Projects",
-    "section": "How to Navigate",
-    "text": "How to Navigate\nEach project has its own subfolder and includes: - A short description and purpose - Methodological notes and documents - Results, simulations, and visualizations - Supplementary files, when applicable\n\n\nFor more structured modeling tools, visit the HEFM or HEMI sections."
-  },
-  {
-    "objectID": "projects/nowcasting/slides/index.html",
-    "href": "projects/nowcasting/slides/index.html",
-    "title": "Lectures, Summaries and More",
-    "section": "",
-    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶"
-  },
-  {
-    "objectID": "projects/nowcasting/slides/index.html#slide-deck-placeholder",
-    "href": "projects/nowcasting/slides/index.html#slide-deck-placeholder",
-    "title": "Lectures, Summaries and More",
-    "section": "",
-    "text": "This is an example of a file with an embedded Slide Deck.\nFullscreen ⛶"
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html",
-    "title": "Article Placeholder",
-    "section": "",
-    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#abstract",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#abstract",
-    "title": "Article Placeholder",
-    "section": "",
-    "text": "This is a placeholder abstract. Summarize your study’s objective, methodology, and key findings here in 100–200 words."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#introduction",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#introduction",
-    "title": "Article Placeholder",
-    "section": "Introduction",
-    "text": "Introduction\nIntroduce the problem, provide background, and explain the relevance of the research."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#literature-review",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#literature-review",
-    "title": "Article Placeholder",
-    "section": "Literature Review",
-    "text": "Literature Review\nBrief overview of related work and how this article fits within the broader context."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#data-and-methods",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#data-and-methods",
-    "title": "Article Placeholder",
-    "section": "Data and Methods",
-    "text": "Data and Methods\n\nData\nDescription of data sources, sampling methods, and any preprocessing.\nTable 1. Summary of main variables. (Insert actual table here)\n\n\n\nVariable\nDescription\n\n\n\n\nGDP\nGross Domestic Product\n\n\nInflation\nCPI Annual Change\n\n\n\n\n\nMethodology\nPresent the methodology used. Include equations if relevant.\n\\[\\begin{equation}\nY_t = \\alpha + \\beta X_t + \\varepsilon_t\n\\end{equation}\\]"
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#results",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#results",
-    "title": "Article Placeholder",
-    "section": "Results",
-    "text": "Results\n\nMain Results\nFigure 1. Placeholder for main results plot.\n\n\n\nAdditional Analysis\nFigure 2. Placeholder for supplementary analysis."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#discussion",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#discussion",
-    "title": "Article Placeholder",
-    "section": "Discussion",
-    "text": "Discussion\nInterpret your results in the context of existing research."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#conclusion",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#conclusion",
-    "title": "Article Placeholder",
-    "section": "Conclusion",
-    "text": "Conclusion\nSummarize the study, its implications, and suggest directions for future research."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#references",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#references",
-    "title": "Article Placeholder",
-    "section": "References",
-    "text": "References\nAdd citations here using [@key] notation and include a .bib file if needed."
-  },
-  {
-    "objectID": "projects/nowcasting/articles/articlePlaceholder.html#appendix",
-    "href": "projects/nowcasting/articles/articlePlaceholder.html#appendix",
-    "title": "Article Placeholder",
-    "section": "Appendix",
-    "text": "Appendix\n\nA. Additional Figures\nFigure A1. Placeholder for appendix figure."
-  },
-  {
-    "objectID": "hefm/documentation/index.html",
-    "href": "hefm/documentation/index.html",
-    "title": "Getting Started",
-    "section": "",
-    "text": "Welcome! This page will help you get up and running with the library. Whether you’re an experienced user or just starting out, follow the steps below to install and begin using the core features."
-  },
-  {
-    "objectID": "hefm/documentation/index.html#installation",
-    "href": "hefm/documentation/index.html#installation",
-    "title": "Getting Started",
-    "section": "Installation",
-    "text": "Installation\nFollow the instructions below depending on your environment.\n\nPython\npip install your-library-name\n\n\nR\ninstall.packages(\"yourLibraryName\")\n\n\nJulia\nusing Pkg\nPkg.add(\"YourLibraryName\")\n\nYou can also clone the GitHub repository if you’re installing a development version."
-  },
-  {
-    "objectID": "hefm/documentation/index.html#basic-usage",
-    "href": "hefm/documentation/index.html#basic-usage",
-    "title": "Getting Started",
-    "section": "Basic Usage",
-    "text": "Basic Usage\nHere’s a minimal example to get started:\nimport your_library_name as lib\n\nresult = lib.run_model(data=\"path/to/data.csv\")\nprint(result.summary())"
-  },
-  {
-    "objectID": "hefm/documentation/index.html#requirements",
-    "href": "hefm/documentation/index.html#requirements",
-    "title": "Getting Started",
-    "section": "Requirements",
-    "text": "Requirements\nMake sure your system meets the following requirements:\n\nPython 3.8+ or R 4.1+ or Julia 1.8+\nRequired packages: numpy, pandas, matplotlib, etc.\n(Optional) Jupyter Notebook support"
-  },
-  {
-    "objectID": "hefm/documentation/index.html#where-to-go-next",
-    "href": "hefm/documentation/index.html#where-to-go-next",
-    "title": "Getting Started",
-    "section": "4. Where to Go Next",
-    "text": "4. Where to Go Next\n\n📖 Full Documentation\n🧪 Examples\n📊 Results\n💬 FAQ or Support\n\n\nIf you encounter any issues, please consult the documentation or open an issue on GitHub."
-  },
-  {
-    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
-    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
-    "title": "Slide Deck Placeholder",
-    "section": "Getting up",
-    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
-  },
-  {
-    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
-    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
-    "title": "Slide Deck Placeholder",
-    "section": "Breakfast",
-    "text": "Breakfast\n\nEat eggs\nDrink coffee"
-  },
-  {
-    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#dinner",
-    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#dinner",
-    "title": "Slide Deck Placeholder",
-    "section": "Dinner",
-    "text": "Dinner\n\nEat spaghetti\nDrink wine"
-  },
-  {
-    "objectID": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
-    "href": "hefm/resources/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
-    "title": "Slide Deck Placeholder",
-    "section": "Going to sleep",
-    "text": "Going to sleep\n\nGet in bed\nCount sheep"
-  },
-  {
-    "objectID": "hefm/results/index.html",
-    "href": "hefm/results/index.html",
-    "title": "Results",
-    "section": "",
-    "text": "Fullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶"
-  },
-  {
-    "objectID": "hefm/results/index.html#section",
-    "href": "hefm/results/index.html#section",
-    "title": "Results",
-    "section": "",
-    "text": "Fullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶\n\n\n\n\nFullscreen ⛶"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "",
-    "text": "El objetivo de este documento es comparar concretamente los principales resultados de comparar el modelo SVAR50_4B y una variación del modelo con una matriz de restricción diferente, que represente un proceso autoregresivo de orden 1 para cada una de las variables (SVAR50_AR1).",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-endógenas",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-endógenas",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Variables endógenas",
-    "text": "Variables endógenas\nAmbos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:\n\nTasa de Variación Interanual del PIB de EEUU: d4_ln_y_star\nTasa de Variación Interanual del Índice de Precios de Transables: d4_ln_ipei\nTasa de Interes de fondos federales: i_star\nInflacion No Subyacente Interanual: d4_ln_cpi_nosub\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Variación Interanual de la Base Monetaria: d4_ln_bm\nTasa de Interes Lider de Politica Monetaria: i",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-objetivo",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#variables-objetivo",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Variables objetivo:",
-    "text": "Variables objetivo:\n\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Interes Lider de Politica Monetaria: i",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-explicativa",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-explicativa",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Capacidad explicativa",
-    "text": "Capacidad explicativa\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 1: Coeficientes de variación\n\n\n\nEl promedio acumulada del coeficiente de variación de las variables objetivo, resulta ser menor en el modelo AR(1)",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-predictiva",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#capacidad-predictiva",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Capacidad predictiva",
-    "text": "Capacidad predictiva\nLa función de perdida utilizada para medir la magnitud promedio de los errores de predicción es el RMSE de los errores en las submuestras por horizonte de las variable objetivo.\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR50_AR1\n\n\n\n\n\n\n\nFigure 2: Raíz del error cuadrático medio (RMSE)",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-entre-resultados",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-entre-resultados",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Cocientes entre resultados",
-    "text": "Cocientes entre resultados\nPara comparar los resultados predictivos de ambos modelos se realiza un cociente de los resultados del SVAR50_4B entre los resultados del AR(1), por horizonte de cada una de las variables y se espera que el cociente sea menor a 1, lo que indicaría que los errores del AR(1) son mayores que los que se obtienen en el SVAR50_4B.\n\nResultados de los cocientes entre resultados\n\n\n\n\n\n\n\n\n\nHorizontes\nd4_ln_cpi\nd4_ln_s\nd4_ln_y_sm\ni\n\n\n\n\n1\n0.894\n1.108\n0.983\n0.828\n\n\n2\n0.905\n1.087\n0.966\n0.840\n\n\n3\n0.922\n1.066\n0.954\n0.844\n\n\n4\n0.932\n1.049\n0.940\n0.847\n\n\n5\n0.930\n1.039\n0.948\n0.841\n\n\n6\n0.922\n1.034\n0.968\n0.821\n\n\n7\n0.920\n1.031\n0.986\n0.793\n\n\n8\n0.928\n1.025\n1.007\n0.765\n\n\n9\n0.926\n1.025\n1.019\n0.755\n\n\n10\n0.925\n1.036\n1.014\n0.763\n\n\n11\n0.923\n1.048\n1.001\n0.789\n\n\n12\n0.927\n1.052\n0.986\n0.819",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-promedios",
-    "href": "hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html#cocientes-promedios",
-    "title": "Comparación entre el modelo SVAR50_4B y SVAR50_AR1",
-    "section": "Cocientes promedios",
-    "text": "Cocientes promedios\nEn la mayoría de variables el cociente es menor a 1, excepto en el tipo de cambio.\n\nResultados de promedios\n\n\n\n\n\n\n\nHorizontes\nCociente entre promedios del RMSE de las var. objetivo\nPromedio de cocientes entre RMSE de las var. objetivo\n\n\n\n\n1\n0.982\n0.953\n\n\n2\n0.976\n0.950\n\n\n3\n0.971\n0.947\n\n\n4\n0.964\n0.942\n\n\n5\n0.959\n0.939\n\n\n6\n0.954\n0.936\n\n\n7\n0.950\n0.932\n\n\n8\n0.948\n0.931\n\n\n9\n0.946\n0.931\n\n\n10\n0.948\n0.935\n\n\n11\n0.952\n0.940\n\n\n12\n0.957\n0.946\n\n\n\nEn ambos promedio el cociente es menor a la unidad.",
-    "crumbs": [
-      "Results",
-      "SVAR50-AR1",
-      "Comparación del SVAR50-4B y el SVAR50-AR1"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html",
-    "title": "Variable Initial Estimation Date (IS)",
-    "section": "",
-    "text": "Variable Initial Estimation Date (IS)\nFullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50-4B",
-      "Variable Initial Estimation Date (IS)"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html",
-    "title": "Variable Sample Size",
-    "section": "",
-    "text": "Variable Sample Size\nFullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50-4B",
-      "Variable Sample Size"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html",
-    "title": "Variable Final Estimation Date",
-    "section": "",
-    "text": "Variable Final Estimation Date\nFullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50-4B",
-      "Variable Final Estimation Date"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html",
-    "href": "hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html",
-    "title": "Variable Initial Estimation Date (OS)",
-    "section": "",
-    "text": "Variable Initial Estimation Date (OS)\nFullscreen ⛶",
-    "crumbs": [
-      "Results",
-      "SVAR50-4B",
-      "Variable Initial Estimation Date (OS)"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#variables-endógenas",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#variables-endógenas",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Variables Endógenas",
-    "text": "Variables Endógenas\nLas especificaciones generales para ambos modelos son que, la realización de la evaluación es fuera de muestra. Las fechas con las que se modeló van desde 2005Q1 hasta 2024Q4. Ambos modelos cuentan con las siguientes variables endógenas y con el mismo ordenamiento:\n\nTasa de Variación Interanual del PIB de EEUU: d4_ln_y_star\nTasa de Variación Interanual del Índice de Precios de Transables: d4_ln_ipei\nTasa de Interes de fondos federales: i_star\nInflacion No Subyacente Interanual: d4_ln_cpi_nosub\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Variación Interanual de la Base Monetaria: d4_ln_bm\nTasa de Interes Lider de Politica Monetaria: i"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#variables-objetivo",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#variables-objetivo",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Variables objetivo:",
-    "text": "Variables objetivo:\n\nTasa de Variación Interanual del PIB de Guatemala: d4_ln_y\nInflación Subyacente Optima MSE Interanual: d4_ln_cpi_sub\nTasa de Variación Interanual del Tipo de Cambio Nominal: d4_ln_s\nTasa de Interes Lider de Politica Monetaria: i"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar50_4b",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar50_4b",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Matriz de restricción del SVAR50_4B",
-    "text": "Matriz de restricción del SVAR50_4B\nLa principal distinción entre modelos es la matriz de restricciones para el modelo SVAR50_4B es \\[\n\\begin{pmatrix}\n    NaN& NaN&0 &  0&   0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   NaN& 0&   0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   0&   NaN& 0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   NaN& 0&   0&   NaN& 0\\\\\n    NaN& 0&   NaN& 0&   0&   0&   0.9& 0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   0&   0&   NaN& NaN& NaN\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& NaN\\\\\n    NaN& 0&   0&   NaN& NaN& 0&   NaN& 0&   NaN& NaN\\\\\n\\end{pmatrix}\n\\]"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar52",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#matriz-de-restricción-del-svar52",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Matriz de restricción del SVAR52",
-    "text": "Matriz de restricción del SVAR52\nMientras que para el SVAR52 es \\[\n\\begin{pmatrix}\n    NaN& NaN& NaN & NaN &   0&   0&   0&   0&   0&   0\\\\\n    NaN& NaN& NaN & NaN &   0&   0&   0&   0&   0&   0\\\\\n    NaN& NaN& NaN & NaN & 0&   0&   0&   0&   0&   0\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   NaN& 0&   0&   NaN& 0\\\\\n    NaN& 0&   NaN& 0&   0&   0&   0.9& 0&   NaN& 0\\\\\n    NaN& 0&   0&   0&   0&   0&   0&   NaN& NaN& NaN\\\\\n    NaN& 0&   0&   0&   NaN& 0&   0&   0&   NaN& NaN\\\\\n    NaN& 0&   0&   NaN& NaN& 0&   NaN& 0&   NaN& NaN\\\\\n\\end{pmatrix}\n\\]"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-explicativa",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-explicativa",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Capacidad explicativa",
-    "text": "Capacidad explicativa\nEl promedio acumulada del coeficiente de variación de las variables objetivo, resulta ser menor en el modelo SVAR50_4B, en todos los horizontes:\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR52\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Comparación entre ambos modelos\n\n\n\n\n\n\n\nFigure 1: Coeficientes de variación"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-predictiva",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#capacidad-predictiva",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Capacidad predictiva",
-    "text": "Capacidad predictiva\nLa función de perdida utilizada para medir la magnitud promedio de los errores de predicción es el RMSE de los errores en las submuestras por horizonte de las variable objetivo.\n\n\n\n\n\n\n\n\n\n\n\n(a) SVAR50_4B\n\n\n\n\n\n\n\n\n\n\n\n(b) SVAR52\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Comparación de ambos modelos\n\n\n\n\n\n\n\nFigure 2: Función de pérdida (RMSE)"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-entre-modelos",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-entre-modelos",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Cocientes entre modelos",
-    "text": "Cocientes entre modelos\nPara comparar los resultados predictivos de ambos modelos se realiza un cociente de los resultados del SVAR52 entre los resultados del SVAR50_4B, por horizonte de cada una de las variables. Se espera que el cociente sea mayor a 1, cuando los errores del SVAR50_4B sean menores que los que se obtienen en el SVAR52.\n\nResultados de los cocientes entre resultados\n\n\n\n\n\n\n\n\n\nPeriodos\nCociente d4_ln_cpi\nCociente d4_ln_s\nCociente d4_ln_y_sm\nCociente i\n\n\n\n\n1\n0.976535157\n0.999629858\n1.005898396\n0.969602229\n\n\n2\n0.999653774\n1.002390557\n1.003742315\n0.971788686\n\n\n3\n1.032648221\n1.00795756\n1.002363462\n0.982181049\n\n\n4\n1.067476241\n1.017116795\n1.00180524\n0.999068988\n\n\n5\n1.093996465\n1.028085084\n1.005809254\n1.020216075\n\n\n6\n1.097090618\n1.039899372\n1.01287104\n1.043464953\n\n\n7\n1.082699403\n1.049351083\n1.019361463\n1.064621313\n\n\n8\n1.054512183\n1.052915798\n1.021956182\n1.081208548\n\n\n9\n1.026928722\n1.050997267\n1.021525416\n1.085502937\n\n\n10\n1.014254736\n1.044706504\n1.022104374\n1.083003673\n\n\n11\n1.008415416\n1.042832934\n1.023292229\n1.078236423\n\n\n12\n1.000539426\n1.04699611\n1.023183054\n1.068107965"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-promedios-de-los-modelos",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#cocientes-promedios-de-los-modelos",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Cocientes promedios de los modelos",
-    "text": "Cocientes promedios de los modelos\nLos cocientes de los RMSE de las variables objetivo entre los modelos son en la mayoría de los periodos es mayor a la unidad excepto en los primeros dos periodos. Lo que indica que en ese periodo la medida del error es menor en el SVAR52.\n\nResultados de los cocientes en promedio y promedio de los cocientes.\n\n\nPeriodos\nCociente Promedios\nPromedio de los cocientes\n\n\n\n\n1\n0.99047739\n0.98791641\n\n\n2\n0.998880318\n0.994393833\n\n\n3\n1.011748211\n1.006287573\n\n\n4\n1.027007668\n1.021366816\n\n\n5\n1.042244972\n1.037026719\n\n\n6\n1.052092912\n1.048331496\n\n\n7\n1.055493631\n1.054008315\n\n\n8\n1.050727799\n1.052648178\n\n\n9\n1.041985186\n1.046238585\n\n\n10\n1.035874262\n1.041017322\n\n\n11\n1.033275026\n1.038194251\n\n\n12\n1.031032977\n1.034706639\n\n\n\nEn ambos promedios, el RMSE en los primeros periodos el SVAR50_4B es ligeramente mayor. Aunque la desviaciones de error de ambos modelos quedan contenidos (ver Figure 2) y luego empieza a ser menor que el del SVAR52.\nLas funciones impulso respuesta de las variables respecto a cada uno de los choques, en el modelo SVAR52"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-externo",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-externo",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en crecimiento externo",
-    "text": "Choque en crecimiento externo\n\n\nFigure 3: Choque en crecimiento externo"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-precios-de-los-transables",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-precios-de-los-transables",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en precios de los transables",
-    "text": "Choque en precios de los transables\n\n\nFigure 4: Choque en precios de los transables"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa-de-interés-externa",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa-de-interés-externa",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en la tasa de interés externa",
-    "text": "Choque en la tasa de interés externa\n\nChoque en la tasa de interés externa"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inflación-no-subyacente",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inflación-no-subyacente",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en la inflación no subyacente",
-    "text": "Choque en la inflación no subyacente\n\n\nFigure 5: Choque en la inflación no subyacente"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-doméstico",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-crecimiento-doméstico",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en crecimiento doméstico",
-    "text": "Choque en crecimiento doméstico\n\n\nFigure 6: Choque en crecimiento doméstico"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inlfación-subyacente",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-inlfación-subyacente",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en la inlfación subyacente",
-    "text": "Choque en la inlfación subyacente\n\n\nFigure 7: Choque en la inlfación subyacente"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-el-tipo-de-cambio-nominal",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-el-tipo-de-cambio-nominal",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en el tipo de cambio nominal",
-    "text": "Choque en el tipo de cambio nominal\n\n\nFigure 8: Choque en el tipo de cambio nominal"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-base-monetaria",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-base-monetaria",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en la base monetaria",
-    "text": "Choque en la base monetaria\n\n\nFigure 9: Choque en la base monetaria"
-  },
-  {
-    "objectID": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa",
-    "href": "hefm/results/SVAR52/SVAR52_pst.html#choque-en-la-tasa",
-    "title": "Comparación entre el modelo SVAR504B y SVAR52",
-    "section": "Choque en la tasa",
-    "text": "Choque en la tasa\n\n\n\n\nFigure 10: Choque en la tasa"
-  },
-  {
-    "objectID": "hefm/results/SVAR51/SVAR51.html",
-    "href": "hefm/results/SVAR51/SVAR51.html",
-    "title": "Documentación SVAR51",
-    "section": "",
-    "text": "El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo SVAR50-4B para subsanar las fuentes de incompatibilidad de este respecto al QPM, las cuales se pueden dividir en diferencias en datos y estados estacionarios de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.",
-    "crumbs": [
-      "Results",
-      "SVAR51",
-      "Acercamiento QPM con el SVAR51"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR51/SVAR51.html#introducción",
-    "href": "hefm/results/SVAR51/SVAR51.html#introducción",
-    "title": "Documentación SVAR51",
-    "section": "",
-    "text": "El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo SVAR50-4B para subsanar las fuentes de incompatibilidad de este respecto al QPM, las cuales se pueden dividir en diferencias en datos y estados estacionarios de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.",
-    "crumbs": [
-      "Results",
-      "SVAR51",
-      "Acercamiento QPM con el SVAR51"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR51/SVAR51.html#motivación",
-    "href": "hefm/results/SVAR51/SVAR51.html#motivación",
-    "title": "Documentación SVAR51",
-    "section": "Motivación",
-    "text": "Motivación\nLa razón por la cual se planteó la creación de una variante del SVAR50-4B es debido a que existen diferencias que causan un grado de incompatibilidad entre dicho modelo y el QPM. Las fuentes de incompatibilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de ciertas variables de interés. La primera fuente de incompatibilidad proviene del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).\nPronósticos SVAR50 -corrimiento mayo 2025-\n\n\nPronósticos QPM -corrimiento mayo 2025- \n\nLa razón de ello se debe a que esta variable presenta una gran volatilidad de un mes a otro, algo que no es capaz de capturar el SVAR50-4B debido a que el método de trimestralización utilizado para este modelo es el promedio de los datos durante trimestre, en comparación con el QPM que es el último valor observado durante el trimestre.\nOtra fuente de incompatibilidad proviene de los estados estacionarios de algunas variables que son de interés al momento de observar sus pronósticos en cada corrimiento. Como se observó en las gráficas el IPEI posee un estado estacionario de 1.98 en el SVAR50-4B mientras que en el QPM es de 0. Estas diferencias se observan en variables como inflación total, subyacente y no subyacente.1\nA continuación, se presenta un resumen de las fuentes de incompatibilidad entre el SVAR50-4B y el QPM:\n\n\n\nTabla 1: : Fuentes de incompatibilidades\n\n\n\n\n\nDatos\n\n\n\n\n\n\nSVAR50-4B\nQPM\n\n\n\n\nMétodo de trimestralización: Promedio dentro del trimestres\nMétodo de trimestralización: último valor observado dentro del trimestre\n\n\n\n\n\n\nEstados estacionarios\n\n\nSVAR50-4B\nQPM\n\n\n\n\nIPEI = 1.98\nIPEI = 0\n\n\nInflación total = 4.98\nInflación total = 4\n\n\nInflación subyacente = 4.49\nInflación subyacente = 4\n\n\nInflación no subyacente = 0.44\nInflación no subyacente = 0\n\n\n\n\n\n\n\n\nPor lo anterior, se procedió a estimar un nuevo modelo SVAR que tuviera como propósito subsanar las incompatibilidades entre el SVAR50-4B y el QPM, dicho modelo fue denominado SVAR51 el cual es una variante del SVAR50-4B que comparte con este las mimas variables, restricciones en la matriz de coeficientes y método de estimación, pero cambiando los datos usados para su estimación, por lo que el modelo se estimó con datos trimestrales cuyo método de trimestralización es el mismo que el QPM además de imponer los estados estacionarios de las variables antes mencionadas de la misma forma que se encuentran en el QPM.",
-    "crumbs": [
-      "Results",
-      "SVAR51",
-      "Acercamiento QPM con el SVAR51"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR51/SVAR51.html#resultados-de-la-evaluación",
-    "href": "hefm/results/SVAR51/SVAR51.html#resultados-de-la-evaluación",
-    "title": "Documentación SVAR51",
-    "section": "Resultados de la evaluación",
-    "text": "Resultados de la evaluación\nUtilizando la metodología de selección y evaluación de modelos tipo SVAR se realizó un comparativo entre el SVAR51 y SVAR50-4B con el propósito de evaluar la capacidad explicativa y predictiva de la nueva variante del SVAR50-4B.\n\nCapacidad explicativa\nPara un horizonte de evaluación de 10 horizontes (el mismo se utilizó para la capacidad predictiva) y para el promedio de las 4 variables objetivo, el SVAR51 presenta valores más altos de la métrica de dispersión comparado con el SVAR50-4B. Lo cual lo vuelve un modelo con mayor dispersión en las respuestas de las IRF.\n\n\n\nCapacidad predictiva\nEn cuanto a la medida de error de pronóstico ambos modelos tienen un desempeño bastante similar, aunque durante los primeros periodos de pronóstico el SVAR50-4B evidencia un menor error comparado con el SVAR51. Cabe aclarar que, al existir cambios de datos entre los modelos, los pronósticos de las variables objetivos son construidos y evaluados con las mismas transformaciones de datos mensuales a trimestrales. Es decir, los pronósticos del SVAR50-4B se evalúan contra los datos trimestrales observados resultado del promedio de las observaciones del trimestre, mientras que los pronósticos del SVAR51 son evaluados contra los datos trimestrales observados al fin del trimestre.\n\nDado el desempeño del SVAR51 en términos de su capacidad explicativa y predictiva comparado con el SVAR50-4B, este último es mejor valorado dentro de la metodología de selección de modelos tipo SVAR.",
-    "crumbs": [
-      "Results",
-      "SVAR51",
-      "Acercamiento QPM con el SVAR51"
-    ]
-  },
-  {
-    "objectID": "hefm/results/SVAR51/SVAR51.html#footnotes",
-    "href": "hefm/results/SVAR51/SVAR51.html#footnotes",
-    "title": "Documentación SVAR51",
-    "section": "Notas",
-    "text": "Notas\n\n\nLa selección de esta variables corresponde a la importancia que tienen tanto para el Banco Central como dentro de los modelos SVAR50-4B y QPM.↩︎",
-    "crumbs": [
-      "Results",
-      "SVAR51",
-      "Acercamiento QPM con el SVAR51"
     ]
   },
   {
@@ -1424,29 +1396,57 @@
     "text": "RMSE promedio del SVAR53\nObservando los valores de la tabla y los mínimos del RMSE en la inflación y la tasa de interés en la Figura 1 se ve que el SVAR50-4B sigue teniendo un menor error de pronóstico.\n\n\nFigura 2: RMSE promedio de las variables objetivo vrs \\(\\lambda\\)’s, en diferentes horizontes de pronóstico\nEn los primeros horizontes, es claro que \\(\\lambda\\) tiene un óptimo en el mínimo de cada una de las gráficas, sin embargo para horizontes más grandes el óptimo no se observa claramente."
   },
   {
-    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#getting-up",
-    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Research Projects",
+    "section": "",
+    "text": "This section compiles ongoing and completed research projects conducted by DIE-BG that go beyond the scope of our core tools.\nProjects hosted here typically involve applied macroeconomic research, forecasting exercises, structural analysis, or experimental modeling initiatives."
+  },
+  {
+    "objectID": "projects/index.html#purpose",
+    "href": "projects/index.html#purpose",
+    "title": "Research Projects",
+    "section": "Purpose",
+    "text": "Purpose\nThe Projects section serves as a flexible space to:\n\nDocument exploratory or complementary studies.\nShare empirical investigations not tied to HEFM or HEMI.\nPublish internal working drafts, validation reports, or topic-specific models.\nHost specialized forecasting tools such as Nowcasting modules."
+  },
+  {
+    "objectID": "projects/index.html#active-projects",
+    "href": "projects/index.html#active-projects",
+    "title": "Research Projects",
+    "section": "Active Projects",
+    "text": "Active Projects\n\nNowcasting: A real-time indicator system integrating news and statistical signals."
+  },
+  {
+    "objectID": "projects/index.html#how-to-navigate",
+    "href": "projects/index.html#how-to-navigate",
+    "title": "Research Projects",
+    "section": "How to Navigate",
+    "text": "How to Navigate\nEach project has its own subfolder and includes: - A short description and purpose - Methodological notes and documents - Results, simulations, and visualizations - Supplementary files, when applicable\n\n\nFor more structured modeling tools, visit the HEFM or HEMI sections."
+  },
+  {
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#getting-up",
     "title": "Slide Deck Placeholder",
     "section": "Getting up",
     "text": "Getting up\n\nTurn off alarm\nGet out of bed"
   },
   {
-    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#breakfast",
-    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#breakfast",
     "title": "Slide Deck Placeholder",
     "section": "Breakfast",
     "text": "Breakfast\n\nEat eggs\nDrink coffee"
   },
   {
-    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#dinner",
-    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#dinner",
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#dinner",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#dinner",
     "title": "Slide Deck Placeholder",
     "section": "Dinner",
     "text": "Dinner\n\nEat spaghetti\nDrink wine"
   },
   {
-    "objectID": "hefm/results/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
-    "href": "hefm/results/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "objectID": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
+    "href": "projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html#going-to-sleep",
     "title": "Slide Deck Placeholder",
     "section": "Going to sleep",
     "text": "Going to sleep\n\nGet in bed\nCount sheep"

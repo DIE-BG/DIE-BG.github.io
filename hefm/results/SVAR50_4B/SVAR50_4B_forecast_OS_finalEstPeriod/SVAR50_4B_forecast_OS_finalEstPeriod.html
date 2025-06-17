@@ -120,6 +120,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -144,13 +147,13 @@
 <p>Para cada experimento se realizan múltiples ejercicios de evaluación. Esto significa que se “corre” la HEFM varias veces, y en cada “corrimiento” se agrega una nueva estimación con datos más actualizados y se vuelve a evaluar el poder predictivo del modelo.</p>
 <p>Se llevan a cabo tres experimentos:</p>
 <ol type="1">
+<li><p><strong>Todos los ejercicios de evaluación utilizan la misma muestra de validación, también excluyendo las observaciones de la muestra de estimación.</strong></p></li>
 <li><p>La muestra de validación cambia en cada ejercicio de evaluación, utilizando toda la información disponible y excluyendo las observaciones de la muestra de estimación.</p></li>
-<li><p>Todos los ejercicios de evaluación utilizan la misma muestra de validación, también excluyendo las observaciones de la muestra de estimación.</p></li>
 <li><p>La muestra de validación cambia en cada ejercicio de evaluación, pero en este caso está incluida dentro de la muestra de estimación.</p></li>
 </ol>
 </section>
-<section class="slide level2">
-
+<section id="los-resultados-de-los-experimentos-2-y-3-así-como-sus-respectivas-especificaciones-se-muestran-en-la-sección-de-anexos." class="slide level2">
+<h2>Los resultados de los experimentos 2 y 3, así como sus respectivas especificaciones se muestran en la sección de ANEXOS.</h2>
 <div title="Ejercicio de evaluación">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -184,6 +187,173 @@
 </section>
 <section id="descripción-del-experimento-no.-1" class="slide level2">
 <h2>Descripción del experimento No.&nbsp;1</h2>
+<p>En el primer experimento se restringe la muestra de validación para que sea la misma en todos los ejercicios de evaluación. Específicamente:</p>
+<ul>
+<li><p>Corrimiento de la HEFM No.&nbsp;1</p>
+<ul>
+<li>Estimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4<br>
+</li>
+<li>Muestra de validación: 2022Q1 - 2024Q4</li>
+</ul></li>
+<li><p>…</p></li>
+<li><p>Corrimiento de la HEFM No.&nbsp;13</p>
+<ul>
+<li>Estimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4</li>
+<li>Muestra de validación: 2022Q1 - 2024Q4</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">
+%%{
+init: {
+  "gantt": {
+  "displayMode":"compact"
+  },
+  "securityLevel": "loose",
+  "theme": "forest"   
+}
+}%%
+gantt
+    title Corrimiento de la HEFM No. 1
+    dateFormat  YYYY-QQ
+    section Model 1
+    Training           :a1, 2005-01, 117M
+    Validation      :a2, 2022-01, 36M
+    section Model 2
+    Training           :a1, 2005-01, 120M
+    Validation      :a2, 2022-01, 36M
+    section Model 3
+    Training          :a1, 2005-01, 123M
+    Validation      :a2, 2022-01, 36M
+    section ...
+    ... :a1, 2015-01-02, 
+    section Model 17
+    Training          :a1, 2005-01, 168M
+    Validation      :a2, 2022-01, 36M
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">
+%%{
+init: {
+  "gantt": {
+  "displayMode":"compact"
+  },
+  "securityLevel": "loose",
+  "theme": "forest"   
+}
+}%%
+gantt
+    title Corrimiento de la HEFM No. 4
+    dateFormat  YYYY-QQ
+    section Model 1
+    Training           :a1, 2005-01, 117M
+    Validation      :a2, 2022-01, 36M
+    section Model 2
+    Training           :a1, 2005-01, 120M
+    Validation      :a2, 2022-01, 36M
+    section Model 3
+    Training          :a1, 2005-01, 123M
+    Validation      :a2, 2022-01, 36M
+    section ...
+    ... :a1, 2015-01-02, 
+    section Model 20
+    Training          :a1, 2005-01, 177M
+    Validation      :a2, 2022-01, 36M
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">
+%%{
+init: {
+  "gantt": {
+  "displayMode":"compact"
+  },
+  "securityLevel": "loose",
+  "theme": "forest"   
+}
+}%%
+gantt
+    title Corrimiento de la HEFM No. 13
+    dateFormat  YYYY-QQ
+    section Model 1
+    Training           :a1, 2005-01, 117M
+    Validation      :a2, 2022-01, 36M
+    section Model 2
+    Training           :a1, 2005-01, 120M
+    Validation      :a2, 2022-01, 36M
+    section Model 3
+    Training          :a1, 2005-01, 123M
+    Validation      :a2, 2022-01, 36M
+    section ...
+    ... :a1, 2015-01-02, 
+    section Model 13
+    Training          :a1, 2005-01, 204M
+    Validation      :a2, 2022-01, 36M
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="resultados-del-experimento-no.-1" class="slide level2">
+<h2>Resultados del experimento No.&nbsp;1</h2>
+<p>Al fijar la muestra de validación en todos los ejercicios de evaluación, se observa que el promedio del RMSE de las variables objetivo disminuye en los horizontes cortos a medida que se incorporan submuestras de estimación más extensas y recientes; sin embargo, esta tendencia se revierte conforme aumenta el horizonte de pronóstico (<a href="#/fig-avgSameSample" class="quarto-xref">Figura&nbsp;1</a>). Este patrón es consistente con lo observado en los experimentos No.&nbsp;2 y 3 (ver ANEXO).</p>
+<p>Según los resultados por variable objetivo (<a href="#/fig-perVarSameSample" class="quarto-xref">Figura&nbsp;2</a>), el RMSE disminuye entre 1 y 4 trimestres para la inflación, el tipo de cambio y el crecimiento económico.</p>
+<p>En particular, para el crecimiento económico, ampliar y actualizar las submuestras mejora el pronóstico en todos los horizontes.</p>
+<p>En contraste, para la tasa de interés, este mismo procedimiento tiende a empeorar la precisión del pronóstico.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="images/average_loss_sameValidationSet.svg" class="r-stretch quarto-figure-center" id="fig-avgSameSample"><p class="caption">
+Figura&nbsp;1: Promedio de las variables objetivo a diferentes horizontes para el experimento No.&nbsp;1
+</p></section>
+<section class="slide level2">
+
+
+<img data-src="images/average_loss_per_var_sameValidationSet.svg" class="r-stretch quarto-figure-center" id="fig-perVarSameSample"><p class="caption">
+Figura&nbsp;2: Variables objetivo a diferentes horizontes para el experimento No.&nbsp;1
+</p></section>
+<section id="conclusiones" class="slide level2">
+<h2>Conclusiones</h2>
+<p>Para un modelo con un procedimiento de estimación que logra capturar la dinámica conjunta de los datos, y asumiendo que dicha dinámica se mantiene a lo largo del tiempo, se espera que el error de pronóstico a un mismo horizonte disminuya al incrementar el tamaño de las submuestras de estimación incluidas en cada ejercicio de evaluación.</p>
+<p>Los resultados muestran que el RMSE tiende a disminuir al incorporar estimaciones con submuestras más amplias y recientes en horizontes cortos, pero este patrón se revierte a partir del horizonte de 8 periodos/trimestres.</p>
+</section></section>
+<section>
+<section id="anexos" class="title-slide slide level1 center">
+<h1>ANEXOS</h1>
+
+</section>
+<section id="descripción-del-experimento-no.-2" class="slide level2">
+<h2>Descripción del experimento No.&nbsp;2</h2>
 <p>En el primer experimento, los ejercicios de evaluación se definen de la siguiente manera:</p>
 <ul>
 <li><p>Corrimiento de la HEFM No.&nbsp;1</p>
@@ -201,24 +371,24 @@
 </ul></li>
 </ul>
 </section>
-<section id="descripción-del-experimento-no.-2" class="slide level2">
-<h2>Descripción del experimento No.&nbsp;2</h2>
-<p>El segundo experimento es una variante del primero, en el que se restringe la muestra de validación para que sea la misma en todos los ejercicios de evaluación.</p>
-<ul>
-<li><p>Corrimiento de la HEFM No.&nbsp;1</p>
-<ul>
-<li>Estimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4<br>
-</li>
-<li>Muestra de validación: 2022Q1 - 2024Q4</li>
-</ul></li>
-<li><p>…</p></li>
-<li><p>Corrimiento de la HEFM No.&nbsp;13</p>
-<ul>
-<li>Estimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4</li>
-<li>Muestra de validación: 2022Q1 - 2024Q4</li>
-</ul></li>
-</ul>
+<section id="resultados-experimento-no.-2" class="slide level2">
+<h2>Resultados experimento No.&nbsp;2</h2>
+<p>En este experimento, el RMSE promedio de las variables objetivo disminuye al incorporar sucesivamente estimaciones del modelo con submuestras más amplias y recientes (<a href="#/fig-avg" class="quarto-xref">Figura&nbsp;3</a>). Sin embargo, al aumentar el horizonte de pronóstico, esta tendencia se revierte: el RMSE deja de caer de forma sostenida y adopta una forma en “U”.</p>
+<p>La <a href="#/fig-perVar" class="quarto-xref">Figura&nbsp;4</a> muestra el RMSE de cada variable incluida en el promedio de la <a href="#/fig-avg" class="quarto-xref">Figura&nbsp;3</a>. Para la inflación y el crecimiento económico, el RMSE tiende a aumentar al sumar nuevas estimaciones con submuestras más extensas y actualizadas. En cambio, para el resto de variables, la precisión mejora, incluso en horizontes largos. Destaca el caso del crecimiento económico, cuyo RMSE disminuye al incorporar submuestras recientes, particularmente en horizontes largos.</p>
+<p>La tasa de interés presenta un comportamiento mixto: a partir de 2021Q1, el RMSE deja de mejorar al añadir submuestras más recientes, tendencia que se mantiene en todos los horizontes considerados.</p>
 </section>
+<section class="slide level2">
+
+
+<img data-src="images/average_loss.svg" class="r-stretch quarto-figure-center" id="fig-avg"><p class="caption">
+Figura&nbsp;3: Promedio de las variables objetivo a diferentes horizontes para el experimento No.&nbsp;2
+</p></section>
+<section class="slide level2">
+
+
+<img data-src="images/average_loss_per_var.svg" style="width:100.0%" class="r-stretch quarto-figure-center" id="fig-perVar"><p class="caption">
+Figura&nbsp;4: Variables objetivo a diferentes horizontes para el experimento No.&nbsp;2
+</p></section>
 <section id="descripción-del-experimento-no.-3" class="slide level2">
 <h2>Descripción del experimento No.&nbsp;3</h2>
 <p>El tercer experimento es una variante del primero, en el que la muestra de validación se encuentra contenida en la muestra de estimación.</p>
@@ -237,93 +407,56 @@
 <li>Muestras de validación: La misma que la de estimación.</li>
 </ul></li>
 </ul>
-</section></section>
-<section>
-<section id="resultados" class="title-slide slide level1 center">
-<h1>Resultados</h1>
-
 </section>
-<section id="experimento-no.-1" class="slide level2">
-<h2>Experimento No.&nbsp;1</h2>
-<p>En este experimento, el RMSE promedio de las variables objetivo disminuye al agregar consecutivamente estimaciones del modelo con submuestras más amplias y actualizadas (<a href="#/fig-avg" class="quarto-xref">Figura&nbsp;1</a>). Al aumentar el horizonte de pronóstico evaluado, el RMSE promedio se invierte, pasando de mostrar una caída constante a lo largo de los ejercicios de evaluación a adoptar una forma de “U”.</p>
-<p>La <a href="#/fig-perVar" class="quarto-xref">Figura&nbsp;2</a> muestra el RMSE de las variables que componen el promedio en la <a href="#/fig-avg" class="quarto-xref">Figura&nbsp;1</a>. En general, el RMSE de estas variables aumenta al incorporar consecutivamente nuevas estimaciones con submuestras más amplias y actualizadas.</p>
-<p>El ritmo al que crece el RMSE varía entre las distintas variables, siendo notable el caso de <code>d4_ln_y_sm</code>, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras de estimación con datos del período de COVID-19.</p>
+<section id="resultados-experimento-3" class="slide level2">
+<h2>Resultados experimento 3</h2>
+<p>Al evaluar dentro de la muestra, el incremento en el número de submuestras de estimación tiende a empeorar el RMSE en general (<a href="#/fig-avgIS" class="quarto-xref">Figura&nbsp;5</a> y <a href="#/fig-perVarIS" class="quarto-xref">Figura&nbsp;6</a>).</p>
+<p>Al observar cada variable objetivo, se destaca que a partir de 2020Q1 el RMSE dentro de muestra para el tipo de cambio, crecimiento económico y tasa de interés muestra una tendencia al alza. Esto sugiere que la incorporación de submuestras más actualizadas deteriora la medición del error de pronóstico dentro de muestra.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="images/average_loss.png" class="r-stretch quarto-figure-center" id="fig-avg"><p class="caption">
-Figura&nbsp;1: Promedio de las variables objetivo a diferentes horizontes para el experimento No.&nbsp;1
-</p></section>
-<section class="slide level2">
-
-
-<img data-src="images/average_loss_per_var.png" style="width:100.0%" class="r-stretch quarto-figure-center" id="fig-perVar"><p class="caption">
-Figura&nbsp;2: Variables objetivo a diferentes horizontes para el experimento No.&nbsp;1
-</p></section>
-<section id="experimento-no.-2" class="slide level2">
-<h2>Experimento No.&nbsp;2</h2>
-<p>Al fijar la muestra de validación en todos los ejercicios de evaluación, se observa que el promedio de los RMSE de las variables objetivo disminuye en los horizontes cortos a medida que se agregan submuestras de estimación más extensas y actualizadas, pero esta tendencia se invierte conforme aumenta el horizonte de pronóstico (<a href="#/fig-avgSameSample" class="quarto-xref">Figura&nbsp;3</a>). Este resultado es similar al encontrado en el experimento No.&nbsp;1.</p>
-<p>Al observar el resultado por variable objetivo (<a href="#/fig-perVarSameSample" class="quarto-xref">Figura&nbsp;4</a>), los resultados son similares a los del experimento No.&nbsp;1, destacando nuevamente el comportamiento de <code>d4_ln_y_sm</code>, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras con datos del período de COVID-19.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="images/average_loss_sameValidationSet.png" class="r-stretch quarto-figure-center" id="fig-avgSameSample"><p class="caption">
-Figura&nbsp;3: Promedio de las variables objetivo a diferentes horizontes para el experimento No.&nbsp;2
-</p></section>
-<section class="slide level2">
-
-
-<img data-src="images/average_loss_per_var_sameValidationSet.png" class="r-stretch quarto-figure-center" id="fig-perVarSameSample"><p class="caption">
-Figura&nbsp;4: Variables objetivo a diferentes horizontes para el experimento No.&nbsp;2
-</p></section>
-<section id="experimento-3" class="slide level2">
-<h2>Experimento 3</h2>
-<p>Al evaluar dentro de la muestra, el incremento en el número de submuestras de estimación perjudica, en general, el resultado del RMSE (<a href="#/fig-avgIS" class="quarto-xref">Figura&nbsp;5</a> y <a href="#/fig-perVarIS" class="quarto-xref">Figura&nbsp;6</a>), siendo consistente con los experimentos No.&nbsp;1 y No.&nbsp;2.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="images/average_loss_IS.png" class="r-stretch quarto-figure-center" id="fig-avgIS"><p class="caption">
+<img data-src="images/average_loss_IS.svg" class="r-stretch quarto-figure-center" id="fig-avgIS"><p class="caption">
 Figura&nbsp;5: Promedio de las variables objetivo a diferentes horizontes para el experimento No.&nbsp;3
 </p></section>
 <section class="slide level2">
 
 
-<img data-src="images/average_loss_per_var_IS.png" class="r-stretch quarto-figure-center" id="fig-perVarIS"><p class="caption">
+<!--
+---
+
+## Comparación entre experimentos
+
+En las siguientes gráficas se muestra el resultados de los tres experimentos simultáneamente.
+
+- <span style="display:inline-block;width:12px;height:12px;background-color:#0072BD;margin-right:8px;border-radius:2px;"></span> Experimento 1 (OS)
+- <span style="display:inline-block;width:12px;height:12px;background-color:#D95319;margin-right:8px;border-radius:2px;"></span> Experimento 2 (OS mismo conjunto de validación)
+- <span style="display:inline-block;width:12px;height:12px;background-color:#EDB120;margin-right:8px;border-radius:2px;"></span> Experimento 3 (IS)
+
+---
+
+![](images/average_loss_comparative.svg){#fig-avg-comp}
+
+<span style="display:inline-block;width:12px;height:12px;background-color:#0072BD;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 1</span>
+<span style="display:inline-block;width:12px;height:12px;background-color:#D95319;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 2</span>
+<span style="display:inline-block;width:12px;height:12px;background-color:#EDB120;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 3</span>
+
+---
+
+![](images/average_loss_per_var_comparative.svg){width=100% #fig-perVar-comp}
+
+<span style="display:inline-block;width:12px;height:12px;background-color:#0072BD;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 1</span>
+<span style="display:inline-block;width:12px;height:12px;background-color:#D95319;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 2</span>
+<span style="display:inline-block;width:12px;height:12px;background-color:#EDB120;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 3</span>
+
+---
+
+-->
+
+
+<img data-src="images/average_loss_per_var_IS.svg" class="r-stretch quarto-figure-center" id="fig-perVarIS"><p class="caption">
 Figura&nbsp;6: Variables objetivo a diferentes horizontes para el experimento No.&nbsp;3
-</p></section>
-<section id="comparación-entre-experimentos" class="slide level2">
-<h2>Comparación entre experimentos</h2>
-<p>En las siguientes gráficas se muestra el resultados de los tres experimentos simultáneamente.</p>
-<ul>
-<li><span style="display:inline-block;width:12px;height:12px;background-color:#0072BD;margin-right:8px;border-radius:2px;"></span> Experimento 1 (OS)</li>
-<li><span style="display:inline-block;width:12px;height:12px;background-color:#D95319;margin-right:8px;border-radius:2px;"></span> Experimento 2 (OS mismo conjunto de validación)</li>
-<li><span style="display:inline-block;width:12px;height:12px;background-color:#EDB120;margin-right:8px;border-radius:2px;"></span> Experimento 3 (IS)</li>
-</ul>
-</section>
-<section class="slide level2">
-
-
-<img data-src="images/average_loss_comparative.png" id="fig-avg-comp" class="r-stretch quarto-figure-center"><p class="caption">
-Figura&nbsp;7
-</p><p><span style="display:inline-block;width:12px;height:12px;background-color:#0072BD;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 1</span> <span style="display:inline-block;width:12px;height:12px;background-color:#D95319;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 2</span> <span style="display:inline-block;width:12px;height:12px;background-color:#EDB120;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 3</span></p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="images/average_loss_per_var_comparative.png" id="fig-perVar-comp" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">
-Figura&nbsp;8
-</p><p><span style="display:inline-block;width:12px;height:12px;background-color:#0072BD;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 1</span> <span style="display:inline-block;width:12px;height:12px;background-color:#D95319;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 2</span> <span style="display:inline-block;width:12px;height:12px;background-color:#EDB120;margin-right:8px;border-radius:2px;"></span> <span style="font-size:0.75rem;">Experimento 3</span> —</p>
-</section>
-<section id="conclusiones" class="slide level2">
-<h2>Conclusiones</h2>
-<p>Para un modelo con un procedimiento de estimación que logra capturar la dinámica conjunta de los datos, y asumiendo que dicha dinámica se mantiene a lo largo del tiempo, se espera que el error de pronóstico a un mismo horizonte disminuya al incrementar el tamaño de las submuestras de estimación incluidas en cada ejercicio de evaluación.</p>
-<p>Los resultados muestran que el RMSE tiende a incrementarse al añadir nuevas estimaciones con submuestras más grandes y actualizadas, lo que sugiere que esta combinación de modelo y procedimiento de estimación no es capaz de mejorar su poder predictivo al actualizar e incrementar la muestra de estimación.</p>
-
-
-</section></section>
+</p></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

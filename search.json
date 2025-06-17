@@ -309,18 +309,46 @@
     ]
   },
   {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#los-resultados-de-los-experimentos-2-y-3-así-como-sus-respectivas-especificaciones-se-muestran-en-la-sección-de-anexos.",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#los-resultados-de-los-experimentos-2-y-3-así-como-sus-respectivas-especificaciones-se-muestran-en-la-sección-de-anexos.",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Los resultados de los experimentos 2 y 3, así como sus respectivas especificaciones se muestran en la sección de ANEXOS.",
+    "text": "Los resultados de los experimentos 2 y 3, así como sus respectivas especificaciones se muestran en la sección de ANEXOS.\n\n\n\n\n\n\n\nEjercicio de evaluación\n\n\nDefinido como un “corrimiento” de la HEFM, ya sea dentro o fuera de muestra.\n\n\n\n\n\n\n\n\n\n\n\nExperimento\n\n\nConjunto de ejercicios de evaluación, donde cada uno incorpora una nueva estimación con datos más actualizados que el ejercicio anterior."
+  },
+  {
     "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-1",
     "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-1",
     "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
     "section": "Descripción del experimento No. 1",
-    "text": "Descripción del experimento No. 1\nEn el primer experimento, los ejercicios de evaluación se definen de la siguiente manera:\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nCorrimiento de la HEFM No. 2\n\nEstimaciones incluidas (18 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2019Q1\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4"
+    "text": "Descripción del experimento No. 1\nEn el primer experimento se restringe la muestra de validación para que sea la misma en todos los ejercicios de evaluación. Específicamente:\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestra de validación: 2022Q1 - 2024Q4\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\nMuestra de validación: 2022Q1 - 2024Q4"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#resultados-del-experimento-no.-1",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#resultados-del-experimento-no.-1",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Resultados del experimento No. 1",
+    "text": "Resultados del experimento No. 1\nAl fijar la muestra de validación en todos los ejercicios de evaluación, se observa que el promedio del RMSE de las variables objetivo disminuye en los horizontes cortos a medida que se incorporan submuestras de estimación más extensas y recientes; sin embargo, esta tendencia se revierte conforme aumenta el horizonte de pronóstico (Figura 1). Este patrón es consistente con lo observado en los experimentos No. 2 y 3 (ver ANEXO).\nSegún los resultados por variable objetivo (Figura 2), el RMSE disminuye entre 1 y 4 trimestres para la inflación, el tipo de cambio y el crecimiento económico.\nEn particular, para el crecimiento económico, ampliar y actualizar las submuestras mejora el pronóstico en todos los horizontes.\nEn contraste, para la tasa de interés, este mismo procedimiento tiende a empeorar la precisión del pronóstico."
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nPara un modelo con un procedimiento de estimación que logra capturar la dinámica conjunta de los datos, y asumiendo que dicha dinámica se mantiene a lo largo del tiempo, se espera que el error de pronóstico a un mismo horizonte disminuya al incrementar el tamaño de las submuestras de estimación incluidas en cada ejercicio de evaluación.\nLos resultados muestran que el RMSE tiende a disminuir al incorporar estimaciones con submuestras más amplias y recientes en horizontes cortos, pero este patrón se revierte a partir del horizonte de 8 periodos/trimestres."
   },
   {
     "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-2",
     "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-2",
     "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
     "section": "Descripción del experimento No. 2",
-    "text": "Descripción del experimento No. 2\nEl segundo experimento es una variante del primero, en el que se restringe la muestra de validación para que sea la misma en todos los ejercicios de evaluación.\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestra de validación: 2022Q1 - 2024Q4\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\nMuestra de validación: 2022Q1 - 2024Q4"
+    "text": "Descripción del experimento No. 2\nEn el primer experimento, los ejercicios de evaluación se definen de la siguiente manera:\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nCorrimiento de la HEFM No. 2\n\nEstimaciones incluidas (18 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2019Q1\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4"
+  },
+  {
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#resultados-experimento-no.-2",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#resultados-experimento-no.-2",
+    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
+    "section": "Resultados experimento No. 2",
+    "text": "Resultados experimento No. 2\nEn este experimento, el RMSE promedio de las variables objetivo disminuye al incorporar sucesivamente estimaciones del modelo con submuestras más amplias y recientes (Figura 3). Sin embargo, al aumentar el horizonte de pronóstico, esta tendencia se revierte: el RMSE deja de caer de forma sostenida y adopta una forma en “U”.\nLa Figura 4 muestra el RMSE de cada variable incluida en el promedio de la Figura 3. Para la inflación y el crecimiento económico, el RMSE tiende a aumentar al sumar nuevas estimaciones con submuestras más extensas y actualizadas. En cambio, para el resto de variables, la precisión mejora, incluso en horizontes largos. Destaca el caso del crecimiento económico, cuyo RMSE disminuye al incorporar submuestras recientes, particularmente en horizontes largos.\nLa tasa de interés presenta un comportamiento mixto: a partir de 2021Q1, el RMSE deja de mejorar al añadir submuestras más recientes, tendencia que se mantiene en todos los horizontes considerados."
   },
   {
     "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#descripción-del-experimento-no.-3",
@@ -330,39 +358,11 @@
     "text": "Descripción del experimento No. 3\nEl tercer experimento es una variante del primero, en el que la muestra de validación se encuentra contenida en la muestra de estimación.\n\nCorrimiento de la HEFM No. 1\n\nEstimaciones incluidas (17 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2018Q4\n\nMuestras de validación: La misma que la de estimación.\n\n…\nCorrimiento de la HEFM No. 13\n\nEstimaciones incluidas (29 estimaciones): 2005Q1 - 2014Q4, 2005Q1 - 2015Q1, …, 2005Q1 - 2021Q4\n\nMuestras de validación: La misma que la de estimación."
   },
   {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-1",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-1",
+    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#resultados-experimento-3",
+    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#resultados-experimento-3",
     "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Experimento No. 1",
-    "text": "Experimento No. 1\nEn este experimento, el RMSE promedio de las variables objetivo disminuye al agregar consecutivamente estimaciones del modelo con submuestras más amplias y actualizadas (Figura 1). Al aumentar el horizonte de pronóstico evaluado, el RMSE promedio se invierte, pasando de mostrar una caída constante a lo largo de los ejercicios de evaluación a adoptar una forma de “U”.\nLa Figura 2 muestra el RMSE de las variables que componen el promedio en la Figura 1. En general, el RMSE de estas variables aumenta al incorporar consecutivamente nuevas estimaciones con submuestras más amplias y actualizadas.\nEl ritmo al que crece el RMSE varía entre las distintas variables, siendo notable el caso de d4_ln_y_sm, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras de estimación con datos del período de COVID-19."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-2",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-no.-2",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Experimento No. 2",
-    "text": "Experimento No. 2\nAl fijar la muestra de validación en todos los ejercicios de evaluación, se observa que el promedio de los RMSE de las variables objetivo disminuye en los horizontes cortos a medida que se agregan submuestras de estimación más extensas y actualizadas, pero esta tendencia se invierte conforme aumenta el horizonte de pronóstico (Figura 3). Este resultado es similar al encontrado en el experimento No. 1.\nAl observar el resultado por variable objetivo (Figura 4), los resultados son similares a los del experimento No. 1, destacando nuevamente el comportamiento de d4_ln_y_sm, cuyo RMSE disminuye en los ejercicios con menos submuestras de estimación y aumenta a partir de aquellos que incluyen submuestras con datos del período de COVID-19."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-3",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#experimento-3",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Experimento 3",
-    "text": "Experimento 3\nAl evaluar dentro de la muestra, el incremento en el número de submuestras de estimación perjudica, en general, el resultado del RMSE (Figura 5 y Figura 6), siendo consistente con los experimentos No. 1 y No. 2."
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#comparación-entre-experimentos",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#comparación-entre-experimentos",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Comparación entre experimentos",
-    "text": "Comparación entre experimentos\nEn las siguientes gráficas se muestra el resultados de los tres experimentos simultáneamente.\n\n Experimento 1 (OS)\n Experimento 2 (OS mismo conjunto de validación)\n Experimento 3 (IS)"
-  },
-  {
-    "objectID": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
-    "href": "hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html#conclusiones",
-    "title": "Ejercicio de evaluación de capacidad predictiva para el SVAR50 4B",
-    "section": "Conclusiones",
-    "text": "Conclusiones\nPara un modelo con un procedimiento de estimación que logra capturar la dinámica conjunta de los datos, y asumiendo que dicha dinámica se mantiene a lo largo del tiempo, se espera que el error de pronóstico a un mismo horizonte disminuya al incrementar el tamaño de las submuestras de estimación incluidas en cada ejercicio de evaluación.\nLos resultados muestran que el RMSE tiende a incrementarse al añadir nuevas estimaciones con submuestras más grandes y actualizadas, lo que sugiere que esta combinación de modelo y procedimiento de estimación no es capaz de mejorar su poder predictivo al actualizar e incrementar la muestra de estimación."
+    "section": "Resultados experimento 3",
+    "text": "Resultados experimento 3\nAl evaluar dentro de la muestra, el incremento en el número de submuestras de estimación tiende a empeorar el RMSE en general (Figura 5 y Figura 6).\nAl observar cada variable objetivo, se destaca que a partir de 2020Q1 el RMSE dentro de muestra para el tipo de cambio, crecimiento económico y tasa de interés muestra una tendencia al alza. Esto sugiere que la incorporación de submuestras más actualizadas deteriora la medición del error de pronóstico dentro de muestra."
   },
   {
     "objectID": "hefm/results/index.html",

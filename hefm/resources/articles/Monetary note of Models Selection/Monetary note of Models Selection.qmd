@@ -29,7 +29,9 @@ $$ {#eq-ec_1}
 
 donde $y_t$ es un vector de datos  $K×1$ que contiene las $K$ variables del sistema, $B_l,l=1,...,p$, son matrices de coeficientes de dimensión $K×K$, la matriz $B_0$ refleja las relaciones instantáneas entre las variables del modelo y $w_t$ es el vector $K×1$ de choques estructurales, los cuales no están correlacionados entre sí y cada uno posee una interpretación económica específica. Por otra parte, la representación del VAR reducido se obtiene de multiplicar por la izquierda la matriz $B_0^{-1}$:
 
-$y_t = A_1y_{t-1} + A_2y_{t-2} + \cdots + A_{p}y_{t-p} + u_t, \quad t = 1, \ldots, T,$ {#eq-ec_2}
+$$
+y_t = A_1y_{t-1} + A_2y_{t-2} + \cdots + A_{p}y_{t-p} + u_t, \quad t = 1, \ldots, T,
+$$ {#eq-ec_2}
 
 En donde $A_l = B_0^{-1}B_l$ y $u_t = B_0^{-1}w_t$
 
@@ -43,3 +45,7 @@ Dada esta dificultad para discernir simultáneamente la dinámica y los choques 
 En cuanto a la estimación de la forma reducida del VAR mediante MCO, el objetivo principal es minimizar el error (o desviación) entre los datos de la muestra y las proyecciones que el modelo VAR genera para esos mismos datos. Este proceso implica determinar la parametrización del modelo, definida por sus coeficientes representados como $A_1,A_2,\cdots,A_p$ en la @eq-ec_2, de manera que se alcance dicho mínimo. El nombre “Mínimos Cuadrados Ordinarios” (MCO) proviene, precisamente, de la métrica empleada para cuantificar este error, el Error Cuadrático Medio (ECM), y del objetivo de minimizarla. Una ventaja significativa de emplear MCO para esta estimación es la disponibilidad de una “solución analítica”, lo que significa que existe una fórmula matemática explícita para calcular directamente los coeficientes que minimizan el ECM, dados la muestra de estimación y el orden p del VAR reducido propuesto.
 
 En lo referente a los métodos de identificación, existen diversas alternativas para imponer restricciones. Una de las más comunes es la identificación de Cholesky, que se fundamenta en ordenar las variables según su grado de exogeneidad relativa; es decir, las variables se disponen en función de su dependencia con respecto a las demás variables del modelo. Otras técnicas de identificación frecuentemente utilizadas incluyen las restricciones de largo plazo o aquellas que se basan en el aprovechamiento de los cambios en la volatilidad de las variables a lo largo del tiempo (identificación por heterocedasticidad).
+
+Una vez impuestas las restricciones, se debe verificar si el modelo SVAR está identificado, lo que implica haber encontrado una única combinación plausible de dinámica y choques. En caso contrario (si el modelo no está identificado), es necesario reformular las restricciones. La @fig-est-id-process resume el proceso de estimación.
+
+![Proceso de estimación e identificación de modelos de tipo SVAR.](images/Estimation%20and%20identification%20process.jpg){#fig-est-id-process}

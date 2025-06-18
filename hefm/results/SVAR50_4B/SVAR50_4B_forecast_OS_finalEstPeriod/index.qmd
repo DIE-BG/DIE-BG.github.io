@@ -1,3 +1,8 @@
+---
+execute:
+    freeze: false
+---
+
 # Variable Final Estimation Date
 
 [**Fullscreen ⛶**](/hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.qmd)

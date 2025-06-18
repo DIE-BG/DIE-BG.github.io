@@ -76,7 +76,7 @@ Dentro de cada muestra de validación, se generan pronósticos para cada uno de 
 
 ![Esquema de validación cruzada hacia adelante (forward). En cada iteración, la submuestra de estimación se expande y la submuestra de validación se reduce en un horizonte. La submuestra de validación se emplea para generar pronósticos a diferentes horizontes iterativamente.](images/forward%20cross%20validation%20scheme.png){#fig-forward-process}
 
-El diagnóstico de los pronósticos se efectúa computando la raíz del error cuadrático medio (RMSE, por sus siglas en inglés) de las variables objetivo^[Las “variables objetivo” constituyen un subconjunto del conjunto de   variables que integran el modelo SVAR y son aquéllas cuyos pronósticos son de particular relevancia para el usuario del modelo.] del modelo a diferentes horizontes. Si se tienen $N$ iteraciones de validación cruzada, es decir, $N$ submuestras de estimación y validación en las que es posible estimar el error de pronóstico de la variable $i$ a un horizonte $h$, $\hat{e}^{(n)}_{i,h}$, entonces el RMSE está dado por la Ecuación 3. El error de pronóstico está dado por la diferencia entre los valores observados (ex-post) y los valores pronosticados por el modelo, es decir, $\hat{e}^{(n)}_{i,h} = y^{(n)}_{i,h} - \hat{y}^{(n)}_{i,h}$ en la submuestra de validación $n$.
+El diagnóstico de los pronósticos se efectúa computando la raíz del error cuadrático medio (RMSE, por sus siglas en inglés) de las variables objetivo^[Las “variables objetivo” constituyen un subconjunto del conjunto de   variables que integran el modelo SVAR y son aquéllas cuyos pronósticos son de particular relevancia para el usuario del modelo.] del modelo a diferentes horizontes. Si se tienen $N$ iteraciones de validación cruzada, es decir, $N$ submuestras de estimación y validación en las que es posible estimar el error de pronóstico de la variable $i$ a un horizonte $h$, $\hat{e}^{(n)}_{i,h}$, entonces el RMSE está dado por la @eq-ec3. El error de pronóstico está dado por la diferencia entre los valores observados (ex-post) y los valores pronosticados por el modelo, es decir, $\hat{e}^{(n)}_{i,h} = y^{(n)}_{i,h} - \hat{y}^{(n)}_{i,h}$ en la submuestra de validación $n$.
 
 $$
 RMSE_{i,h} = \sqrt{\frac{1}{N}\sum^{N}_{n=1}(\hat{e}^{(n)}_{i,h})^2}
@@ -103,7 +103,7 @@ La @fig-dispersion muestra la distribución dinámica que permite caracterizar l
 La dispersión en cada período de las IRFs es medida a través de una versión robusta del coeficiente de variación, la cual se expresa en la @eq-ec4:^[Esta medida deriva de una modificación respecto de las presentadas en Arachchige, Prendergast, y Staudte (2022).]
 
 $$
-CV^{h}_{i,j} = \frac{exp(IQR^{h}_{i,j})}{exp(|m^{h}_{i,j}|)}
+CVr^{h}_{i,j} = \frac{exp(IQR^{h}_{i,j})}{exp(|m^{h}_{i,j}|)}
 $$ {#eq-ec4}
 
 En donde $IQR^{h}_{i,j}$ y $m^{h}_{i,j}$ representan el rango intercuantílico $(Q_3-Q_1)$ y la mediana $(Q_2)$, respectivamente, de la respuesta de la variable $i$ ante un choque en la variable $j$ a un horizonte $h$. Esta métrica mide la dispersión a través del rango intercuantílico y normaliza las unidades al dividir por la mediana. Ya que las respuestas decaen a cero cuando se desvanecen los choques, la mediana de las respuestas también converge a cero. Es por esto que los valores del rango intercuantílico y de la mediana son ajustados con la función exponencial.

@@ -1,6 +1,15 @@
 ---
 title: "Herramienta para la selección de modelos de vectores autorregresivos estructurales"
-format: html
+format: 
+  html: 
+    toc: true
+    code-fold: true
+  docx:
+    echo: false
+    number-sections: true
+    toc: false
+    fig-dpi: 200
+    df-print: paged
 bibliography: references.bib
 nocite: '@*'
 author: 

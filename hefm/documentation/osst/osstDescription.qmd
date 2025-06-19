@@ -1,0 +1,320 @@
+---
+title: Out-of-Sample SVAR Selection Tool (OSST)
+number-sections: true
+format: 
+    html: default
+    typst: default
+---
+
+::: {.callout-warning title="Include"}
+Add a introduction, justification for this tool and how is integrated with the POSET.
+
+Mention that we want to measure the out-of-sample forecasting error using various cross validation settings. That's why we need to define sample partitions.
+:::
+
+## Sample Partitioning {#sec-samplePartitioning}
+
+::: {.callout-warning title="Include"}
+Why we need to partition the sample?
+:::
+
+Let
+
+$$
+\mathcal{T} = \lbrace 1, 2, \dots, t , \dots, T \rbrace
+$$
+
+denote the ordered set of dates for the full sample.
+
+We partition the sample into three ordered subsets: estimation ($\mathcal{E}(i)$), validation ($\mathcal{V}(i)$), and history ($\mathcal{H}(i)$), which satisfy the following properties:
+
+$$
+\mathcal{E}(i), \mathcal{V}(i), \mathcal{H}(i) \subset \mathcal{T}
+$$
+
+$$
+\mathcal{E}(i) \cap \mathcal{V}(i) \cap \mathcal{H}(i) = \emptyset
+$$
+
+$$
+\mathcal{E}(i) \cup \mathcal{V}(i) \cup \mathcal{H}(i) = \mathcal{T}
+$$
+
+Each distinct partition is indexed by $i$, with $i$ ranging over a set of $I$ possible values:
+
+$$
+\mathcal{I} =  \lbrace 1, 2, \dots, i, \dots, I \rbrace
+$$
+
+::: {.callout-tip title="Example"}
+Let us consider a case in which we want a set of sample partitions indexed by $i$, where:
+
+- The minimum estimation subsample size is 40,
+- The validation subsample always consists of the last 20 observations in $\mathcal{T}$.
+
+This can be expressed as:
+$$
+\mathcal{E}(i) = \lbrace 1, 2, \dots, 40 + i\rbrace, 
+$$
+$$
+\mathcal{V}(i) = \lbrace T - 20, \dots, T \rbrace
+$$
+$$
+\mathcal{H}(i) = \mathcal{T} \setminus (\mathcal{E}(i) \cup \mathcal{V}(i)),  
+$$
+
+The index set is defined as follows to cover all possible partitions that meet our specified requirements:
+
+$$
+\mathcal{I} = \lbrace 1, 2, \dots, i, \dots, |\mathcal{T}| - 60 \rbrace
+$$
+:::
+
+::: {.callout-note}
+The partition of each subset does not need to be indexed solely by $i$. For instance, if a more complex nested partitioning scheme is required, auxiliary indices such as $j$ and $k$ can be used. However, there must exist a bijection between all generated partitions and the index set $\mathcal{I}$.
+
+An example of a nested setting requiring two auxiliary indices is presented in the Appendix (@sec-appendix).
+:::
+
+## Structural Vector Autoregressive Models (SVAR) {#sec-svar}
+
+::: {.callout-warning title="Include"}
+Simple introduction to the SVAR models, and reference to Lutkepohl for more info about what is a SVAR and how to estimate it.
+:::
+
+### Functional Form of SVAR and VAR Models of Order $p$
+
+$y(t) \in \mathbb{R}^{K \times 1}$ denotes a realization of the random variable^[The notations $y(t)$ and $y_t$ are equivalent, but the former is preferred due to its explicit functional interpretation.] $Y(t) \in \mathbb{R}^{K \times 1}$. This random variable represents a vector in which each component corresponds to an economic variable, such as inflation, economic growth, exchange rate, etc. The realization $y(t)$ is indexed over the set of dates $\mathcal{T}$.
+
+An SVAR model of order $p$ is defined as:
+
+$$
+B_0 Y(t) = \sum_{j=1}^{p} B_j Y(t-j) + w(t)
+$$
+
+and the corresponding VAR representation is:
+
+$$
+Y(t) = \sum_{j=1}^{p} A_j Y(t-j) + e(t)
+$$
+
+where:
+
+$$
+A_j = B_0^{-1} B_j
+$$
+
+and
+
+$$
+e(t) = B_0^{-1} w(t)
+$$
+
+### Estimation, Forecasting Function, Forecast Errors, and Structural Shocks
+
+The model is estimated over a subsample $\mathcal{X} \subset \mathcal{T}$, resulting in:
+
+$$
+y(t) = \sum_{j=1}^{p} \hat{A}_j(\mathcal{X}) y(t-j) + \hat{e}(t; \mathcal{X})
+$$
+
+By imposing identification restrictions, we obtain an estimate of the SVAR:
+
+$$
+\hat{B}_0(\mathcal{X}) y(t) = \sum_{j=1}^{p} 
+    \hat{B}_j(\mathcal{X}) y(t-j) + 
+    \hat{w}(t; \mathcal{X})
+$$
+
+
+The unconditional forecasting function derived from the VAR estimation is:
+
+$$
+\hat{y}(t; \mathcal{X}) = \sum_{j=1}^{p} \hat{A}_j(\mathcal{X}) y(t-j)
+$$
+
+The residuals and estimated structural shocks corresponding to the forecast, VAR, and SVAR estimations are, respectively:
+
+$$
+\hat{e}(t; \mathcal{X}) = y(t) - \hat{y}(t; \mathcal{X})
+$$
+
+$$
+\hat{w}(t; \mathcal{X}) = \hat{B}_0(\mathcal{X}) \hat{e}(t; \mathcal{X})
+$$
+
+### Forecasting Within a Specific Subsample
+
+If we are interested in forecasting at times $t \in \mathcal{Y} \subset \mathcal{T}$, the forecasting errors are defined as:
+
+$$
+\hat{e}(t \in \mathcal{Y}; \mathcal{X}) = \hat{y}(t \in \mathcal{Y}; \mathcal{X}) - y(t \in \mathcal{Y})
+$$
+
+We explicitly indicate the set of dates $\mathcal{Y}$ over which the forecast is evaluated. The aim is to include this set in the notation in a way that is both meaningful and succinct.
+
+The corresponding forecasted structural shocks are given by:
+
+$$
+\hat{w}(t \in \mathcal{Y}; \mathcal{X}) = \hat{B}_0(\mathcal{X}) \hat{e}(t \in \mathcal{Y}; \mathcal{X}) 
+$$
+
+This notation allows us to express various combinations—such as in-sample errors and out-of-sample forecasted structural shocks—within a unified framework.
+
+
+## Out-of-Sample Unconditional MSE (UMSE) {#sec-umse}
+
+In [section -@sec-samplePartitioning], we define the sets used for estimation ($\mathcal{E}(i)$) and for validation, where we evaluate the out-of-sample forecasting error ($\mathcal{V}(i)$).
+
+The out-of-sample forecasting error for a given partition $i$ is:
+
+$$
+\hat{e}(t \in \mathcal{V}(i); \mathcal{E}(i))
+$$
+
+We are interested in collecting all forecasting errors over the validation set $\mathcal{V}(i)$. A convenient mathematical structure for this purpose is the tuple (see [Appendix - @sec-appendix] for the definition of tuples).
+
+The tuple of all out-of-sample forecast errors for $\mathcal{V}(i)$ is expressed as:
+
+$$
+\hat{\mathbfcal{e}}(\mathcal{E}(i), \mathcal{V}(i)) =
+\left(\hat{e}(t; \mathcal{E}(i))\right)_{t \in \mathcal{V}(i)}
+$$
+
+This tuple contains the same number of errors as the validation set, i.e., $|\mathcal{V}(i)|$, with the errors ordered accordingly.
+
+One advantage of summarizing the forecast errors in a tuple is that it enables retrieval of the error associated with a specific forecast horizon $h$.
+
+::: {.callout-tip title="Example"}
+To obtain the first forecasting error in $\mathcal{V}(i)$, we take the first element of the tuple, denoted $\hat{\mathbfcal{e}}_{h=1}(\mathcal{E}(i), \mathcal{V}(i))$.
+:::
+
+A limitation arises when querying for an element at horizon $h > |\mathcal{V}(i)|$, as such an element is undefined. A solution is to define an auxiliary function to handle this querying process. The forecast error at horizon $h$ is then defined as:
+
+$$
+\hat{\epsilon}(h; \mathcal{E}(i), \mathcal{V}(i))= \begin{cases}
+    \hat{\mathbfcal{e}}_h(\mathcal{E}(i), \mathcal{V}(i)), & \text{if } h \leq |\mathcal{V}(i)| \\
+    0, & \text{otherwise}
+\end{cases}
+$$
+
+The function $\hat{\epsilon}(h; \mathcal{E}(i), \mathcal{V}(i))$ retrieves the forecasting error $\hat{\mathbfcal{e}}_h(\mathcal{E}(i), \mathcal{V}(i))$ if it exists, and returns zero otherwise.
+
+With this auxiliary function, we can now express the *Unrestricted Mean Square Error (UMSE)* across all defined partitions $i \in \mathcal{I}$ at forecast horizon $h$:
+
+$$
+UMSE(h; \mathcal{I}) = \dfrac{1}{C} \sum_{i \in \mathcal{I}} 
+    \text{map}(
+        z^2,
+        \hat{\epsilon}(h; \mathcal{E}(i), \mathcal{V}(i))
+    )
+$$
+
+where
+
+$$
+C = \sum_{i \in \mathcal{I}} 1_{h \leq |\mathcal{V}(i)|}
+$$
+
+The constant $C$ represents the number of forecasting errors available at horizon $h$ across all partitions $i$. The `map` function is defined in [Appendix - @sec-appendix].
+
+<!--
+
+## Out-of-Sample Conditional MSE (CMSE)
+
+The observed value $y(t)$ can be perfectly recovered by conditioning the out-of-sample forecast on the corresponding structural shock:
+
+$$
+y(t \in \mathcal{V}(i)) = \hat{y}(t \in \mathcal{V}(i); \mathcal{E}(i)) + B_0(\mathcal{E}(i))^{-1} \hat{\omega}(t \in \mathcal{V}(i); \mathcal{E}(i))
+$$
+
+However, if we replace the out-of-sample forecasted shocks with those calculated in-sample within the validation set, we obtain:
+
+$$
+\hat{y}^\star(t \in \mathcal{V}(i); \mathcal{E}(i)) = \hat{y}(t \in \mathcal{V}(i); \mathcal{E}(i)) + B_0(\mathcal{E}(i))^{-1} \hat{w}(t \in \mathcal{V}(i); \mathcal{V}(i))
+$$
+
+The conditional forecast error is then the difference between this adjusted forecast and the true value:
+
+$$
+\hat{e}^\star(t \in \mathcal{V}(i); \mathcal{E}(i)) = \hat{y}^\star(t \in \mathcal{V}(i); \mathcal{E}(i)) - y(t \in \mathcal{V}(i))
+$$
+-->
+
+<!--
+This simplifies to:
+
+$$
+\hat{e}^\star(t \in \mathcal{V}(i); \mathcal{E}(i)) = B_0(\mathcal{E}(i))^{-1} \left(
+     \hat{w}(t\in \mathcal{V}(i); \mathcal{V}(i)) - \hat{w}(t \in \mathcal{V}(i); \mathcal{E}(i))
+\right)
+$$
+
+
+The tuple of all conditional forecast errors within $\mathcal{V}(i)$ is:
+
+$$
+\hat{e}^\star(\mathcal{E}(i), \mathcal{V}(i)) =
+\left(\hat{e}^\star(t; \mathcal{E}(i), \mathcal{V}(i))\right)_{t \in \mathcal{V}(i)}
+$$
+
+And the forecast error at horizon $h$ is:
+
+$$
+\hat{e}^\star(\mathcal{E}(i), \mathcal{V}(i), h) = \begin{cases}
+    \hat{e}^\star_h(\mathcal{E}(i), \mathcal{V}(i)), & \text{if } h \leq |\mathcal{V}(i)| \\
+    0, & \text{otherwise}
+\end{cases}
+$$
+
+The conditional mean squared error (CMSE) at horizon $h$ is:
+
+$$
+CMSE(h; \mathcal{I}) = \dfrac{1}{C} \sum_{i \in \mathcal{I}} \hat{e}^\star(\mathcal{E}(i), \mathcal{V}(i), h) \circ \hat{e}^\star(\mathcal{E}(i), \mathcal{V}(i), h)
+$$
+
+with
+
+$$
+C = \sum_{i \in \mathcal{I}} 1_{h \leq |\mathcal{V}(i)|}
+$$
+
+## Total Root Mean Square Error (TRMSE)
+
+
+Using the `map` function, we define:
+
+$$
+URMSE(h; \mathcal{I}) = \text{map}(\sqrt{z}, UMSE(h; \mathcal{I}))
+$$
+
+$$
+CRMSE(h; \mathcal{I}) = \text{map}(\sqrt{z}, CMSE(h; \mathcal{I}))
+$$
+
+Finally, the total root mean square error at forecast horizon $h$ is:
+
+$$
+TRMSE(h; \mathcal{I}) = URMSE(h; \mathcal{I}) + CRMSE(h; \mathcal{I})
+$$
+-->
+## Appendix {#sec-appendix}
+
+### Nested Sample Partitioning Example
+
+::: {.callout-warning title="Include"}
+Include a nested sample partitioning example. Use the *forecast* setting used in the simple OSST. 
+:::
+
+### `map` Function Definition
+> Let $f: \mathbb{R} \to \mathbb{R}$ be a real-valued function, and let $\mathbf{x} = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$. The operation `map(f, x)` is defined as:
+> $$
+> \text{map}(f, \mathbf{x}) = \left(f(x_1), f(x_2), \dots, f(x_n)\right)
+> $$
+> That is, `map` applies the function $f$ to each component of the vector $\mathbf{x}$, returning a new vector in $\mathbb{R}^n$ whose elements are the images of the original elements under $f$.
+
+### Definition of Tuples
+
+::: {.callout-warning title="Include"}
+Definition and mathematical properties.
+:::

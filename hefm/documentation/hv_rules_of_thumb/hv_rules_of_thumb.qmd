@@ -1,0 +1,81 @@
+---
+title: $h-v$ Cross Validation Rule of Thumb
+bibliography: reference.bib
+format:
+    html:
+        math: mathjax
+nocite: |
+    @*
+---
+
+The $h$–$v$ block is a cross-validation setting that aims to estimate the forecasting error in an unbiased manner. The $h$ block represents the portion of observations discarded from the sample in order to separate the estimation and validation sets (the validation set includes the observations required to initialize the forecast), so that the estimation is nearly independent from the forecasting error calculation. The $v$ block represents the forecast horizon we aim to evaluate. If we are interested in a one-step-ahead forecast, $v$ can be set to one, resembling the leave-one-out cross-validation setting, but adapted to allow for a more reliable estimation. For a graphical representation of both cross validation settings, see @sec-appendix_diagrams.
+
+@racine2000consistent argues an additional purpose for the $v$ block. If the entire block is used to compute a single prediction performance metric, such as the MSE, they claim that this approach improves the estimation of the prediction error. However, this view is incompatible with our model selection framework, given that we are interested in accurately estimating the forecasting error at a specific horizon.
+
+Ideally, we select $h$ as big as possible, in order to increase our chances of having independence between the estimation and validation sets.
+
+Specifically, if $\lbrace X_1, \cdots, X_N \rbrace$ is a section from a stationary process,
+
+$$
+\text{Cov}(X_i, X_{i+h}) \to 0 \quad \text{as} \quad  h \to \infty
+$$
+
+@burman1994cross recognizes that, since the data-generating process is unknown and practical samples are often small, it is preferable to select $h$ as small as possible. To this end, they suggest using a fixed fraction of the sample, $p = h/N$, where $0 < p < 0.5$. The estimation of the forecasting error should then be adjusted by a correction term that accounts for the underuse of the available sample.
+
+Based on simulations, they conclude that $p = \frac{1}{6}$ proves to be a sensible choice in their results. It is important to note that their simulations consider sample sizes of 25, 36, 60, and 64 observations, testing a range of $h$ values from 0 to 17. This implies that, even though they evaluate $p$ values as large as 0.30, they effectively remove a maximum of 34 observations ($2 \times 17$) from the full sample in each step of the $h$ cross-validation. 
+
+Following their recommended value of $p = \frac{1}{6}$, the minimum and maximum values of $h$ are 4 and 9, respectively. This conclusion is supported by @tbl-results, where column 4 of each simulation exercise reports the results corresponding to the suggested value of $p$.
+
+<!--
+only short range dependence are considered
+six simulations
+10,000 per simulation
+N obs
+variance 3
+least squares
+one step prediction
+-->
+
+
+
+## References
+
+::: {#refs}
+:::
+
+## Appendix {.appendix #sec-appendix}
+
+### Leave-One-Out and $h$ Cross Validation {.appendix #sec-appendix_diagrams}
+
+In the leave-one-out cross-validation setting, the validation set—which includes both the initial conditions and the point to be evaluated—is immediately surrounded by the estimation set (@fig-loo). This configuration can compromise the estimation of the forecasting error due to the correlation between the estimation and validation sets.
+
+In contrast, in the $h$ cross-validation setting, the $h$ discarded observations surrounding the validation set help reduce the likelihood of bias in the estimation of the forecasting error caused by correlation with the estimation set (@fig-hcv).
+
+
+::: {#fig-loo}
+
+{{< include loocv.qmd >}}
+
+Leave-One-Out Cross Validation Setting
+:::
+
+::: {#fig-hcv}
+
+{{< include hcv.qmd >}}
+
+$h$ Cross Validation Setting
+:::
+
+### Simulation Exercise {.appendix #sec-appendix_sim}
+
+The following descriptions was extracted from @burman1994cross.
+
+### Simulation Results {.appendix #sec-appendix_results}
+
+![Simulation Results. Source: @burman1994cross](images/results.png){#tbl-results}
+
+- $E(PE_n)$: Expected value of the one-step-ahead prediction error for an estimation based on $n$ observations.  
+- $E(CV_n)$: Expected value of the one-step-ahead prediction error under the $h$ cross-validation setting, using $n$ observations for estimation.  
+- $E(CCV_n)$: Expected value of the one-step-ahead prediction error under the corrected $h$ cross-validation setting, using $n$ observations for estimation.
+
+For a cross-validation setting, the goal is to estimate $E(PE_n)$ as accurately as possible. This means that the expected value of the cross-validation results should be concentrated around that target, ideally with low variance.

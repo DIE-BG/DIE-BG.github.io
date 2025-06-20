@@ -1,0 +1,196 @@
+<!-- full sample -->
+<div style="
+    width: 100%;
+    display: flex;
+    border: 2px solid #444;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+">
+  <div style="width: 100%; text-align: center;">$X_1, X_2, \dots, X_N$</div>
+  <div style="width: 0%; text-align: center;"></div>
+  <div style="width: 0%; text-align: center;"></div>
+  <div style="width: 0%; text-align: center;"></div>
+</div>
+<!-- i = 1 partition -->
+<div style="
+    width: 100%;
+    display: flex;
+    border: 2px solid #444;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+">
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_1, \dots, X_{h-1}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0eaff
+">$X_{h}, \dots, X_{k+h-1}$</div>
+  <div style="
+    width: 5%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #ffd0d0
+">$X_{k+h}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_{k+h+1}, \dots, X_{k+2h}$</div>
+  <div style="
+    width: 50%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0ffd6
+">$X_{k+2h+1}, \dots, X_N$</div>
+</div>
+<!-- i = 2 partition -->
+<div style="
+    width: 100%;
+    display: flex;
+    border: 2px solid #444;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+">
+  <div style="
+    width: 5%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0ffd6
+">$X_{1}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_2, \dots, X_{h}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0eaff
+">$X_{h+1}, \dots, X_{k+h}$</div>
+  <div style="
+    width: 5%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #ffd0d0
+">$X_{k+h+1}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_{k+h+2}, \dots, X_{k+2h+1}$</div>
+  <div style="
+    width: 45%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0ffd6
+">$X_{k+2h+2}, \dots, X_N$</div>
+</div>
+<!-- i = 3 partition -->
+<div style="
+    width: 100%;
+    display: flex;
+    border: 2px solid #444;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+">
+  <div style="
+    width: 10%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0ffd6
+">$X_{1}, X_2$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_3, \dots, X_{h+1}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0eaff
+">$X_{h+2}, \dots, X_{k+h+1}$</div>
+  <div style="
+    width: 5%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #ffd0d0
+">$X_{k+h+2}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_{k+h+3}, \dots, X_{k+2h+2}$</div>
+  <div style="
+    width: 40%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0ffd6
+">$X_{k+2h+3}, \dots, X_N$</div>
+</div>
+<!-- full sample -->
+<div style="
+    width: 100%;
+    display: flex;
+    border: 0px solid #444;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+">
+  <div style="width: 100%; text-align: center;">$\vdots$</div>
+  <div style="width: 0%; text-align: center;"></div>
+  <div style="width: 0%; text-align: center;"></div>
+  <div style="width: 0%; text-align: center;"></div>
+</div>
+<!-- last partition -->
+<div style="
+    width: 100%;
+    display: flex;
+    border: 2px solid #444;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+">
+  <div style="
+    width: 75%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0ffd6
+">$X_{1}, \dots, X_{N-k-h-1}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #fff8d0
+">$X_{N-k-h}, \dots, X_{N-k-1}$</div>
+  <div style="
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #d0eaff
+">$X_{N-k}, \dots, X_{N-1}$</div>
+  <div style="
+    width: 5%;
+    text-align: center;
+    border-right: 1px solid #444;
+    background-color: #ffd0d0
+">$X_{N}$</div>
+</div>
+<!-- legend -->
+<div style="margin-top: 1em; font-size: 0.85rem; display: flex; gap: 1.5em; align-items: center;"><div style="display: flex; align-items: center; gap: 6px;"><div style="width: 16px; height: 16px; background-color: #d0eaff; border: 1px solid #aaa;"></div><span>Initial Conditions</span></div><div style="display: flex; align-items: center; gap: 6px;"><div style="width: 16px; height: 16px; background-color: #ffd0d0; border: 1px solid #aaa;"></div><span>Validation</span></div><div style="display: flex; align-items: center; gap: 6px;"><div style="width: 16px; height: 16px; background-color: #d0ffd6; border: 1px solid #aaa;"></div><span>Estimation</span></div><div style="display: flex; align-items: center; gap: 6px;"><div style="width: 16px; height: 16px; background-color: #fff8d0; border: 1px solid #aaa;"></div><span>h-block</span></div></div>

@@ -26,9 +26,9 @@ Las pautas principales para este ejercicio son:
 
 ::: {.incremental}
 - La función de pérdida de los errores de pronóstico
-se obtiene de un conjunto de modelos. 
+se obtiene de un conjunto de submuestras. 
 
-- En este conjunto de modelos, se utiliza el método HV-block.
+- En este conjunto de submuestras, se utiliza el método HV-block.
 :::
 
 #
@@ -48,7 +48,7 @@ en cada modelo?
 
 ## Estimación 
 ::: {.incremental}
--  El ejercicio del bloque $hv$ busca estimar el modelo SVAR50_4B utilizando el esquema $hv$ con diferentes tamaños de muestra. 
+-  El ejercicio del bloque $hv$ busca estimar la submuestra SVAR50_4B utilizando el esquema $hv$ con diferentes tamaños de muestra. 
 -  Donde $h$ es el número de periodos de espaciamiento entre la validación y la estimación.
 -   El periodo de validación tiene una duración de $2v+1$ periodos.
 -  Para ello, se establecen los parámetros $h$ que va de 4 a 16 y $v$ que va de 6 a 14.
@@ -64,7 +64,7 @@ en cada modelo?
 ::: {.incremental}
 - En cada uno de estos conjuntos es posible obtener 
 la función de pérdida, tomando el $RMSE_k$ en función 
-de los errores de cada uno de los modelos, por cada horizonte $k$. 
+de los errores de cada uno de las submuestras, por cada horizonte $k$. 
 :::
 
 
@@ -86,27 +86,27 @@ gantt
     title Pool N
     dateFormat  YYYY-QQ
     axisFormat %Y-%m
-    section Model 1
+    section Submues. 1
     V  :a3, 2005-01, 36M
     H  :a4,2008-02,14M
     T  :a5, 2009-05,176M
-    section Model 2
+    section Submues. 2
     V  :a3, 2005-04, 36M
     H  :a4,2008-05,14M
     T  :a5, 2009-08,173M
-    section Model 3
+    section Submues. 3
     V   :a3, 2005-07, 36M
     H   :a4,2008-08,14M
     T   :a5, 2009-011,170M
     section .
     ... :a1, 2015-01-02, 
-    section Model p
+    section Submues. p
     T    :a1, 2005-01, 24M
     H    :a2,2007-02,12M
     V    :a3, 2008-03,36M
     H    :a4,2011-04,12M
     T     :a5, 2012-05,140M
-    section Model (p+1)
+    section Submues. (p+1)
     T    :a1, 2005-01, 27M
     H    :a2,2007-05,12M
     V    :a3, 2008-06,36M
@@ -114,7 +114,7 @@ gantt
     T     :a5, 2012-08,137M
     section ..
     ... :a1, 2015-01-02,
-    section Model z
+    section Submues. z
     T    :a1, 2005-01, 176M
     H    :a2,2019-010,14M
     V    :a3, 2021-01,36M
@@ -154,7 +154,7 @@ tiene un comportamiento similar en los primeros cuatro horizontes.
     en el conjunto con muestras que tiene un tamaño de 
     estimación más reducido.
   + El tipo de cambio y la tasa de interés tiene un mínimo en el 
-  conjunto con modelos con un tamaño de estimación mayor. 
+  conjunto con submuestras con un tamaño de estimación mayor. 
 
   
 :::
@@ -163,7 +163,7 @@ tiene un comportamiento similar en los primeros cuatro horizontes.
 ::: {.incremental}
   
   + El tipo de cambio, cambia de comportamiento y se obtiene 
-  un mínimo en el conjunto con modelos con una estimación mayor.
+  un mínimo en el conjunto con submuestras con una estimación mayor.
  
 :::
 

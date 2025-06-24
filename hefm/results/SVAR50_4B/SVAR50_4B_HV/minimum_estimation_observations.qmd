@@ -1,0 +1,102 @@
+---
+title: "Algunas consideraciones para utilizar un número mínimo de observaciones"
+format:
+    revealjs:
+        scrollable: true
+        incremental: true
+        slide-number: true
+        smaller: true
+        progress: true
+        controls: true
+        controls-back-arrows: faded
+---
+# Revisión de Literatura
+ Según la revisión de literatura realizada, no se encontró
+un umbral teórico justificado y general del tamaño mínimo de muestra
+para estimar el modelo en función de la cantidad de parámetros.
+
+# Estimación del modelo
++ Siguiendo a Lutkepöhl, para estimar un modelo VAR con 
+parámetros restringidos,  se tiene la siguiente
+ecuación 
+
+$$
+\hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}
+$$
+
+
+En particular la matriz $$ R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R $$ de 
+tamaño $M\times M$, donde $M$ es la cantidad 
+de párametros libres, 
+debe ser invertible, 
+por lo tanto es necesario que el $\text{rank}(R\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R)=M$.  
+
+## Propiedades de matrices
+Con algunas propiedades de matrices y suponiendo que la matriz $\Sigma_u$ es invertible.
+$$
+\begin{aligned}
+\text{rank}(R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R)  &\leq \text{min}\{\text{rank}(R), \text{rank}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right) \}\\
+ & \leq \text{min}\{\text{rank}(R), \text{rank}\left(ZZ^{\prime}\right)\text{rank}\left(\Sigma_{u}^{-1}\right)\} \\
+&\leq\text{min}\{M,  \text{rank}(ZZ')\cdot K\}\\
+&\leq\text{min}\{M,  \text{rank}(Z)\cdot K\}\\
+\end{aligned}
+$$
+
+En el caso que $\text{rank}(Z)\cdot K<M$ la estimación 
+de $\gamma$ no se puede realizar. Notar que, el rango de $Z$ depende del número de observaciones.
+
+
+# SVAR50_4B
+
++ En específico para el SVAR50_4B, $M=29$, $K=9$.
+Por lo tanto el número de observaciones téorico 
+necesario mínimo es $T=4$, 
+(con 3 el rango de $R\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R$
+será menor o igual a $27<29=M$).  
++ Sin embargo, $T=4$ no es suficiente para 
+asegurar la invertibilidad de la matriz.
+ 
+
+
+# Estimaciones
+
++ Concretamente para este modelo y estos datos se realizaron prubas empríricas, para buscar cuál es un mínimo suficiente para poder estimar este modelo. 
+  
++ En esta pruebas se varió $T$ se estimó iteradamente el modelo. Con $3 \leq T <20$, se observa el rango y el determinante de las matrices $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$
+  
+
+
+# Resultados
+
+|    |$R'(ZZ'\otimes \Sigma_u^{-1})R$|            | $\Sigma_u$ |             |
+|----|----------------------------|------------|---------|-------------|
+| **T**  | rank                       | det        | rank    | det         |
+| **3**  | 18                         | 3.76E+81   | 3       | -5.28E+03   |
+| **4**  | 12                         | -1.11E-95  | 4       | 9.26E+74    |
+| **5**  | 5                          | 2.13E-116  | 1       | 7.89E+78    |
+| **6**  | 6                          | -2.22E-215 | 1       | -1.59E+101  |
+| **7**  | 22                         | -8.55E+278 | 6       | 2.47E-41    |
+| **8**  | 22                         | 1.14E+265  | 6       | -1.34E-47   |
+| **9**  | 21                         | 6.23E+249  | 7       | 5.59E-28    |
+| **10** | 17                         | 8.45E+262  | 7       | 2.79E-27    |
+| **11** | 22                         | 1.05E+122  | 8       | 3.34E-10    |
+
+
+# Resultados ...
+|    |$R'(ZZ'\otimes \Sigma_u^{-1})R$|            | $\Sigma_u$ |             |
+|----|----------------------------|------------|---------|-------------|
+| **T**  | rank                       | det        | rank    | det         |
+| **12** | 13                         | -3.86E+163 | 8       | 5.67E+03    |
+| **13** | 19                         | 1.55E+144  | 8       | 4.62E-16    |
+| **14** | 11                         | -6.67E+206 | 8       | 5.96E-07    |
+| **15** | 19                         | -4.10E+154 | 8       | 3.10E-10    |
+| **16** | 29                         | 1.81E+80   | 9       | 1.18E-07    |
+| **17** | 29                         | 8.30E+74   | 9       | 1.02E-05    |
+| **18** | 29                         | 1.30E+78   | 9       | 4.36E-05    |
+| **19** | 29                         | 4.78E+77   | 9       | 8.20E-05    |
+| **20** | 29                         | 1.86E+75   | 9       | 2.98E-04    |
+
+# Mínimo de observaciones
++ El modelo no se estima de manera conforme se realizaban iteraciones para su convergencia. adecuada obteniendo matrices con rango incompleto, y con determinantes muy grandes, tanto para $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$  
+
++ De esta manera se concluye que para estos datos y este modelo, el mínimo adecuado, asegurando únicamente que sea posible realizar la estimación matemáticamente, es $T=16$.

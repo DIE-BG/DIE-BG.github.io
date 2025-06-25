@@ -19,3 +19,12 @@ SVAR50_4B:
     style="border: none;"
 ></iframe>
 ```
+
+```{=html}
+<iframe 
+    src="/hefm/results/SVAR50_4B/SVAR50_4B_HV/minimum_estimation_observations.html"
+    height= {{< var frame_height >}}
+    width= {{< var frame_width >}}
+    style="border: none;"
+></iframe>
+```

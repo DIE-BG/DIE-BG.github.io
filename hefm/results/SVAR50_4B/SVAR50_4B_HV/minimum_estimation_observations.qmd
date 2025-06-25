@@ -62,11 +62,11 @@ asegurar la invertibilidad de la matriz.
 
 + Concretamente para este modelo y estos datos se realizaron prubas empríricas, para buscar cuál es un mínimo suficiente para poder estimar este modelo. 
   
-+ En esta pruebas se varió $T$ se estimó iteradamente el modelo. Con $3 \leq T <20$, se observa el rango y el determinante de las matrices $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$
++ En esta pruebas se varió $T$ se estimó iteradamente el modelo. Con $3 \leq T \leq 20$, se observa el rango y el determinante de las matrices $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$.
   
 
 
-# Resultados
+## Resultados
 
 |    |$R'(ZZ'\otimes \Sigma_u^{-1})R$|            | $\Sigma_u$ |             |
 |----|----------------------------|------------|---------|-------------|
@@ -82,7 +82,7 @@ asegurar la invertibilidad de la matriz.
 | **11** | 22                         | 1.05E+122  | 8       | 3.34E-10    |
 
 
-# Resultados ...
+## Resultados ...
 |    |$R'(ZZ'\otimes \Sigma_u^{-1})R$|            | $\Sigma_u$ |             |
 |----|----------------------------|------------|---------|-------------|
 | **T**  | rank                       | det        | rank    | det         |
@@ -97,6 +97,6 @@ asegurar la invertibilidad de la matriz.
 | **20** | 29                         | 1.86E+75   | 9       | 2.98E-04    |
 
 # Mínimo de observaciones
-+ El modelo no se estima de manera conforme se realizaban iteraciones para su convergencia. adecuada obteniendo matrices con rango incompleto, y con determinantes muy grandes, tanto para $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$  
++ Al realizar la estimación con pocas observaciones $T<16$, se obtienen matrices con rango incompleto, y con determinantes muy grandes, para $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$.  
 
-+ De esta manera se concluye que para estos datos y este modelo, el mínimo adecuado, asegurando únicamente que sea posible realizar la estimación matemáticamente, es $T=16$.
++ De esta manera se concluye que para estos datos y este modelo, el mínimo de observaciones asegurando que sea posible realizar la estimación matemáticamente, es $T=16$.

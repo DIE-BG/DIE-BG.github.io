@@ -1,0 +1,321 @@
+---
+title: Validación cruzada tipo $h$-$v$
+subtitle: Reglas de dedo para el valor de $h$
+lang: es
+bibliography: reference.bib
+format: 
+    revealjs: 
+        smaller: true
+        progress: true
+        controls: true
+        controls-back-arrows: faded
+        center: true
+nocite: |
+    @*
+---
+
+
+Nuestra referencia para la elección de un valor para $h$ proviene de @burman1994cross como fuente principal, y de @racine2000consistent como fuente complementaria, quien extiende dicho enfoque a una validación tipo $h$–$v$.
+
+## Ideas Principales
+
+- Se recomienda usar una proporción fija entre el bloque de datos a descartar $h$ y el número total de observaciones $N$, es decir, $h/N = p$, para determinar el tamaño del bloque $h$.  
+- La proporción $p$ debe estar en el rango $0 < p < 0.5$.  
+- En muestras pequeñas, se sugiere aplicar una corrección por tamaño muestral a la estimación del MSE obtenida por validación cruzada.
+
+---
+
+- Con base en simulaciones (ver @sec-sim para más detalle) con muestras cortas y procesos autorregresivos univariados, @burman1994cross encuentra que $p \approx 0.15$ ofrece un buen equilibrio entre la precisión en la estimación del error de pronóstico y la pérdida de observaciones en la muestra (ver @sec-sim_results para consultar los resultados del artículo).
+- Para un valor de $p = 0.15$, las simulaciones en @burman1994cross prueban únicamente valores de $h$ entre 4 y 9:
+  - El ejercicio con la muestra más pequeña utiliza $N = 25$ observaciones, lo que implica $h = 25 \times 0.15 \approx 4$.
+  - En cambio, el ejercicio con la muestra más grande utiliza $N = 64$ observaciones, lo que implica $h = 64 \times 0.15 \approx 9$.
+
+
+---
+
+- A partir de los resultados en de las simulaciones de @burman1994cross, presentados en la @tbl-results, se observa, en términos generales, que valores pequeños de $h$ tienden a subestimar el MSE obtenido por validación cruzada, mientras que valores grandes de $h$ tienden a sobreestimarlo.
+
+---
+
+- En el caso en que $h$ es pequeño, la muestra de validación y la de estimación están altamente correlacionadas, lo que incrementa la probabilidad de acertar en el pronóstico un paso hacia adelante, sesgando a la baja la estimación del MSE por validación cruzada un paso adelante.
+
+
+![Ejemplo cuando $h = 0$](images/loo.png)
+
+---
+
+- En el caso en que se impone un valor de $h$ muy grande, la estimación del MSE por validación cruzada un paso adelante tiende a sobrestimar el verdadero MSE.
+
+En los ejercicios de simulación de @burman1994cross, esto ocurre debido a la reducción excesiva en el tamaño de la muestra de estimación.
+
+En la práctica, también se identifica un riesgo de sobreestimación del MSE, ya que un bloque $h$ muy grande podría excluir información importante sobre un cambio en la dinámica conjunta de los datos.
+
+![Ejemplo cuando $h$ es muy grande](images/hcv_big_h.png)
+
+---
+
+## Consecuencias para nuestro ejercicio de selección de modelos
+
+- Lo anterior respalda la elección de un $h$ entre 4 y 9 para nuestro esquema de selección de modelos.  
+- Usar un factor fijo de $p = 0.15$ es menos recomendable a medida que crece la muestra, ya que se descartan más observaciones de las necesarias para mejorar la independencia entre los bloques de estimación y validación.  
+- Calcular la métrica de validación cruzada corregida por tamaño muestral, como sugiere @burman1994cross, mejora las propiedades asintóticas de dicha métrica (ver @sec-ccv para más detalle).
+
+## Referencias
+
+::: {#refs}
+:::
+
+## Descripción de la validación cruzada tipo $h$ {.appendix #sec-descripcionHV}
+
+La base del esquema de validación tipo $h$ proviene del método conocido como *leave-one-out*. En este esquema (@fig-loo), se aparta una sola observación, junto con sus condiciones iniciales, en cada iteración de la validación. Si se evalúa un horizonte mayor a uno, se apartan $v$ observaciones hasta alcanzar el horizonte requerido.
+
+![Validación cruzada tipo Leave-One-Out](images/loo.png){#fig-loo}
+
+---
+
+En el esquema $h$ de validación cruzada (@fig-hval), se descarta un bloque de tamaño $h$ alrededor de las condiciones iniciales y del bloque de validación. Al igual que en el esquema *leave-one-out*, si se evalúa un horizonte mayor a uno, se apartan $v$ observaciones en el bloque de validación hasta alcanzar el horizonte requerido.
+
+![Validación cruzada tipo $h$](images/h-validation.png){#fig-hval}
+
+## Especificación del ejercicio de simulación {.appendix #sec-sim}
+
+Con base en simulaciones, @burman1994cross calculan las distribuciones del *MSE real* y del *MSE estimado mediante validación cruzada* para distintos tamaños de bloque $h$. 
+
+Luego, comparan los valores esperados y las desviaciones estándar de ambas distribuciones con el objetivo de identificar qué valor de $h$ genera una un estimador de validación cruzada más concentrado alrededor del valor esperado del MSE real.
+
+> Los ejercicios de simulación solamente contempla los MSE *un paso hacia adelante* u horizonte 1 de pronóstico.
+
+---
+
+Todos los ejercicios de simulación en @burman1994cross siguen el siguiente proceso estacionario general:
+
+$$
+x_i = \theta_0 + \sum_{i=1}^{k} \theta_i x_{i-k} + \epsilon_i
+$${#eq-random_process}
+
+$$
+\epsilon_i \sim N(\mu_{\epsilon} = 0, \sigma_{\epsilon} = 3)
+$$
+
+donde $\theta_0, \dots, \theta_k$ son parámetros conocidos.
+
+---
+
+Una muestra aleatoria $\mathcal{X} = \lbrace X_1, \dots, X_N \rbrace$ es usada para computar el MSE de validación cruzada.
+
+<!--
+- $\hat{\theta}_0, \hat{\theta}_1, \dots, \hat{\theta}_k,$ denotan los parámetros estimados en la muestra completa.
+- $\hat{\theta}_{0,i}, \hat{\theta}_{1,i}, \dots, \hat{\theta}_{k,i},$ denotan los parámetros estimados al remover:
+  - $\lbrace X_{i}, \dots, X_{i+k-1} \rbrace$: Las condiciones iniciales para realizar el pronóstico.
+  - $X_i + k$: La observación para calcular el error de pronóstico.
+  - $\lbrace X_{i-h}, \dots, X_{i-1}\rbrace$: el bloque $h$ izquierdo.
+  - $\lbrace X_{i+k+1}, \dots, X_{i+k+h} \rbrace$: el bloque $h$ derecho.
+-->
+
+- $\hat{\theta}_0, \hat{\theta}_1, \dots, \hat{\theta}_k,$ denotan los parámetros estimados en la muestra completa.
+- $\hat{\theta}_{0,i}, \hat{\theta}_{1,i}, \dots, \hat{\theta}_{k,i},$ denotan los parámetros estimados al remover:
+  - $\lbrace X_{i}, \dots, X_{i+h-1}\rbrace$: el bloque $h$ izquierdo.
+  - $\lbrace X_{i+h}, \dots, X_{i+h+k-1} \rbrace$: Las condiciones iniciales para realizar el pronóstico.
+  - $X_{i+h+k}$: La observación para calcular el error de pronóstico.
+  - $\lbrace X_{i+h+k+1}, \dots, X_{i+2h+k} \rbrace$: el bloque $h$ derecho.
+
+---
+
+El MSE de validación cruzada se define de la siguiente manera:
+
+$$
+CV_n(h) = 
+\dfrac{1}{n} \sum_{i = 1}^{n}
+    \left(
+        X_{i+h+k} 
+        - \hat{\theta}_{0,i} - \hat{\theta}_{1,i} X_{i+h+k-1} - \dots - \hat{\theta}_{k,i} X_{i+h}
+    \right)^2
+$$
+
+donde el número de iteraciones es $n = N - h - k$.
+
+La aleatoriedad de esta magnitud proviene de la muestra aleatoria $\mathcal{X}$, por lo que el ejercicio de simulación aproxima el valor esperada de dicha magnitud:
+
+$$
+E \left[ CV_n(h) \right]
+$$
+
+---
+
+El MSE real al estimar sobre la muestra completa $\mathcal{X}$ solo puede calcularse si se cuenta con una muestra independiente $\tilde{\mathcal{X}} = \lbrace \tilde{X}_{k+1}, \tilde{X}_k, \dots, \tilde{X}_1 \rbrace$, distinta a la utilizada para la estimación.
+
+Este MSE se define como:
+
+$$
+E \left[ PE \right] = E \left[ 
+    \left( 
+        \tilde{X}_{k+1} 
+        - \hat{\theta}_{0} - \hat{\theta}_{1} \tilde{X}_{k-1} - \dots - \hat{\theta}_{k} \tilde{X}_{1}
+    \right)^2
+\right]
+$$
+
+Esta magnitud presenta dos fuentes de aleatoriedad: una proveniente de la muestra de estimación $\mathcal{X}$ y otra de la muestra utilizada para medir el error, $\tilde{\mathcal{X}}$.
+
+Para poder aproximarla mediante simulación, es necesario aplicar la ley de la esperanza iterada:
+
+$$
+E \left[ PE \right] 
+=
+E \left[ 
+    E \left[
+        PE \mid \mathcal{X}
+    \right]
+\right]
+= 
+E \left[ 
+    E \left[
+        \left( 
+            \tilde{X}_{k+1} 
+            - \hat{\theta}_{0} - \hat{\theta}_{1} \tilde{X}_{k-1} - \dots - \hat{\theta}_{k} \tilde{X}_{1}
+        \right)^2
+        \mid
+        \mathcal{X}
+    \right]
+\right]
+$$
+
+---
+
+Los pasos para realizar la simulación son los siguientes:
+
+1. Simulamos 10,000 realizaciones de la muestra aleatoria $\mathcal{X}$, indexada por $m$ y denotada como $\lbrace x_1^{(m)}, \dots, x_N^{(m)} \rbrace$.
+
+2. Simulamos 10,000 realizaciones de la muestra aleatoria $\tilde{\mathcal{X}}$, indexada por $w$ y denotada como $\lbrace \tilde{x}_1^{(w)}, \dots, \tilde{x}_N^{(w)} \rbrace$.
+
+Estas simulaciones deben seguir el proceso definido por @eq-random_process.
+
+<!--
+2. como la $m$-ésima realización simulada de $\lbrace X_1, \dots, X_N \rbrace$ generada a partir de @eq-random_process, y $\lbrace \tilde{x}_1^{(w)}, \dots, \tilde{x}_N^{(w)} \rbrace$ como la $w$-ésima realización de $\lbrace \tilde{X}_{k+1}, \tilde{X}_k, \dots, \tilde{X}_1 \rbrace$. Según @burman1994cross, el ejercicio se repite 10,000 veces, es decir, $m, w = 1, \dots, 10{,}000$.
+-->
+
+---
+
+3. Se estima el valor esperado del MSE por validación cruzada, $E\left[CV_n(h)\right]$.
+
+$$
+\hat{E}\left[CV_n(h)\right] 
+=
+\dfrac{1}{10,000 \times n} \sum_{m = 1}^{10,000} {
+    \sum_{i = 1}^{n} {
+        \left(
+            x_{i+h+k}^{(m)} 
+            - \hat{\theta}_{0,i}^{(m)} - \hat{\theta}_{1,i}^{(m)} x_{i+h+k-1}^{(m)} - \dots - \hat{\theta}_{k,i}^{(m)} x_{i+h}^{(m)}
+        \right)^2
+    }
+}
+$$
+
+---
+
+3. Se estima el valor esperado del MSE real, $E\left[PE\right]$.
+
+$$
+\hat{E}\left[PE\right]
+=
+\dfrac{1}{100 \times 10^6} \sum_{m=1}^{10,000}{ 
+    \sum_{w=1}^{10,000} {
+        \left( 
+            \tilde{x}_{k+1}^{(w)}
+            - \hat{\theta}_{0}^{(m)} - \hat{\theta}_{1}^{(m)} \tilde{x}_{k-1}^{(w)} - \dots - \hat{\theta}_{k}^{(m)} \tilde{x}_{1}^{(w)}
+        \right)^2
+    }
+}
+$$
+
+---
+
+Este proceso de simulación se realiza para diferentes valores $h = 0, \frac{1}{6}, \frac{1}{4}, \frac{1}{3}, \frac{1}{2}$.
+
+## Resultados del ejercicios de simulación en @burman1994cross {.appendix #sec-sim_results}
+
+Los resultados presentados por @burman1994cross utilizan la siguiente nomeclatura:
+
+- $E(PE_n)$: Valor esperado del error de predicción a un paso para una estimación basada en $n$ observaciones.  
+- $E(CV_n)$: Valor esperado del error de predicción a un paso bajo un esquema de validación cruzada tipo $h$, usando $n$ observaciones para la estimación.  
+- $E(CCV_n)$: Valor esperado del error de predicción a un paso bajo el esquema de validación cruzada tipo $h$ con corrección, usando $n$ observaciones para la estimación.
+
+---
+
+![Resultados de las Simulaciones. Source: @burman1994cross](images/results.png){#tbl-results}
+
+---
+
+Cada bloque de filas corresponde a un mismo ejercicios de simulación, haciendo un total de 6 ejercicios. 
+
+Específicamente, la *primera simulación* ajusta el modelo lineal
+
+$$
+x_i = \theta_0 + \theta_1 x_{i-1}.
+$$
+
+La muestra tiene tamaño $N = 25$ y autocorrelaciones $C(X_i, X_{i+j}) = 0.3,\ 0.4,\ 0.3,\ 0.3,\ 0.3,\ 0.4^6,\ 0.4^7,\ 0.4^8,\dots,\ 0.4^{24}$, para $j = 1,\dots,24$. 
+
+---
+
+La *segunda y tercera* simulación presentadas en la @tbl-results se basan en el mismo proceso estacionario: un modelo autorregresivo con un único coeficiente de $0.7$.
+
+La primera de estas dos simulaciones ajusta un modelo lineal en el primer rezago, y la segunda ajusta un modelo cuadrático en el primer rezago:
+
+$$
+x_i = \theta_0 + \theta_1 x_{i-1} + \theta_2 x_{i-1}^2.
+$$
+
+---
+
+En la *cuarta y quinta simulación*, se generan observaciones de un proceso Gaussiano con autocorrelaciones: $0, 0.6, 0, 0.4, 0, 0.4^6, 0, 0.4^8, \dots$.
+
+Para la cuarta simulación, se ajusta un modelo lineal con un rezago a los datos, con $N = 25$.  
+
+En la quinta simulación, $N = 64$ y el modelo ajustado es lineal con dos rezagos:
+
+$$
+x_i = \theta_0 + \theta_1 x_{i-1} + \theta_2 x_{i-2}.
+$$
+
+---
+
+La última simulación utiliza autocorrelaciones para las series: $0.2$, $0.2$, $0.2$, $0.6$, $0.1$, $0$, $0.6^2$, $0$, $0$, $0$, $0.6^3$, $0$, $0$, $0$, $0.6^4$, $\dots$
+
+El modelo ajustado incluye un término cuadrático y dos rezagos:
+$$
+x_i = \theta_0 + \theta_1 x_{i-1} + \theta_2 x_{i-1}^2 + \theta_3 x_{i-2}
+$$
+
+
+## Validación cruzada tipo $h$ corregido {.appendix #sec-ccv}
+
+La corrección del MSE mediante validación cruzada tipo $h$ se justifica en contextos con muestras pequeñas. 
+
+Específicamente, el término de sesgo converge a una razón de $\frac{1}{N}$, mientras que el estimador por validación cruzada lo hace a una razón de $\frac{1}{N^2}$.
+
+Esto implica que, con muestras reducidas, el sesgo no desaparece a menos que se aplique una corrección explícita.
+
+---
+
+
+$$
+\text{CCV}_n = \underbrace{\frac{1}{n} \sum_{i=1}^{n} (X_{i+k} - \hat{\theta}_{0,i,w} - \hat{\theta}_1 X_{i+k-1} - \dots -  \hat{\theta}_{k,i,w} X_i)^2}_{\text{CV}_n} 
+- A
++ B
+$$
+$$
+A := \frac{1}{n^2} \sum_{i=1}^{n} \sum_{j=1}^{n} (X_{j+k} - \hat{\theta}_{0,i,w} - \hat{\theta}_1 X_{i+k-1} - \dots - \hat{\theta}_{k,i,w} X_j)^2
+$$
+$$
+B := \frac{1}{n} \sum_{i=1}^{n} (X_{i+k} - \hat{\theta}_0 - \hat{\theta}_1 X_{i+k-1} - \dots - \hat{\theta}_k X_i)^2
+$$
+
+---
+
+El término $A$ se calcula con los coeficientes obtenidos en cada iteración de la validación cruzada, lo que se denota como $\hat{\theta}_{0,i,w}, \dots$
+
+Por otra parte, el término $B$ se calcula con los coeficientes estimados a partir de la muestra completa.
+
+
+

@@ -73,7 +73,7 @@ For a random process that follows @eq-random_process and is estimated using the 
 $$
 E \lbrace PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \rbrace = 
 E \lbrace
-    \tilde{X}_{k+1} - \hat{\theta}_0 - \sum_{i=1}^{k} \hat{\theta}_i \tilde{X}_{i-k}
+    (\tilde{X}_{k+1} - \hat{\theta}_0 - \sum_{i=1}^{k} \hat{\theta}_i \tilde{X}_{i-k})^2
 \rbrace
 $$
 
@@ -182,10 +182,12 @@ $$
 
 ### Simulation Results {.appendix #sec-appendix_results}
 
+Los resultados en @burman1994cross utilizan la siguiente nomeclatura:
+
+- $E(PE_n)$: Valor esperado del error de predicción a un paso para una estimación basada en $n$ observaciones.  
+- $E(CV_n)$: Valor esperado del error de predicción a un paso bajo un esquema de validación cruzada tipo $h$, usando $n$ observaciones para la estimación.  
+- $E(CCV_n)$: Valor esperado del error de predicción a un paso bajo el esquema de validación cruzada tipo $h$ con corrección, usando $n$ observaciones para la estimación.
+
+---
+
 ![Simulation Results. Source: @burman1994cross](images/results.png){#tbl-results}
-
-- $E(PE_n)$: Expected value of the one-step-ahead prediction error for an estimation based on $n$ observations.  
-- $E(CV_n)$: Expected value of the one-step-ahead prediction error under the $h$ cross-validation setting, using $n$ observations for estimation.  
-- $E(CCV_n)$: Expected value of the one-step-ahead prediction error under the corrected $h$ cross-validation setting, using $n$ observations for estimation.
-
-For a cross-validation setting, the goal is to estimate $E(PE_n)$ as accurately as possible. This means that the expected value of the cross-validation results should be concentrated around that target, ideally with low variance.

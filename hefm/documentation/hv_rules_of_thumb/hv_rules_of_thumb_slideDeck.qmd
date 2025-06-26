@@ -33,22 +33,23 @@ Nuestra referencia para la elección de un valor para $h$ proviene de @burman199
 
 ---
 
-- A partir de los resultados en de las simulaciones de @burman1994cross, presentados en la @tbl-results, se observa, en términos generales, que valores pequeños de $h$ tienden a subestimar el MSE obtenido por validación cruzada, mientras que valores grandes de $h$ tienden a sobreestimarlo.
+- A partir de los resultados de las simulaciones de @burman1994cross, presentados en la @tbl-results, se observa, en términos generales, que valores pequeños de $h$ tienden a subestimar el MSE obtenido por validación cruzada, mientras que valores grandes de $h$ tienden a sobreestimarlo.
 
 ---
 
-- En el caso en que $h$ es pequeño, la muestra de validación y la de estimación están altamente correlacionadas, lo que incrementa la probabilidad de acertar en el pronóstico un paso hacia adelante, sesgando a la baja la estimación del MSE por validación cruzada un paso adelante.
+- Cuando $h$ es pequeño, las muestras de validación y estimación están altamente correlacionadas, lo que incrementa la probabilidad de acertar en el pronóstico a un paso adelante y sesga a la baja la estimación del MSE por validación cruzada para ese horizonte.
 
 
 ![Ejemplo cuando $h = 0$](images/loo.png)
 
 ---
 
-- En el caso en que se impone un valor de $h$ muy grande, la estimación del MSE por validación cruzada un paso adelante tiende a sobrestimar el verdadero MSE.
+- Cuando se impone un valor de $h$ muy grande, la estimación del MSE por validación cruzada a un paso tiende a sobrestimar el verdadero MSE.
 
-En los ejercicios de simulación de @burman1994cross, esto ocurre debido a la reducción excesiva en el tamaño de la muestra de estimación.
+En los ejercicios de simulación de @burman1994cross, esto se debe a una reducción excesiva en el tamaño de la muestra de estimación.
 
-En la práctica, también se identifica un riesgo de sobreestimación del MSE, ya que un bloque $h$ muy grande podría excluir información importante sobre un cambio en la dinámica conjunta de los datos.
+En la práctica, también existe el riesgo de sobreestimar el MSE, ya que un bloque $h$ demasiado grande podría excluir información relevante sobre un cambio en la dinámica conjunta de los datos.
+
 
 ![Ejemplo cuando $h$ es muy grande](images/hcv_big_h.png)
 
@@ -81,9 +82,10 @@ En el esquema $h$ de validación cruzada (@fig-hval), se descarta un bloque de t
 
 Con base en simulaciones, @burman1994cross calculan las distribuciones del *MSE real* y del *MSE estimado mediante validación cruzada* para distintos tamaños de bloque $h$. 
 
-Luego, comparan los valores esperados y las desviaciones estándar de ambas distribuciones con el objetivo de identificar qué valor de $h$ genera una un estimador de validación cruzada más concentrado alrededor del valor esperado del MSE real.
+Luego, comparan los valores esperados y las desviaciones estándar de ambas distribuciones con el objetivo de identificar qué valor de $h$ genera un estimador de validación cruzada más concentrado alrededor del valor esperado del MSE real.
 
-> Los ejercicios de simulación solamente contempla los MSE *un paso hacia adelante* u horizonte 1 de pronóstico.
+> Los ejercicios de simulación únicamente contemplan los MSE *a un paso hacia adelante*, es decir, para un horizonte de pronóstico igual a 1.
+
 
 ---
 
@@ -134,7 +136,7 @@ $$
 
 donde el número de iteraciones es $n = N - h - k$.
 
-La aleatoriedad de esta magnitud proviene de la muestra aleatoria $\mathcal{X}$, por lo que el ejercicio de simulación aproxima el valor esperada de dicha magnitud:
+La aleatoriedad de esta magnitud proviene de la muestra $\mathcal{X}$, por lo que el ejercicio de simulación busca aproximar el valor esperado del MSE por validación cruzada:
 
 $$
 E \left[ CV_n(h) \right]
@@ -142,7 +144,7 @@ $$
 
 ---
 
-El MSE real al estimar sobre la muestra completa $\mathcal{X}$ solo puede calcularse si se cuenta con una muestra independiente $\tilde{\mathcal{X}} = \lbrace \tilde{X}_{k+1}, \tilde{X}_k, \dots, \tilde{X}_1 \rbrace$, distinta a la utilizada para la estimación.
+El MSE real al estimar sobre la muestra completa $\mathcal{X}$ solo puede calcularse si se dispone de una muestra independiente $\tilde{\mathcal{X}} = \lbrace \tilde{X}_{1}, \tilde{X}_2, \dots, \tilde{X}_{k+1} \rbrace$, distinta a la utilizada para la estimación.
 
 Este MSE se define como:
 
@@ -184,9 +186,9 @@ $$
 
 Los pasos para realizar la simulación son los siguientes:
 
-1. Simulamos 10,000 realizaciones de la muestra aleatoria $\mathcal{X}$, indexada por $m$ y denotada como $\lbrace x_1^{(m)}, \dots, x_N^{(m)} \rbrace$.
+1. Simular 10,000 realizaciones de la muestra aleatoria $\mathcal{X}$, indexada por $m$ y denotada como $\lbrace x_1^{(m)}, \dots, x_N^{(m)} \rbrace$.
 
-2. Simulamos 10,000 realizaciones de la muestra aleatoria $\tilde{\mathcal{X}}$, indexada por $w$ y denotada como $\lbrace \tilde{x}_1^{(w)}, \dots, \tilde{x}_N^{(w)} \rbrace$.
+2. Simular 10,000 realizaciones de la muestra aleatoria $\tilde{\mathcal{X}}$, indexada por $w$ y denotada como $\lbrace \tilde{x}_{1}^{(w)}, \dots, \tilde{x}_{k+1}^{(w)} \rbrace$.
 
 Estas simulaciones deben seguir el proceso definido por @eq-random_process.
 
@@ -199,6 +201,7 @@ Estas simulaciones deben seguir el proceso definido por @eq-random_process.
 3. Se estima el valor esperado del MSE por validación cruzada, $E\left[CV_n(h)\right]$.
 
 $$
+\scriptsize
 \hat{E}\left[CV_n(h)\right] 
 =
 \dfrac{1}{10,000 \times n} \sum_{m = 1}^{10,000} {

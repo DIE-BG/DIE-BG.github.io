@@ -96,7 +96,16 @@ asegurar la invertibilidad de la matriz.
 | **19** | 29                         | 4.78E+77   | 9       | 8.20E-05    |
 | **20** | 29                         | 1.86E+75   | 9       | 2.98E-04    |
 
-# Mínimo de observaciones
+# Mínimo de observaciones para las estimaciones
 + Al realizar la estimación con pocas observaciones $T<16$, se obtienen matrices con rango incompleto, y con determinantes muy grandes, para $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$.  
 
 + De esta manera se concluye que para estos datos y este modelo, el mínimo de observaciones asegurando que sea posible realizar la estimación matemáticamente, es $T=16$.
+
+# Correlogramas
+
+![Correlograma de variables del modelo](./images/correlogram_SVAR50_4B_HV.png){#fig-correlograma}
+
+#
++ Tomando en cuenta los correlogramas de las variables del modelo, se observa que la dependencia temporal es relativamente baja, entre los periodos 1 y 4 para todas las variables. 
+  
++ Esto sugiere que el mínimo $h$ podría ser 4.

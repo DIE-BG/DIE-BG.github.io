@@ -21,7 +21,6 @@ Nuestra referencia para la elección de un valor para $h$ proviene de @burman199
 
 - Se recomienda usar una proporción fija entre el bloque de datos a descartar $h$ y el número total de observaciones $N$, es decir, $h/N = p$, para determinar el tamaño del bloque $h$.  
 - La proporción $p$ debe estar en el rango $0 < p < 0.5$.  
-- En muestras pequeñas, se sugiere aplicar una corrección por tamaño muestral a la estimación del MSE obtenida por validación cruzada.
 
 ---
 
@@ -59,7 +58,6 @@ En la práctica, también existe el riesgo de sobreestimar el MSE, ya que un blo
 
 - Lo anterior respalda la elección de un $h$ entre 4 y 9 para nuestro esquema de selección de modelos.  
 - Usar un factor fijo de $p = 0.15$ es menos recomendable a medida que crece la muestra, ya que se descartan más observaciones de las necesarias para mejorar la independencia entre los bloques de estimación y validación.  
-- Calcular la métrica de validación cruzada corregida por tamaño muestral, como sugiere @burman1994cross, mejora las propiedades asintóticas de dicha métrica (ver @sec-ccv para más detalle).
 
 ## Referencias
 
@@ -290,38 +288,7 @@ $$
 x_i = \theta_0 + \theta_1 x_{i-1} + \theta_2 x_{i-1}^2 + \theta_3 x_{i-2}
 $$
 
-
-## Validación cruzada tipo $h$ corregido {.appendix #sec-ccv}
-
-La corrección del MSE mediante validación cruzada tipo $h$ se justifica en contextos con muestras pequeñas. 
-
-Específicamente, el término de sesgo converge a una razón de $\frac{1}{N}$, mientras que el estimador por validación cruzada lo hace a una razón de $\frac{1}{N^2}$.
-
-Esto implica que, con muestras reducidas, el sesgo no desaparece a menos que se aplique una corrección explícita.
-
----
-
-
-$$
-\text{CCV}_n = \underbrace{\frac{1}{n} \sum_{i=1}^{n} (X_{i+k} - \hat{\theta}_{0,i,w} - \hat{\theta}_1 X_{i+k-1} - \dots -  \hat{\theta}_{k,i,w} X_i)^2}_{\text{CV}_n} 
-- A
-+ B
-$$
-$$
-A := \frac{1}{n^2} \sum_{i=1}^{n} \sum_{j=1}^{n} (X_{j+k} - \hat{\theta}_{0,i,w} - \hat{\theta}_1 X_{i+k-1} - \dots - \hat{\theta}_{k,i,w} X_j)^2
-$$
-$$
-B := \frac{1}{n} \sum_{i=1}^{n} (X_{i+k} - \hat{\theta}_0 - \hat{\theta}_1 X_{i+k-1} - \dots - \hat{\theta}_k X_i)^2
-$$
-
----
-
-El término $A$ se calcula con los coeficientes obtenidos en cada iteración de la validación cruzada, lo que se denota como $\hat{\theta}_{0,i,w}, \dots$
-
-Por otra parte, el término $B$ se calcula con los coeficientes estimados a partir de la muestra completa.
-
-
-## Propuesta de ejercicio de simulación
+## Propuesta de ejercicio de simulación {.appendix #sec-sim_proposal}
 
 El siguiente ejercicio de simulación se basa en los propuestos por @burman1994cross para la determinación de un valor $h$ en los ejercicios de validación cruzada. 
 
@@ -382,10 +349,11 @@ Este MSE se define como:
 
 $$
 E \left[ PE(j) \right] = E \left[ 
+    \text{map}
     \left( 
-        \tilde{y}_{j} 
-        - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
-    \right)^2
+        z \mapsto z^2,
+        \tilde{y}_{j} - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
+    \right)
 \right]
 $$
 
@@ -404,10 +372,11 @@ E \left[
 = 
 E \left[ 
     E \left[
-        \left( 
+        \text{map} \left(
+            z \mapsto z^2,
             \tilde{y}_{j} 
             - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
-        \right)^2
+        \right)
         \mid
         \mathcal{Y}
     \right]
@@ -453,10 +422,11 @@ $$
 =
 \dfrac{1}{100 \times 10^6} \sum_{m=1}^{10,000}{ 
     \sum_{w=1}^{10,000} {
-        \left( 
+        \text{map} \left( 
+            z \mapsto z^2,
             \tilde{y}_{j}^{(w)} 
             - \sum_{i=1}^j \hat{A}_1^{(m) i-1} \hat{C}^{(m)} - \hat{A}_1^{(m) j} \tilde{y}_0^{(w)}
-        \right)^2
+        \right)
     }
 }
 $$
@@ -469,3 +439,11 @@ Finalmente, se comparan $\hat{E}\left[PE(j)\right]$, $\hat{E}\left[CV_{HEFM}(h,v
 
 - Diagnosticar posibles sesgos en la estimación del MSE real fuera de muestra.  
 - Seleccionar el valor de $h$ que ofrezca la estimación más eficiente del MSE fuera de muestra.
+
+## Función `map` {.appendix #sec-map}
+
+> Sea $f: \mathbb{R} \to \mathbb{R}$ una función real, y sea $\mathbf{x} = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$. La operación `map(f, x)` se define como:
+> $$
+> \text{map}(f, \mathbf{x}) = \left(f(x_1), f(x_2), \dots, f(x_n)\right)
+> $$
+> Es decir, `map` aplica la función $f$ a cada componente del vector $\mathbf{x}$, y devuelve un nuevo vector en $\mathbb{R}^n$ cuyos elementos son las imágenes de los elementos originales bajo $f$.

@@ -152,8 +152,8 @@ tiene una fecha inicial de estimación cada vez más reciente.
 -->
 <p>Las pautas principales para este ejercicio son:</p>
 <ul>
-<li class="fragment"><p>La función de pérdida de los errores de pronóstico se obtiene de un conjunto de modelos.</p></li>
-<li class="fragment"><p>En este conjunto de modelos, se utiliza el método HV-block.</p></li>
+<li class="fragment"><p>La función de pérdida de los errores de pronóstico se obtiene de un conjunto de submuestras.</p></li>
+<li class="fragment"><p>En este conjunto de submuestras, se utiliza el método HV-block.</p></li>
 </ul>
 </section>
 
@@ -175,7 +175,7 @@ en cada modelo?
 <section id="estimación" class="slide level2">
 <h2>Estimación</h2>
 <ul>
-<li class="fragment">El ejercicio del bloque <span class="math inline">\(hv\)</span> busca estimar el modelo SVAR50_4B utilizando el esquema <span class="math inline">\(hv\)</span> con diferentes tamaños de muestra.</li>
+<li class="fragment">El ejercicio del bloque <span class="math inline">\(hv\)</span> busca estimar la submuestra SVAR50_4B utilizando el esquema <span class="math inline">\(hv\)</span> con diferentes tamaños de muestra.</li>
 <li class="fragment">Donde <span class="math inline">\(h\)</span> es el número de periodos de espaciamiento entre la validación y la estimación.</li>
 <li class="fragment">El periodo de validación tiene una duración de <span class="math inline">\(2v+1\)</span> periodos.</li>
 <li class="fragment">Para ello, se establecen los parámetros <span class="math inline">\(h\)</span> que va de 4 a 16 y <span class="math inline">\(v\)</span> que va de 6 a 14.</li>
@@ -191,7 +191,7 @@ en cada modelo?
 <section id="rmse" class="slide level2">
 <h2>RMSE</h2>
 <ul>
-<li class="fragment">En cada uno de estos conjuntos es posible obtener la función de pérdida, tomando el <span class="math inline">\(RMSE_k\)</span> en función de los errores de cada uno de los modelos, por cada horizonte <span class="math inline">\(k\)</span>.</li>
+<li class="fragment">En cada uno de estos conjuntos es posible obtener la función de pérdida, tomando el <span class="math inline">\(RMSE_k\)</span> en función de los errores de cada uno de las submuestras, por cada horizonte <span class="math inline">\(k\)</span>.</li>
 </ul>
 </section>
 <section id="diagrama" class="slide level2">
@@ -214,27 +214,27 @@ gantt
     title Pool N
     dateFormat  YYYY-QQ
     axisFormat %Y-%m
-    section Model 1
+    section Submues. 1
     V  :a3, 2005-01, 36M
     H  :a4,2008-02,14M
     T  :a5, 2009-05,176M
-    section Model 2
+    section Submues. 2
     V  :a3, 2005-04, 36M
     H  :a4,2008-05,14M
     T  :a5, 2009-08,173M
-    section Model 3
+    section Submues. 3
     V   :a3, 2005-07, 36M
     H   :a4,2008-08,14M
     T   :a5, 2009-011,170M
     section .
     ... :a1, 2015-01-02, 
-    section Model p
+    section Submues. p
     T    :a1, 2005-01, 24M
     H    :a2,2007-02,12M
     V    :a3, 2008-03,36M
     H    :a4,2011-04,12M
     T     :a5, 2012-05,140M
-    section Model (p+1)
+    section Submues. (p+1)
     T    :a1, 2005-01, 27M
     H    :a2,2007-05,12M
     V    :a3, 2008-06,36M
@@ -242,7 +242,7 @@ gantt
     T     :a5, 2012-08,137M
     section ..
     ... :a1, 2015-01-02,
-    section Model z
+    section Submues. z
     T    :a1, 2005-01, 176M
     H    :a2,2019-010,14M
     V    :a3, 2021-01,36M
@@ -289,14 +289,14 @@ Describir los aspectos relevantes de sus resultados.
 <li class="fragment">La función de pérdida para cada una de la variables tiene un comportamiento similar en los primeros cuatro horizontes.
 <ul>
 <li class="fragment">La inflación, el crecimiento doméstico tienen un mínimo en el conjunto con muestras que tiene un tamaño de estimación más reducido.</li>
-<li class="fragment">El tipo de cambio y la tasa de interés tiene un mínimo en el conjunto con modelos con un tamaño de estimación mayor.</li>
+<li class="fragment">El tipo de cambio y la tasa de interés tiene un mínimo en el conjunto con submuestras con un tamaño de estimación mayor.</li>
 </ul></li>
 </ul>
 </section>
 <section id="en-los-horizontes-8-10-12" class="slide level2">
 <h2>En los horizontes 8, 10, 12 …</h2>
 <ul>
-<li class="fragment">El tipo de cambio, cambia de comportamiento y se obtiene un mínimo en el conjunto con modelos con una estimación mayor.</li>
+<li class="fragment">El tipo de cambio, cambia de comportamiento y se obtiene un mínimo en el conjunto con submuestras con una estimación mayor.</li>
 </ul>
 </section>
 <section id="promedio-de-las-variables-objetivo-1" class="slide level2">

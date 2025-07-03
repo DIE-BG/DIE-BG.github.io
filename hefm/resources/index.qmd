@@ -1,0 +1,11 @@
+---
+title: "All resources"
+frame_height: "400px"
+frame_width: "100%"
+---
+
+# Documentation and Resources
+
+- [**DIE Model Selection Methodology**](/hefm/resources/articles/Monetary note of Models Selection/Monetary note of Models Selection.qmd):
+This short paper presents the main considerations of the model selection tool used by the Economic Research Department for model selection based on statistical methods.
+

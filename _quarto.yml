@@ -26,7 +26,7 @@ website:
       search: true
       contents:
         - href: hefm/index.qmd
-          text: "HEFM"
+          text: "Introduction"
         - section: "Results"
           contents:
             - section: "SVAR50-4B"

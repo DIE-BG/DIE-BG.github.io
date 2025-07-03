@@ -11,12 +11,6 @@ This platform was developed in 2021 in response to a key question: *How can we a
 
 The site presents a concrete implementation of that effort, grounded in **statistical model selection techniques**, particularly **time series cross-validation**. The platform enables users to evaluate forecast errors and examine the consistency of structural responses across different estimation windows.
 
-## Sections
-
-- 📄 [Documentation](./documentation/index.qmd): Technical manuals, code usage, and API references.  
-- 📊 [Results](./results/index.qmd): Forecasts, simulation outputs, and model validation figures.  
-- 📁 [Resources](./resources/index.qmd): Presentations, papers, supporting documents, and internal material.  
-
 ## Purpose
 
 HEFM serves as a tool to diagnose the performance of SVAR models along two critical dimensions: their ability to **predict** key macroeconomic variables out of sample, and their ability to **explain** the empirical regularities in the data through structural responses.
@@ -25,6 +19,7 @@ It does this by combining pseudo out-of-sample forecasting exercises with analys
 
 For a deeper look at the underlying assumptions and implementation details, see the [Resources](./resources/index.qmd) section.
 
----
+
+## Documentation and Resources
 
 > Looking for the economic logic behind the tool? Visit the [Resources](./resources/index.qmd) section.

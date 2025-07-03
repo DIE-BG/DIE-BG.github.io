@@ -25,10 +25,10 @@ Las pautas principales para este ejercicio son:
 
 ::: {.incremental}
 - La función de pérdida de los errores de 
-pronóstico se obtiene de un conjunto de modelos. 
+pronóstico se obtiene de un conjunto de submuestras. 
 
-- En este conjunto de modelos, 
-la evaluación se realiza fuera de muestra 
+- En este conjunto de submuestras, 
+la validación se realiza fuera de muestra 
 y en periodos posteriores a la estimación.
 :::
 
@@ -57,11 +57,11 @@ se tienen varios subconjuntos de un conjunto
 periodos de estimación que inician con fechas
 más atrás en el tiempo. 
 
--  Es decir, este conjunto inicia con un 
-modelo que tiene un rango de estimación 
+-  Es decir, este conjunto inicia con una
+submuestra que tiene un rango de estimación 
 "2005Q1-2021Q4", el segundo, tendrá un 
 rango de estimación entre "2005Q2-2021Q4", 
-así sucesivamente hasta el $n$-ésimo modelo 
+así sucesivamente hasta la $n$-ésima submuestra 
 que tiene un rango de estimación "2012Q4-2021Q4".
   
 - Los subconjuntos se obtienen al filtrando
@@ -73,18 +73,18 @@ la clase ModelPool.
 
 - El primer subconjunto es el conjunto completo.
 
-- Un segundo subconjunto, inicia con el modelo 
+- Un segundo subconjunto, inicia con la submuestra
 cuya estimación se realiza en el periodo 
-"2005Q2-2021Q4", continua con el modelo con 
+"2005Q2-2021Q4", continua con el la submuestra con 
 un un rango de estimación "2005Q3-2021Q4", 
-y así sucesivamente hasta el $n$-ésimo 
-modelo con el rango de estimación "2012Q4-2021Q4".
+y así sucesivamente hasta la $n$-ésima 
+submuestra con el rango de estimación "2012Q4-2021Q4".
 
 - De esta forma el último subconjunto, 
-contendrá los modelos con fechas iniciales
+contendrá las submuestras con fechas iniciales
 de estimación más recientes. Éste inicia 
-con un modelo con un rango de estimación 
-"2010Q4-2021Q4" y termina con un modelo 
+con una parametrización con un rango de estimación 
+"2010Q4-2021Q4" y termina con una parametrización
 con un rango de estimación en los periodos
 "2012Q4-2021Q4".
 :::
@@ -94,13 +94,13 @@ con un rango de estimación en los periodos
 - Para cualquier subconjunto, la validación en 
 este ejercicio se realiza en los periodos comprendidos
 entre "2021Q4 - 2024Q4". Y este rango se 
-mantiene constante en todos los modelos del subconjunto.
+mantiene constante en todas las submuestras del subconjunto.
 
 ### RMSE
 - En cada uno de estos subconjuntos es
 posible obtener la función de pérdida, 
 tomando el $RMSE_h$ en función de 
-los errores de cada uno de los modelos, 
+los errores de cada uno de las submuestras, 
 por cada horizonte $h$. 
 
 :::
@@ -124,18 +124,18 @@ init: {
 gantt
     title Model Pool
     dateFormat  YYYY-QQ
-    section Model 1
+    section Submues. 1
     Training           :a1, 2005-01, 191M
     Validation      :a2, 2021-01, 47M
-    section Model 2
+    section Submues. 2
     Training           :a1, 2005-04, 188M
     Validation      :a2, 2021-01, 47M
-    section Model 3
+    section Submues. 3
     Training          :a1, 2005-07, 185M
     Validation      :a2, 2021-01, 47M
     section ...
     ... :a1, 2015-01-02, 
-    section Model n
+    section Submues. n
     Training          :a1, 2012-10, 98M
     Validation      :a2, 2021-01, 47M
 
@@ -157,15 +157,15 @@ init: {
 gantt
     title Subconjunto 2
     dateFormat  YYYY-MM
-    section Model 2
+    section Submues. 2
     Training           :a1, 2005-04, 188M
     Validation      :a2, 2021-01, 47M
-    section Model 3
+    section Submues. 3
     Training           :a1, 2005-07, 185M
     Validation      :a2, 2021-01, 47M
     section ...
     ... :a1, 2015-01-02, 1d
-    section Model n
+    section Submues. n
     Training          :a1, 2012-10, 98M
     Validation      :a2, 2021-01, 47M
 
@@ -186,15 +186,15 @@ init: {
 gantt
     title Subconjunto p
     dateFormat  YYYY-MM
-    section Model p
+    section Submues. p
     Training           :a1, 2010-10, 122M
     Validation      :a2, 2021-01, 47M
-    section Model p+1
+    section Submues. p+1
     Training           :a1, 2011-01, 119M
     Validation      :a2, 2021-01, 47M
     section ...
     ... :a1, 2017-10-01, 
-    section Model n
+    section Submues. n
     Training          :a1, 2012-10, 98M
     Validation      :a2, 2021-01, 47M
 
@@ -250,7 +250,7 @@ todas las submuestras.
   que incluye todas las submuestras. Y sufre 
   un cambio en los horizontes 10 y 12, en los 
   que el error mínimo se encuentra en 
-  subconjuntos de modelos con estimaciones 
+  subconjuntos de submuestras con estimaciones 
   más recientes.
  
   + De igual forma, la inflación, y el 
@@ -262,10 +262,10 @@ todas las submuestras.
   
   + Finalmente para al el tipo de cambio, 
   en el horizonte 8 y 10 tiene un mínimo 
-  en los subconjuntos con modelos, que tiene
+  en los subconjuntos con submuestras, que tiene
   un inicio de estimación más reciente. 
   Y hasta el horizonte 12 que reduce el 
-  error cuando los modelos se estiman 
+  error cuando las submuestras se estiman 
   más atrás en el tiempo.
     
 :::

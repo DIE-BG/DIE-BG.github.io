@@ -15,6 +15,9 @@ nocite: '@*'
 lang: es
 ---
 
+# Introducción
+
+## Introducción
 La presentación contiene las principales conclusiones de la *documentación, análisis matemáticos y ejercicios prácticos* relacionados al método de validación por bloques HV **($\text{HV block}$)**.
 
 El objetivo de dichas acciones se divide en dos: primero, determinar un tamaño mínimo de muestra de estimación en el contexto de los modelos VAR estructurales (*SVAR*); y segundo, establecer un valor óptimo (o un conjunto de valores óptimos) para el parámetro $H$ en el método de validación $HV$ con el propósito de su posterrior implementación en la metodología de Selección de Modelos del DIE.
@@ -40,10 +43,14 @@ Dentro del contexto del método $HV$
 - $N_T = N - 2H - 2V -1$
 :::
 
-# 1. Determinación del tamaño mínimo de estimación
+# Determinación del tamaño mínimo de estimación
 
-#
-La determinación del tamaño mínimo de la muestra de estimación tiene dos grandes implicaciones dentro del método de validación por bloques $HV$: en primera instancia un número relativamente pequeño aumenta el número de submuestras posibles y, en segunda instancia, una vez definido el tamaño mínimo de muestra automáticamente se define el valor máximo que puede tomar el parámetro $H$ dentro del método $HV$.
+## Determinación del tamaño mínimo de estimación
+
+La determinación del tamaño mínimo de la muestra de estimación tiene dos grandes implicaciones dentro del método de validación por bloques $HV$: 
+
+1. En primera instancia, un número relativamente pequeño aumenta el número de submuestras posibles y, 
+2. En segunda instancia, una vez definido el tamaño mínimo de muestra automáticamente se define el valor máximo que puede tomar el parámetro $H$ dentro del método $HV$.
 
 ## Revisión de Literatura
 Según la revisión de literatura realizada, no se encontró
@@ -190,6 +197,7 @@ En la práctica, también existe el riesgo de sobreestimar el MSE, ya que un blo
 - Lo anterior respalda la elección de un $H$ entre 4 y 9 para nuestro esquema de selección de modelos.  
 - Usar un factor fijo de $p = 0.15$ es menos recomendable a medida que crece la muestra, ya que se descartan más observaciones de las necesarias para mejorar la independencia entre los bloques de estimación y validación.
 
+
 # Análisis de correlogramas
 En este caso se observaron los correlogramas de las variables utilizadas en la estimación del SVAR50_4B e intuir de ellos el rezago a partir del cual se pierde la dependencia temporal de las mismas.
 
@@ -197,12 +205,14 @@ En este caso se observaron los correlogramas de las variables utilizadas en la e
 
 ![Correlograma de variables del modelo](./images/correlograms/correlogram_SVAR50_4B_HV.png){#fig-correlograma}
 
-#
+## Correlogramas 
+
 + Tomando en cuenta los correlogramas de las variables del modelo, se observa que la dependencia temporal es relativamente baja, entre los periodos 1 y 4 para todas las variables. 
   
 + Esto sugiere que el mínimo $H$ *podría* ser 4.
 
-# Ejercicio práctico
+# Propuesta práctica para selección de $H$ en la HEFM
+
 Este ejercicio tomó de base los resultados obtenidos en el análisis de tamáño mínimo de muestra de estimación, así como la calibración del parámetro $H$ propuesta en @burman1994cross. En nuestro ejercicio se obserrvó como evolucionaba el $RMSE$ del SVAR50_4B realizando el ejercicio de validación por el método $HV$ bajo un rango de valores de $H$.
 
 ## Consideraciones generales del ejercicio
@@ -228,7 +238,7 @@ $$
 
 Para cada combinación generamos todas las submuestras posibles obteniendo sus $RMSEs$ fuera de muestra. El objetivo es comparar el comportamiento del error a medida que el tamaño de la muestra aumenta^[Hay una relación inversa entre $H$ y $N_T$].
 
-# Resultados
+## Resultados
 
 ## RMSE por Variable Objetivo
 ![RMSE por Variable Objetivo](images/hv_exercise/RMSEByVariables.png)
@@ -248,7 +258,7 @@ Para cada combinación generamos todas las submuestras posibles obteniendo sus $
 - **Dado que el RMSE tiende a subestimarse con valores bajos de H y sobreestimarse con valores altos, probablemente sea más apropiado seleccionar H dentro de un rango de valores.**
 
 ## Análisis de RMSE
-Con base en los resultados, intentamos encontrar un conjunto óptimo de valores para $H$. Para hacerlo, procedimos de la siguiente manera:
+Con base en los resultados, intentamos encontrar un conjunto razonable de valores para $H$. Para hacerlo, procedimos de la siguiente manera:
 
 :::{.incremental}
 - Se obtuvo el rango intercuartílico de los valores de $RMSE$ para cada variable objetivo.
@@ -257,8 +267,7 @@ Con base en los resultados, intentamos encontrar un conjunto óptimo de valores 
 - Finalmente, este proceso se realizó para los horizontes de validación 1, 2, 3 y 4.
 :::
 
-# 
-**Ejemplo: horizonte 1 con dos variables objetivo**
+## Ejemplo: horizonte 1 con dos variables objetivo
 
 |    d4_ln_cpi     |             |    d4_ln_s      |             |
 |:----------------:|:--------:   |:---------------:|:-----------:|
@@ -277,10 +286,10 @@ Con base en los resultados, intentamos encontrar un conjunto óptimo de valores 
 Como se puede ver en la tabla, algunos valores de $H$ están en ambas variables. Hicimos esto para todas las variables y seleccionamos aquellos valores de $H$ que están en todas las variables^[En cada variable los resultados del ejercicio de H fueron identificados con base en el rango intercuartílico del RMSE].
 
 ## Resultados del análisis de intersección
-| horizonte 1        | horizonte 2     | horizonte 3     | horizonte 4     |
+<!-- | horizonte 1        | horizonte 2     | horizonte 3     | horizonte 4     |
 |--------------------|-----------------|-----------------|-----------------|
 | **H6_N51**         |  -------------- |  -------------- | --------------  |
-| H7_N49             |  -------------- |  -------------- | --------------  |
+| $H=7, N_T=49$             |  -------------- |  -------------- | --------------  |
 | H8_N47             |  -------------- |  -------------- | --------------  |
 | H9_N45             |  -------------- |  -------------- | --------------  |
 | H10_N43            |  -------------- |  H10_N43        | H10_N43         |
@@ -291,11 +300,13 @@ Como se puede ver en la tabla, algunos valores de $H$ están en ambas variables.
 | --------------     |  H15_N33        |  H15_N33        | H15_N33         |
 | --------------     |  H16_N31        |  H16_N31        | H16_N31         |
 \* RMSE dentro de Q1 y Q3  
-\* El resultado para cada horizonte es la intersección de las variables objetivo
+\* El resultado para cada horizonte es la intersección de las variables objetivo -->
+
+- Horizonte 1: $H$ entre 6 y 14, $N_T$ entre 51 y 35. 
 
 Lo anterior sugiere que un rango plausible para $H$ sea ente 6 y 14.
 
-# 3. Comparación de las propuestas para la selección del parámetro $H$
+# Comparación de las propuestas para la selección del parámetro $H$
 
 #
 - El proceso de calibración obtenido de la literatura sugiere que $H$ sea un valor entre 4 y 9.

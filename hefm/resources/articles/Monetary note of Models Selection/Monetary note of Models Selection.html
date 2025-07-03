@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Juan Carlos Castañeda">
+<meta name="author" content="Rodrigo Chang">
+<meta name="author" content="Jorge Orenos">
+<meta name="author" content="Rubí Ramírez">
+<meta name="author" content="Mauricio Vargas">
+
+<title>Herramienta para la selección de modelos de vectores autorregresivos estructurales – DIE-BG</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-293e81bb0733230b9e755d5a7d46e87a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../assets/css/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">DIE-BG</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hefm" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">HEFM</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hefm">    
+        <li>
+    <a class="dropdown-item" href="../../../../hefm/index.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Results</li>
+        <li>
+    <a class="dropdown-item" href="../../../../hefm/results/SVAR50_4B/index.html">
+ <span class="dropdown-text">SVAR50-4B</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html">
+ <span class="dropdown-text">SVAR50-AR1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../hefm/results/SVAR51/SVAR51.html">
+ <span class="dropdown-text">SVAR51</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../hefm/results/SVAR52/SVAR52_doc.html">
+ <span class="dropdown-text">SVAR52</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../hefm/results/SVAR53/index.html">
+ <span class="dropdown-text">SVAR53</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/DIE-BG">
+            Organization
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#introducción-modelos-macroeconómicos" id="toc-introducción-modelos-macroeconómicos" class="nav-link active" data-scroll-target="#introducción-modelos-macroeconómicos">Introducción: Modelos macroeconómicos</a></li>
+  <li><a href="#qué-son-los-modelos-de-vectores-autorregresivos-estructurales-svar" id="toc-qué-son-los-modelos-de-vectores-autorregresivos-estructurales-svar" class="nav-link" data-scroll-target="#qué-son-los-modelos-de-vectores-autorregresivos-estructurales-svar">2 ¿Qué son los modelos de vectores autorregresivos estructurales (SVAR)?</a></li>
+  <li><a href="#estimación-e-identificación-de-modelos-svar" id="toc-estimación-e-identificación-de-modelos-svar" class="nav-link" data-scroll-target="#estimación-e-identificación-de-modelos-svar">3 Estimación e identificación de modelos SVAR</a></li>
+  <li><a href="#herramienta-de-selección-de-modelos-svar" id="toc-herramienta-de-selección-de-modelos-svar" class="nav-link" data-scroll-target="#herramienta-de-selección-de-modelos-svar">4 Herramienta de selección de modelos SVAR</a>
+  <ul class="collapse">
+  <li><a href="#evaluación-de-la-capacidad-predictiva" id="toc-evaluación-de-la-capacidad-predictiva" class="nav-link" data-scroll-target="#evaluación-de-la-capacidad-predictiva">4.1 Evaluación de la capacidad predictiva</a></li>
+  </ul></li>
+  <li><a href="#evaluación-de-la-capacidad-explicativa" id="toc-evaluación-de-la-capacidad-explicativa" class="nav-link" data-scroll-target="#evaluación-de-la-capacidad-explicativa">4.2 Evaluación de la capacidad explicativa</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="Monetary note of Models Selection.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Herramienta para la selección de modelos de vectores autorregresivos estructurales</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autores/as</div>
+    <div class="quarto-title-meta-contents">
+             <p>Juan Carlos Castañeda </p>
+             <p>Rodrigo Chang </p>
+             <p>Jorge Orenos </p>
+             <p>Rubí Ramírez </p>
+             <p>Mauricio Vargas </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción-modelos-macroeconómicos" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-modelos-macroeconómicos">Introducción: Modelos macroeconómicos</h2>
+<p>Los modelos macroeconómicos son herramientas indispensables para la elaboración de pronósticos en cualquier banco central. Estos permiten analizar la coyuntura económica y estudiar, bajo un marco unificado de análisis, el comportamiento de las variables agregadas. Asimismo, ayudan a entender cómo los diferentes choques, ya sean internos o externos, se propagan a través de la economía y posibilitan el análisis de escenarios alternativos sobre su evolución futura. Dentro de este conjunto de herramientas, los modelos de vectores autorregresivos estructurales (SVAR) se han consolidado como un estándar del análisis económico, ya que permiten capturar las interrelaciones dinámicas entre las variables de acuerdo con su comportamiento histórico, realizar ejercicios de pronósticos y de escenarios contrafactuales de política monetaria.</p>
+<p>En el Departamento de Investigaciones Económicas (DIE) del Banco de Guatemala (Banguat) se ha construido y desarrollado una plataforma para la selección de modelos de tipo SVAR. Esta herramienta empieza su desarrollo en 2021, inmediatamente después de que el DIE recibiera una asistencia técnica brindada por el Fondo Monetario Internacional en relación con el Modelo Macroeconómico Semiestructural (MMS)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> del Banguat. En dicha ocasión, se propuso utilizar un modelo de tipo SVAR para orientar la calibración del modelo semiestructural bajo revisión. No obstante, surgió la interrogante fundamental: ¿cómo se puede saber si un determinado modelo de tipo SVAR es una buena guía? En otras palabras, se requería un mecanismo de evaluación para este tipo de modelos. Desde entonces, se han trabajado diferentes propuestas metodológicas que pretenden cuantificar la precisión y robustez de los modelos. Este artículo presenta una propuesta concreta para responder a esta interrogante, la cual está fuertemente basada en métodos estadísticos de selección de modelos. Se inicia con una breve descripción de los modelos SVAR, abordando los métodos de estimación e identificación. Posteriormente, se describe el uso de dicha plataforma para seleccionar modelos con ciertas características de precisión y robustez.</p>
+</section>
+<section id="qué-son-los-modelos-de-vectores-autorregresivos-estructurales-svar" class="level2">
+<h2 class="anchored" data-anchor-id="qué-son-los-modelos-de-vectores-autorregresivos-estructurales-svar">2 ¿Qué son los modelos de vectores autorregresivos estructurales (SVAR)?</h2>
+<p>Los modelos de vectores autorregresivos (VAR) se utilizan en el análisis de series de tiempo multivariadas para modelar la interrelación dinámica de variables endógenas. En el marco de los modelos dinámicos con ecuaciones simultáneas, el modelo VAR en su forma reducida consiste en representar los valores actuales de las variables como combinaciones lineales de sus propios rezagos y de los rezagos de las demás variables incluidas en el sistema, hasta un determinado orden de rezago p.&nbsp;El modelo VAR en forma reducida ha mostrado ser una herramienta eficaz para describir las propiedades dinámicas de los datos, generar pronósticos, y medir la velocidad de ajuste hacia el equilibrio luego de una perturbación <span class="citation" data-cites="killian_Lutke_2017">(<a href="#ref-killian_Lutke_2017" role="doc-biblioref">Helmut Lütkepohl 2017</a>)</span>.</p>
+<p>Sin embargo, los modelos VAR en forma reducida no son suficientes para identificar las relaciones causales en los datos, que son clave en el análisis económico. Por esta razón, se han desarrollado los modelos VAR estructurales (SVAR, por sus siglas en inglés), los cuales incorporan relaciones estructurales fundamentadas en la teoría económica acerca de cómo interactúan las variables. Estos modelos permiten identificar los efectos causales, lo que resulta esencial para evaluar el impacto de choques económicos y realizar análisis de políticas económicas.</p>
+<p>El modelo SVAR está dado por:</p>
+<p><span id="eq-ec1"><span class="math display">\[
+B_0y_t = B_1y_{t-1} + B_2y_{t-2} + \cdots + B_{p}y_{t-p} + w_t, \quad t = 1, \ldots,T,
+\tag{1}\]</span></span></p>
+<p>donde <span class="math inline">\(y_t\)</span> es un vector de datos <span class="math inline">\(K×1\)</span> que contiene las <span class="math inline">\(K\)</span> variables del sistema, <span class="math inline">\(B_l,l=1,...,p\)</span>, son matrices de coeficientes de dimensión <span class="math inline">\(K×K\)</span>, la matriz <span class="math inline">\(B_0\)</span> refleja las relaciones instantáneas entre las variables del modelo y <span class="math inline">\(w_t\)</span> es el vector <span class="math inline">\(K×1\)</span> de choques estructurales, los cuales no están correlacionados entre sí y cada uno posee una interpretación económica específica. Por otra parte, la representación del VAR reducido se obtiene de multiplicar por la izquierda la matriz <span class="math inline">\(B_0^{-1}\)</span>:</p>
+<p><span id="eq-ec2"><span class="math display">\[
+y_t = A_1y_{t-1} + A_2y_{t-2} + \cdots + A_{p}y_{t-p} + u_t, \quad t = 1, \ldots, T,
+\tag{2}\]</span></span></p>
+<p>En donde <span class="math inline">\(A_l = B_0^{-1}B_l\)</span> y <span class="math inline">\(u_t = B_0^{-1}w_t\)</span></p>
+<p>Dada una estimación de la forma reducida, lo único que se necesita para recuperar el modelo estructural <a href="#eq-ec1" class="quarto-xref">Ecuación&nbsp;1</a> es conocer la matriz <span class="math inline">\(B_0^{-1}\)</span>. Para identificar los choques estructurales <span class="math inline">\(w_t=B_0 u_t\)</span>, es necesario imponer restricciones que permitan estimar la matriz <span class="math inline">\(B_0\)</span>. El problema de encontrar restricciones económicamente adecuadas en <span class="math inline">\(B_0\)</span> se conoce como el problema de identificación en el análisis VAR estructural <span class="citation" data-cites="killian_Lutke_2017">(<a href="#ref-killian_Lutke_2017" role="doc-biblioref">Helmut Lütkepohl 2017</a>)</span>.</p>
+</section>
+<section id="estimación-e-identificación-de-modelos-svar" class="level2">
+<h2 class="anchored" data-anchor-id="estimación-e-identificación-de-modelos-svar">3 Estimación e identificación de modelos SVAR</h2>
+<p>La estimación de un modelo SVAR comprende dos etapas fundamentales: primero, la estimación de su forma reducida mediante el método de Mínimos Cuadrados Ordinarios (MCO); y segundo, el cálculo de su forma estructural. Este orden es crucial, ya que la forma estructural no puede estimarse directamente a partir de los datos observados. La “estructura” se refiere a la combinación de la dinámica intrínseca de la economía y los eventos exógenos e independientes (denominados “choques”), no predeterminados, que conjuntamente determinan el estado actual del sistema económico. No obstante, las variables económicas que se miden son el resultado combinado de estos dos componentes: la dinámica y los choques. Si no se conoce previamente uno de estos componentes, resulta imposible aislar el otro utilizando únicamente los datos disponibles.</p>
+<p>Dada esta dificultad para discernir simultáneamente la dinámica y los choques a partir de los datos, el proceso de estimación del SVAR persigue dos objetivos. Primero, la estimación por MCO captura la dinámica “aparente” de los datos, es decir, la mejor proyección posible del comportamiento futuro de las variables, basada en su evolución pasada. Segundo, la identificación estructural utiliza esta dinámica aparente (obtenida mediante MCO) y la combina con restricciones impuestas por el modelador para derivar la forma estructural que sea más congruente tanto con la dinámica observada como con dichas restricciones. Es crucial destacar que estas restricciones impuestas por el modelador son exógenas a los datos y se basan en criterios externos, como la teoría económica, resultados de investigaciones previas sobre la estimación de choques, o incluso la intuición fundamentada del investigador. No obstante, no existe un consenso metodológico unificado para validar la idoneidad de estas restricciones, lo cual es un desafío que la plataforma de evaluación busca abordar.</p>
+<p>En cuanto a la estimación de la forma reducida del VAR mediante MCO, el objetivo principal es minimizar el error (o desviación) entre los datos de la muestra y las proyecciones que el modelo VAR genera para esos mismos datos. Este proceso implica determinar la parametrización del modelo, definida por sus coeficientes representados como <span class="math inline">\(A_1,A_2,\cdots,A_p\)</span> en la <a href="#eq-ec2" class="quarto-xref">Ecuación&nbsp;2</a>, de manera que se alcance dicho mínimo. El nombre “Mínimos Cuadrados Ordinarios” (MCO) proviene, precisamente, de la métrica empleada para cuantificar este error, el Error Cuadrático Medio (ECM), y del objetivo de minimizarla. Una ventaja significativa de emplear MCO para esta estimación es la disponibilidad de una “solución analítica”, lo que significa que existe una fórmula matemática explícita para calcular directamente los coeficientes que minimizan el ECM, dados la muestra de estimación y el orden p del VAR reducido propuesto.</p>
+<p>En lo referente a los métodos de identificación, existen diversas alternativas para imponer restricciones. Una de las más comunes es la identificación de Cholesky, que se fundamenta en ordenar las variables según su grado de exogeneidad relativa; es decir, las variables se disponen en función de su dependencia con respecto a las demás variables del modelo. Otras técnicas de identificación frecuentemente utilizadas incluyen las restricciones de largo plazo o aquellas que se basan en el aprovechamiento de los cambios en la volatilidad de las variables a lo largo del tiempo (identificación por heterocedasticidad).</p>
+<p>Una vez impuestas las restricciones, se debe verificar si el modelo SVAR está identificado, lo que implica haber encontrado una única combinación plausible de dinámica y choques. En caso contrario (si el modelo no está identificado), es necesario reformular las restricciones. La <a href="#fig-est-id-process" class="quarto-xref">Figura&nbsp;1</a> resume el proceso de estimación.</p>
+<div id="fig-est-id-process" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-est-id-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Estimation and identification process.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-est-id-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Proceso de estimación e identificación de modelos de tipo SVAR.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="herramienta-de-selección-de-modelos-svar" class="level2">
+<h2 class="anchored" data-anchor-id="herramienta-de-selección-de-modelos-svar">4 Herramienta de selección de modelos SVAR</h2>
+<p>La plataforma de selección de modelos permite diagnosticar la precisión de los pronósticos de corto y mediano plazo y cuantificar la relevancia de la evidencia empírica disponible que es consistente con las relaciones de causalidad postuladas por los modelos <span class="citation" data-cites="Banguat_2024_2025">(<a href="#ref-Banguat_2024_2025" role="doc-biblioref">Banco de Guatemala 2024</a>)</span>. Es decir, los modelos se evalúan en dos dimensiones diferentes, una predictiva y una “explicativa”.</p>
+<p>Dicha plataforma se basa fundamentalmente en la aplicación de la técnica de validación cruzada para modelos de series de tiempo. Esta técnica consiste en la conformación de múltiples submuestras a partir de los datos históricos disponibles, las cuales se emplean para estimar los parámetros del modelo. Posteriormente, dichos parámetros se utilizan para generar pronósticos sobre la porción de los datos históricos que no fue empleada en la estimación, con el propósito de construir predicciones “fuera de muestra” y así “validar” el modelo. Este ejercicio se repite para cada una de las submuestras, con el fin de cuantificar el comportamiento de los errores de pronóstico del modelo. Adicionalmente, los parámetros estimados y las relaciones de causalidad postuladas se utilizan para obtener las funciones de impulso-respuesta (IRF, por sus siglas en inglés) del modelo. De esta manera, se cuantifica la similitud de dichas respuestas a través de las diferentes submuestras de estimación.</p>
+<p>A continuación, se describe la medición de la capacidad predictiva y explicativa de los modelos SVAR. Para ilustrar los conceptos, se presentan los resultados de un modelo derivado del proceso de búsqueda de especificaciones y selección de variables relevantes llevado a cabo en la Sección de Modelos Macroeconómicos del DIE, y que ha mostrado métricas de evaluación favorables.</p>
+<section id="evaluación-de-la-capacidad-predictiva" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-de-la-capacidad-predictiva">4.1 Evaluación de la capacidad predictiva</h3>
+<p>La capacidad predictiva de los modelos se mide mediante un ejercicio de pronósticos fuera de muestra, en el cual se comparan los pronósticos del modelo con los valores observados en las distintas submuestras de validación. Para este procedimiento se emplea únicamente la forma reducida del modelo, es decir, el modelo VAR asociado al SVAR, sin que sea necesaria su forma estructural. Intuitivamente, basta con la dinámica capturada por el VAR para proyectar los valores de las variables.</p>
+<p>En el procedimiento de validación cruzada se definen diferentes ventanas de estimación y validación, las cuales se exploran de manera iterativa. Por ejemplo, en la <a href="#fig-forward-process" class="quarto-xref">Figura&nbsp;2</a> se presenta el esquema de validación cruzada hacia adelante, en el que la muestra de estimación se expande, un trimestre a la vez, incluyendo observaciones más recientes, mientras que la muestra de validación se reduce. Por simplicidad, en este artículo se presentan únicamente los resultados de dicho esquema de validación cruzada. Sin embargo, en la práctica, se utilizan otros esquemas que complementan y robustecen los resultados.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Dentro de cada muestra de validación, se generan pronósticos para cada uno de los horizontes posibles de manera iterada. Por ejemplo, si la primera muestra de estimación comprende 2005Q1-2014Q4 y la primera muestra de validación 2015Q1-2023Q4, entonces, el primer pronóstico a horizonte 1 corresponde a 2015Q1, al configurar el fin de historia en 2014Q4; el segundo pronóstico a horizonte 1 corresponde a 2015Q2, al posicionar el fin de historia en 2015Q1, y así sucesivamente. Este proceso se repite para los horizontes de pronóstico relevantes, empleando todas las observaciones de validación posibles.</p>
+<div id="fig-forward-process" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-forward-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/forward cross validation scheme.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forward-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Esquema de validación cruzada hacia adelante (forward). En cada iteración, la submuestra de estimación se expande y la submuestra de validación se reduce en un horizonte. La submuestra de validación se emplea para generar pronósticos a diferentes horizontes iterativamente.
+</figcaption>
+</figure>
+</div>
+<p>El diagnóstico de los pronósticos se efectúa computando la raíz del error cuadrático medio (RMSE, por sus siglas en inglés) de las variables objetivo<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> del modelo a diferentes horizontes. Si se tienen <span class="math inline">\(N\)</span> iteraciones de validación cruzada, es decir, <span class="math inline">\(N\)</span> submuestras de estimación y validación en las que es posible estimar el error de pronóstico de la variable <span class="math inline">\(i\)</span> a un horizonte <span class="math inline">\(h\)</span>, <span class="math inline">\(\hat{e}^{(n)}_{i,h}\)</span>, entonces el RMSE está dado por la <a href="#eq-ec3" class="quarto-xref">Ecuación&nbsp;3</a>. El error de pronóstico está dado por la diferencia entre los valores observados (ex-post) y los valores pronosticados por el modelo, es decir, <span class="math inline">\(\hat{e}^{(n)}_{i,h} = y^{(n)}_{i,h} - \hat{y}^{(n)}_{i,h}\)</span> en la submuestra de validación <span class="math inline">\(n\)</span>.</p>
+<p><span id="eq-ec3"><span class="math display">\[
+RMSE_{i,h} = \sqrt{\frac{1}{N}\sum^{N}_{n=1}(\hat{e}^{(n)}_{i,h})^2}
+\tag{3}\]</span></span></p>
+<p>La <a href="#fig-RMSE" class="quarto-xref">Figura&nbsp;3 (a)</a> muestra el RMSE de la tasa de inflación interanual del modelo de ejemplo, en función de los horizontes de pronóstico. Como es de esperarse, el RMSE aumenta conforme el horizonte de pronóstico es más lejano. Principalmente, esta gráfica permite cuantificar los errores de pronóstico promedio en que incurre el modelo SVAR en cuestión. Al comparar esta gráfica con las de otros modelos, es posible observar cuál modelo resulta más apropiado para realizar pronósticos a diferentes horizontes. Por su parte, la <a href="#fig-spaghetti" class="quarto-xref">Figura&nbsp;3 (b)</a> muestra los pronósticos generados en el ejercicio de validación de una de las variables objetivo de los modelos, la inflación interanual. Esta gráfica de “spaghetti” se utiliza como una herramienta de diagnóstico visual del modelo, pues permite observar las diferencias entre los pronósticos generados por el modelo y los datos observados de manera ex-post.</p>
+<div id="fig-RMSE-Results" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RMSE-Results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-RMSE-Results" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-RMSE" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-RMSE-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/RMSE_d4_ln_cpi.jpg" class="img-fluid figure-img" data-ref-parent="fig-RMSE-Results">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-RMSE-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) RMSE de la tasa de inflación interanual para un modelo SVAR a diferentes horizontes.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-RMSE-Results" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-spaghetti" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-spaghetti-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/d4_ln_cpi_spaghetti.jpg" class="img-fluid figure-img" data-ref-parent="fig-RMSE-Results">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-spaghetti-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Pronósticos de la inflación interanual obtenidos con un SVAR en el ejercicio de pronóstico fuera de muestra hacia adelante (forward).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RMSE-Results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Resultados de evaluación de pronósticos en el esquema de validación cruzada hacia adelante (forward).
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="evaluación-de-la-capacidad-explicativa" class="level2">
+<h2 class="anchored" data-anchor-id="evaluación-de-la-capacidad-explicativa">4.2 Evaluación de la capacidad explicativa</h2>
+<p>Dado que el modelo se parametriza en distintas submuestras de estimación, se genera una colección de funciones impulso-respuesta para cada una de las variables frente a diferentes choques estructurales. Las IRFs son computadas utilizando las relaciones de causalidad postuladas en el modelo estructural y los parámetros estimados de la forma reducida. La evaluación de la capacidad explicativa de los modelos se basa en la conjetura de que la robustez de las relaciones de causalidad impuestas en el modelo puede capturarse a través de la dispersión de las IRFs obtenidas en el proceso de validación cruzada. La intuición es que una menor dispersión de las IRFs sugiere que las respuestas estimadas de las variables del modelo a los choques estructurales son menos sensibles a las ventanas de datos específicas utilizadas durante la estimación. Por lo tanto, una menor dispersión puede indicar una mayor “regularidad empírica” conforme al modelo propuesto.</p>
+<p>La <a href="#fig-dispersion" class="quarto-xref">Figura&nbsp;4</a> muestra la distribución dinámica que permite caracterizar la dispersión en las funciones de impulso-respuesta de la inflación total ante un choque de una desviación estándar de la tasa de interés de política monetaria. Como se observa, las IRFs exhiben un alto grado de similitud en los primeros períodos y empiezan a esparcirse en períodos posteriores.</p>
+<div id="fig-dispersion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dispersion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/d4_ln_cpi_dispersion.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dispersion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Distribución dinámica que permite caracterizar la dispersión de la respuesta de la inflación total ante un choque de tasa de interés de política monetaria según las diversas parametrizaciones del modelo correspondientes al esquema de validación cruzada hacia adelante (forward).
+</figcaption>
+</figure>
+</div>
+<p>La dispersión en cada período de las IRFs es medida a través de una versión robusta del coeficiente de variación, la cual se expresa en la <a href="#eq-ec4" class="quarto-xref">Ecuación&nbsp;4</a>:<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><span id="eq-ec4"><span class="math display">\[
+CVr^{h}_{i,j} = \frac{exp(IQR^{h}_{i,j})}{exp(|m^{h}_{i,j}|)}
+\tag{4}\]</span></span></p>
+<p>En donde <span class="math inline">\(IQR^{h}_{i,j}\)</span> y <span class="math inline">\(m^{h}_{i,j}\)</span> representan el rango intercuantílico <span class="math inline">\((Q_3-Q_1)\)</span> y la mediana <span class="math inline">\((Q_2)\)</span>, respectivamente, de la respuesta de la variable <span class="math inline">\(i\)</span> ante un choque en la variable <span class="math inline">\(j\)</span> a un horizonte <span class="math inline">\(h\)</span>. Esta métrica mide la dispersión a través del rango intercuantílico y normaliza las unidades al dividir por la mediana. Ya que las respuestas decaen a cero cuando se desvanecen los choques, la mediana de las respuestas también converge a cero. Es por esto que los valores del rango intercuantílico y de la mediana son ajustados con la función exponencial.</p>
+<p>La <a href="#fig-CVr" class="quarto-xref">Figura&nbsp;5</a> muestra la medida de dispersión promedio de las funciones de impulso-respuesta de los diferentes choques hacia inflación total en los diferentes horizontes de respuesta de las IRF. Los valores menores indican una menor dispersión relativa, lo que implica una mayor consistencia de la respuesta a través de las diferentes submuestras. La gráfica muestra también el promedio acumulado, el cual se utiliza para ponderar con mayor peso los primeros horizontes de la respuesta; también se presenta el valor promedio de dispersión de 0.892, el cual se muestra en la línea horizontal punteada. Como se observa, esta medida está por debajo de la unidad para todos los horizontes de las IRFs. Esto indica que, bajo los supuestos de identificación propuestos en el modelo, se determina un bajo nivel de dispersión promedio en la respuesta de inflación ante el resto de los choques de las variables endógenas del modelo.</p>
+<div id="fig-CVr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-CVr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/d4_ln_cpi_CVR.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CVr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Métrica de dispersión de la respuesta de la inflación total ante choques en las variables endógenas del modelo a través del esquema de validación cruzada hacia adelante (forward).
+</figcaption>
+</figure>
+</div>
+<p>Las métricas computadas por la herramienta de selección de modelos SVAR tienen como objetivo principal facilitar la comparación entre modelos. A modo ilustrativo, las Figuras 6 y 7 presentan los resultados correspondientes a la inflación interanual en dos modelos SVAR distintos. Aunque ambos modelos incluyen esta variable, no es necesario que compartan exactamente las mismas variables endógenas o restricciones; basta con que consideren un conjunto equivalente de variables objetivo que permita su comparación.</p>
+<p>La <a href="#fig-RMSE-comp" class="quarto-xref">Figura&nbsp;6</a> muestra el error de pronóstico para la inflación interanual. Si bien los errores son similares en ambos modelos, el SVAR 1 (línea azul) presenta errores más bajos tanto en el corto como en el largo plazo. Por su parte, la <a href="#fig-RMSE-comp" class="quarto-xref">Figura&nbsp;6</a> muestra el coeficiente de variación de las funciones de impulso-respuesta para esta misma variable. Se observa que el SVAR 1 exhibe menor variabilidad en todos los horizontes, lo que indica una mayor consistencia en las estimaciones de respuesta ante choques a lo largo de las distintas submuestras. En conjunto, estos resultados sugieren que, con base en los criterios evaluados, el SVAR 1 es preferible al SVAR 2.</p>
+<div id="fig-RMSE-comp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RMSE-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/d4_ln_cpi_RMSE_comparison.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RMSE-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6: Comparación del RMSE de la Inflación Interanual de dos modelos SVAR a diferentes horizontes.
+</figcaption>
+</figure>
+</div>
+<div id="fig-CVr-comp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-CVr-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/d4_ln_cpi_CVR_comparison.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CVr-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7: Comparación de métrica de dispersión de la respuesta de la inflación total ante choques en las variables endógenas del modelo a través del esquema de validación cruzada hacia adelante (forward).
+</figcaption>
+</figure>
+</div>
+<p>Del mismo modo, la herramienta de selección puede aplicarse a un mayor número de modelos y a distintos subconjuntos de variables objetivo, lo que permite ordenarlos según sus resultados y establecer un criterio de selección cuantitativo uniforme. No obstante, aunque estas métricas proporcionan una guía objetiva sobre el desempeño predictivo y explicativo de los modelos, su evaluación debe complementarse con criterios cualitativos fundamentales definidos por la teoría económica. Entre estos destaca, por ejemplo, la dirección esperada de las funciones de impulso-respuesta de las variables ante distintos tipos de choques, la cual debe ser coherente con la teoría económica y el conocimiento experto del funcionamiento de la economía guatemalteca.</p>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
+<p>En este artículo se exponen los fundamentos de la metodología de selección de modelos SVAR empleada en el Departamento de Investigaciones Económicas del Banco de Guatemala. Esta plataforma constituye una propuesta metodológica para abordar el problema de selección de modelos macroeconómicos, considerando tanto su capacidad predictiva como explicativa. Su enfoque se basa en la extracción de la información contenida en cada una de las submuestras de estimación en las series de tiempo multivariadas, lo que significa que está profundamente basada en el análisis del comportamiento de los datos históricos. Los resultados obtenidos permiten caracterizar el error de pronóstico, así como identificar regularidades empíricas observables en las funciones de impulso-respuesta. En consecuencia, los principios incorporados en esta metodología y los resultados que se derivan de su aplicación pueden ofrecer un insumo valioso para quienes elaboran política económica con base en modelos macroeconómicos, ya sea para la generación de pronósticos de corto y mediano plazo, o para la formulación de recomendaciones de política. Sin embargo, cabe indicar que esta plataforma metodológica no debe considerarse como un producto completo y terminado, puesto que está siempre sujeta a un proceso continuo de revisión y mejora.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Arach_Chand_Luke_Robert_2022" class="csl-entry" role="listitem">
+Arachchige, Luke A Prendergast, Chandima NPG. 2022. <span>«Robust analogs to the coefficient of variation»</span>. <em>Journal of Applied Statistics</em> 49 (2): 268-90.
+</div>
+<div id="ref-Banguat_2024_2025" class="csl-entry" role="listitem">
+Banco de Guatemala. 2024. <em>Evaluación de la política monetaria, cambiaria y crediticia, a noviembre de 2024, y perspectivas económicas para 2025</em>. Banco de Guatemala. <a href="https://banguat.gob.gt/sites/default/files/banguat/Publica/comunica/eva_pol_mon_dic2024.pdf">https://banguat.gob.gt/sites/default/files/banguat/Publica/comunica/eva_pol_mon_dic2024.pdf</a>.
+</div>
+<div id="ref-Bergmeir_Benitez_2012" class="csl-entry" role="listitem">
+Bergmeir, Christian, y Jose M Benitez. 2012. <span>«On the use of cross-validation for time series predictor evaluation»</span>. <em>Information Sciences</em> 191: 192-213.
+</div>
+<div id="ref-killian_Lutke_2017" class="csl-entry" role="listitem">
+Helmut Lütkepohl, Lutz Kilian. 2017. <em>Structural Vector Autoregressive Analysis</em>. Cambridge.
+</div>
+<div id="ref-Racine_2000" class="csl-entry" role="listitem">
+Racine, Jeffrey. 2000. <span>«Consistent cross-validatory model-selection for dependent data: hv-block cross-validation»</span>. <em>Journal of Econometrics</em> 99: 39-61.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notas</h2>
+
+<ol>
+<li id="fn1"><p>El MMS no es un modelo de tipo SVAR sino más bien, como su nombre lo indica, es un modelo de tipo semiestructural; una versión estándar de este tipo de modelos ha sido desarrollada por el Fondo Monetario Internacional bajo la denominación “QPM” (o <em>Quarterly Projection Model</em>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Por ejemplo, el método de ventanas móviles, expandiendo hacia atrás la muestra de estimación (backcast) y el método de validación de bloques hv. Vea Bergmeir y Benı́tez (2012) y Racine (2000) para una revisión más exhaustiva de métodos de validacón cruzada.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Las “variables objetivo” constituyen un subconjunto del conjunto de variables que integran el modelo SVAR y son aquéllas cuyos pronósticos son de particular relevancia para el usuario del modelo.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Esta medida deriva de una modificación respecto de las presentadas en Arachchige, Prendergast, y Staudte (2022).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/DIE-BG\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

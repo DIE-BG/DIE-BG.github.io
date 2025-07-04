@@ -1,5 +1,5 @@
 ---
-title: "Resultados de los ejercicios HV"
+title: "Fundamentación de parámetros para método de validación cruzada HV"
 author: "DIE"
 format: 
     revealjs:
@@ -18,18 +18,17 @@ lang: es
 # Introducción
 
 ## Introducción
-La presentación contiene las principales conclusiones de la *revisión literaria, análisis matemáticos y propuesta práctica del DIE* relacionadas al método de validación por bloques HV **($\text{HV block}$)**.
+Esta presentación contiene las principales conclusiones de la **revisión literaria, análisis matemáticos y una propuesta práctica del equipo de evaluación** relacionadas al método de validación cruzada por bloques HV (*HV-block*).
 
 El objetivo de dichas acciones se divide en dos: 
 
-:::{.incremental}
 1. Determinar un tamaño mínimo de muestra de estimación en el contexto de los modelos VAR estructurales (*SVAR*) 
 
 2. Establecer un valor plausible (o un conjunto de valores) para el parámetro $H$ en el método de validación $HV$ con el propósito de su posterrior implementación en la metodología de Selección de Modelos del DIE.
-:::
 
 ## Contenido
-1. Determinación del tamaño mínimo de la muestra de estimación
+
+1. Determinación del tamaño mínimo de la muestra de estimación.
 2. Selección del parámetro $H$
     - Revisión literaria
     - Análisis de correlogramas
@@ -60,9 +59,8 @@ La determinación del tamaño mínimo de la muestra de estimación tiene dos gra
 2. Una vez definido el tamaño mínimo de muestra automáticamente se define el valor máximo que puede tomar el parámetro $H$ dentro del método $HV$.
 
 ## Revisión de Literatura
-Según la revisión de literatura realizada, no se encontró
-un umbral teórico justificado y general del tamaño mínimo de muestra
-para estimar el modelo en función de la cantidad de parámetros.
+- Según la revisión de literatura realizada, no se encontró
+un umbral teórico justificado y general del tamaño mínimo de muestra para estimar el modelo en función de la cantidad de parámetros.
 
 ## Estimación del modelo
 + Siguiendo a Lutkepöhl, para estimar un modelo VAR con 
@@ -95,7 +93,7 @@ En el caso que $\text{rank}(Z)\cdot K<M$ la estimación
 de $\gamma$ no se puede realizar. Notar que, el rango de $Z$ depende del número de observaciones.
 
 
-## SVAR50_4B
+## Caso particular, SVAR50-4B
 
 + En específico para el SVAR50_4B, $M=29$, $K=9$.
 Por lo tanto el número de observaciones téorico 
@@ -248,21 +246,21 @@ Para cada combinación generamos todas las submuestras posibles obteniendo sus $
 ## Resultados del RMSE por Variable Objetivo
 ![RMSE por Variable Objetivo](images/hv_exercise/RMSEByVariables.png)
 
-## Resultados del RMSE Promedio de las Variables Objetivo
+## Resultados del RMSE promedio de las variables objetivo
 ![Promedio de RMSE](images/hv_exercise/RMSEAverage.png)
 
-## Hallazgos de las Variables Objetivo
+## Hallazgos de las variables objetivo
 - Para la mayoría de las variables objetivo, el $RMSE$ disminuye a medida que el tamaño de la muestra aumenta.
 - La inflación total muestra un patrón diferente en los dos primeros horizontes de validación.
 - El $RMSE$ de la inflación total muestra el mismo patrón que el resto de variables objetivo a partir del horizonte tres.
 - A medida que el parámetro $H$ aumenta, el $RMSE$ también aumenta.^[Como se observa en los resultados de @burman1994cross (@tbl-results). Creemos que valores bajos de $H$ tienden a subestimar el *error* verdadero y valores altos tienden a sobreestimarlo.]
 
-## Hallazgos del Promedio de Variables Objetivo
+## Hallazgos del promedio de variables objetivo
 - En los dos primeros horizontes el promedio estuvo dominado por el tipo de cambio, el producto y la tasa de interés.
 - El promedio en todos los horizontes tiende a disminuir a medida que aumenta el tamaño de muestra.
 - **Dado que el RMSE tiende a subestimarse con valores bajos de $H$ y sobreestimarse con valores altos, probablemente sea más apropiado seleccionar $H$ dentro de un rango de valores.**
 
-## Análisis de RMSE
+## Propuesta práctica con base en análisis del RMSE
 Con base en los resultados, intentamos encontrar un conjunto razonable de valores para $H$. Para hacerlo, procedimos de la siguiente manera:
 
 :::{.incremental}
@@ -272,7 +270,9 @@ Con base en los resultados, intentamos encontrar un conjunto razonable de valore
 - Finalmente, este proceso se realizó para los horizontes de validación 1, 2, 3 y 4.
 :::
 
-## Ejemplo: horizonte 1 con dos variables objetivo
+## Ejemplo
+
+- Se presenta un ejemplo a horizonte 1 con dos variables objetivo.
 
 |    d4_ln_cpi     |             |    d4_ln_s      |             |
 |:----------------:|:--------:   |:---------------:|:-----------:|
@@ -297,19 +297,21 @@ Como se puede ver en la tabla, algunos valores de $H$ están en ambas variables.
 - Horizonte 3: $H$ entre 10 y 16, $N_t$  entre 43 y 31
 - Horizonte 4: $H$ entre 10 y 16, $N_t$  entre 43 y 31
 
-Lo anterior sugiere algunos rangos plausibles para los valores de $H$, pero con el fin de fundamentar de mejor manera la propuesta de un rango de valores se muestran un conjunto de graficas que identifican la posición de los valores de $H$ en los rangos intercuartílicos de las variables objetivo.
+Lo anterior sugiere algunos rangos plausibles para los valores de $H$. Con el fin de fundamentar de mejor manera la propuesta de un rango de valores, se muestran un conjunto de graficas que identifican la posición de los valores de $H$ en los rangos intercuartílicos de las variables objetivo.
 
 ---
 
+**Valores pequeños de H**
 ![H de 1 a 4 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_1_4.png)
 
 ---
 
-
+**Valores de H sugeridos en la literatura**
 ![H de 4 a 9 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_4_9.png)
 
 ---
 
+**Resultados de la propuesta práctica**
 ![H de 6 a 14 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_6_14.png)
 
 ---
@@ -317,11 +319,12 @@ Lo anterior sugiere algunos rangos plausibles para los valores de $H$, pero con 
 **Propuesta inicial del DIE**
 ![H de 4 a 16 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_4_16.png)
 
----
+
+## Resultados del análisis de intersección
 
 Como se observó en las primeras dos gráficas, un número relativamente bajo de valores de $H$ de 1 a 9 están contenidos en el rango intercuartílico, mientras que para valores entre 6 y 14 el número crece considerablemente. 
 
-Lo anterior da mayor sustento a nuestra propuesta, la cual es utilizar el rango de valores de 6 a 14.^[Al igual que @burman1994cross centramos nuestra elección en el horizon 1 de pronóstico]
+Lo anterior da mayor sustento a nuestra propuesta, la cual es utilizar el rango de valores de 6 a 14.^[Al igual que @burman1994cross centramos nuestra elección en el horizonte 1 de pronóstico]
 
 # Comparación de las propuestas para la selección del parámetro $H$
 
@@ -342,15 +345,20 @@ Comparamos el rendimiento del método HV Block con el método OS Multiple. Para 
 
 La muestra total cubre desde 2005T1 hasta 2024T4.
 
-## Resultados para el Coeficiente de variación
+--- 
+
+**Coeficiente de variación promedio**
 ![](images/hv_exercise/ComparativeDispersion.png)
 
-## Resultados para el RMSE
+---
+
+**RMSE**
 ![](images/hv_exercise/ComparativeLoss.png)
+
 
 # Propuesta de simulación basada en la literatura para la selección $H$
 
-## Propuesta de simulación basada en la literatura para la selección $H$
+## Ejercicio de simulación basada en la literatura para la selección $H$
 
 El siguiente ejercicio de simulación se basa en los propuestos por @burman1994cross para la determinación de un valor $h$ en los ejercicios de validación cruzada. 
 
@@ -501,11 +509,11 @@ Finalmente, se comparan las distribuciones de $\hat{E}\left[PE(j)\right]$ y $\ha
 # Comentarios Finales
 
 :::{.incremental}
-- Valores bajos del parámetro $H$ están asociados con un RMSE bajo (posiblemente subestimado), el cual aumenta conforme incrementa $H$.
-- Creemos que no hay un valor único óptimo de $H$; en su lugar, preferimos un rango de valores.
+- Valores bajos del parámetro $H$ están asociados con valores bajos del RMSE (posiblemente subestimado), el cual aumenta conforme incrementa $H$. A su vez, valores muy altos de $H$ podrían sobreestimar el RMSE.
+- Creemos que no hay un valor único óptimo de $H$; en su lugar, **preferimos un rango de valores**.
 - El rango de valores de $H$ fue identificado considerando los resultados de las tres metodologías propuestas.
 - Creemos que los valores de $H$ contenidos entre **de 6 y 14** son adecuados para los ejercicios de Selección de Modelos dentro del esquema HV.
-- La comparación muestra que el método HV Block y el Método OS Multiple presentan un patrón similar en los resultados agregados del CVr y del RMSE a lo largo de los horizontes de validación.
+- La comparación muestra que el método HV Block y el Método OS Multiple presentan un patrón similar en los resultados agregados del CVr y del RMSE a lo largo de los horizontes relevantes de validación.
 :::
 
 # Referencias

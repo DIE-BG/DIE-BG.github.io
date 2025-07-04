@@ -1,0 +1,186 @@
+---
+title: Término de corrección en la validación cruzada tipo $h$
+lang: es
+bibliography: reference.bib
+nocite: |
+    @*
+---
+
+Si tenemos una muestra aleatoria $\mathcal{Z} = \lbrace Z_1, \dots, Z_n \rbrace$, la cuál se usa para estimar una función $P_n$, el error de predicción al utilizar dicha función estimada se define como:
+
+$$
+PE = \int T(z, P_n)dP(z)
+$$
+
+$$
+PE = E\left[
+    T(Z, P_n)
+    \vert
+    \mathcal{Z}
+\right]
+$$
+
+$$
+Z \sim P
+$$
+
+en donde el funcional $T$ representa algún tipo de función de pérdida, ya sea el MSE u otra.
+
+
+Al realizar un ejercicio de validación cruzada, se busca aproximar dicha función a través de un estimador $CV_n$, definido como:
+
+$$
+CV_n = \dfrac{1}{n} \sum_{i=1}^{n} T(Z_i, P_{n,i})
+$$
+
+En donde $P_{n,i}$ es una estimador que remueve la observación $Z_i$.
+
+La función $P_{n}$ y $P_{n,i}$ buscan estimar la distribución $P$ de $Z$. 
+
+$P_n$ es solamente la distribución empírica que da pesos iguales a todas las observaciones de la muestra, mientras que $P_{n,i}$ se construye de tal modo que sea un simil a un estimador cuando se remueven $h$ observaciones para mejorar la indepedencia entre $Z_i$ (conjunto de validación) y $\mathcal{Z}_{i} = \mathcal{Z} \setminus \lbrace Z_i \rbrace$ (conjunto de estimación).
+
+Si calculamos el valor esperado de $CV_n$, obtenemos:
+
+$$
+E\left[CV_n\right] =
+E\left[ 
+    \dfrac{1}{n} \sum_{i=1}^{n} T(Z_i, P_{n,i})
+\right]
+=
+\dfrac{1}{n} \sum_{i=1}^{n} 
+    E\left[
+            T(Z_i, P_{n,i})
+    \right]
+$$
+
+Aplicando la ley de esperanzas iteradas, podemos decir que:
+
+$$
+E\left[CV_n\right] =
+\dfrac{1}{n} \sum_{i=1}^{n} 
+    E\left[
+        E\left[
+                T(Z_i, P_{n,i})
+        \vert
+        \mathcal{Z_i}
+        \right]
+        \vert
+        Z_i
+    \right]
+=
+E\left[
+    \dfrac{1}{n} \sum_{i=1}^{n} 
+            E\left[
+                    T(Z_i, P_{n,i})
+            \vert
+            \mathcal{Z_i}
+            \right]
+            \vert
+            Z_i
+\right]
+$$
+
+Es decir, podemos reescribir la pérdida estimada por validación cruzada como
+
+$$
+CV_n
+=
+\dfrac{1}{n} \sum_{i=1}^{n} 
+    E\left[
+       T(Z_i, P_{n,i})
+        \vert
+        \mathcal{Z_i}
+    \right]
+$$
+
+En el artículo de @burman1994cross proponen reescribir $CV_n$ sumando magnitudes que, en principio, son iguales a cero:
+
+$$
+CV_n = 
+\dfrac{1}{n} \sum_{i=1}^{n} T(Z_i, P_{n,i})
++
+\underbrace{
+    \dfrac{1}{n} \sum_{i=1}^{n} 
+        E\left[
+        T(Z_i, P_{n,i})
+            \vert
+            \mathcal{Z_i}
+        \right]
+}_{CV_n}
+-
+\underbrace{
+    \dfrac{1}{n} \sum_{i=1}^{n} 
+        E\left[
+        T(Z_i, P_{n,i})
+            \vert
+            \mathcal{Z_i}
+        \right]
+}_{CV_n}
++
+\underbrace{ 
+    E\left[
+        T(Z, P_n)
+        \vert
+        \mathcal{Z}
+    \right]
+}_{PE}
+-
+\underbrace{ 
+    E\left[
+        T(Z, P_n)
+        \vert
+        \mathcal{Z}
+    \right]
+}_{PE}
+$$
+
+Haciendo algunos arreglos, obtenemos que:
+
+$$
+PE = 
+\underbrace{
+    \dfrac{1}{n} \sum_{i=1}^{n} T(Z_i, P_{n,i})
+}_{CV_n}
+-
+\underbrace{
+    \dfrac{1}{n} \sum_{i=1}^{n} 
+        E\left[
+        T(Z_i, P_{n,i})
+            \vert
+            \mathcal{Z_i}
+        \right]
+}_{CV_n}
++
+\underbrace{ 
+    E\left[
+        T(Z, P_n)
+        \vert
+        \mathcal{Z}
+    \right]
+}_{PE}
+$$
+
+Sin embargo, este arreglo plantea algunos desafíos de estimación, por ejemplo, que dependemos de la independencia entre $Z_i$ y $P_{n,i}$ la cuál se busca corrgir con el bloque $h$ que se elimina, y otra que no cononemos $P$.
+
+Debido a esto, @burman1994cross proponen el siguiente estimador de validación cruzada corregido:
+
+
+$$
+CCV_n =
+\lbrace
+    \dfrac{1}{n} \sum_{i=1}^n
+        T(Z_i, P_{n,i})
+    -
+    \dfrac{1}{n} \sum_{i=1}^n
+        \int T(z, P_{n,i})dP_n(z)
+\rbrace
++
+\int T(z, P_{n})dP_n(z)
+$$
+
+Es decir, substituye la CDF $P$ por aquella estimada en la muestra completa $P_n$.
+
+En donde sustituyen el cálculo de las expectativas usando la CDF poblacional $P$ con la estimada en la muestra completa $P_n$. 
+
+::: {#ref}
+:::

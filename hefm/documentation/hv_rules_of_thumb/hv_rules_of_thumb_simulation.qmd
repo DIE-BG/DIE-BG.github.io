@@ -62,21 +62,28 @@ $$
 donde:
 
 - $h$ es el tamaño del bloque de descarte,  
-- $v$ es el horizonte de pronóstico máximo a evaluar, que se define como 8,  
+- $v$ es el horizonte de pronóstico máximo a evaluar, que se define como 6,  
 - $j$ es el horizonte de pronóstico al que corresponde la magnitud calculada. Este valor debe cumplir siempre $j \leq v$.
 
 ---
 
 El MSE real al estimar sobre la muestra completa $\mathcal{Y}$ solo puede calcularse si se dispone de una muestra independiente $\tilde{\mathcal{Y}} = \lbrace \tilde{y}_{0}, \tilde{y}_2, \dots, \tilde{y}_{v} \rbrace$, distinta a la utilizada para la estimación.
 
-Este MSE se define como:
+Primero definimos el vector de errores como:
+
+$$
+    e(j)
+        = 
+        \tilde{y}_{j} 
+        - \sum_{i=1}^j \hat{A}_{1} \hat{C} -
+        \hat{A}_{1}^j \tilde{y}_{0}
+$$
+
+El MSE se define como:
 
 $$
 E \left[ PE(j) \right] = E \left[ 
-    \left( 
-        \tilde{y}_{j} 
-        - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
-    \right)^2
+        e(j) \odot e(j)
 \right]
 $$
 
@@ -95,10 +102,7 @@ E \left[
 = 
 E \left[ 
     E \left[
-        \left( 
-            \tilde{y}_{j} 
-            - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
-        \right)^2
+        e(j) \odot e(j)
         \mid
         \mathcal{Y}
     \right]

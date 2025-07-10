@@ -24,7 +24,7 @@ El objetivo de dichas acciones se divide en dos:
 
 1. Determinar un tamaño mínimo de muestra de estimación en el contexto de los modelos VAR estructurales (*SVAR*) 
 
-2. Establecer un valor plausible (o un conjunto de valores) para el parámetro $H$ en el método de validación $HV$ con el propósito de su posterrior implementación en la metodología de Selección de Modelos del DIE.
+2. Establecer un valor plausible (o un conjunto de valores) para el parámetro $H$ en el método de validación $HV$ con el propósito de su posterior implementación en la metodología de selección de modelos del DIE.
 
 ## Contenido
 
@@ -343,7 +343,7 @@ Comparamos el rendimiento del método HV Block con el método OS Multiple. Para 
 2. $H$ de 4 a 16 - total de submuestras 884^[Propuesta inicial del DIE.]
 3. $H$ de 6 a 14 - total de submuestras 612^[Rango de la propuestra práctica para la selección de $H$.]
 
-La muestra total cubre desde 2005T1 hasta 2024T4.
+La muestra total cubre desde 2005Q1 hasta 2024Q4.
 
 --- 
 
@@ -406,21 +406,28 @@ $$
 donde:
 
 - $H$ es el tamaño del bloque de descarte,  
-- $v$ es el horizonte de pronóstico máximo a evaluar, que se define como 8,  
+- $v$ es el horizonte de pronóstico máximo a evaluar, que se define como 6,  
 - $j$ es el horizonte de pronóstico al que corresponde la magnitud calculada. Este valor debe cumplir siempre $j \leq v$.
 
 ---
 
 El MSE real al estimar sobre la muestra completa $\mathcal{Y}$ solo puede calcularse si se dispone de una muestra independiente $\tilde{\mathcal{Y}} = \lbrace \tilde{y}_{0}, \tilde{y}_2, \dots, \tilde{y}_{v} \rbrace$, distinta a la utilizada para la estimación.
 
-Este MSE se define como:
+Primero definimos el vector de errores como:
+
+$$
+    e(j)
+        = 
+        \tilde{y}_{j} 
+        - \sum_{i=1}^j \hat{A}_{1} \hat{C} -
+        \hat{A}_{1}^j \tilde{y}_{0}
+$$
+
+El MSE se define como:
 
 $$
 E \left[ PE(j) \right] = E \left[ 
-    \left( 
-        \tilde{y}_{j} 
-        - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
-    \right)^2
+        e(j) \odot e(j)
 \right]
 $$
 
@@ -439,10 +446,7 @@ E \left[
 = 
 E \left[ 
     E \left[
-        \left( 
-            \tilde{y}_{j} 
-            - \sum_{i=1}^j \hat{A}_1^{i-1} \hat{C} - \hat{A}_1^j \tilde{y}_0
-        \right)^2
+        e(j) \odot e(j)
         \mid
         \mathcal{Y}
     \right]

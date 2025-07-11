@@ -218,7 +218,16 @@ En este caso se observaron los correlogramas de las variables utilizadas en la e
 
 # Propuesta práctica para selección de $H$ en la HEFM
 
-Este ejercicio tomó de base los resultados obtenidos en el análisis de tamáño mínimo de muestra de estimación, así como la calibración del parámetro $H$ propuesta en @burman1994cross. En nuestro ejercicio se obserrvó como evolucionaba el $RMSE$ del SVAR50_4B realizando el ejercicio de validación por el método $HV$ bajo un rango de valores de $H$.
+Este ejercicio tomó de base los resultados obtenidos en el análisis de tamáño mínimo de muestra de estimación, así como la calibración del parámetro $H$ propuesta en @burman1994cross. 
+
+---
+
++ El objetivo de nuestro ejercicio consistió en observar la evolución del $RMSE$ en la medida en la cual aumentaba el tamaño de muestra. 
+
++ El ejercicio se construyó tomando de referencia el SVAR50-4B.
+
++ Pese a que el ejercicio se construyó teniendo de referencia un modelo especídfico, la elección del parámetro $H$ no depende de un modelo específico, más bien depende de la relación de dependencia temporal entre las series utilizadas.
+
 
 ## Consideraciones generales del ejercicio
 
@@ -355,6 +364,22 @@ La muestra total cubre desde 2005Q1 hasta 2024Q4.
 **RMSE**
 ![](images/hv_exercise/ComparativeLoss.png)
 
+## Ejercicios adicionales
+Con el propósito de brindar una regla sencilla para la determinación del valor $H$ (o conjunto de valores) a utilizar en la herramienta de selección de modelos se realizaron tres ejercicios utilizando el SVAR50-4B. Estos ejercicios consistieron en lo siguiente: 
+
+1. $H$ en un rango de *4 a 20* con pasos de 4. Esto implica que la distancia que existe entre cada uno de los valores de $H$ es de 1 año.
+
+2. Definimos $H$ siguiendo la regla propuesta por @burman1994cross. Considerando que el tamaño de la muestra es de $N = 76$ y la proporción $p = 0.15$ nuestro valor para el parámetro queda fijado en $H = 11$.
+
+3. El tercer ejercicio consistió en que $H$ tome valores de 8, 11 y 16. Este ejercicio se pensó como un punto medio entre el 1 y 2.
+
+---
+
+![](images/hv_exercise/HV%20simple%20proposal/ComparativeDispersion.png)
+
+---
+
+![](images/hv_exercise/HV%20simple%20proposal/ComparativeLoss.png)
 
 # Propuesta de simulación basada en la literatura para la selección $H$
 
@@ -516,7 +541,7 @@ Finalmente, se comparan las distribuciones de $\hat{E}\left[PE(j)\right]$ y $\ha
 - Valores bajos del parámetro $H$ están asociados con valores bajos del RMSE (posiblemente subestimado), el cual aumenta conforme incrementa $H$. A su vez, valores muy altos de $H$ podrían sobreestimar el RMSE.
 - Creemos que no hay un valor único óptimo de $H$; en su lugar, **preferimos un rango de valores**.
 - El rango de valores de $H$ fue identificado considerando los resultados de las tres metodologías propuestas.
-- Creemos que los valores de $H$ contenidos entre **de 6 y 14** son adecuados para los ejercicios de Selección de Modelos dentro del esquema HV.
+- Creemos que los valores de $H$ contenidos entre **de 6 y 14** son adecuados para los ejercicios de selección de modelos dentro del esquema HV.
 - La comparación muestra que el método HV Block y el Método OS Multiple presentan un patrón similar en los resultados agregados del CVr y del RMSE a lo largo de los horizontes relevantes de validación.
 :::
 

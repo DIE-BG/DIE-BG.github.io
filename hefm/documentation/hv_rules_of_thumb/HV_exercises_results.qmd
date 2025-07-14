@@ -226,7 +226,7 @@ Este ejercicio tomó de base los resultados obtenidos en el análisis de tamáñ
 
 + El ejercicio se construyó tomando de referencia el SVAR50-4B.
 
-+ Pese a que el ejercicio se construyó teniendo de referencia un modelo específico, la elección del parámetro $H$ no depende de un modelo específico, más bien depende de la relación de dependencia temporal entre las series utilizadas.
++ Pese a que el ejercicio se construyó teniendo de referencia un modelo específico, la elección del parámetro $H$ no depende de un modelo específico, más bien **depende de la relación de dependencia temporal entre las series utilizadas**.
 
 
 ## Consideraciones generales del ejercicio
@@ -367,7 +367,7 @@ La muestra total cubre desde 2005Q1 hasta 2024Q4.
 ## Ejercicios adicionales
 Con el propósito de brindar una regla sencilla para la determinación del valor $H$ (o conjunto de valores) a utilizar en la herramienta de selección de modelos se realizaron tres ejercicios utilizando el SVAR50-4B. Estos ejercicios consistieron en lo siguiente: 
 
-1. $H$ en un rango de *4 a 20* con pasos de 4. Esto implica que la distancia que existe entre cada uno de los valores de $H$ es de 1 año.
+1. $H$ en un rango de *4 a 20* con pasos de 4. Esto implica que los valores de $H$ utilizados remueven años completos de observaciones a cada lado del conjunto de validación.
 
 2. Definimos $H$ siguiendo la regla propuesta por @burman1994cross. Considerando que el tamaño de la muestra es de $N = 76$ y la proporción $p = 0.15$ nuestro valor para el parámetro queda fijado en $H = 11$.
 

@@ -226,7 +226,7 @@ Este ejercicio tomó de base los resultados obtenidos en el análisis de tamáñ
 
 + El ejercicio se construyó tomando de referencia el SVAR50-4B.
 
-+ Pese a que el ejercicio se construyó teniendo de referencia un modelo especídfico, la elección del parámetro $H$ no depende de un modelo específico, más bien depende de la relación de dependencia temporal entre las series utilizadas.
++ Pese a que el ejercicio se construyó teniendo de referencia un modelo específico, la elección del parámetro $H$ no depende de un modelo específico, más bien depende de la relación de dependencia temporal entre las series utilizadas.
 
 
 ## Consideraciones generales del ejercicio

@@ -1,0 +1,10 @@
+---
+title: "B-TIMA (extension)"
+format: html
+---
+
+
+## Overview
+
+**B-TIMA** stands for *Bootstrapping Tool for Inflation Measures Assessment*,  an extension to the methodology presented in Castañeda and Chang (2023) for the
+assessment of inflation measures, regarded as estimators tracking an unobserved trend inflation.

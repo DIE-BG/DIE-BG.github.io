@@ -69,7 +69,7 @@ website:
           text: "Index"
         - section: "BTIMA Extension"
           contents:
-            - text: "B-TIMA Scheme"
+            - text: "Scheme"
               href: BTIMA/BTIMA_extension_math.qmd
             - text: "Results"
               href: BTIMA/doc_matching_calibration.qmd

@@ -66,12 +66,12 @@ website:
       search: true
       contents:
         - href: BTIMA/index.qmd
-          text: "Index"
+          text: "BTIMA"
         - section: "BTIMA Extension"
           contents:
-            - text: "Scheme"
+            - text: "Methodology"
               href: BTIMA/BTIMA_extension_math.qmd
-            - text: "Results"
+            - text: "Matching and calibration"
               href: BTIMA/doc_matching_calibration.qmd
 execute: 
   freeze: auto

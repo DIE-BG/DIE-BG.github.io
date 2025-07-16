@@ -5,7 +5,10 @@ author: [Rodrigo Chang, Rubí Ramírez]
 date: last-modified
 date-format: long
 lang: es
-format: html
+format: 
+  revealjs:
+    scrollable: true
+    center-title-slide: false
 ---
 
 # Proceso de emparejamiento de productos
@@ -322,17 +325,4 @@ Se muestra la distribución de corte transversal sintética de la base 2023 del 
 
 - Si las variaciones se mantienen cerca del promedio, la inflación total podría fluctuar alrededor de $2\%$. 
 
-
-# Presentación
-
-[**Fullscreen ⛶**](/BTIMA/pst_matching_calibration.qmd)
-
-```{=html}
-<iframe 
-    src="/BTIMA/pst_matching_calibration.html"
-    height= {{< var frame_height >}}
-    width= {{< var frame_width >}}
-    style="border: none;"
-></iframe>
-```
 

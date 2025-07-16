@@ -105,7 +105,7 @@ cumulative density function of @eq-pmass-general as:
 $$P\left(v_{k}\right)=\frac{1}{J}\sum_{j=1}^{J}\mathbb{1}\left(v_{k}\geq v_{k,j}\right). $$ {#eq-p_cdf_general}
 Then, we would draw $z\sim U\left[0,1\right]$ and compute the draw
 $v_{k}^{*}$ of $v_{k}$ as:
-$$v_{k}^{*}=\min_{v}v\quad\text{s.t.}P\left(v\right)\geq z.$${#eq-v_draw_general}
+$$v_{k}^{*}=\min_{v}v\quad\text{s.t. } P\left(v\right)\geq z.$${#eq-v_draw_general}
 
 # Resampling Extension
 

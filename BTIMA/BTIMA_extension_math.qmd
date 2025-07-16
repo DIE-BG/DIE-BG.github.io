@@ -1,0 +1,221 @@
+---
+title: "B-TIMA Extension for the Guatemalan CPI 2023 Base"
+subtitle: Departamento de Investigaciones Económicas
+author: "Rodrigo Chang"
+date: last-modified
+date-format: long
+lang: en
+format: html
+---
+# Introduction 
+
+This note describes an extension to the methodology presented in
+Castañeda and Chang (2023) for the assessment of inflation measures,
+regarded as estimators tracking an unobserved trend inflation.
+
+# Notation
+
+Let $v_{b,i,m,j}$ be the $j$-th observation of the monthly price change
+of the $i$-th item at month $m$ in the CPI base $b$. The CPI base
+$b\in\left\{ 2000,2010,2023,2024\right\}$ indexes the year on which the
+index-reference period is set on. Naturally, $m=1,\ldots,12$. The
+specifics of item $i$ depends on its CPI base $b$, i.e. $i\in I_{b}$.
+Table [1](#tab:indexes){reference-type="ref" reference="tab:indexes"}
+shows the corresponding sets. The subscript $j=1,\ldots,J_{b}$ indexes
+the number of observations within the same CPI base, which also
+corresponds to a specific year within the CPI $b$ database. For example,
+the set of monthly price changes of "Rice" (CPI item $i=1$) over the
+Januaries $\left(m=1\right)$ of base $b=2000$ is:
+$$\text{Set of Januaries' monthly price changes of rice}=\left\{ v_{2000,1,1,1},v_{2000,1,1,2},\ldots,v_{2000,1,1,10}\right\} .$$
+
+From Table [1](#tab:indexes){reference-type="ref"
+reference="tab:indexes"}, note we only have one year of observations in
+the 2023 CPI base (the observations from 2024), so we have a single
+observation of each variety in the database. In the CPI base 2024 (the
+ongoing published data), we only have observations for the first
+semester.
+
+::: {#tab:indexes}
+   CPI base                    Items                                 Observations
+  ---------- ----------------------------------------- -----------------------------------------
+   $b=2000$   $I_{2000}=\left\{ 1,\ldots,218\right\}$                $J_{2000}=10$
+   $b=2010$   $I_{2010}=\left\{ 1,\ldots,279\right\}$                $J_{2010}=13$
+   $b=2023$   $I_{2023}=\left\{ 1,\ldots,437\right\}$                $J_{2023}=1$
+   $b=2024$   $I_{2023}=\left\{ 1,\ldots,436\right\}$               $$ \begin{cases}J_{2024}=1, & \text{for }m=1,\ldots,6\\J_{2024}=0, & \text{for }m=7,\ldots,12\end{cases}$$
+
+  : Sets of items' indexes for each Guatemalan CPI base.
+:::
+
+In the B-TIMA framework, the resampling operations are performed over
+the observations of items in the same CPI base and months. Thus,
+consider the tuple $\left(b,i,m\right)$ composed by a particular CPI
+base, a particular item, and a particular month. For the simplicity of
+notation, we call this tuple a "variety" and denote it by $k$. In our
+previous example, the set of monthly price changes of "Rice" over the
+Januaries of base 2000 is indexed the variety $k=\left(2000,1,1\right)$:
+
+$$\text{Set of Januaries' monthly price changes in rice}=\left\{ v_{k,1},v_{k,2},\ldots,v_{k,10}\right\} .$$
+
+# B-TIMA Resampling Scheme
+
+
+
+In the B-TIMA's current current resampling scheme there are three main
+assumptions:
+
+1.  The monthly price change of any given variety $v_{k}$ is regarded as
+    a random variable for which we have a sample.
+
+2.  For any given variety, its sample of monthly prices changes becomes
+    the population within a "bootstrap universe".
+
+3.  The sample of $v_{k}$ is indpendent and identically distributed.
+    Thus, in the bootstrap experiment, each of the observations is
+    resampled with the same probability, i.e. a discrete uniform
+    distribution.
+
+With these three assumptions, we construct the time series of the
+population trend inflation and the bootstrap replicates for different
+inflation estimators. The resampling is performed by bootstrapping each
+of the varieties' population datasets to form full realizations of the
+CPI dataset. Continuing the example from above, to draw from the set of
+Januaries' monthly price changes, we would draw uniformly from the set
+$\left\{ v_{k,1},v_{k,2},\ldots,v_{k,10}\right\}$.
+
+The uniform distribution used in the bootstrap procedure can be thought
+of as a mixture of Dirac degenerate distributions. Let
+$v\sim\text{Dirac}\left(v_{0}\right)$ denote that $v$ is distributed
+with a Dirac distribution with parameter $v_{0}$. Then, its probability
+mass function is defined as: $$\delta\left(v;v_{0}\right)=\begin{cases}
+1, & v=v_{0},\\
+0 & v\neq v_{0}
+\end{cases}=\mathbb{1}\left(v=v_{0}\right),$$ where
+$\mathbb{1}\left(\cdot\right)$ is the indicator function. So, using this
+construct, the uniform distribution for the set of Januaries' monthly
+price changes of rice is given by the mixture: $$\begin{aligned}
+p\left(v_{k}\right) & =\frac{1}{10}\mathbb{1}\left(v_{k}=v_{k,1}\right)+\frac{1}{10}\mathbb{1}\left(v_{k}=v_{k,2}\right)+\ldots+\frac{1}{10}\mathbb{1}\left(v_{k}=v_{k,10}\right)\nonumber \\
+ & =\frac{1}{10}\sum_{j=1}^{10}\mathbb{1}\left(v_{k}=v_{k,j}\right).\label{eq:p_mass_example}
+\end{aligned}$$ More generally, the uniform distribution for a sample of
+$J$ observations of variety $k$,
+$\left\{ v_{k,1},\ldots,v_{k,J}\right\}$, is given by:
+$$p\left(v_{k}\right)=\frac{1}{J}\sum_{j=1}^{J}\mathbb{1}\left(v_{k}=v_{k,j}\right).\label{p_mass_general}$$ {#eq-pmass-general}
+
+To sample from the empirical distribution of $v_{k}$, we compute the
+cumulative density function of @eq-pmass-general as:
+$$P\left(v_{k}\right)=\frac{1}{J}\sum_{j=1}^{J}\mathbb{1}\left(v_{k}\geq v_{k,j}\right). $$ {#eq-p_cdf_general}
+Then, we would draw $z\sim U\left[0,1\right]$ and compute the draw
+$v_{k}^{*}$ of $v_{k}$ as:
+$$v_{k}^{*}=\min_{v}v\quad\text{s.t.}P\left(v\right)\geq z.$${#eq-v_draw_general}
+
+# Resampling Extension
+
+The problem with the B-TIMA methodology for new CPI databases is the
+first resampling assumption: we just do not have enough observations to
+perform a bootstrap procedure. Thus, we present a proposal to
+artificially "expand" the sample using some prior information and the
+most recent observation from the CPI base 2023.
+
+Performing the original B-TIMA bootstrap exercise over the CPI base 2023
+with only one observation per variety leads to a trivial simulation
+scheme in which a unique value is always resampled. Therefore, this
+procedure fails capturing inherent variability in the resampling
+performed by the Statistical Office. Instead, we propose using a "prior"
+distribution that captures this variability from the previous CPI base
+and update its resampling weights according to the most recent
+observations to form an "updated" distribution. We believe this
+procedure captures the most important developments in the current
+underlying inflationary trend, while still reflecting the sampling
+variability from the past.
+
+To illustrate the proposal, suppose we have a set of $J$ monthly price
+changes of variety $k$ in a given CPI base,
+$\left\{ v_{k,1},\ldots,v_{k,J}\right\}$. We also have $H$ observations
+of the new CPI base, $\left\{ v_{k^{*},1},\ldots,v_{k^{*},H}\right\}$,
+of the variety $k^{*}$, which is the most similar possible to $k$ in the
+previous CPI base to approximate its distribution. We wish to update the
+empirical distribution while accounting for the most recent observations
+to form an updated empirical distribution
+$\left\{ v_{k,1},\ldots,v_{k,J},v_{k^{*},J+1},\ldots,v_{k^{*},J+H}\right\}$.
+
+We can append the new observation to the empirical distribution and
+reweigh the observations to assign more weight to the closest ones. Let
+$f\left(x\right)$ a weighing function satisfying (i) $f$ is even, (ii)
+$f$ decreasing in $\mathbb{R}_{+}$, and (iii) $f\left(x\right)\geq0$ for
+all $x\in\mathbb{R}$. Conditions (i) and (ii) imply
+$f\left(0\right)\geq f(x)$ for all $x\in\mathbb{R}$, which we use to get
+the higher weights around the center of the function. The function $f$
+is used to assign relative importance to the observations according to
+the distance to the mean of the new observations
+$\bar{v}_{k^{*}}=\frac{1}{H}\sum_{h}v_{k^{*},h}$. For instance,
+$$f\left(x\right)=\phi\left(x;\frac{1}{H}\sum_{h}v_{k^{*},h},\text{std}\left(\left\{ v_{k,1},\ldots,v_{k,J},v_{k^{*},1},\ldots,v_{k^{*},H}\right\} \right)\right),$$
+where $\phi\left(\cdot\right)$ is the probability density function of a
+normal distribution with the specified mean and variance. This specific
+example accounts for the sampling variability of the expanded variety
+$k^{*}$ around the mean of the obsevations of the new base. So, we would
+compute sampling weights to the expanded distribution using the
+following equations:
+
+$$
+\bar{v}_{k^{*}}  =\frac{1}{H}\sum_{h=1}^{H}v_{k^{*},h},
+$${#eq-mean_new_obs}
+
+$$
+W_{k^{*}}  =\sum_{j=1}^{J}f\left(\vert v_{k,j}-\bar{v}_{k^{*}}\vert\right)+\sum_{h=1}^{H}f\left(\vert v_{k^{*},h}-\bar{v}_{k^{*}}\vert\right)
+ $${#eq-sum_weights}
+
+
+$$
+w_{k^{*},j}  =\frac{f\left(\vert v_{k,j}-\bar{v}_{k^{*}}\vert\right)}{W_{k^{*}}},\quad j=1,\ldots,J,
+$${#eq-weights_prev_obs}
+
+$$
+w_{k^{*},J+h}  =\frac{f\left(\vert v_{k^{*},h}-\bar{v}_{k^{*}}\vert\right)}{W_{k^{*}}},\quad h=1,\ldots,H,
+$${#eq-weights_new_obs}
+
+where $w_{k^{*},j}$ represents an updated weight of
+observation $j$ of the empirical distribution of variety $k$, and
+$w_{k^{*},J+h}$ represents a new weight corresponding to the recent
+observation $v_{k^{*},h}$ of variety $k^{*}$. It is easy to see that
+@eq-mean_new_obs to
+@eq-weights_new_obs imply that
+$$\sum_{j=1}^{J+H}w_{k^{*},j}=1.$$
+
+Then, the expanded empirical distribution becomes the mixture
+$$p\left(v_{k^{*}}\right)=\sum_{j=1}^{J}w_{k^{*},j}\mathbb{1}\left(v_{k^{*}}=v_{k,j}\right)+\sum_{h=1}^{H}w_{k^{*},J+h}\mathbb{1}\left(v_{k^{*}}=v_{k^{*},h}\right),$$
+with an expected value of
+$$\mathbb{E}\left[v_{k^{*}}\right]=\sum_{j=1}^{J}w_{k^{*},j}v_{k,j}+\sum_{h=1}^{H}w_{k^{*},J+h}v_{k^{*},h}.$${#eq-mean_new_distr}
+
+Using @eq-mean_new_distr, we can compute the population trend
+object in the new CPI bases. In addition, with the procedure described
+in @eq-p_cdf_general and
+@eq-v_draw_general from the previous section, we can sample
+from the expanded distribution $p\left(v_{k^{*}}\right)$ to form the
+bootstrap replicates of the CPI datasets of the B-TIMA framework.
+
+# Implementation Example 
+
+Figure [1](#fig:reweighing_example_1){reference-type="ref"
+reference="fig:reweighing_example_1"} shows an example of the reweighing
+proposal for the CPI item "Rice" in the calendar months of January. On
+the left panel, the prior distribution has values between -0.2 and 0.4
+using the observations from the CPI base 2010. On the right panel, the
+two new observations from January 2024 and January 2025 (the two darkest
+points) skew the distribution towards zero. The observations closest to
+the mean of the newest observations receive higher weights in the
+expanded distribution. Figure
+[2](#fig:reweighing_example_2){reference-type="ref"
+reference="fig:reweighing_example_2"} shows another reweighing example
+for the item "Flour".
+
+![Reweighing for CPI item "Rice" using CPI base 2010 as prior
+distribution and January 2024 and January 2025 as observations from the
+CPI bases 2023 and 2024.
+](./images/reweighing/reweighing_i10=1_i23=1.png){#fig:reweighing_example_1
+width="80%"}
+
+![Reweighing for CPI item "Flour" using CPI base 2010 as prior
+distribution and January 2024 and January 2025 as observations from the
+CPI bases 2023 and
+2024.](./images/reweighing/reweighing_i10=3_i23=2.png){#fig:reweighing_example_2
+width="80%"}
+

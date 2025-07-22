@@ -1,0 +1,909 @@
+---
+title: "Cómputo de los Errores Condicionales"
+author: "DIE"
+format: 
+    revealjs:
+        scrollable: true
+        incremental: false
+        slide-number: true
+        smaller: true
+        progress: true
+        controls: true
+        controls-back-arrows: faded
+        center: true
+---
+
+El cálculo de los errores condicionales se fundamenta en el documento *"Criteria for SVAR Model Selection: A Proposal"*, el cual introduce una notación específica para organizar los conjuntos de datos y los resultados derivados del modelo.
+
+## Repaso de Notación
+
+---
+
+Se denota por $t$ el índice de tiempo, el cual puede tomar valores dentro del conjunto $\lbrace 0, 1, \dots, T, T+1, T+2, \dots, V \rbrace$.
+
+A partir de esta secuencia, se definen dos subconjuntos relevantes: el conjunto de entrenamiento 
+
+$$
+\mathcal{T} = \lbrace 0, 1, \dots, T \rbrace
+$$ 
+
+y el conjunto de validación 
+
+$$
+\mathcal{V} = \lbrace T+1, T+2, \dots, V \rbrace
+$$
+
+---
+
+A partir del *conjunto de entrenamiento*, se estiman los parámetros: $\hat{A}_{0, \mathcal{T}}$, $\hat{A}_{1, \mathcal{T}}$ y $\hat{B}_{0, \mathcal{T}}$. 
+
+Estos parámetros permiten generar pronósticos incondicionales (**fuera de muestra**) a horizonte 1, definidos como 
+
+$$
+\hat{y}_{t|t-1,u,\mathcal{T},\mathcal{V}} = \hat{A}_{0, \mathcal{T}} + \hat{A}_{1, \mathcal{T}} y_{t-1}
+$$ 
+
+para todo $t$ en el conjunto de validación $\mathcal{V}$.
+
+La diferencia entre los valores observados $y_t$ y sus pronósticos genera los residuos incondicionales 
+
+$$
+\hat{e}_{t|t-1,u,\mathcal{T},\mathcal{V}} = y_t - \hat{y}_{t|t-1,u,\mathcal{T},\mathcal{V}}
+$$
+
+Aplicando la matriz $\hat{B}_{0, \mathcal{T}}$ sobre estos residuos se obtienen los choques estructurales correspondientes al pronóstico incondicional: 
+
+$$
+\hat{w}_{t|t-1,\mathcal{T},\mathcal{V}} = \hat{B}_{0, \mathcal{T}} \hat{e}_{t|t-1,u,\mathcal{T},\mathcal{V}}
+$$
+
+---
+
+Adicionalmente, se estiman en el *conjunto de validación*: $\hat{A}_{0, \mathcal{V}}$, $\hat{A}_{1, \mathcal{V}}$ y $\hat{B}_{0, \mathcal{V}}$. 
+
+Estos parámetros permiten generar pronósticos incondicionales (**dentro de muestra**) a horizonte 1, definidos como 
+
+$$
+\hat{y}_{t|t-1,u,\mathcal{V},\mathcal{V}} = \hat{A}_{0, \mathcal{V}} + \hat{A}_{1, \mathcal{V}} y_{t-1}
+$$ 
+
+para todo $t$ en el conjunto de validación $\mathcal{V}$.
+
+A partir de estos pronósticos dentro de muestra se calculan los correspondientes residuos:
+
+$$
+\hat{e}_{t|t-1,u,\mathcal{V},\mathcal{V}} = y_t - \hat{y}_{t|t-1,u,\mathcal{V},\mathcal{V}}
+$$
+
+Y aplicando la matriz $\hat{B}_{0, \mathcal{V}}$ sobre estos residuos se obtienen los choques estructurales correspondientes: 
+
+$$
+\hat{w}_{t|t-1,\mathcal{V},\mathcal{V}} = \hat{B}_{0, \mathcal{V}} \hat{e}_{t|t-1,u,\mathcal{V},\mathcal{V}}
+$$
+
+---
+
+Los **errores condicionales** son, entonces:
+
+$$
+\hat{e}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    y_t - \hat{y}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}, \, \forall t \in \mathcal{V}
+$$
+
+en donde el pronóstico condicional $\hat{y}_{t,c,\mathcal{T},\mathcal{V},\mathcal{V}}$ se define como:
+
+$$
+\hat{y}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    \hat{A}_{0, \mathcal{T}} + \hat{A}_{1, \mathcal{T}} y_{t-1} +
+    \hat{B}_{0, \mathcal{T}}^{-1} \hat{w}_{t|t-1,\mathcal{V},\mathcal{V}}, \, \forall t \in \mathcal{V}
+$$
+
+## Algoritmo de Cómputo
+
+---
+
+Para computar los errores condicionales, requerimos:
+
+- Una muestra de estimación $\mathcal{T}$.
+- Una muestra de validación $\mathcal{V}$.
+- Una parametrización en la muestra de estimación: $\hat{A}_{0, \mathcal{T}}$, $\hat{A}_{1, \mathcal{T}}$ y $\hat{B}_{0, \mathcal{T}}$.
+- Una parametrización en la muestra de validación: $\hat{A}_{0, \mathcal{V}}$, $\hat{A}_{1, \mathcal{V}}$ y $\hat{B}_{0, \mathcal{V}}$.
+- Los choques estructurales computados a partir de la parametrización en la muestra de validación $\mathcal{V}$ y los pronósticos dentro de muestra en el mismo conjunto de validación: $\hat{w}_{t,\mathcal{V},\mathcal{V}}$.
+
+---
+
+Con estos componentes, el objetivo es calcular 
+
+$$
+\hat{e}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    y_t - \hat{y}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}, \, \forall t \in \mathcal{V}
+$$
+
+Sin embargo, también estamos interesados en los errores condicionales a horizontes mayores, es decir:
+
+$$
+\hat{e}_{t+1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    y_{t+1} - \hat{y}_{t+1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}, \, \forall t+1 \in \mathcal{V}
+$$
+
+$$
+\hat{e}_{t+2|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    y_{t+2} - \hat{y}_{t+2|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}, \, \forall t+2 \in \mathcal{V}
+$$
+$$
+\vdots
+$$
+
+Todos estos errores comparten la misma condición inicial en $t-1$, y se diferencian únicamente en el horizonte de validación.
+
+¿Cómo se genera un error de pronóstico condicional a un horizonte $h$, $\hat{e}_{t+h-1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$?
+
+---
+
+1. Primero, necesitamos calcular los choques estructurales en la muestra de validación con parametrización en la misma muestra: $\hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}}$.
+
+$$
+\hat{y}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}} = 
+    \hat{A}_{1, \mathcal{V}}^h y_{t-1} + 
+    \sum_{i=1}^{h} \hat{A}_{1, \mathcal{V}}^{i-1} \hat{A}_{0, \mathcal{V}}
+$$ 
+
+$$
+\hat{e}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}} = y_{t+h-1} - \hat{y}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}}
+$$
+$$
+\hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}} = \hat{B}_{0, \mathcal{V}} \hat{e}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}}
+$$
+
+---
+
+2. Luego, con los choques generados en la muestra de validación, generamos los pronósticos condicionales:
+
+$$
+\hat{y}_{t+h-1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    \hat{y}_{t+h-1|t-1,u,\mathcal{T},\mathcal{V}} +
+    \hat{B}_{0, \mathcal{T}}^{-1} \hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}}
+$$
+
+$$
+\hat{y}_{t+h-1|t-1,u,\mathcal{T},\mathcal{V}} = 
+    \hat{A}_{1, \mathcal{T}}^h y_{t-1} + 
+    \sum_{i=1}^{h} \hat{A}_{1, \mathcal{T}}^{i-1} \hat{A}_{0, \mathcal{T}}
+$$ 
+
+3. Con los pronósticos condicionales, podemos calcular los errores condicionales:
+
+$$
+\hat{e}_{t+h-1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
+    y_{t+h-1} - \hat{y}_{t+h-1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}
+$$
+
+---
+
+Los pasos 1, 2 y 3 corresponden al procedimiento implementado en el método `computeConditionalValidationErrors`.
+
+---
+
+Una diferencia entre los modelos SVAR y aquellos utilizados en la herramienta de selección radica en las variables reconstruidas que completan las ecuaciones del modelo.
+
+Por esta razón, el método `computeConditionalValidationErrors` aprovecha las funciones `simulate` y `filter` del paquete `IRIS`, que permiten generar pronósticos condicionales para todas las variables, incluidas las reconstruidas.
+
+---
+
+La función `iris/filter` se utiliza para generar los choques en el paso 1. 
+
+La dificultad radica en que esta función siempre calcula los choques condicionando en la observación anterior, es decir:
+
+| Condición Inicial | Pronóstico Incondicional | Choque calculado con `iris/filter` | Choque deseado |
+|-|-|-|-|
+$y_{t-1}$ | $\hat{y}_{t|t-1}$ | $w_{t|t-1}$ | $w_{t|t-1}$ |
+$y_{t-1}$ | $\hat{y}_{t+1|t-1}$ | $w_{t+1|t}$ | $w_{t+1|t-1}$ |
+$y_{t-1}$ | $\hat{y}_{t+2|t-1}$ | $w_{t+2|t+1}$ | $w_{t+2|t-1}$ |
+$\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+
+---
+
+Supongamos que tenemos un `SubsampleModel` estimado entre 2005Q1 y 2015Q4. El período de validación se define de 2016Q1 a 2024Q4.
+
+En la primera iteración dentro de la muestra de validación, se tendría lo siguiente:
+
+| Condición Inicial | Pronóstico Incondicional | Choque calculado con `iris/filter` | Choque deseado |
+|-|-|-|-|
+$y_{2015Q4}$ | $\hat{y}_{2016Q1|2015Q4}$ | $\hat{w}_{2016Q1|2015Q4}$ | $\hat{w}_{2016Q1|2015Q4}$ |
+$y_{2015Q4}$ | $\hat{y}_{2016Q2|2015Q4}$ | $\hat{w}_{2016Q2|2016Q1}$ | $\hat{w}_{2016Q2|2015Q4}$ |
+$y_{2015Q4}$ | $\hat{y}_{2016Q3|2015Q4}$ | $\hat{w}_{2016Q3|2016Q2}$ | $\hat{w}_{2016Q3|2015Q4}$ |
+$\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+
+:Iteración 1. Condición inicial de los pronósticos en 2015Q4
+
+---
+
+| Condición Inicial | Pronóstico Incondicional | Choque calculado con `iris/filter` | Choque deseado |
+|-|-|-|-|
+$y_{2016Q1}$ | $\hat{y}_{2016Q2|2016Q1}$ | $\hat{w}_{2016Q2|2016Q1}$ | $\hat{w}_{2016Q2|2015Q4}$ |
+$y_{2016Q1}$ | $\hat{y}_{2016Q3|2016Q1}$ | $\hat{w}_{2016Q3|2016Q2}$ | $\hat{w}_{2016Q3|2015Q4}$ |
+$y_{2016Q1}$ | $\hat{y}_{2016Q4|2016Q1}$ | $\hat{w}_{2016Q4|2016Q3}$ | $\hat{w}_{2016Q4|2015Q4}$ |
+$\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+
+:Iteración 2. Condición inicial de los pronósticos en 2016Q1
+
+---
+
+Puntos importantes sobre el funcionamiento de `iris/filter`:
+
+- Aunque se actualicen las condiciones iniciales de pronóstico iterativamente, los choques calculados son siempre a horizonte 1.
+- La función no permite especificar una condición inicial distinta del dato inmediatamente anterior.
+
+Por tanto, aplicar `iris/filter` directamente no es suficiente.
+
+---
+
+La solución consiste en aplicar `iris/filter` de manera iterativa, sustituyendo las observaciones por los pronósticos incondicionales para generar el comportamiento deseado.
+
+| Nota | Condición Inicial | Pronóstico Incondicional | Choque calculado con `iris/filter` | Choque deseado |
+|-|-|-|-|-|
+|| $y_{t-1}$ | $\hat{y}_{t|t-1}$ | $\hat{w}_{t|t-1}$ | $\hat{w}_{t|t-1}$ |
+| Se sustituye manualmente $y_t$ por $\hat{y}_{t|t-1}$ y se aplica `iris/filter` por segunda vez. | $\hat{y}_{t|t-1}$ | $\hat{y}_{t+1|t-1}$ | $\hat{w}_{t+1|t-1}$ | $\hat{w}_{t+1|t-1}$ |
+|| $\hat{y}_{t+1|t-1}$ | $\hat{y}_{t+2|t-1}$ | $\hat{w}_{t+2|t-1}$ | $\hat{w}_{t+2|t-1}$ |
+|| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+
+---
+
+Una vez obtenidos los choques correctos, se ejecuta lo descrito en el paso 2, condicionando los pronósticos con `simulate` y utilizando `exogenize/endogenize`.
+
+Por defecto, `simulate` trata los choques como exógenos, por lo que basta con añadir los choques anteriores a las condiciones iniciales mediante un `dboverlay`.
+
+---
+
+Finalmente, el paso 3 es análogo a `computeValidationErrors`, calculando los errores de pronóstico condicionales.
+
+## Recorrido sobre la implementación
+
+---
+
+```matlab
+m1 = m1.computeConditionalValidationErrors(12);
+m1.modelResults.conditionalValidationErrors
+```
+
+El argumento en al función indica el horizonte de pronóstico máximo a evaluar.
+
+Por defecto este es igual a 12. 
+
+---
+
+Examinando dentro de la definición de `computeConditionalValidationErrors` destacan las funciones `computeForwardShocks` y `computeConditionalForecast`, correspondientes al paso 1 y 2 del algoritmo de cómputo. 
+
+```matlab
+function obj = computeConditionalValidationErrors(obj, max_horizon)
+    ...
+    tic
+    shocks_validation_insample = computeForwardShocks( ...
+        obj_validation, ...
+        obj_validation.validationStart:obj_validation.validationEnd, ...
+        model_observables, ...
+        smoothing_start_date, ...
+        max_horizon ...
+    );
+    toc
+    ...
+    tic
+    conditional_forecasted_variables = computeConditionalForecast(...
+        obj, ...
+        model_observables, ...
+        shocks_validation_insample, ...
+        max_horizon ...
+    );
+    toc
+    ...
+end   
+```
+
+---
+
+Ejemplo con un `RestrictedOLSModel`:
+
+```matlab
+m1 = ModelClasses.RestrictedOLSModel( ...
+    identifier, ...
+    data, ...
+    qq(2005, 1), ...
+    qq(2015, 4), ...
+    qq(2016, 1), ...
+    qq(2024, 4), ...
+    iris_model_path, ...
+    @setparam_SVAR50_4B, ...
+    endogenous_vars, ...
+    restriction_matrix, ... 
+    estimation_options ...
+);
+```
+
+---
+
+La estimación en la muestra de validación se realiza clonando el objeto `obj` y sustituyendo la muestra de estimación por la de validación:
+
+```matlab
+function obj = computeConditionalValidationErrors(obj, max_horizon)
+    arguments
+        obj,
+        max_horizon = 12
+    end
+
+    ...
+
+    obj_validation = obj;
+    obj_validation.estimationStart = obj.validationStart;
+    obj_validation.estimationEnd = obj.validationEnd;
+    
+    fprintf('estimating the model in the validation set...\n');
+    obj_validation = obj_validation.estimate();
+
+    ...
+
+    end
+```
+
+---
+
+Comprobando que la muestra de estimación es la misma que la muestra de validación:
+
+```
+[obj_validation.estimationStart, obj_validation.validationStart]
+ans = 
+
+  1x2 QUARTERLY Date(s)
+
+    {'2016Q1'}    {'2016Q1'}
+
+[obj_validation.estimationEnd, obj_validation.validationEnd]
+ans = 
+
+  1x2 QUARTERLY Date(s)
+
+    {'2024Q4'}    {'2024Q4'}
+
+```
+
+---
+
+El inicio de todos los filtros, por simplicidad, será la fecha inicial de los datos observados:
+
+```matlab
+smoothing_start_date = min( ...
+    structfun( ...
+        @(x) x.Range(1), ...
+        model_observables ...
+    ) ...
+);
+
+smoothing_start_date = 
+
+  1x1 QUARTERLY Date(s)
+
+    {'2001Q1'}
+```
+
+---
+
+`computeForwardShocks` tiene los siguientes argumentos: 
+
+```matlab
+...
+
+    shocks_validation_insample = computeForwardShocks( ...
+        ... % Objeto estimado en la muestra de validación
+        obj_validation, ... 
+        ... % Rango en donde vamos a calcular los choques (dentro de muestra)
+        obj_validation.validationStart:obj_validation.validationEnd, ...
+        ... % Datos observados
+        model_observables, ...
+        ... % Fecha de inicio para todos los filtros
+        smoothing_start_date, ...
+        ... % Horizonte máximo de pronóstico
+        max_horizon ...
+    );
+
+...
+```
+
+---
+
+En la definición de `computeForwardShocks`, la parte más importante es el siguiente bucle:
+
+```matlab
+
+    % forward_shocks_rng fue definido en los argumentos como:
+    % obj_validation.validationStart:obj_validation.validationEnd
+    first_initial_condition_date = forward_shocks_rng(1) - 1;
+
+    m = length(forward_shocks_rng);
+    
+    for h = 1:m
+        % cada iteración de h actualiza las condiciones iniciales del pronóstico    
+        initial_condition_date = first_initial_condition_date + h - 1;
+        validation_start_date = initial_condition_date + 1;
+        validation_end_date = validation_start_date + max_horizon - 1;
+
+        % Esta rutina debe aplicarse en cada fecha de validación, ya que el 
+        % filtro de Kalman solo estima shocks condicionados en t|t-1. Para lograr t|t₀,
+        % se deben actualizar manualmente las condiciones iniciales con el pronóstico incondicional.
+        tmp_observables = model_observables;
+        
+```
+
+---
+
+
+```matlab
+        for v = validation_start_date:validation_end_date
+            % Calculamos los shocks estructurales para los datos imputados en v (o t),
+            % usando `initial_condition_date` como t₀ para la condición inicial.
+            [~, s_data] = filter( ...
+                obj.irisModel, ...
+                tmp_observables, ...
+                smoothing_start_date:v, ...
+                'meanOnly=', true, ...
+                'data=', 'smooth', ...
+                'condition=', observables_names ...
+            );
+            % Pronostico incondicional
+            [~, p_data] = filter( ...
+                obj.irisModel, ...
+                tmp_observables, ...
+                smoothing_start_date:v, ...
+                'meanOnly=', true, ...
+                'data=', 'predict' ...
+            );
+            p_data = p_data * observables_names;
+            p_data = dbclip(p_data, v);
+
+```
+
+---
+
+```matlab
+            % Reemplazar el valor observado en v con su pronóstico incondicional 
+            % para simular un proceso de pronóstico recursivo hacia adelante.
+            tmp_observables = dboverlay( ...
+                tmp_observables, ... data with obs in v
+                p_data ... substituting the obs in v for the unconditional forecast
+            );
+            ...
+        end
+        ...
+    end
+```
+
+---
+
+Si `h=1` se configuran las siguientes fechas para el bucle interno o secundario:
+
+```
+>> first_initial_condition_date = 
+
+  1x1 QUARTERLY Date(s)
+
+    {'2015Q4'}
+
+
+>> initial_condition_date = first_initial_condition_date + h - 1
+
+initial_condition_date = 
+
+  1x1 QUARTERLY Date(s)
+
+    {'2015Q4'}
+
+```
+
+---
+
+```
+>> validation_start_date = initial_condition_date + 1
+
+validation_start_date = 
+
+  1x1 QUARTERLY Date(s)
+
+    {'2016Q1'}         
+
+
+>> validation_end_date = validation_start_date + max_horizon - 1
+
+validation_end_date = 
+
+  1x1 QUARTERLY Date(s)
+
+    {'2018Q4'}
+```
+
+---
+
+El bucle interno indexado por `v` empieza en `validation_start_date`, es decir, 
+la primera iteración del bucle interno es `v = 2016Q1`.
+
+Esta primera iteración busca calcular el choque en `v` cuando la historia llega hasta `initial_condition_date = first_initial_condition_date + h - 1`:
+
+```matlab
+[~, s_data] = filter( ...
+    obj.irisModel, ...
+    tmp_observables, ...
+    smoothing_start_date:v, ...
+    'meanOnly=', true, ...
+    'data=', 'smooth', ...
+    'condition=', observables_names ...
+)
+```
+
+---
+
+```matlab
+>> s_data.s_i
+
+ans = 
+
+    tseries Object: 61-by-1
+    Class of Data: double
+
+            ...
+    2015Q2:   -0.216442
+    2015Q3:   -0.295232
+    2015Q4:    -0.13746
+    2016Q1:   0.0203981 <- Este es el que queremos calcular
+
+    {'Dates'}    {'Choque de Politica Monetaria'}
+
+    User Data: Empty
+
+```
+
+---
+
+Luego de computar el choque en `2016Q1`, se requiere calcular el pronóstico incondicional para esa misma fecha, y luego sustituir ese pronóstico en las condiciones iniciales para la siguiente iteración:
+
+```matlab
+...
+[~, p_data] = filter( ...
+    obj.irisModel, ...
+    tmp_observables, ...
+    smoothing_start_date:v, ...
+    'meanOnly=', true, ...
+    'data=', 'predict' ...
+);
+...
+```
+
+```
+>> p_data.m_i
+
+ans = 
+
+    tseries Object: 61-by-1
+    Class of Data: double
+    ...
+    2015Q4:  3.0678
+    2016Q1:  2.8627 <- este es el pronóstico que queremos
+
+    {'Dates'}    {'m_i'}
+
+    User Data: Empty
+```
+
+---
+
+```matlab
+p_data = p_data * observables_names;
+p_data = dbclip(p_data, v);
+            
+tmp_observables = dboverlay( ...
+    tmp_observables, ... data with obs in v
+    p_data ... substituting the obs in v for the unconditional forecast
+);
+```
+
+---
+
+Antes de hacer la sustitución:
+
+```
+>> struct2array(dbclip(tmp_observables, qq(2016,1))) 
+
+ans = 
+
+    tseries Object: 1-by-9
+    Class of Data: double
+
+    2016Q1:  985.22837  476.94067  0.27666667  -1.71  1165.4799  547.43283  203.8082  1080.456  3
+
+  Columns 1 through 9
+
+```
+Después de hacer la sustitución:
+
+```
+>> struct2array(dbclip(tmp_observables, qq(2016,1)))
+
+ans = 
+
+    tseries Object: 1-by-9
+    Class of Data: double
+
+    2016Q1:  985.83293  476.29479  0.16160392  -3.1954051  1167.3507  546.67093  203.53522  1083.9364  2.8626863
+```
+
+---
+
+Ahora, en la siguiente iteración, `h=1` y `v=2016Q1`. Los resultados del filtrado son:
+
+```
+>> struct2array(dbclip(s_data * obj.getShockNames(), qq(2015,4):qq(2016,2)))
+
+ans = 
+
+tseries Object: 3-by-9
+Class of Data: double
+
+2015Q4:  -0.28928    -0.3785  -0.026145    0.30674    0.40312    0.87569     2.4435      2.5233    -0.13746
+2016Q1: 1.954e-14 3.4639e-14 2.0678e-15 3.1873e-13 6.6613e-16 4.0862e-13 1.4436e-13 -3.7981e-13 -1.5542e-13
+2016Q2:  -0.90437     1.3526    0.23821      1.059     1.0069    0.86425    0.77514      -4.319    0.079536
+
+  Columns 1 through 9
+
+```
+
+Notemos que el efecto de haber sustituido la observación en `2016Q1` por su pronóstico incondicional es que los choques en dicha fecha son 0. Es decir, esto es equivalente al procedimiento recursivo del SVAR, en donde el choque en `2016Q2` proviene totalmente del error de pronóstico `2016Q2|2015Q4`.
+
+---
+
+En la siguiente iteración, `h=1` y `v=2016Q2`. Los resultados del filtrado son:
+
+```
+>> struct2array(dbclip(s_data * obj.getShockNames(), qq(2015,4):qq(2016,3)))
+
+ans = 
+
+tseries Object: 4-by-9
+Class of Data: double
+
+2015Q4:    -0.28928    -0.3785  -0.026145    0.30674    0.40312    0.87569     2.4435      2.5233    -0.13746
+2016Q1: -2.8866e-15 7.4607e-14 5.8564e-15 2.9854e-13 3.1086e-15 4.4015e-13 1.9085e-13 -4.0434e-13 -1.5902e-13
+2016Q2:  6.5725e-14 -5.046e-14 -5.454e-15 4.5281e-13 3.3307e-15 6.3144e-14 4.6713e-14  -1.289e-13 -1.3613e-13
+2016Q3:    -0.59725     2.6394    0.29028     1.2861   -0.90849      1.118   -0.53625     -4.1974     0.26368
+
+```
+
+
+---
+
+El resultado final de `computeForwardShocks` es una estructura con los choques calculados en la muestra de validación, con una estimación en la misma muestra.
+
+```matlab
+shocks_validation_insample = computeForwardShocks( ...
+    obj_validation, ...
+    obj_validation.validationStart:obj_validation.validationEnd, ...
+    model_observables, ...
+    smoothing_start_date, ...
+    max_horizon ...
+);
+```
+
+```
+shocks_validation_insample = 
+
+  struct with fields:
+
+       s_d4_ln_y_star: [36x1x36 tseries]
+         s_d4_ln_ipei: [36x1x36 tseries]
+             s_i_star: [36x1x36 tseries]
+    s_d4_ln_cpi_nosub: [36x1x36 tseries]
+            s_d4_ln_y: [36x1x36 tseries]
+      s_d4_ln_cpi_sub: [36x1x36 tseries]
+            s_d4_ln_s: [36x1x36 tseries]
+           s_d4_ln_bm: [36x1x36 tseries]
+                  s_i: [36x1x36 tseries]
+```
+
+---
+
+```matlab
+>> squeeze(shocks_validation_insample.s_i(:, 1, 1:6))
+
+ans =
+              h = 1    h = 2      h = 3     h = 4     h = 5    h = 6
+v = 2016Q1:   0.0204       NaN       NaN       NaN       NaN       NaN
+v = 2016Q2:   0.0795   -0.0220       NaN       NaN       NaN       NaN
+v = 2016Q3:   0.2637    0.0758    0.0510       NaN       NaN       NaN
+v = 2016Q4:   0.4281    0.1696    0.1124    0.0583       NaN       NaN
+v = 2017Q1:   0.4682    0.2426    0.1593    0.0780    0.0301       NaN
+v = 2017Q2:   0.3938    0.1377    0.1401    0.0282   -0.0232   -0.0147
+v = 2017Q3:   0.5248    0.2277    0.1953    0.0981    0.0331    0.0658
+v = 2017Q4:   0.5664    0.2388    0.1851    0.0957    0.0119    0.0468
+v = 2018Q1:   0.5096    0.2506    0.1808    0.0776   -0.0017    0.0049
+v = 2018Q2:   0.3753    0.1170    0.1420    0.0231   -0.0590   -0.0436
+v = 2018Q3:   0.4520    0.1798    0.1780    0.0896   -0.0009    0.0215
+v = 2018Q4:   0.5701    0.2911    0.2750    0.2101    0.1095    0.1265
+v = 2019Q1:      NaN    0.2857    0.2596    0.1964    0.1111    0.0995
+v = 2019Q2:      NaN       NaN    0.1901    0.1260    0.0501    0.0524
+v = 2019Q3:      NaN       NaN       NaN    0.2598    0.1884    0.2067
+v = 2019Q4:      NaN       NaN       NaN       NaN    0.4162    0.4408
+v = 2020Q1:      NaN       NaN       NaN       NaN       NaN    0.5945
+...
+```
+
+---
+
+Ya calculados los choques estructurales (paso 1), se computan los pronósticos condicionales en `computeConditionalForecast` (paso 2):
+
+```matlab
+conditional_forecasted_variables = computeConditionalForecast(...
+    ... % Este es el SubsampleModel original, no el clonado para el paso 1
+    obj, ...
+    model_observables, ...
+    ... % Estructura con los choques computados en el paso 1, computeForwardShocks
+    shocks_validation_insample, ...
+    ... % Argumento necesario para computar correctamente los errores
+    max_horizon ...
+);
+```
+
+---
+
+```matlab
+function conditional_forecasted_variables = computeConditionalForecast(...
+        obj, ...
+        model_observables, ...
+        shocks_validation_insample, ...
+        max_horizon ...
+)
+
+    ...
+    
+    for h = 1:length(obj.validationStart:obj.validationEnd)
+        
+        initial_condition_date = first_initial_condition_date + h - 1;
+        validation_start_date = initial_condition_date + 1;
+        validation_end_date = validation_start_date + max_horizon - 1;
+
+        sim_rng = validation_start_date:validation_end_date;
+```
+
+Todo proceso de `simulate` requiere las condiciones iniciales de todas las variables y los choques:
+
+```matlab
+        [~, init_conditions] = filter( ...
+            obj.irisModel, ...
+            model_observables, ...
+            smoothing_start_date:initial_condition_date, ...
+            'meanOnly=', true, ...
+            'data=', 'smooth' ...
+        );
+```
+
+---
+
+Para la iteración `h`, necesitamos los choques estructurales correspondientes, es decir, el vector `(:,1,h)` de cada elemento en la estructura de choques calculados en el paso 1:
+
+```matlab
+        shocks_for_this_iteration = structfun( ...
+            @(x) tseries(x.Range, x.Data(:, 1, h)), ... %iteration over h
+            shocks_validation_insample, ...
+            'UniformOutput', false ...
+        );
+
+        % the initial conditions previously calculated in the smoothing procedure
+        % is extended wit the shocks 
+        init_conditions = dboverlay( ...
+            init_conditions, ...
+            shocks_for_this_iteration ...
+        );
+```
+
+Ahora que tenemos las condiciones iniciales y los anclajes en los choques, procedemos a simular.
+
+```matlab
+        % simulate automatically exogenize the shocks and endogenize the 
+        % variables
+        simRes = simulate( ...
+            obj.irisModel, ...
+            init_conditions, ...
+            sim_rng ...
+        );
+
+...
+end
+```
+
+---
+
+Para la iteración con `h=1`:
+
+```
+initial_condition_date = 
+  1x1 QUARTERLY Date(s)
+    {'2015Q4'}
+
+validation_start_date = 
+  1x1 QUARTERLY Date(s)
+    {'2016Q1'}
+
+validation_end_date = 
+  1x1 QUARTERLY Date(s)
+    {'2018Q4'}
+
+sim_rng = 
+  1x12 QUARTERLY Date(s)
+    {'2016Q1'}:{'2018Q4'}
+```
+
+---
+
+Cuando `h=1`, las condiciones iniciales deberían llegar a `2015Q4`. Comprobamos:
+
+```matlab
+>> structfun(@(x) x.Range(end) , init_conditions * obj.getShockNames())
+
+ans = 
+
+  9x1 QUARTERLY Date(s)
+
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+    {'2015Q4'}
+```
+
+---
+
+Luego de extender las condiciones iniciales, las variables deberían seguir llegando hasta `2015Q4`, pero los choques deberían llegar hasta `2015Q4 + 12 = 2018Q4`:
+
+```
+>> structfun(@(x) x.Range(end), init_conditions * get(obj.irisModel, 'xlist'))
+ans = 
+  40x1 QUARTERLY Date(s)
+    {'2015Q4'}
+    {'2015Q4'}
+    ...
+    {'2015Q4'}
+```
+
+```
+>> structfun(@(x) x.Range(end), init_conditions * obj.getShockNames())
+ans = 
+  9x1 QUARTERLY Date(s)
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+    {'2018Q4'}
+```
+
+---
+
+Finalmente, se calculan los pronósticos condicionales, por ejemplo para la iteración `h = 1`:
+
+![Pronósticos condicionales para `h=1`](images/objective.svg)
+
+Realizar este proceso permite obtener no solo los pronósticos condicionales para las variables del SVAR, sino también los de las variables objetivo.
+
+---
+
+![Choques estructurales para la iteración `h=1`](images/shocks.svg)
+
+<!-- Ya esta revisado hasta este diapositiva -->
+--- 
+
+
+A partir de este punto, con los pronósticos condicionales, se calculan los errores de la forma usual.
+
+
+## -- End --

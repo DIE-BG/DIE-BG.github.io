@@ -749,6 +749,21 @@ conditional_forecasted_variables = computeConditionalForecast(...
 
 ---
 
+Debido a que `iris` interpreta los choques como aquellos calculados con $t|t-1$, no podemos imponer directamente todo el vector `(:, 1, h)` calculado en `computeForwardShocks` para cada choque del modelo. En su lugar, se plantea un proceso iterativo, como se describe en la siguiente tabla:
+
+|$(h, v)$|Condición Inicial|Pronóstico Incondicional|Choque a Imponer|
+|-|-|-|-|
+|$(t-1, t)$|$y_{t-1}$|$\hat{y}_{t|t-1}$|$\hat{w}_{t|t-1}$|
+|$(t-1, t+1)$|$y_{t-1}$|$\hat{y}_{t+1|t-1}$|$\hat{w}_{t+1|t-1}$|
+|$(t-1, t+2)$|$y_{t-1}$|$\hat{y}_{t+2|t-1}$|$\hat{w}_{t+2|t-1}$|
+|$\vdots$|$\vdots$|$\vdots$|
+|$(t+4, t+5)$|$y_{t+4}$|$\hat{y}_{t+5|t+4}$|$\hat{w}_{t+5|t+4}$|
+|$\vdots$|$\vdots$|$\vdots$|
+
+Los iteradores $h$ y $v$ son los que se utilizan dentro del bucle en `computeConditionalForecast`.
+
+---
+
 ```matlab
 function conditional_forecasted_variables = computeConditionalForecast(...
         obj, ...
@@ -775,8 +790,7 @@ Todo proceso de `simulate` requiere las condiciones iniciales de todas las varia
             obj.irisModel, ...
             model_observables, ...
             smoothing_start_date:initial_condition_date, ...
-            'meanOnly=', true, ...
-            'data=', 'smooth' ...
+            'meanOnly=', true ...
         );
 ```
 
@@ -790,30 +804,39 @@ Para la iteración `h`, necesitamos los choques estructurales correspondientes, 
             shocks_validation_insample, ...
             'UniformOutput', false ...
         );
-
-        % the initial conditions previously calculated in the smoothing procedure
-        % is extended wit the shocks 
-        init_conditions = dboverlay( ...
-            init_conditions, ...
-            shocks_for_this_iteration ...
-        );
 ```
 
-Ahora que tenemos las condiciones iniciales y los anclajes en los choques, procedemos a simular.
+---
+
+Calculadas las condiciones iniciales para la iteración $h$, se procede con el bucle indexado por $v$. En dicho bucle, se anclan los choques calculados en el paso 1, uno a la vez, y se realiza el pronóstico condicional correspondiente a ese único choque.
 
 ```matlab
-        % simulate automatically exogenize the shocks and endogenize the 
-        % variables
-        simRes = simulate( ...
-            obj.irisModel, ...
-            init_conditions, ...
-            sim_rng ...
-        );
-
-...
-end
+        for v = sim_rng
+            % copiado de las condiciones iniciales para h
+            tmp_init_conditions = init_conditions;
+            % estructura temporal de choques a anclar, con todos iguales a cero
+            tmp_shocks = structfun(...
+                @(x) tseries(x.Range, zeros(1, length(x))), ... %iteration over v
+                shocks_for_this_iteration, ...
+                'UniformOutput', false ...    
+            );
+            % se busca solamente el choque correspondiente a (h,v)
+            for n = fieldnames(tmp_shocks)'
+                tmp_shocks.(n{1})(v) = shocks_for_this_iteration.(n{1})(v);
+            end
+            % se extienden las condiciones iniciales con el choque en v
+            tmp_init_conditions = dboverlay( tmp_init_conditions, ...
+                tmp_shocks ...
+            );
+            % pronostico condicional para v
+            simRes = simulate( ...
+                obj.irisModel, ...
+                tmp_init_conditions, ...
+                sim_rng ...
+            );
+        ...
+    end
 ```
-
 ---
 
 Para la iteración con `h=1`:
@@ -841,7 +864,7 @@ sim_rng =
 Cuando `h=1`, las condiciones iniciales deberían llegar a `2015Q4`. Comprobamos:
 
 ```matlab
->> structfun(@(x) x.Range(end) , init_conditions * obj.getShockNames())
+>> structfun(@(x) x.Range(end) , tmp_init_conditions * obj.getShockNames())
 
 ans = 
 
@@ -863,7 +886,7 @@ ans =
 Luego de extender las condiciones iniciales, las variables deberían seguir llegando hasta `2015Q4`, pero los choques deberían llegar hasta `2015Q4 + 12 = 2018Q4`:
 
 ```
->> structfun(@(x) x.Range(end), init_conditions * get(obj.irisModel, 'xlist'))
+>> structfun(@(x) x.Range(end), tmp_init_conditions * get(obj.irisModel, 'xlist'))
 ans = 
   40x1 QUARTERLY Date(s)
     {'2015Q4'}
@@ -891,15 +914,20 @@ ans =
 
 Finalmente, se calculan los pronósticos condicionales, por ejemplo para la iteración `h = 1`:
 
-![Pronósticos condicionales para `h=1`](images/objective.svg)
+![Pronósticos condicionales en `h=1` para las variables objetivo](images/objective_correct.svg)
 
-Realizar este proceso permite obtener no solo los pronósticos condicionales para las variables del SVAR, sino también los de las variables objetivo.
+Realizar este proceso permite obtener no solo los pronósticos condicionales para las variables del SVAR, sino también para las variables objetivo.
 
 ---
 
-![Choques estructurales para la iteración `h=1`](images/shocks.svg)
+![Pronósticos condicionales para `h=1` para las variables del SVAR](images/svar.svg)
+
+---
+
+![Choques estructurales para la iteración `h=1`](images/shocks_correct.svg)
 
 <!-- Ya esta revisado hasta este diapositiva -->
+--- 
 --- 
 
 

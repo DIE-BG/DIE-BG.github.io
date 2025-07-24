@@ -308,6 +308,32 @@ Se muestra la distribución de corte transversal sintética de la base 2023 del 
 ![](./images/incidences/negative_Papas.png)
 
 
+## Observaciones negligibles 
++ A partir de algunas imágenes presentadas en la sección anterior, se observa que ciertas valores resultan  insignificantes, ya que la función de ponderación les asigna un peso muy reducido.
+  
++ Por lo tanto, se indagó en la distribución sintética y sus ponderaciones. Se definió un umbral negligible con ayuda de histogramas de las ponderaciones. Después de definir este umbral, se filtró las ponderaciones y las observaciones correspondientes.
+
+##
+![Histograma de las ponderaciones, con 500 intervalos ](./images/hist_synth_b23_500.png)
+
+##
+### Umbral
++ El umbral que se definió fue tomar todas las ponderaciones que no estuvieran en el primer intervalo.
+
++ Una vez filtradas tanto las ponderaciones como las observaciones de acuerdo al umbral se computaron los momentos de la distribución sintetica con todas las observaciones y la distribución sintética filtrada para comparar la diferencia de que generan estos pesos
+
+## 
+| Estadístico         | Base Sintética | Base filtrada |
+| ------------------- | -------------- | --------------|
+| Media               | $0.183514$     | $0.1833889$   |
+| Desviación Estándar | $2.02002$      | $2.0202603$   |
+| Sesgo               | $6.64459$      | $6.6454461$   |
+| Curtosis            | $177.482$      | $177.5230549$ |
+| Cuantil media       | $67.91\%$      | $67.90873\%$  |
+| No. Observaciones   | $76038$        | $48930$       |
+
+##
+Incluso reduciendo el número de observaciones (quitando 27108), la distribución de la base sintética sigue teniendo momentos muy similares.
 
 # Implicaciones para la medición inflación total 
 

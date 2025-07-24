@@ -13,7 +13,8 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - sidebar:hefm
+      - sidebar:hefm 
+      - sidebar:btima     
       #- sidebar:projects
       #- text: "Team"
         #href: team.qmd
@@ -26,7 +27,7 @@ website:
       search: true
       contents:
         - href: hefm/index.qmd
-          text: "Introduction"
+          text: "HEFM"
         - section: "Results"
           contents:
             - section: "SVAR50-4B"
@@ -59,39 +60,19 @@ website:
                   href: hefm/results/SVAR53/index.qmd  
                 - text: "Calibración de hiperparámetros"
                   href: hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.qmd
-        #- section: "Resources"
-          #contents:
-            #- text: "Slides"
-              #href: hefm/resources/slides/index.qmd
-            #- section: "Articles"
-              #contents:
-                #- text: "Article Placeholder"
-                  #href: hefm/resources/articles/articlePlaceholder.qmd
-        #- section: "Documentation"
-          #contents:
-            #- text: "Getting Started"
-              #href: hefm/documentation/index.qmd
-
-    #- id: projects 
-      #title: "Projects"
-      #style: "docked"
-      #search: true
-      #contents:
-        #- href: projects/index.qmd
-          #text: "Projects"
-        #- section: "Nowcasting"
-          #contents:
-            #- href: projects/nowcasting/index.qmd
-              #text: "Nowcasting"
-            #- section: "Resources"
-              #contents:
-                #- text: "Slides"
-                  #href: projects/nowcasting/slides/index.qmd
-                #- section: "Articles"
-                  #contents:
-                    #- text: "Article Placeholder"
-                      #href: projects/nowcasting/articles/articlePlaceholder.qmd
-
+    - id: btima
+      title: "BTIMA"
+      style: "docked"
+      search: true
+      contents:
+        - href: BTIMA/index.qmd
+          text: "BTIMA"
+        - section: "BTIMA Extension"
+          contents:
+            - text: "Methodology"
+              href: BTIMA/BTIMA_extension_math.qmd
+            - text: "Matching and calibration"
+              href: BTIMA/doc_matching_calibration.qmd
 execute: 
   freeze: auto
 

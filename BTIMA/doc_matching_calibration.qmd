@@ -1,0 +1,362 @@
+---
+title: Extensión de la metodología B-TIMA para el IPC base 2023 y 2024
+subtitle: Departamento de Investigaciones Económicas
+author: [Rodrigo Chang, Rubí Ramírez]
+date: last-modified
+date-format: long
+lang: es
+format: html
+---
+
+# Proceso de emparejamiento de productos
+## Proceso de emparejamiento de productos
+
+<!-- Describir aquí el proceso que se siguió 
+para emparejar los productos del IPC base 2010-2023.-->
+
+Para emparejar los productos entre las bases de datos, 
+se implementó un procedimiento ordenado: 
+
+1. Correspondencia directa. 
+2. Búsqueda en jerarquías superiores.
+
+## Procedimiento
+-  Inicialmente, se verificó la correspondencia 
+directa de los productos de la base 2023 
+con su análogo (gasto básico) en la base 2010.
+
+- No obstante, se identificaron productos en la base 2023 que, 
+se introdujeron recientemente o
+eran variedades de los gastos básicos existentes en la base 2010. 
+  
+- Para estos casos específicos, se procedió a una búsqueda 
+en los niveles de gastos básicos, subgrupos y grupos,
+a fin de identificar la clasificación más adecuada y coherente.
+
+
+## Procedimiento
+<!--Describir cómo se decidió entre aquellos que no era 
+claro si utilizar un gasto básico o el subgrupo correspondiente.-->
+
+- En los productos que no tuvieran un análogo directo, por cada mes,
+se computó la desviación estándar de las variaciones de los gastos básicos, subgrupos o grupos de la base 2010 más acordes al producto nuevo, respecto de a la media de las observaciones de la base 2023.
+
+- Luego este cálculo se promedió en los doce meses.
+El gasto básico, subgrupo o grupo con la dispersión promedio más pequeña fue el que se escogió para emparejar al nuevo producto. 
+
+
+##  Número de observaciones
+
+<!--Mencionar que tenemos el PDF con las distribuciones 
+como referencia del emparejamiento utilizado.-->
+
+El procedimiento anterior se documentó en un anexo (en formato PDF) en el que se muestran 437 gráficas de las observaciones de los productos de la base 2023 con su respectivo análogo en la base 2010 y la dispersión de las observaciones de la base 2010 respecto a la media de las observaciones del 2023.
+
+<!-- Tabla comparativa entre el número de observaciones que se tienen en la
+ base 2023 y 2024 vs el número cuando se extienden con la metodología propuesta.--> 
+
+|                         | Base 2010 | Base 2023 | Base 2023 Sintética |
+| ----------------------- | --------- | --------- | ------------------- |
+| Número de observaciones | 43,524    | 7,860     | 76,038              |
+
+
+
+
+
+
+
+# Calibración de la función de ponderación
+
+## Función de ponderación propuesta: 
+
+$$\small
+  f(x) = \phi(x; 0, \alpha \cdot \text{std}(v_{k,1},\ldots,v_{k,J}, v_{k^*,1}, \ldots, v_{k^*,H}) + \epsilon)
+$$ 
+donde $\phi$ es la función de densidad de una normal 
+con media cero y desviación estándar especificada. 
+
+- Se toma $\epsilon= 0.0001$ porque hay variedades cuya variación es cero en toda la muestra a priori y en los datos recientes. Este valor hace que la función esté bien definida.
+
+- Intuitivamente, se busca un $\alpha \in (0,2]$ que puede 
+ayudar a acercar la distribución empírica sintética a la 
+distribución empírica de la base 2023. 
+
+<!--## Describir el ejercicio de variar $\alpha$
+ y mostrar las gráficas de los 4 momentos.
+ 
+  -->
+## Momentos
+
+- Para encontrar un $\alpha$ adecuado, se analizaron los primeros cuatro 
+momentos de la distribución de la base sintética de 2023
+en función de $\alpha$ y se compararon
+con los de la base 2010 y 2023 empíricas.
+
+- La @fig-moments presenta los resultados. 
+
+## Momentos
+
+![Primeros cuatro momentos en función de $\alpha$ ](./images/momentos.png){#fig-moments}
+
+## MAPE
+
+<!--Describir el MAPE de los momentos sintéticos a 
+los momentos empíricos, mostrar la gráfica e
+ indicar el valor de $\alpha$ que lo minimiza. -->
+
+- Se calcula el error relativo al momento de la base 2023 por cada $\alpha$
+
+$$
+error_i(\alpha )=\big|\frac{\mu_{i,2023}-\mu_i(\alpha)}{\mu_{i,2023}} \big|,
+$$ 
+donde $\mu _{i,2023}$ son los momentos de la base 2023, con $i=1,2,3,4$. Y $\mu_i(\alpha)$ son los momentos de la base sintética que depende de $\alpha$.
+
+## MAPE
+Una medida de que contempla los cuatro momentos es utilizar el porcentaje de error absoluto:
+
+$$
+\text{MAPE}(\alpha) = 100*\frac{1}{4}\sum_{i=1}^4 error_i(\alpha)
+$$
+
+con esta función se puede buscar el $\alpha$ que mínimize MAPE. 
+
+<!-- # Indicar también el valor del MAPE que se obtiene con dicho $\alpha$ como indicativo del error en la replicación de la distribución.--> 
+
+En este caso resultó ser 
+
+  - $\operatorname{arg} \min_{\alpha} \text{MAPE}(\alpha)=0.35$ y 
+  - $\min_{\alpha} \text{MAPE}(\alpha)=4.33\%$.
+
+## MAPE
+
+::: {#fig-calibration-mape}
+![](./images/MAPE.png)
+
+Error porcentual absoluto promedio (MAPE) en los primeros 4 momentos de la distribución sintética.
+:::
+
+
+# Distribuciones de corte transversal
+## Distribuciones de corte transversal
+
+Se muestra la distribución de corte transversal sintética de la base 2023 del IPC utilizando la calibración obtenida, $\alpha=0.35$, en los rangos siguientes: 
+ 
+- -1 a 1
+- -2 a 2
+- -5 a 5
+- -10 a 10
+- -20 a 20
+- -100 a 100
+
+##
+![Rango [-1,1]](./images/cross-sectional/vdistr_synth_b23_1.png){#fig-csd1}
+
+##
+![Rango [-2,2]](./images/cross-sectional/vdistr_synth_b23_2.png){#fig-csd2}
+
+##
+![Rango [-5,5]](./images/cross-sectional/vdistr_synth_b23_5.png){#fig-csd5}
+
+##
+![Rango [-10,10]](./images/cross-sectional/vdistr_synth_b23_10.png){#fig-csd10}
+
+##
+![Rango [-20,20]](./images/cross-sectional/vdistr_synth_b23_20.png){#fig-csd20}
+
+##
+![Rango [-100,100]](./images/cross-sectional/vdistr_synth_b23_100.png){#fig-csd100}
+
+
+
+
+
+
+## Tabla comparativa entre bases  
+<!--
+- Mostrar una tabla comparativa de los momentos, percentil de la media y número de observaciones en cada distribución empírica. -->
+  
+
+| Estadístico         | Base 2010  | Base 2023  | Base Sintética |
+| ------------------- | ---------- | ---------- | -------------- |
+| Media               | $0.331445$ | $0.181785$ | $0.183514$     |
+| Desviación Estándar | $2.075916$ | $2.02228$  | $2.02002$      |
+| Sesgo               | $4.341731$ | $6.46543$  | $6.64459$      |
+| Curtosis            | $104.023$  | $153.367$  | $177.482$      |
+| Cuantil media       | $72.64\%$  | $68.35\%$  | $67.91\%$      |
+| No. Observaciones   | $43,524$   | $7,860$    | $76,038$       |
+
+
+
+## Curtosis
+<!--
+- Indicar que la curtosis de la base 2023 es más alta que la de la base 2010. 
+- Explicar que, por una parte, la dispersión (desviación estándar) es menor. -->
+
+- Notar que la curtosis de la base de 2023 es mayor a la de la base 2010, es decir, una alta concentración en las colas con respecto a la base 2010.
+
+  - Por un lado, la desviación estándar en la base 2023 es menor que la de la base 2010, la cual tiene una relación inversa con la curtosis.
+  - Y por otro lado, la base 2023 tiene actualmente mayor presencia de ceros, que tendrán un mayor peso en el cálculo de la curtosis.
+
+## Curtosis de las variaciones intermensuales
+<!--
+- Presentar las gráficas de curtosis mensuales.-->
+- En las gráficas de seguimiento siguientes, se observa el incremento de la curtosis durante la base 2023 del IPC.
+
+## 
+![Curtosis de las variaciones intermensuales](./images/cross-sectional/inflation1.png)
+
+##
+![Curtosis de las variaciones intermensuales, media móvil](./images/cross-sectional/inflation2.png)
+
+
+
+## Evolución de la curtosis
+
+- Puede observarse que en la base del 2023 la curtosis es notoriamente mayor y tiene un crecimiento abrupto.
+
+##
+![Curtosis evolución](./images/kurtosis-evolution/kurtosis_evolution.png)
+
+##
+![Primeros meses después del cambio de base](./images/kurtosis-evolution/kurtosis_evolution_z1.png)
+
+
+
+
+## Distribución acumulada
+- Se muestran las gráficas de la distribución empírica acumulada.
+- Estas permiten observar mejor los segmentos que provocan incrementos sustanciales en la curtosis. 
+
+##
+![Distribución Acumulada](./images/ecdfs/plot_ECDF.png)
+
+##
+![Zoom de Distribución acumulada](./images/ecdfs/plot_ECDF_z2.png)
+
+##
+![Zoom de Distribución Acumulada](./images/ecdfs/plot_ECDF_z3.png)
+
+##
+![Zoom de Distribución acumulada](./images/ecdfs/plot_ECDF_z4.png)
+
+##
+![Zoom de Distribución Acumulada](./images/ecdfs/plot_ECDF_z5.png)
+
+##
+![Zoom de Distribución acumulada](./images/ecdfs/plot_ECDF_z6.png)
+
+
+## Distribución acumulada
+- Los rangos aproximadamente entre $[-20, -10]$ y $[10, 20]$ presentan una mayor probabilidad en comparación con la base anterior. 
+- Aunque sus valores no son sumamente altos en términos absolutos, siguen siendo considerablemente superiores, lo que los hace significativos en el aumento de la curtosis de la base 2023.
+- Los ceros también contribuyen al aumento de la curtosis.
+
+## La curtosis aumenta en la distribución sintética
+
+<!--
+- Explicar la intuición de por qué la curtosis aumenta en la distribución sintética.-->
+
+- La base 2023 tiene curtosis alta.
+- El procedimiento de ampliación sintética de muestra hace que en cada una de esas observaciones de las colas se imputetn observaciones sintéticas. 
+- Por lo tanto cabe esperar que la concentración en la distribución sintética aumente.
+
+
+# Metodología para extender la HEMI a la base 2023 del IPC.
+## Metodología para extender la HEMI a la base 2023 del IPC.
+
+- Este ejercicio permitió calibrar la metodología para extender la muestra en la base 2023 del IPC. 
+- Ya es posible utilizar dicha metodología en la evaluación de medidas de este año.
+
+## Ejemplo: Distribuciones ampliadas de productos con mayor incidencia positiva
+- Se muestra el proceso de ampliación de muestra de los productos con mayor incidencia positiva en junio de 2025.
+
+## 
+![](./images/incidences/positive_Aguacates%20frescos.png)
+
+##
+![](./images/incidences/positive_Caf%C3%A9%20instant%C3%A1neo.png)
+
+##
+![](./images/incidences/positive_Gasolina.png)
+
+##
+![](./images/incidences/positive_Pan.png)
+
+##
+![](./images/incidences/positive_Tomate%20fresco.png)
+
+
+## Distribuciones ampliadas de productos con mayor incidencia negativa
+- Se muestra el proceso de ampliación de muestra de los productos con mayor incidencia negativa en junio de 2025.
+
+##
+![](./images/incidences/negative_Az%C3%BAcar%20de%20ca%C3%B1a.png)
+
+##
+![](./images/incidences/negative_Camioneta%20nueva.png)
+
+##
+![](./images/incidences/negative_Huevos%20de%20gallina.png)
+
+##
+![](./images/incidences/negative_Limones%20frescos.png)
+
+##
+![](./images/incidences/negative_Papas.png)
+
+
+## Observaciones negligibles
+ 
++ A partir de algunas imágenes presentadas en la sección anterior, se observa que ciertas valores resultan  insignificantes, ya que la función de ponderación les asigna un peso muy reducido.
+  
++ Por lo tanto, se indagó en la distribución sintética y sus ponderaciones. Se definió un umbral negligible con ayuda de histogramas de las ponderaciones. Después de definir este umbral, se filtró las ponderaciones y las observaciones correspondientes.
+
+
+![Histograma de las ponderaciones, con 500 intervalos ](./images/hist_synth_b23_500.png)
+
+### Umbral
++ El umbral que se definió fue tomar todas las ponderaciones que no estuvieran en el primer intervalo.
+
++ Una vez filtradas tanto las ponderaciones como las observaciones de acuerdo al umbral se computaron los momentos de la distribución sintetica con todas las observaciones y la distribución sintética filtrada para comparar la diferencia de que generan estos pesos
+
+| Estadístico         | Base Sintética | Base filtrada |
+| ------------------- | -------------- | --------------|
+| Media               | $0.183514$     | $0.1833889$   |
+| Desviación Estándar | $2.02002$      | $2.0202603$   |
+| Sesgo               | $6.64459$      | $6.6454461$   |
+| Curtosis            | $177.482$      | $177.5230549$ |
+| Cuantil media       | $67.91\%$      | $67.90873\%$  |
+| No. Observaciones   | $76038$        | $48930$       |
+
+Incluso reduciendo el número de observaciones (quitando 27108), la distribución de la base sintética sigue teniendo momentos muy similares.
+
+# Implicaciones para la medición inflación total 
+
+## Inflación
+
+- Al anualizar las variaciones intermensuales promedio en cada base obtenemos: 
+
+|                        |  Base 2010 | Base 2023+2024 | Base Sintética |
+| ---------------------- | ---------: | -------------: | -------------: |
+| Inflación intermensual | $0.331445$ |     $0.181785$ |     $0.183514$ |
+| Inflación              |  $4.051\%$ |      $2.203\%$ |      $2.224\%$ |
+
+## Inflación
+- Los niveles de inflación que se observan en la base 2023 y 2024 **podrían ser sustancialmente más bajos que los observados en la base 2010** debido al desplazamiento de la media de las distribuciones. 
+
+- Si las variaciones se mantienen cerca del promedio, la inflación total podría fluctuar alrededor de $2\%$. 
+
+
+# Presentación
+
+[**Fullscreen ⛶**](/BTIMA/pst_matching_calibration.qmd)
+
+```{=html}
+<iframe 
+    src="/BTIMA/pst_matching_calibration.html"
+    height= {{< var frame_height >}}
+    width= {{< var frame_width >}}
+    style="border: none;"
+></iframe>
+```
+

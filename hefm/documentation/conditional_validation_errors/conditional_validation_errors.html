@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Departamento de Investigaciones Económicas">
 
-<title>Documentación SVAR51 – DIE-BG</title>
+<title>Estabilidad en la Recuperación de Choques Estructurales – DIE-BG</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,7 +70,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../assets/css/styles.css">
 </head>
@@ -169,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Results</li><li class="breadcrumb-item"><a href="../../../hefm/results/SVAR51/SVAR51.html">SVAR51</a></li><li class="breadcrumb-item"><a href="../../../hefm/results/SVAR51/SVAR51.html">Acercamiento QPM con el SVAR51</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../hefm/documentation/index.html">Documentation</a></li><li class="breadcrumb-item"><a href="../../../hefm/documentation/conditional_validation_errors/conditional_validation_errors.html">Estabilidad en la Recuperación de Choques</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -264,16 +297,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">SVAR51</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../hefm/results/SVAR51/SVAR51.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../hefm/results/SVAR51/SVAR51.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acercamiento QPM con el SVAR51</span></a>
   </div>
 </li>
@@ -372,7 +405,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../hefm/documentation/conditional_validation_errors/conditional_validation_errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../hefm/documentation/conditional_validation_errors/conditional_validation_errors.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Estabilidad en la Recuperación de Choques</span></a>
   </div>
 </li>
@@ -388,28 +421,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#motivación" id="toc-motivación" class="nav-link" data-scroll-target="#motivación">Motivación</a></li>
-  <li><a href="#resultados-de-la-evaluación" id="toc-resultados-de-la-evaluación" class="nav-link" data-scroll-target="#resultados-de-la-evaluación">Resultados de la evaluación</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a></li>
+  <li><a href="#particiones-de-la-muestra" id="toc-particiones-de-la-muestra" class="nav-link" data-scroll-target="#particiones-de-la-muestra"><span class="header-section-number">2</span> Particiones de la Muestra</a></li>
+  <li><a href="#cómputo-de-la-desviación-en-la-recuperación-de-choques-estructurales" id="toc-cómputo-de-la-desviación-en-la-recuperación-de-choques-estructurales" class="nav-link" data-scroll-target="#cómputo-de-la-desviación-en-la-recuperación-de-choques-estructurales"><span class="header-section-number">3</span> Cómputo de la Desviación en la Recuperación de Choques Estructurales</a>
   <ul class="collapse">
-  <li><a href="#capacidad-explicativa" id="toc-capacidad-explicativa" class="nav-link" data-scroll-target="#capacidad-explicativa">Capacidad explicativa</a></li>
-  <li><a href="#capacidad-predictiva" id="toc-capacidad-predictiva" class="nav-link" data-scroll-target="#capacidad-predictiva">Capacidad predictiva</a></li>
+  <li><a href="#planteamiento-general" id="toc-planteamiento-general" class="nav-link" data-scroll-target="#planteamiento-general"><span class="header-section-number">3.1</span> Planteamiento General</a></li>
+  <li><a href="#horizonte-de-pronóstico-1" id="toc-horizonte-de-pronóstico-1" class="nav-link" data-scroll-target="#horizonte-de-pronóstico-1"><span class="header-section-number">3.2</span> Horizonte de Pronóstico 1</a></li>
+  <li><a href="#horizonte-de-pronóstico-mayor-a-1" id="toc-horizonte-de-pronóstico-mayor-a-1" class="nav-link" data-scroll-target="#horizonte-de-pronóstico-mayor-a-1"><span class="header-section-number">3.3</span> Horizonte de Pronóstico Mayor a 1</a></li>
   </ul></li>
+  <li><a href="#procedimiento-operativo" id="toc-procedimiento-operativo" class="nav-link" data-scroll-target="#procedimiento-operativo"><span class="header-section-number">4</span> Procedimiento Operativo</a></li>
+  <li><a href="#tuplas-de-desviaciones-en-la-recuperación-de-choques" id="toc-tuplas-de-desviaciones-en-la-recuperación-de-choques" class="nav-link" data-scroll-target="#tuplas-de-desviaciones-en-la-recuperación-de-choques"><span class="header-section-number">5</span> Tuplas de Desviaciones en la Recuperación de Choques</a></li>
+  <li><a href="#sec-symmetry-justification" id="toc-sec-symmetry-justification" class="nav-link" data-scroll-target="#sec-symmetry-justification"><span class="header-section-number">6</span> Justificación por Simetría entre Submuestras</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Results</li><li class="breadcrumb-item"><a href="../../../hefm/results/SVAR51/SVAR51.html">SVAR51</a></li><li class="breadcrumb-item"><a href="../../../hefm/results/SVAR51/SVAR51.html">Acercamiento QPM con el SVAR51</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../hefm/documentation/index.html">Documentation</a></li><li class="breadcrumb-item"><a href="../../../hefm/documentation/conditional_validation_errors/conditional_validation_errors.html">Estabilidad en la Recuperación de Choques</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Documentación SVAR51</h1>
+<h1 class="title">Estabilidad en la Recuperación de Choques Estructurales</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Departamento de Investigaciones Económicas </p>
+          </div>
+  </div>
     
   
     
@@ -420,109 +463,407 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>El presente trabajo pretende brindar una descripción general de los esfuerzos realizados para la estimación de una variante del modelo <strong>SVAR50-4B</strong> para subsanar las fuentes de incompatibilidad de este respecto al <strong>QPM</strong>, las cuales se pueden dividir en diferencias en <em>datos</em> y <em>estados estacionarios</em> de algunas variables seleccionadas. El fin de esto es compatibilizar ambos modelos y permitir una mejor comparación de los resultados de sus corrimientos.</p>
+<section id="introducción" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">1</span> Introducción</h2>
+<p>Esta nota desarrolla el criterio de estabilidad en la recuperación de choques estructurales como continuidad del documento <em>“Criteria for SVAR Model Selection: A Proposal”</em>. La idea central es la siguiente: si un modelo SVAR es una guía empírica razonable, entonces un mismo bloque de datos debería inducir choques estructurales similares cuando estos se recuperan bajo distintas parametrizaciones del modelo.</p>
+<p>Para estudiar esta propiedad, se particiona una muestra de datos en submuestras ordenadas y complementarias. Primero, se estima el modelo en una de ellas y se recuperan choques estructurales sobre otra. Luego, se compara esa recuperación con la que se obtiene al reestimar el modelo sobre el propio bloque evaluado. La validación consiste en medir si los choques recuperados para un mismo subconjunto de datos son consistentes cuando cambia la muestra usada para parametrizar el SVAR.</p>
+<p>La hipótesis metodológica es que un buen modelo estructural debería mostrar, al menos, consistencia en la recuperación de choques a través de submuestras. En este marco, el error condicional no se interpreta como un fin en sí mismo, sino como un objeto intermedio que expresa, en unidades observables, la discrepancia entre recuperaciones de choques sobre un mismo bloque de datos.</p>
+<p>El documento organiza esta idea en tres partes. Primero se describe la construcción de las particiones de muestra y la notación para los errores incondicionales y condicionales. Luego se desarrolla el cómputo operativo: estimación en la muestra de validación, recuperación de choques, construcción de pronósticos condicionales y cálculo final de errores. Finalmente se explica por qué el MSE conjunto requiere simetrizar la distribución de errores condicionales.</p>
 </section>
-<section id="motivación" class="level2">
-<h2 class="anchored" data-anchor-id="motivación">Motivación</h2>
-<p>La razón por la cual se planteó la creación de una variante del <strong>SVAR50-4B</strong> es debido a que existen diferencias que causan un grado de incompatibilidad entre dicho modelo y el <strong>QPM</strong>. Las fuentes de incompatibilidad se pueden dividir en dos, las que están relacionadas con los datos y aquellas que corresponden al valor de estado estacionario de ciertas variables de interés. La primera fuente de incompatibilidad proviene del hecho de que los datos trimestrales usados en los corrimientos no son los mismos datos trimestrales usando en el modelo QPM. Esto es algo que se observa de forma evidente si se observan los pronósticos del Índice de precios de transables (IPEI).</p>
-<strong>Pronósticos SVAR50 -corrimiento mayo 2025-</strong>
-<figure class="figure">
-<p><img src="plots\d4_ln_ipei_short.png" class="img-fluid figure-img" width="900"></p>
-<strong>Pronósticos QPM -corrimiento mayo 2025-</strong> <img src="plots\D4L_IPEI_short.png" class="img-fluid figure-img" width="900">
-</figure>
-<p>La razón de ello se debe a que esta variable presenta una gran volatilidad de un mes a otro, algo que no es capaz de capturar el SVAR50-4B debido a que el método de trimestralización utilizado para este modelo es el promedio de los datos durante trimestre, en comparación con el QPM que es el último valor observado durante el trimestre.</p>
-<p>Otra fuente de incompatibilidad proviene de los estados estacionarios de algunas variables que son de interés al momento de observar sus pronósticos en cada corrimiento. Como se observó en las gráficas el IPEI posee un estado estacionario de 1.98 en el SVAR50-4B mientras que en el QPM es de 0. Estas diferencias se observan en variables como inflación total, subyacente y no subyacente.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>A continuación, se presenta un resumen de las fuentes de incompatibilidad entre el SVAR50-4B y el QPM:</p>
-<div id="tbl-panel" class="quarto-layout-panel anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;1: : Fuentes de incompatibilidades
-</figcaption>
-<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<table class="caption-top table">
-<caption>Datos</caption>
-<colgroup>
-<col style="width: 40%">
-<col style="width: 60%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">SVAR50-4B</th>
-<th style="text-align: left;">QPM</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Método de trimestralización: Promedio dentro del trimestres</td>
-<td style="text-align: left;">Método de trimestralización: último valor observado dentro del trimestre</td>
-</tr>
-</tbody>
-</table>
+<section id="particiones-de-la-muestra" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="particiones-de-la-muestra"><span class="header-section-number">2</span> Particiones de la Muestra</h2>
+<p>Sea <span class="math inline">\(t\)</span> el índice temporal, con valores en la muestra completa</p>
+<p><span id="eq-full-sample"><span class="math display">\[
+\mathcal{T} = \{0, 1, \dots, V\}.
+\tag{1}\]</span></span></p>
+<p>Para cada partición <span class="math inline">\(i\)</span> de la muestra se selecciona una ventana <span class="math inline">\(\mathcal{W}^{(i)} \subseteq \mathcal{T}\)</span>. Dentro de esa ventana se definen tres bloques ordenados:</p>
+<p><span id="eq-partition-union"><span class="math display">\[
+\mathcal{W}^{(i)}
+=
+\mathcal{E}^{(i)}
+\cup
+\mathcal{G}^{(i)}
+\cup
+\mathcal{V}^{(i)}.
+\tag{2}\]</span></span></p>
+<p>Los bloques son disjuntos:</p>
+<p><span id="eq-partition-disjoint"><span class="math display">\[
+\mathcal{E}^{(i)} \cap \mathcal{G}^{(i)}
+=
+\mathcal{E}^{(i)} \cap \mathcal{V}^{(i)}
+=
+\mathcal{G}^{(i)} \cap \mathcal{V}^{(i)}
+= \varnothing.
+\tag{3}\]</span></span></p>
+<p>En esta notación, <span class="math inline">\(\mathcal{E}^{(i)}\)</span> es la submuestra usada para parametrizar el modelo, <span class="math inline">\(\mathcal{V}^{(i)}\)</span> es la submuestra sobre la que se evalúa la validación y <span class="math inline">\(\mathcal{G}^{(i)}\)</span> es una brecha temporal entre ambas. La brecha reduce la dependencia mecánica entre los datos usados para estimar y los datos usados para evaluar.</p>
+<p>El ejercicio impone que <span class="math inline">\(\mathcal{E}^{(i)}\)</span> y <span class="math inline">\(\mathcal{V}^{(i)}\)</span> tengan el mismo tamaño y que <span class="math inline">\(\mathcal{G}^{(i)}\)</span> tenga un tamaño fijo a través de particiones. Es decir, existen enteros <span class="math inline">\(m \ge 1\)</span> y <span class="math inline">\(g \ge 0\)</span> tales que</p>
+<p><span id="eq-partition-sizes"><span class="math display">\[
+\begin{aligned}
+|\mathcal{E}^{(i)}| &amp;= |\mathcal{V}^{(i)}| = m, \\
+|\mathcal{G}^{(i)}| &amp;= g, \\
+&amp;\forall i.
+\end{aligned}
+\tag{4}\]</span></span></p>
+<p>Esta restricción implica que cada ventana <span class="math inline">\(\mathcal{W}^{(i)}\)</span> tiene tamaño fijo <span class="math inline">\(2m+g\)</span>. Por lo tanto, <span class="math inline">\(\mathcal{W}^{(i)}\)</span> no agota necesariamente la muestra completa <span class="math inline">\(\mathcal{T}\)</span>; las distintas particiones se construyen desplazando esa ventana a lo largo del tiempo.</p>
+<p>Además, las particiones respetan el orden temporal de la muestra. Para cada partición <span class="math inline">\(i\)</span> existe un índice inicial <span class="math inline">\(s_i\)</span> tal que <span class="math inline">\(0 \le s_i\)</span> y <span class="math inline">\(s_i + 2m + g - 1 \le V\)</span>, y</p>
+<p><span id="eq-ordered-partition"><span class="math display">\[
+\begin{aligned}
+\mathcal{E}^{(i)}
+&amp;= \{s_i, s_i + 1, \dots, s_i + m - 1\}, \\
+\mathcal{G}^{(i)}
+&amp;= \{s_i + m, \dots, s_i + m + g - 1\}, \\
+\mathcal{V}^{(i)}
+&amp;= \{s_i + m + g, \dots, s_i + 2m + g - 1\}.
+\end{aligned}
+\tag{5}\]</span></span></p>
+<p>El siguiente diagrama ilustra algunas particiones posibles para una muestra que abarca de <code>2005Q1</code> a <code>2025Q4</code>, bajo una elección fija de tamaños <span class="math inline">\(|\mathcal{E}^{(i)}| = |\mathcal{V}^{(i)}| = 8\)</span> años y <span class="math inline">\(|\mathcal{G}^{(i)}| = 1\)</span> año.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    title Particiones posibles de la muestra 2005Q1-2025Q4
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y
+
+    section Partición i = 1
+    E^(1) (2005Q1-2012Q4)      :done, p1e, 2005-01-01, 8y
+    G^(1) (2013Q1-2013Q4)      :crit, p1g, 2013-01-01, 1y
+    V^(1) (2014Q1-2021Q4)      :active, p1v, 2014-01-01, 8y
+    Resto de T (2022Q1-2025Q4) :p1r, 2022-01-01, 4y
+
+    section Partición i = 2
+    Resto de T (2005Q1-2005Q4) :p2r0, 2005-01-01, 1y
+    E^(2) (2006Q1-2013Q4)      :done, p2e, 2006-01-01, 8y
+    G^(2) (2014Q1-2014Q4)      :crit, p2g, 2014-01-01, 1y
+    V^(2) (2015Q1-2022Q4)      :active, p2v, 2015-01-01, 8y
+    Resto de T (2023Q1-2025Q4) :p2r1, 2023-01-01, 3y
+
+    section Partición i = 3
+    Resto de T (2005Q1-2006Q4) :p3r0, 2005-01-01, 2y
+    E^(3) (2007Q1-2014Q4)      :done, p3e, 2007-01-01, 8y
+    G^(3) (2015Q1-2015Q4)      :crit, p3g, 2015-01-01, 1y
+    V^(3) (2016Q1-2023Q4)      :active, p3v, 2016-01-01, 8y
+    Resto de T (2024Q1-2025Q4) :p3r1, 2024-01-01, 2y
+</pre>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<table class="caption-top table">
-<caption>Estados estacionarios</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">SVAR50-4B</th>
-<th style="text-align: left;">QPM</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">IPEI = 1.98</td>
-<td style="text-align: left;">IPEI = 0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Inflación total = 4.98</td>
-<td style="text-align: left;">Inflación total = 4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Inflación subyacente = 4.49</td>
-<td style="text-align: left;">Inflación subyacente = 4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Inflación no subyacente = 0.44</td>
-<td style="text-align: left;">Inflación no subyacente = 0</td>
-</tr>
-</tbody>
-</table>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
-</figure>
-</div>
-<p>Por lo anterior, se procedió a estimar un nuevo modelo SVAR que tuviera como propósito subsanar las incompatibilidades entre el SVAR50-4B y el QPM, dicho modelo fue denominado <strong>SVAR51</strong> el cual es una variante del SVAR50-4B que comparte con este las mimas variables, restricciones en la matriz de coeficientes y método de estimación, pero cambiando los datos usados para su estimación, por lo que el modelo se estimó con datos trimestrales cuyo método de trimestralización es el <em>mismo que el QPM</em> además de imponer los estados estacionarios de las variables antes mencionadas de la misma forma que se encuentran en el QPM.</p>
+<p>La expresión <a href="#eq-ordered-partition" class="quarto-xref">Ecuación&nbsp;5</a> muestra que <span class="math inline">\(\mathcal{E}^{(i)}\)</span> siempre precede a <span class="math inline">\(\mathcal{G}^{(i)}\)</span> y que <span class="math inline">\(\mathcal{G}^{(i)}\)</span> siempre precede a <span class="math inline">\(\mathcal{V}^{(i)}\)</span>. A su vez, <a href="#eq-partition-sizes" class="quarto-xref">Ecuación&nbsp;4</a> garantiza que las particiones comparables usan un mismo tamaño para los tres bloques, variando únicamente su posición dentro de la muestra completa.</p>
 </section>
-<section id="resultados-de-la-evaluación" class="level2">
-<h2 class="anchored" data-anchor-id="resultados-de-la-evaluación">Resultados de la evaluación</h2>
-<p>Utilizando la metodología de selección y evaluación de modelos tipo SVAR se realizó un comparativo entre el SVAR51 y SVAR50-4B con el propósito de evaluar la capacidad explicativa y predictiva de la nueva variante del SVAR50-4B.</p>
-<section id="capacidad-explicativa" class="level3">
-<h3 class="anchored" data-anchor-id="capacidad-explicativa">Capacidad explicativa</h3>
-<p>Para un horizonte de evaluación de 10 horizontes (el mismo se utilizó para la capacidad predictiva) y para el promedio de las 4 variables objetivo, el SVAR51 presenta valores más altos de la métrica de dispersión comparado con el SVAR50-4B. Lo cual lo vuelve un modelo con mayor dispersión en las respuestas de las IRF.</p>
-<p><img src="plots\ComparativeDispersion.png" class="img-fluid"></p>
+<section id="cómputo-de-la-desviación-en-la-recuperación-de-choques-estructurales" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="cómputo-de-la-desviación-en-la-recuperación-de-choques-estructurales"><span class="header-section-number">3</span> Cómputo de la Desviación en la Recuperación de Choques Estructurales</h2>
+<section id="planteamiento-general" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="planteamiento-general"><span class="header-section-number">3.1</span> Planteamiento General</h3>
+<p>Para describir el cómputo de la desviación, fijemos una partición de la muestra <span class="math inline">\(\mathcal{T}\)</span> y escribamos <span class="math inline">\(\mathcal{A}\)</span> y <span class="math inline">\(\mathcal{B}\)</span> para dos submuestras genéricas. Esta notación evita asignar de entrada un rol fijo de estimación o validación a cada submuestra.</p>
+<p>El cálculo requiere dos parametrizaciones del mismo SVAR:</p>
+<ul>
+<li>Una parametrización estimada en la submuestra <span class="math inline">\(\mathcal{A}\)</span>: <span class="math inline">\(\hat{A}_{0,\mathcal{A}}\)</span>, <span class="math inline">\(\hat{A}_{1,\mathcal{A}}\)</span> y <span class="math inline">\(\hat{B}_{0,\mathcal{A}}\)</span>.</li>
+<li>Una parametrización estimada en la submuestra <span class="math inline">\(\mathcal{B}\)</span>: <span class="math inline">\(\hat{A}_{0,\mathcal{B}}\)</span>, <span class="math inline">\(\hat{A}_{1,\mathcal{B}}\)</span> y <span class="math inline">\(\hat{B}_{0,\mathcal{B}}\)</span>.</li>
+</ul>
+<p>Para que la comparación sea simétrica, ambas parametrizaciones deben evaluarse sobre el mismo conjunto de observaciones. Por ello definimos el conjunto común de evaluación como</p>
+<p><span id="eq-ab-union"><span class="math display">\[
+\mathcal{U} = \mathcal{A} \cup \mathcal{B}.
+\tag{6}\]</span></span></p>
+<p>La razón para trabajar sobre <span class="math inline">\(\mathcal{U}\)</span> es que el intercambio de los roles de <span class="math inline">\(\mathcal{A}\)</span> y <span class="math inline">\(\mathcal{B}\)</span> solo produce una relación simétrica si las dos direcciones se evalúan sobre las mismas fechas. Esta propiedad se desarrolla en <a href="#sec-symmetry-justification" class="quarto-xref">Sección&nbsp;6</a> y se usa para justificar la simetrización de los errores condicionales.</p>
 </section>
-<section id="capacidad-predictiva" class="level3">
-<h3 class="anchored" data-anchor-id="capacidad-predictiva">Capacidad predictiva</h3>
-<p>En cuanto a la medida de error de pronóstico ambos modelos tienen un desempeño bastante similar, aunque durante los primeros periodos de pronóstico el SVAR50-4B evidencia un menor error comparado con el SVAR51. Cabe aclarar que, al existir cambios de datos entre los modelos, los pronósticos de las variables objetivos son construidos y evaluados con las mismas transformaciones de datos mensuales a trimestrales. Es decir, los pronósticos del SVAR50-4B se evalúan contra los datos trimestrales observados resultado del promedio de las observaciones del trimestre, mientras que los pronósticos del SVAR51 son evaluados contra los datos trimestrales observados al fin del trimestre.</p>
-<p><img src="plots\ComparativeLossAccum.png" class="img-fluid"></p>
-<p>Dado el desempeño del SVAR51 en términos de su capacidad explicativa y predictiva comparado con el SVAR50-4B, este último es mejor valorado dentro de la metodología de selección de modelos tipo SVAR.</p>
-
-
+<section id="horizonte-de-pronóstico-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="horizonte-de-pronóstico-1"><span class="header-section-number">3.2</span> Horizonte de Pronóstico 1</h3>
+<p>El horizonte 1 es el caso base del procedimiento anterior. Se expone por separado porque es el horizonte sobre el cual se construye directamente la tupla empírica de desviaciones.</p>
+<section id="pronósticos-incondicionales" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="pronósticos-incondicionales"><span class="header-section-number">3.2.1</span> Pronósticos Incondicionales</h4>
+<p>El pronóstico incondicional a horizonte 1, usando la parametrización de <span class="math inline">\(\mathcal{A}\)</span> y evaluando observaciones en <span class="math inline">\(\mathcal{U}\)</span>, parte del origen <span class="math inline">\(t\)</span> y pronostica la observación en <span class="math inline">\(t+1\)</span>:</p>
+<p><span id="eq-os-forecast-one-step"><span class="math display">\[
+\hat{y}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+=
+\hat{A}_{0,\mathcal{A}}
++
+\hat{A}_{1,\mathcal{A}} y_t,
+\qquad t+1 \in \mathcal{U}.
+\tag{7}\]</span></span></p>
+<p>De forma paralela, el pronóstico incondicional usando la parametrización de <span class="math inline">\(\mathcal{B}\)</span> y evaluando observaciones en <span class="math inline">\(\mathcal{U}\)</span> es</p>
+<p><span id="eq-is-forecast-one-step"><span class="math display">\[
+\hat{y}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+=
+\hat{A}_{0,\mathcal{B}}
++
+\hat{A}_{1,\mathcal{B}} y_t,
+\qquad t+1 \in \mathcal{U}.
+\tag{8}\]</span></span></p>
+</section>
+<section id="errores-incondicionales" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="errores-incondicionales"><span class="header-section-number">3.2.2</span> Errores Incondicionales</h4>
+<p>Los errores incondicionales asociados a cada parametrización se calculan como la diferencia entre la observación realizada y el pronóstico incondicional correspondiente. Para la parametrización estimada en <span class="math inline">\(\mathcal{A}\)</span>:</p>
+<p><span id="eq-os-error-one-step"><span class="math display">\[
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+=
+y_{t+1} - \hat{y}_{t+1|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+\tag{9}\]</span></span></p>
+<p>Para la parametrización estimada en <span class="math inline">\(\mathcal{B}\)</span>:</p>
+<p><span id="eq-is-error-one-step"><span class="math display">\[
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+=
+y_{t+1} - \hat{y}_{t+1|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+\tag{10}\]</span></span></p>
+</section>
+<section id="desviaciones-en-la-recuperación-de-choques-estructurales" class="level4" data-number="3.2.3">
+<h4 data-number="3.2.3" class="anchored" data-anchor-id="desviaciones-en-la-recuperación-de-choques-estructurales"><span class="header-section-number">3.2.3</span> Desviaciones en la Recuperación de Choques Estructurales</h4>
+<p>La desviación en la dirección <span class="math inline">\(\mathcal{A} \to \mathcal{B}\)</span> compara el error incondicional obtenido con la parametrización de <span class="math inline">\(\mathcal{A}\)</span> contra el error incondicional obtenido con la parametrización de <span class="math inline">\(\mathcal{B}\)</span>, ambos evaluados sobre <span class="math inline">\(\mathcal{U}\)</span>:</p>
+<p><span id="eq-conditional-error-one-step"><span class="math display">\[
+\begin{align}
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
+&amp;=
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+-
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+\end{align}
+\tag{11}\]</span></span></p>
+<p>En la dirección opuesta, la desviación es</p>
+<p><span id="eq-reverse-conditional-error-one-step"><span class="math display">\[
+\begin{align}
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+-
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+\end{align}
+\tag{12}\]</span></span></p>
+<p>Por construcción, ambas desviaciones tienen el mismo tamaño y signo contrario:</p>
+<p><span id="eq-one-step-conditional-symmetry"><span class="math display">\[
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+-
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}.
+\tag{13}\]</span></span></p>
+<p>Estas desviaciones cuantifican cuánto cambia la recuperación implícita de los choques estructurales al parametrizar el mismo bloque de observaciones con una u otra submuestra.</p>
 </section>
 </section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notas</h2>
-
-<ol>
-<li id="fn1"><p>La selección de esta variables corresponde a la importancia que tienen tanto para el Banco Central como dentro de los modelos SVAR50-4B y QPM.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<section id="horizonte-de-pronóstico-mayor-a-1" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="horizonte-de-pronóstico-mayor-a-1"><span class="header-section-number">3.3</span> Horizonte de Pronóstico Mayor a 1</h3>
+<p>Para horizontes <span class="math inline">\(h &gt; 1\)</span>, el desarrollo parte de una última observación disponible en <span class="math inline">\(t\)</span> y evalúa el resultado en <span class="math inline">\(t+h\)</span>. Por lo tanto, el horizonte debe ser factible dentro del conjunto común de evaluación:</p>
+<p><span id="eq-feasible-conditional-horizon"><span class="math display">\[
+t+h \in \mathcal{U}.
+\tag{14}\]</span></span></p>
+<p>El cómputo sigue la misma lógica del horizonte 1, pero reemplaza los pronósticos de un paso por pronósticos acumulados a <span class="math inline">\(h\)</span> pasos. Para cada origen temporal <span class="math inline">\(t\)</span>, se generan dos pronósticos sobre la misma observación <span class="math inline">\(y_{t+h}\)</span>: uno con la parametrización de <span class="math inline">\(\mathcal{A}\)</span> y otro con la parametrización de <span class="math inline">\(\mathcal{B}\)</span>. Al restar ambos pronósticos de la misma observación realizada se obtienen dos errores incondicionales comparables.</p>
+<p>El pronóstico incondicional con parametrización en <span class="math inline">\(\mathcal{A}\)</span>, para un VAR(1), se calcula como</p>
+<p><span id="eq-os-forecast-h"><span class="math display">\[
+\hat{y}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+=
+\hat{A}_{1,\mathcal{A}}^h y_t
++
+\sum_{j=1}^{h}
+\hat{A}_{1,\mathcal{A}}^{j-1}
+\hat{A}_{0,\mathcal{A}}.
+\tag{15}\]</span></span></p>
+<p>De manera análoga, el pronóstico incondicional con parametrización en <span class="math inline">\(\mathcal{B}\)</span> es</p>
+<p><span id="eq-is-forecast-h"><span class="math display">\[
+\hat{y}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+=
+\hat{A}_{1,\mathcal{B}}^h y_t
++
+\sum_{j=1}^{h}
+\hat{A}_{1,\mathcal{B}}^{j-1}
+\hat{A}_{0,\mathcal{B}}.
+\tag{16}\]</span></span></p>
+<p>Los errores incondicionales asociados se calculan restando cada pronóstico de la misma observación realizada <span class="math inline">\(y_{t+h}\)</span>:</p>
+<p><span id="eq-os-error-h"><span class="math display">\[
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+=
+y_{t+h}
+-
+\hat{y}_{t+h|t,u,\mathcal{A},\mathcal{U}},
+\tag{17}\]</span></span></p>
+<p><span id="eq-is-error-h"><span class="math display">\[
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+=
+y_{t+h}
+-
+\hat{y}_{t+h|t,u,\mathcal{B},\mathcal{U}}.
+\tag{18}\]</span></span></p>
+<p>La desviación se obtiene comparando esos errores incondicionales. En la dirección <span class="math inline">\(\mathcal{A} \to \mathcal{B}\)</span> se define como</p>
+<p><span id="eq-conditional-error-h"><span class="math display">\[
+\begin{align}
+\hat{e}_{t+h|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
+&amp;=
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+-
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+h \in \mathcal{U}.
+\end{align}
+\tag{19}\]</span></span></p>
+<p>En la dirección opuesta,</p>
+<p><span id="eq-reverse-conditional-error-h"><span class="math display">\[
+\begin{align}
+\hat{e}_{t+h|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+&amp;=
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+-
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+h \in \mathcal{U}.
+\end{align}
+\tag{20}\]</span></span></p>
+<p>Por construcción, invertir el orden de las parametrizaciones solo cambia el signo de la desviación:</p>
+<p><span id="eq-conditional-symmetry-h"><span class="math display">\[
+\hat{e}_{t+h|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+-
+\hat{e}_{t+h|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}.
+\tag{21}\]</span></span></p>
+<p>Así, para horizontes mayores a uno, no se introduce una noción distinta de desviación. Lo único que cambia es que los errores incondicionales provienen de pronósticos acumulados a <span class="math inline">\(h\)</span> pasos, por lo que la comparación incorpora la dinámica del modelo durante varios periodos.</p>
+</section>
+</section>
+<section id="procedimiento-operativo" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="procedimiento-operativo"><span class="header-section-number">4</span> Procedimiento Operativo</h2>
+<p>En la aplicación concreta, se toma <span class="math inline">\(\mathcal{A}=\mathcal{E}^{(i)}\)</span> y <span class="math inline">\(\mathcal{B}=\mathcal{V}^{(i)}\)</span> para cada partición <span class="math inline">\(i\)</span>. El conjunto común de evaluación es entonces</p>
+<p><span id="eq-operational-union"><span class="math display">\[
+\mathcal{U}^{(i)} =
+\mathcal{E}^{(i)} \cup \mathcal{V}^{(i)}.
+\tag{22}\]</span></span></p>
+<p>El procedimiento operativo puede resumirse en cuatro objetos matemáticos:</p>
+<ol type="1">
+<li>La parametrización estimada en <span class="math inline">\(\mathcal{E}^{(i)}\)</span>: <span class="math inline">\(\hat{A}_{0,\mathcal{E}^{(i)}}\)</span>, <span class="math inline">\(\hat{A}_{1,\mathcal{E}^{(i)}}\)</span> y <span class="math inline">\(\hat{B}_{0,\mathcal{E}^{(i)}}\)</span>.</li>
+<li>La parametrización estimada en <span class="math inline">\(\mathcal{V}^{(i)}\)</span>: <span class="math inline">\(\hat{A}_{0,\mathcal{V}^{(i)}}\)</span>, <span class="math inline">\(\hat{A}_{1,\mathcal{V}^{(i)}}\)</span> y <span class="math inline">\(\hat{B}_{0,\mathcal{V}^{(i)}}\)</span>.</li>
+<li>Los errores incondicionales sobre <span class="math inline">\(\mathcal{U}^{(i)}\)</span> usando la parametrización de <span class="math inline">\(\mathcal{E}^{(i)}\)</span>.</li>
+<li>Los errores incondicionales sobre <span class="math inline">\(\mathcal{U}^{(i)}\)</span> usando la parametrización de <span class="math inline">\(\mathcal{V}^{(i)}\)</span>.</li>
 </ol>
-</section></div></main> <!-- /main -->
+<p>El resultado final es el error condicional, definido como la diferencia entre ambos errores incondicionales sobre <span class="math inline">\(\mathcal{U}^{(i)}\)</span>:</p>
+<p><span id="eq-operational-conditional-error"><span class="math display">\[
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+=
+\hat{e}_{t+h|t,u,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+-
+\hat{e}_{t+h|t,u,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}.
+\tag{23}\]</span></span></p>
+<p>Este error condicional es la desviación observable asociada a recuperar choques estructurales con dos parametrizaciones distintas sobre el mismo conjunto de fechas.</p>
+</section>
+<section id="tuplas-de-desviaciones-en-la-recuperación-de-choques" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="tuplas-de-desviaciones-en-la-recuperación-de-choques"><span class="header-section-number">5</span> Tuplas de Desviaciones en la Recuperación de Choques</h2>
+<p>Una vez calculadas las desviaciones para cada partición, el siguiente paso es organizarlas como tuplas empíricas. La tupla no introduce una nueva definición de error: únicamente recopila las desviaciones obtenidas al comparar dos parametrizaciones sobre el conjunto común de evaluación <span class="math inline">\(\mathcal{U}^{(i)}\)</span>.</p>
+<p>Sea <span class="math inline">\(\mathcal{I}\)</span> el conjunto de particiones consideradas. Para una partición <span class="math inline">\(i\)</span> y un horizonte <span class="math inline">\(h\)</span>, definimos el conjunto de orígenes admisibles como</p>
+<p><span id="eq-admissible-origins"><span class="math display">\[
+\mathcal{S}_{h}^{(i)}
+=
+\left\{
+t :
+t+h \in \mathcal{U}^{(i)}
+\ \text{y}\
+y_t\ \text{está disponible}
+\right\}.
+\tag{24}\]</span></span></p>
+<p>Para cada <span class="math inline">\(t \in \mathcal{S}_{h}^{(i)}\)</span> se calcula una desviación</p>
+<p><span id="eq-deviation-by-partition"><span class="math display">\[
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+=
+\hat{e}_{t+h|t,u,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+-
+\hat{e}_{t+h|t,u,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}.
+\tag{25}\]</span></span></p>
+<p>La tupla de desviaciones a horizonte <span class="math inline">\(h\)</span> se conforma agrupando esos objetos a través de todas las particiones:</p>
+<p><span id="eq-conditional-deviation-tuple-h"><span class="math display">\[
+\mathcal{D}_{c,h}
+=
+\left(
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+:
+i \in \mathcal{I},\
+t \in \mathcal{S}_{h}^{(i)}
+\right).
+\tag{26}\]</span></span></p>
+<p>Si el SVAR contiene <span class="math inline">\(K\)</span> variables, cada elemento de <span class="math inline">\(\mathcal{D}_{c,h}\)</span> es un vector en <span class="math inline">\(\mathbb{R}^{K}\)</span>. Cuando se requiere trabajar variable por variable, la tupla correspondiente al componente <span class="math inline">\(k\)</span> es</p>
+<p><span id="eq-conditional-deviation-tuple-component"><span class="math display">\[
+\mathcal{D}_{c,h,k}
+=
+\left(
+\hat{e}_{t+h|t,c,k,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+:
+i \in \mathcal{I},\
+t \in \mathcal{S}_{h}^{(i)}
+\right),
+\qquad k = 1,\dots,K.
+\tag{27}\]</span></span></p>
+<p>Debido a la simetría entre los errores expuesta en <a href="#sec-symmetry-justification" class="quarto-xref">Sección&nbsp;6</a>, la tupla total de desviaciones condicionales a horizonte <span class="math inline">\(h\)</span>, <span class="math inline">\(\tilde{\mathcal{D}}_{c,h}\)</span>, se define a partir de la tupla original <span class="math inline">\(\mathcal{D}_{c,h}\)</span> como</p>
+<p><span id="eq-symmetric-conditional-errors"><span class="math display">\[
+\tilde{\mathcal{D}}_{c,h}
+=
+\mathcal{D}_{c,h} \Vert -\mathcal{D}_{c,h}.
+\tag{28}\]</span></span></p>
+<p>El operador <span class="math inline">\(\Vert\)</span> denota concatenación. Es decir, la tupla original se extiende agregando una copia de sus elementos multiplicados por <span class="math inline">\(-1\)</span>. Esta transformación fuerza simetría alrededor de cero y conserva la magnitud de los errores condicionales.</p>
+</section>
+<section id="sec-symmetry-justification" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="sec-symmetry-justification"><span class="header-section-number">6</span> Justificación por Simetría entre Submuestras</h2>
+<p>Una forma de motivar la simetrización es estudiar qué ocurre al intercambiar los roles de las submuestras <span class="math inline">\(\mathcal{E}(i)\)</span> y <span class="math inline">\(\mathcal{V}(i)\)</span>. Para evitar cargar la notación, en esta sección escribimos simplemente <span class="math inline">\(\mathcal{E}\)</span> y <span class="math inline">\(\mathcal{V}\)</span>.</p>
+<p>La definición del error condicional puede expresarse como</p>
+<p><span id="eq-conditional-as-difference"><span class="math display">\[
+\begin{align}
+    \hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{V}} &amp;=
+        y_{t+h} - y_{t+h|t, c, \mathcal{E}, \mathcal{V}, \mathcal{V}} \\
+    &amp;=
+    y_{t+h} - \left(
+        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}
+    \right) \\
+    &amp;=
+        \left(
+        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
+        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{V}}
+        \right)
+        -
+        \left(
+        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}
+    \right) \\
+    &amp;=
+        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{V}}
+        -
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}.
+\end{align}
+\tag{29}\]</span></span></p>
+<p>Como el error condicional puede expresarse como una diferencia de errores incondicionales, una primera conjetura sería esperar que</p>
+<p><span id="eq-false-symmetry"><span class="math display">\[
+\hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{V}}
+\stackrel{?}{=}
+-\hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E}, \mathcal{E}}.
+\tag{30}\]</span></span></p>
+<p>Esa conjetura no es válida tal como está escrita, porque en el lado izquierdo <span class="math inline">\(t+h \in \mathcal{V}\)</span>, mientras que en el lado derecho <span class="math inline">\(t+h \in \mathcal{E}\)</span>. Dado que <span class="math inline">\(\mathcal{E} \cap \mathcal{V} = \varnothing\)</span>, ambas expresiones no se evalúan sobre las mismas observaciones.</p>
+<p>La simetría sí aparece cuando los errores condicionales se calculan sobre la unión <span class="math inline">\(\mathcal{E} \cup \mathcal{V}\)</span> en lugar de restringirse únicamente a <span class="math inline">\(\mathcal{V}\)</span>:</p>
+<p><span id="eq-valid-symmetry"><span class="math display">\[
+\hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{E} \cup \mathcal{V}}
+    =
+- \hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E}, \mathcal{V} \cup \mathcal{E}}.
+\tag{31}\]</span></span></p>
+<p>En efecto,</p>
+<p><span id="eq-forward-conditional-error"><span class="math display">\[
+    \hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V},  \mathcal{E} \cup \mathcal{V}} =
+        \hat{e}_{t+h|t, u, \mathcal{E},\mathcal{E} \cup \mathcal{V}}
+        -
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{E} \cup \mathcal{V}},
+\tag{32}\]</span></span></p>
+<p>mientras que</p>
+<p><span id="eq-reverse-conditional-error"><span class="math display">\[
+    \hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E},  \mathcal{E} \cup \mathcal{V}} =
+        \hat{e}_{t+h|t, u, \mathcal{V},\mathcal{E} \cup \mathcal{V}}
+        -
+        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{E} \cup \mathcal{V}}.
+\tag{33}\]</span></span></p>
+<p>Por lo tanto, si la validación condicional se computa sobre <span class="math inline">\(\mathcal{E}(i) \cup \mathcal{V}(i)\)</span>, la tupla relevante es la tupla de desviaciones construida en la sección anterior.</p>
+<p>La versión simetrizada queda entonces dada por</p>
+<p><span id="eq-union-symmetric-conditional-errors"><span class="math display">\[
+\tilde{\mathcal{D}}_{c,h}
+= \mathcal{D}_{c,h} \Vert -\mathcal{D}_{c,h}.
+\tag{34}\]</span></span></p>
+<p>Esta construcción provee una justificación operacional para la simetrización: al evaluar ambas direcciones sobre el mismo conjunto de observaciones, intercambiar las submuestras cambia el signo del error condicional.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

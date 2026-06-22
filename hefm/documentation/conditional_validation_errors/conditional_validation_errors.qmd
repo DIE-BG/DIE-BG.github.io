@@ -1,1127 +1,599 @@
 ---
-title: "Cómputo de los Errores Condicionales"
-author: "DIE"
-format: 
-    revealjs:
-        scrollable: true
-        incremental: false
-        slide-number: true
-        smaller: true
-        progress: true
-        controls: true
-        controls-back-arrows: faded
-        center: true
+title: "Estabilidad en la Recuperación de Choques Estructurales"
+author: "Departamento de Investigaciones Económicas"
+format:
+  html:
+    toc: true
+    number-sections: true
+lang: es
 ---
 
-El cálculo de los errores condicionales se fundamenta en el documento *"Criteria for SVAR Model Selection: A Proposal"*, el cual introduce una notación específica para organizar los conjuntos de datos y los resultados derivados del modelo.
+## Introducción
 
-## Repaso de Notación
+Esta nota desarrolla el criterio de estabilidad en la recuperación de choques
+estructurales como continuidad del documento *"Criteria for SVAR Model
+Selection: A Proposal"*. La idea central es la siguiente: si un modelo SVAR es
+una guía empírica razonable, entonces un mismo bloque de datos debería inducir
+choques estructurales similares cuando estos se recuperan bajo distintas
+parametrizaciones del modelo.
 
----
+Para estudiar esta propiedad, se particiona una muestra de datos en submuestras
+ordenadas y complementarias. Primero, se estima el modelo en una de ellas y se
+recuperan choques estructurales sobre otra. Luego, se compara esa recuperación
+con la que se obtiene al reestimar el modelo sobre el propio bloque evaluado.
+La validación consiste en medir si los choques recuperados para un mismo
+subconjunto de datos son consistentes cuando cambia la muestra usada para
+parametrizar el SVAR.
 
-Se denota por $t$ el índice de tiempo, el cual puede tomar valores dentro del conjunto $\lbrace 0, 1, \dots, T, T+1, T+2, \dots, V \rbrace$.
+La hipótesis metodológica es que un buen modelo estructural debería mostrar, al
+menos, consistencia en la recuperación de choques a través de submuestras. En
+este marco, el error condicional no se interpreta como un fin en sí mismo, sino
+como un objeto intermedio que expresa, en unidades observables, la discrepancia
+entre recuperaciones de choques sobre un mismo bloque de datos.
 
-A partir de esta secuencia, se definen dos subconjuntos relevantes: el conjunto de entrenamiento 
+El documento organiza esta idea en tres partes. Primero se describe la
+construcción de las particiones de muestra y la notación para los errores
+incondicionales y condicionales. Luego se desarrolla el cómputo operativo:
+estimación en la muestra de validación, recuperación de choques, construcción
+de pronósticos condicionales y cálculo final de errores. Finalmente se explica
+por qué el MSE conjunto requiere simetrizar la distribución de errores
+condicionales.
 
-$$
-\mathcal{T} = \lbrace 0, 1, \dots, T \rbrace
-$$ 
+## Particiones de la Muestra
 
-y el conjunto de validación 
-
-$$
-\mathcal{V} = \lbrace T+1, T+2, \dots, V \rbrace
-$$
-
----
-
-A partir del *conjunto de entrenamiento*, se estiman los parámetros: $\hat{A}_{0, \mathcal{T}}$, $\hat{A}_{1, \mathcal{T}}$ y $\hat{B}_{0, \mathcal{T}}$. 
-
-Estos parámetros permiten generar pronósticos incondicionales (**fuera de muestra**) a horizonte 1, definidos como 
-
-$$
-\hat{y}_{t|t-1,u,\mathcal{T},\mathcal{V}} = \hat{A}_{0, \mathcal{T}} + \hat{A}_{1, \mathcal{T}} y_{t-1}
-$$ 
-
-para todo $t$ en el conjunto de validación $\mathcal{V}$.
-
-La diferencia entre los valores observados $y_t$ y sus pronósticos genera los residuos incondicionales 
-
-$$
-\hat{e}_{t|t-1,u,\mathcal{T},\mathcal{V}} = y_t - \hat{y}_{t|t-1,u,\mathcal{T},\mathcal{V}}
-$$
-
-Aplicando la matriz $\hat{B}_{0, \mathcal{T}}$ sobre estos residuos se obtienen los choques estructurales correspondientes al pronóstico incondicional: 
+Sea $t$ el índice temporal, con valores en la muestra completa
 
 $$
-\hat{w}_{t|t-1,\mathcal{T},\mathcal{V}} = \hat{B}_{0, \mathcal{T}} \hat{e}_{t|t-1,u,\mathcal{T},\mathcal{V}}
-$$
+\mathcal{T} = \{0, 1, \dots, V\}.
+$$ {#eq-full-sample}
 
----
-
-Adicionalmente, se estiman en el *conjunto de validación* $\hat{A}_{0, \mathcal{V}}$, $\hat{A}_{1, \mathcal{V}}$ y $\hat{B}_{0, \mathcal{V}}$. 
-
-Estos parámetros permiten generar pronósticos incondicionales (**dentro de muestra**) a horizonte 1, definidos como 
+Para cada partición $i$ de la muestra se selecciona una ventana
+$\mathcal{W}^{(i)} \subseteq \mathcal{T}$. Dentro de esa ventana se definen
+tres bloques ordenados:
 
 $$
-\hat{y}_{t|t-1,u,\mathcal{V},\mathcal{V}} = \hat{A}_{0, \mathcal{V}} + \hat{A}_{1, \mathcal{V}} y_{t-1}
-$$ 
+\mathcal{W}^{(i)}
+=
+\mathcal{E}^{(i)}
+\cup
+\mathcal{G}^{(i)}
+\cup
+\mathcal{V}^{(i)}.
+$$ {#eq-partition-union}
 
-para todo $t$ en el conjunto de validación $\mathcal{V}$.
-
-A partir de estos pronósticos dentro de muestra se calculan los correspondientes residuos:
-
-$$
-\hat{e}_{t|t-1,u,\mathcal{V},\mathcal{V}} = y_t - \hat{y}_{t|t-1,u,\mathcal{V},\mathcal{V}}
-$$
-
-Y aplicando la matriz $\hat{B}_{0, \mathcal{V}}$ sobre estos residuos se obtienen los choques estructurales correspondientes: 
+Los bloques son disjuntos:
 
 $$
-\hat{w}_{t|t-1,\mathcal{V},\mathcal{V}} = \hat{B}_{0, \mathcal{V}} \hat{e}_{t|t-1,u,\mathcal{V},\mathcal{V}}
-$$
+\mathcal{E}^{(i)} \cap \mathcal{G}^{(i)}
+=
+\mathcal{E}^{(i)} \cap \mathcal{V}^{(i)}
+=
+\mathcal{G}^{(i)} \cap \mathcal{V}^{(i)}
+= \varnothing.
+$$ {#eq-partition-disjoint}
 
----
+En esta notación, $\mathcal{E}^{(i)}$ es la submuestra usada para parametrizar
+el modelo, $\mathcal{V}^{(i)}$ es la submuestra sobre la que se evalúa la
+validación y $\mathcal{G}^{(i)}$ es una brecha temporal entre ambas. La brecha
+reduce la dependencia mecánica entre los datos usados para estimar y los datos
+usados para evaluar.
 
-Los **errores condicionales** quedan definidos entonces como:
-
-$$
-\hat{e}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
-    y_t - \hat{y}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}, \, \forall t \in \mathcal{V}
-$$
-
-donde el pronóstico condicional $\hat{y}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$ se define como:
-
-$$
-\hat{y}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
-    \hat{y}_{t|t-1,u,\mathcal{T},\mathcal{V}} + 
-    \hat{B}_{0,\mathcal{T}}^{-1}\hat{w}_{t|t-1,\mathcal{V},\mathcal{V}}, \, \forall t \in \mathcal{V}
-$$
-
-Este consiste en corregir los pronósticos incondicionales $\hat{y}_{t|t-1,u,\mathcal{T},\mathcal{V}}$ mediante los choques derivados de la estimación y pronóstico realizados dentro de la muestra de validación, $\hat{w}_{t|t-1,\mathcal{V},\mathcal{V}}$.
-
-## Extensión de notación para un horizonte de pronóstico $h$
-
-::: {.callout-warning}
-Todo el desarrollo se basa en pronósticos que parten de $t-1$ como última observación.
-:::
-
----
-
-Para el siguiente desarrollo, contamos con los siguientes elementos: 
-
-- Una muestra de estimación $\mathcal{T}$.
-- Una muestra de validación $\mathcal{V}$.
-- Una parametrización en la muestra de estimación: $\hat{A}_{0, \mathcal{T}}$, $\hat{A}_{1, \mathcal{T}}$ y $\hat{B}_{0, \mathcal{T}}$.
-- Una parametrización en la muestra de validación: $\hat{A}_{0, \mathcal{V}}$, $\hat{A}_{1, \mathcal{V}}$ y $\hat{B}_{0, \mathcal{V}}$.
-
----
-
-En general, estamos interesados en el **error condicional** para un horizonte $h$ de pronóstico, denotado como:
+El ejercicio impone que $\mathcal{E}^{(i)}$ y $\mathcal{V}^{(i)}$ tengan el
+mismo tamaño y que $\mathcal{G}^{(i)}$ tenga un tamaño fijo a través de
+particiones. Es decir, existen enteros $m \ge 1$ y $g \ge 0$ tales que
 
 $$
-\hat{e}_{t+ h - 1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}
-$$
+\begin{aligned}
+|\mathcal{E}^{(i)}| &= |\mathcal{V}^{(i)}| = m, \\
+|\mathcal{G}^{(i)}| &= g, \\
+&\forall i.
+\end{aligned}
+$$ {#eq-partition-sizes}
 
-En donde el error condicional se genera dentro de la muestra de validación, 
+Esta restricción implica que cada ventana $\mathcal{W}^{(i)}$ tiene tamaño
+fijo $2m+g$. Por lo tanto, $\mathcal{W}^{(i)}$ no agota necesariamente la
+muestra completa $\mathcal{T}$; las distintas particiones se construyen
+desplazando esa ventana a lo largo del tiempo.
 
-$$t + h - 1 \in \mathcal{V}$$
-
-y hay tantos errores condicionales como elementos en la muestra de validación.
-
-$$h = 1, 2, ... |\mathcal{V}|$$
-
-
----
-
-
-Cuando $h = 1$, nos referimos al error condicional a horizonte 1:
-
-$$
-\hat{e}_{t+ 1 - 1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} =
-\hat{e}_{t|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}
-$$
-
-El cual corresponde al desarrollo de la sección anterior.
-
----
-
-El **error condicional** a horizonte $h$ se define como:
+Además, las particiones respetan el orden temporal de la muestra. Para cada
+partición $i$ existe un índice inicial $s_i$ tal que
+$0 \le s_i$ y $s_i + 2m + g - 1 \le V$, y
 
 $$
-\hat{e}_{t + h -1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
-    y_{t + h - 1} - 
-    \hat{y}_{t + h -1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}}
-$$
+\begin{aligned}
+\mathcal{E}^{(i)}
+&= \{s_i, s_i + 1, \dots, s_i + m - 1\}, \\
+\mathcal{G}^{(i)}
+&= \{s_i + m, \dots, s_i + m + g - 1\}, \\
+\mathcal{V}^{(i)}
+&= \{s_i + m + g, \dots, s_i + 2m + g - 1\}.
+\end{aligned}
+$$ {#eq-ordered-partition}
 
-Para calcularlo, se requiere:
-
-Para calcularlo, se requiere:
-
-- La **observación**^[Para obtenerla, se aplicará el método `iris/filter`.] $y_{t + h - 1}$
-- El **pronóstico condicional**^[Estos pronósticos se obtendrán aplicando la matemática del SVAR sobre las variables endógenas, y posteriormente la rutina `endogenize/exogenize` de `iris` para obtener las reconstrucciones.] $\hat{y}_{t + h - 1 \mid t - 1, c, \mathcal{T}, \mathcal{V}, \mathcal{V}}$
-
----
-
-El **pronóstico condicional** a horizonte $h$ se define como:
-
-$$
-\hat{y}_{t+h-1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
-    \hat{y}_{t+h-1|t-1,u,\mathcal{T},\mathcal{V}} +
-    \hat{B}_{0,\mathcal{T}}^{-1} \hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}}
-$$
-
-El cual, a su vez, requiere para su cálculo:
-
-- El **pronóstico incondicional** $\hat{y}_{t + h - 1 \mid t - 1, u, \mathcal{T}, \mathcal{V}}$
-- Los **choques estructurales** obtenidos con una parametrización dentro de la muestra de validación, $\hat{w}_{t + h - 1 \mid t - 1, \mathcal{V}, \mathcal{V}}$
-
-::: {.callout-warning}
-Nótese que ambos elementos se derivan de pronósticos que parten de $t - 1$ como última observación disponible.
-:::
-
----
-
-El **pronóstico incondicional** se puede calcular como:
-
-$$
-\hat{y}_{t+h-1|t-1,u,\mathcal{T},\mathcal{V}} = 
-    \hat{A}_{1, \mathcal{T}}^h y_{t-1} + 
-    \sum_{i=1}^{h} \hat{A}_{1, \mathcal{T}}^{i-1} \hat{A}_{0, \mathcal{T}}
-$$ 
-
----
-
-Los **choques estructurales** calculados con una parametrización dentro de la muestra de validación se obtienen como:
-
-$$
-\hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}} = \hat{B}_{0,\mathcal{V}} \hat{e}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}}
-$$
-
-Para ello, se requieren los pronósticos *dentro de la muestra de validación*, con parametrización también dentro de dicha muestra:
-
-$$
-\hat{y}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}} = 
-    \hat{A}_{1,\mathcal{V}}^h y_{t-1} + 
-    \sum_{i=1}^{h} \hat{A}_{1,\mathcal{V}}^{i-1} \hat{A}_{0,\mathcal{V}}
-$$ 
-
-y el *error dentro de muestra* correspondiente:
-
-$$
-\hat{e}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}} = y_{t+h-1} - \hat{y}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}}
-$$
-
-
-## Implementación y ejemplo de cómputo
-
-
----
-
-Para este ejemplo, se utiliza la estructura y variables del *SVAR 50 4B*, con una muestra de estimación $\mathcal{T}$ entre  *2005Q1* y *2015Q4*; y una muestra de validación $\mathcal{V}$ entre *2016Q1* a *2024Q4*.
-
----
-
-Definimos un `SubsampleModel` con la muestra de estimación y validación definidas previamente.
-
-```matlab
-m1 = ModelClasses.RestrictedOLSModel( ...
-    'SVAR50_4B', ... id
-    data, ...
-    qq(2005, 1), ... inicio de la muestra de estimación
-    qq(2015, 4), ... fin de ma muestra de estimación
-    qq(2016, 1), ... inicio de la muestra de validación
-    qq(2024, 4), ... fin de la muestra de estimación
-    iris_model_path, ...
-    @setparam_SVAR50_4B, ...
-    endogenous_vars, ... lista de variables que componen el SVAR
-    restriction_matrix, ... matriz de restricciones
-    estimation_options ...
-);
-```
-
-Estimamos el modelo en la muestra de estimación $\mathcal{T}$, para obtener $\hat{A}_{0, \mathcal{T}}$, $\hat{A}_{1, \mathcal{T}}$ y $\hat{B}_{0, \mathcal{T}}$.
-
-```matlab
-
-m1 = m1.estimate();
-```
-
----
-
-```matlab
-estimation_results = m1.getSVARMatrices(m1.p, length(m1.irisModelEndogenousVariables));
-```
-
-Matriz $\hat{A}_{0, \mathcal{T}}$:
-
-```
->> estimation_results.VAR.C
-
-ans =
-
-    0.5130
-    0.6622
-    0.0077
-   -0.2377
-    1.4473
-    0.3142
-   -3.2268
-    5.9360
-   -0.1049
-```
-
----
-
-Matriz $\hat{A}_{1, \mathcal{T}}$:
-
-```
->> estimation_results.VAR.PHI1
-
-ans =
-
-    0.7125         0         0         0         0         0         0         0         0
-         0    0.6095         0         0         0         0         0         0         0
-         0         0    0.9947         0         0         0         0         0         0
-         0         0         0    0.7006         0         0         0    0.0219         0
-         0         0         0         0    0.2782         0         0    0.1286         0
-         0    0.0430         0         0         0    0.9000         0    0.0149         0
-         0         0         0         0         0         0    0.7590    0.0619    0.5258
-         0         0         0   -0.4631         0         0         0    0.7546   -0.7526
-         0    0.0000   -0.0214    0.1166         0    0.0806         0    0.0218    0.9008
-```
-
----
-
-Matriz $\hat{B}_{0, \mathcal{T}}$:
-
-```
->> estimation_results.SVAR.GAMMA0
-
-ans =
-
-    1.0000         0         0         0         0         0         0         0         0
-   -1.9709    1.0000         0         0         0         0         0         0         0
-   -0.2267    0.0122    1.0000         0         0         0         0         0         0
-   -0.0050   -0.1411    0.1582    1.0000         0         0         0         0         0
-   -0.2110    0.0014    0.3490   -0.2698    1.0000         0         0         0         0
-   -0.0188   -0.0176    0.3285   -0.2802   -0.0005    1.0000         0         0         0
-    0.3510    0.0554   -0.7208    0.8233    0.2883    0.3260    1.0000         0         0
-   -0.0471    0.0342   -1.1172    0.5864   -0.6511   -0.8746   -0.4988    1.0000         0
-   -0.0202   -0.0316    0.1118    0.0127   -0.0041    0.0109    0.0491    0.0044    1.0000
-```
-
----
-
-### `computeConditionalValidationErrors`
-
-Interfaz en los objetos de tipo `SubsampleModel` destinada al cómputo de los errores condicionales.
-
----
-
-El cómputo de los **errores condicionales** se realiza al ejecutar el método `computeConditionalValidationErrors`
-
-```matlab
-m1 = m1.computeConditionalValidationErrors();
-```
-
----
-
-El método `computeConditionalValidationErrors` realiza los siguientes procesos:
-
-1. Estimación del modelo en la muestra de validación.
-2. Cómputo de los choques estructurales en la muestra de validación, con parametrización en la muestra de validación.
-3. Cómputo de los pronósticos condicionales.
-4. Cómputo de los errores condicionales.
-
----
+El siguiente diagrama ilustra algunas particiones posibles para una muestra que
+abarca de `2005Q1` a `2025Q4`, bajo una elección fija de tamaños
+$|\mathcal{E}^{(i)}| = |\mathcal{V}^{(i)}| = 8$ años y
+$|\mathcal{G}^{(i)}| = 1$ año.
 
 ```{mermaid}
-sequenceDiagram
-    participant Usuario as Analista
-    participant SubsampleModel as SubsampleModel
-    participant Validation as Resultados intermedios
+gantt
+    title Particiones posibles de la muestra 2005Q1-2025Q4
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y
 
-    Usuario ->> SubsampleModel: computeConditionalValidationErrors()
-    SubsampleModel ->> Validation: Clonar SubsampleModel
-    Validation -->> SubsampleModel: SubsampleModel para la muestra de validación
-    SubsampleModel ->> Validation: estimate()
-    Validation -->> SubsampleModel: SubsampleModel estimado en la muestra de validación
-    SubsampleModel ->> Validation: computeForwardShocks()
-    Validation -->> SubsampleModel: Shocks en la muestra de validación
-    SubsampleModel ->> Validation: computeConditionalForecast()
-    Validation -->> SubsampleModel: Pronósticos condicionales
-    SubsampleModel ->> Validation: Computo de errores condicionales
-    Validation -->> SubsampleModel: Errores condicionales
-    SubsampleModel -->> Usuario: Errores condicionales
+    section Partición i = 1
+    E^(1) (2005Q1-2012Q4)      :done, p1e, 2005-01-01, 8y
+    G^(1) (2013Q1-2013Q4)      :crit, p1g, 2013-01-01, 1y
+    V^(1) (2014Q1-2021Q4)      :active, p1v, 2014-01-01, 8y
+    Resto de T (2022Q1-2025Q4) :p1r, 2022-01-01, 4y
+
+    section Partición i = 2
+    Resto de T (2005Q1-2005Q4) :p2r0, 2005-01-01, 1y
+    E^(2) (2006Q1-2013Q4)      :done, p2e, 2006-01-01, 8y
+    G^(2) (2014Q1-2014Q4)      :crit, p2g, 2014-01-01, 1y
+    V^(2) (2015Q1-2022Q4)      :active, p2v, 2015-01-01, 8y
+    Resto de T (2023Q1-2025Q4) :p2r1, 2023-01-01, 3y
+
+    section Partición i = 3
+    Resto de T (2005Q1-2006Q4) :p3r0, 2005-01-01, 2y
+    E^(3) (2007Q1-2014Q4)      :done, p3e, 2007-01-01, 8y
+    G^(3) (2015Q1-2015Q4)      :crit, p3g, 2015-01-01, 1y
+    V^(3) (2016Q1-2023Q4)      :active, p3v, 2016-01-01, 8y
+    Resto de T (2024Q1-2025Q4) :p3r1, 2024-01-01, 2y
 ```
 
-
----
-
-1. Estimación del modelo en la muestra de validación.
-
-```matlab
-function obj = computeConditionalValidationErrors(obj)
-    
-    % check if the model has been estimated
-    mustBeEstimated(obj);
-
-    % setting the observables data
-    model_observables = cleanAndMatchObsData(obj);
-    
-    % cloning obj and estimate it in the validation set
-    obj_validation = obj;
-    obj_validation.estimationStart = obj.validationStart;
-    obj_validation.estimationEnd = obj.validationEnd;
-    
-    obj_validation = obj_validation.estimate();
-
-```
-
-Se toma el objeto `SubsampleModel` y se "clona". Posteriormente, se redefinen las fechas de estimación y se estima, resultando en un SVAR con las mismas restricciones que el original, pero estimado en la muestra de validación.
-
----
-
-2. Cómputo de los choques estructurales en la muestra de validación, con parametrización en la muestra de validación.
-
-```matlab
-    smoothing_start_date = min( ...
-        structfun( ...
-            @(x) x.Range(1), ...
-            model_observables ...
-        ) ...
-    );
-
-    tic
-    shocks_validation_insample = computeForwardShocks( ...
-        obj_validation, ...
-        obj_validation.validationStart:obj_validation.validationEnd, ...
-        model_observables, ...
-        smoothing_start_date ...
-    );
-    toc
-
-    m = length(obj_validation.validationStart:obj_validation.validationEnd);
-```
-
----
-
-La función que computa los choques estructurales (`computeForwardShocks`) toma como argumentos el objeto clonado y estimado en el *paso 1*, proporcionando así las matrices $\hat{A}_{0, \mathcal{V}}$, $\hat{A}_{1, \mathcal{V}}$ y $\hat{B}_{0, \mathcal{V}}$.
-
-Adicionalmente, se define en qué periodos se desea calcular los choques. En este caso, se cubrirá toda la muestra de validación.
-
-Finalmente, se proporcionan los datos y se indica una fecha que marca el punto de inicio para el filtrado de las observaciones. Este filtrado tiene como objetivo computar las condiciones iniciales en todas las variables, y no solo en aquellas provistas en la data.
-
----
-
-
-3. Cómputo de los pronósticos condicionales.
-
-```matlab
-    
-    tic
-    conditional_forecasted_variables = computeConditionalForecast(...
-        obj, ...
-        model_observables, ...
-        shocks_validation_insample, ...
-        smoothing_start_date ...
-    );
-    toc
-```
-
-El cómputo de los pronósticos condicionales (`computeConditionalForecast`) se realiza a partir del objeto original, que contiene las matrices $\hat{A}_{0,\mathcal{T}}$, $\hat{A}_{1,\mathcal{T}}$ y $\hat{B}_{0,\mathcal{T}}$.
-
-A esto se suman los choques estructurales calculados en el *paso 2*, los cuales son necesarios para ajustar los pronósticos incondicionales.
-
-Finalmente, se suministran los datos y se especifica una fecha de inicio, a partir de la cual se calculan las condiciones iniciales de todas las variables.
-
----
-
-4. Cómputo de los errores condicionales.
-
-```matlab
-    [~, extended_observables] = filter( ...
-        obj.irisModel, ...
-        model_observables, ...
-        smoothing_start_date:obj.validationEnd, ...
-        'meanOnly=', true ...
-    );
-
-    extended_observables = extended_observables * get(obj.irisModel, 'xlist');
-    
-    extended_observables = dbclip(...
-        extended_observables, ...
-        obj.validationStart:obj.validationEnd ...
-    );
-
-    conditional_validation_errors = struct();
-    for var = get(obj.irisModel, 'xlist')
-        conditional_validation_errors.(var{1}) = (...
-            extended_observables.(var{1}) - ...
-            conditional_forecasted_variables.(var{1}) ...
-        );
-    end
-
-    obj.modelResults.conditionalValidationErrors = conditional_validation_errors;
-end
-```
-
----
-
-El cómputo de los errores condicionales es simplemente las observaciones menos los pronósticos condicionales (línea 18 y 19). 
-
-Se implementa en forma de bucle para recorrer todas la variables en el modelo.
-
----
-
-```
-m1 = m1.computeConditionalValidationErrors();
->> m1.modelResults.conditionalValidationErrors
-
-ans = 
-
-  struct with fields:
-
-          ln_y_star: [36x1x36 tseries]
-       ln_y_star_sm: [36x1x36 tseries]
-                .           .
-                .           .
-                .           .
-              dla_y: [36x1x36 tseries]
-```
-
-El arreglo de errores para cada variable tiene dimensión $36 \times 1 \times 36$.
-
-Las filas representan las fechas a las que corresponden los errores. En este caso, la muestra de validación tiene 36 elementos.
-
-```
->> length(m1.validationStart:m1.validationEnd)
-ans =
-    36
-```
-
----
-
-Las columnas representan las variables, y cada una ocupa una única columna.
-
-La tercera dimensión del arreglo corresponde a las distintas iteraciones, donde en cada una se añade una nueva observación a las condiciones iniciales del pronóstico.
-
-A continuación, se muestra el *resultado* de los *errores condicionales* para la *inflación total*. Las columnas reflejan las iteraciones correspondientes a la tercera dimensión del arreglo.
-
-```
-          i = 1     i = 2     i = 3     ...  i = end-1  i = end 
-2016Q1:  -0.2571       NaN       NaN    ...     NaN        NaN
-2016Q2:   0.1872   -0.5897       NaN    ...     NaN        NaN
-2016Q3:   0.0968   -1.3759   -2.8421    ...     NaN        NaN
-   .         .         .         .               .          .
-   .         .         .         .               .          .
-   .         .         .         .               .          .
-2024Q2:   9.7841    6.8634    6.1544    ...     NaN        NaN
-2024Q3:   9.8311    6.9075    6.1819    ...  5.4158        NaN
-2024Q4:   9.1218    6.1921    5.4536    ...  4.7065     4.7065
-```
-
----
-
-### Estimación dentro de la muestra de validación {#sec-estimation_validation}
-
-A continuación se presentan las matrices correspondientes a la estimación dentro de la muestra de validación.
-
-Adicionalmente, se provee un extracto de las observaciones, en caso se desee realizar los cálculos de forma manual.
-
----
-
-Matriz $\hat{A}_{0, \mathcal{V}}$:
-
-```
-    2.3622
-    0.2517
-    0.0478
-    0.0760
-    1.9518
-    0.0995
-    1.3580
-    2.7518
-   -0.1746
-```
-
----
-
-Matriz $\hat{A}_{1, \mathcal{V}}$:
-
-```
-    0.0103         0         0         0         0         0         0         0         0
-         0    0.8460         0         0         0         0         0         0         0
-         0         0    0.9755         0         0         0         0         0         0
-         0         0         0    0.8706         0         0         0    0.0027         0
-         0         0         0         0    0.0688         0         0    0.1008         0
-         0    0.0812         0         0         0    0.9000         0    0.0101         0
-         0         0         0         0         0         0    0.9219   -0.0308   -0.3252
-         0         0         0    0.0569         0         0         0    0.8229   -0.2508
-         0         0    0.0316    0.0430         0    0.0677         0    0.0047    0.9304
-```
-
----
-
-Matriz $\hat{B}_{0, \mathcal{V}}$:
-
-```
-    1.0000         0         0         0         0         0         0         0         0
-   -0.5376    1.0000         0         0         0         0         0         0         0
-   -0.0831    0.0829    1.0000         0         0         0         0         0         0
-    0.2460   -0.1527   -0.7318    1.0000         0         0         0         0         0
-   -0.9993   -0.0781   -0.9028    0.0740    1.0000         0         0         0         0
-    0.1224   -0.0668   -0.4690   -0.0797   -0.0352    1.0000         0         0         0
-    0.1501   -0.0733   -1.3875    0.1300    0.0658    0.9304    1.0000         0         0
-    0.7764   -0.1055   -0.7737    0.2636   -0.0921    0.4969    0.8410    1.0000         0
-   -0.0054    0.0316   -0.2436   -0.0065   -0.0183   -0.1426    0.0416    0.0115    1.0000
-```
----
-
-Extracto de las observaciones para las 9 variables del SVAR.
-
-```   
-2015Q4:  2.09784   -8.72615   0.116667  -0.25   3.61028   2.82555   0.239281   13.2129    3
-2016Q1:  1.77926   -6.48503   0.276667   1.38   1.66205   2.82918   0.468502   9.37829    3
-2016Q2:  1.48239   -4.91492   0.296667    1.5   3.63549   2.70952  -0.005467   8.36437    3
-2016Q3:  1.78955   -2.32115   0.296667   1.95   2.04862   2.58139   -1.42686   9.10886    3
-2016Q4:  2.15839   0.388465       0.39   1.86   3.20991   2.59039   -1.92633   9.79014    3
-2017Q1:   2.0657    3.68197       0.65   1.18    4.6109    2.6744   -3.24762   11.7483    3
-2017Q2:  2.30347    2.13992   0.906667   1.49   2.45883   2.54952   -4.47584   11.3477    3
-2017Q3:  2.38259    1.96229    1.06667   2.26   3.05878   2.39022   -3.50694    10.705    3
-```
----
-
-### `computeForwardShocks`
-
-Método correspondiente al *paso 2*, utilizado para computar los choques estructurales en la muestra de validación, con parametrización en la muestra de validación.
-
----
-
-Para el cómputo de los choques en la muestra de validación se sigue el siguiente procedimiento:
-
-Primero, se computan los *pronósticos dentro de muestra*, en la muestra de validación. Es decir, ya contamos con una parametrización en la muestra de validación.
+La expresión @eq-ordered-partition muestra que $\mathcal{E}^{(i)}$ siempre
+precede a $\mathcal{G}^{(i)}$ y que $\mathcal{G}^{(i)}$ siempre precede a
+$\mathcal{V}^{(i)}$. A su vez, @eq-partition-sizes garantiza que las
+particiones comparables usan un mismo tamaño para los tres bloques, variando
+únicamente su posición dentro de la muestra completa.
+
+## Cómputo de la Desviación en la Recuperación de Choques Estructurales
+
+### Planteamiento General
+
+Para describir el cómputo de la desviación, fijemos una partición de la muestra
+$\mathcal{T}$ y escribamos $\mathcal{A}$ y $\mathcal{B}$ para dos submuestras
+genéricas. Esta notación evita asignar de entrada un rol fijo de estimación o
+validación a cada submuestra.
+
+El cálculo requiere dos parametrizaciones del mismo SVAR:
+
+- Una parametrización estimada en la submuestra $\mathcal{A}$:
+  $\hat{A}_{0,\mathcal{A}}$, $\hat{A}_{1,\mathcal{A}}$ y
+  $\hat{B}_{0,\mathcal{A}}$.
+- Una parametrización estimada en la submuestra $\mathcal{B}$:
+  $\hat{A}_{0,\mathcal{B}}$, $\hat{A}_{1,\mathcal{B}}$ y
+  $\hat{B}_{0,\mathcal{B}}$.
+
+Para que la comparación sea simétrica, ambas parametrizaciones deben evaluarse
+sobre el mismo conjunto de observaciones. Por ello definimos el conjunto común
+de evaluación como
 
 $$
-\hat{y}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}} = 
-    \hat{A}_{1,\mathcal{V}}^h y_{t-1} + 
-    \sum_{i=1}^{h} \hat{A}_{1,\mathcal{V}}^{i-1} \hat{A}_{0,\mathcal{V}}
-$$ 
+\mathcal{U} = \mathcal{A} \cup \mathcal{B}.
+$$ {#eq-ab-union}
 
-Segundo, calculamos los errores  (dentro de muestra) en la muestra de validación:
+La razón para trabajar sobre $\mathcal{U}$ es que el intercambio de los roles de
+$\mathcal{A}$ y $\mathcal{B}$ solo produce una relación simétrica si las dos
+direcciones se evalúan sobre las mismas fechas. Esta propiedad se desarrolla en
+@sec-symmetry-justification y se usa para justificar la simetrización de los
+errores condicionales.
 
-$$
-\hat{e}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}} = y_{t+h-1} - \hat{y}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}}
-$$
+### Horizonte de Pronóstico 1
 
-Finalmente, calculamos los choques estructurales correspondientes a los errores y la estimación (dentro de la muestra de validación):
-$$
-\hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}} = \hat{B}_{0,\mathcal{V}} \hat{e}_{t+h-1|t-1,u,\mathcal{V},\mathcal{V}}
-$$
+El horizonte 1 es el caso base del procedimiento anterior. Se expone por
+separado porque es el horizonte sobre el cual se construye directamente la
+tupla empírica de desviaciones.
 
----
+#### Pronósticos Incondicionales
 
-Siguiendo el ejemplo, primero se parametriza dentro de la muestra de validación que va de *2016Q1* a *2024Q4* (*Paso 1*). Posteriormente, y de forma iterativa, se computan los choques conforme a las siguientes tablas.
-
-: *Primera* iteración para el cómputo de los choques dentro de la muestra de validación.
-
-|Parametrización|Pronóstico|Error|Choque|
-|-|-|-|-|
-$\mathcal{V}$ de *2016Q1* a *2024Q4*| $\hat{y}_{2016Q1|2015Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{e}_{2016Q1|2015Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{w}_{2016Q1|2015Q4,\mathcal{V},\mathcal{V}}$|
-$\mathcal{V}$ de *2016Q1* a *2024Q4*| $\hat{y}_{2016Q2|2015Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{e}_{2016Q2|2015Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{w}_{2016Q2|2015Q4,\mathcal{V},\mathcal{V}}$|
-|$\vdots$|$\vdots$|$\vdots$|$\vdots$|
-$\mathcal{V}$ de *2016Q1* a *2024Q4*| $\hat{y}_{2024Q4|2015Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{e}_{2024Q4|2015Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{w}_{2024Q4|2015Q4,\mathcal{V},\mathcal{V}}$|
-
----
-
-: *Segunda* iteración para el cómputo de los choques dentro de la muestra de validación.
-
-|Parametrización|Pronóstico|Error|Choque|
-|-|-|-|-|
-$\mathcal{V}$ de *2016Q1* a *2024Q4*| $\hat{y}_{2016Q2|2016Q1,u,\mathcal{V},\mathcal{V}}$|$\hat{e}_{2016Q2|2016Q1,u,\mathcal{V},\mathcal{V}}$|$\hat{w}_{2016Q2|2016Q1,\mathcal{V},\mathcal{V}}$|
-|$\vdots$|$\vdots$|$\vdots$|$\vdots$|
-$\mathcal{V}$ de *2016Q1* a *2024Q4*| $\hat{y}_{2024Q4|2016Q1,u,\mathcal{V},\mathcal{V}}$|$\hat{e}_{2024Q4|2016Q1,u,\mathcal{V},\mathcal{V}}$|$\hat{w}_{20124Q4|2016Q1,\mathcal{V},\mathcal{V}}$|
-
----
-
-: *Ultima* iteración para el cómputo de los choques dentro de la muestra de validación.
-
-|Parametrización|Pronóstico|Error|Choque|
-|-|-|-|-|
-$\mathcal{V}$ de *2016Q1* a *2024Q4*| $\hat{y}_{2024Q4|2024Q4,u,\mathcal{V},\mathcal{V}}$|$\hat{e}_{2024Q4|2024Q3,u,\mathcal{V},\mathcal{V}}$|$\hat{w}_{2024Q4|2024Q3,\mathcal{V},\mathcal{V}}$|
-
-
-La diferencia entre las distintas iteraciones corresponde a la condición inicial de los pronósticos. En la primera tabla, la condición inicial se posiciona en *2015Q4*; en la segunda, en *2016Q1*; y en la última iteración, en *2024Q3*.
-
-En esta última iteración, se calcula un único choque correspondiente a un horizonte de pronóstico igual a 1.
-
----
-
-El resultado de este proceso es, para el ejemplo, un arreglo de dimensión $36 \times 9 \times 36$. Las filas representan las fechas en la muestra de validación (*2016Q1* a *2024Q4*), siendo 36 fechas en total.
-
-Las columnas corresponden a las variables del SVAR dentro del modelo; en este caso, 9 variables.
-
-La tercera dimensión del arreglo corresponde a las iteraciones descritas en las tablas, agregando una observación a las condiciones iniciales del pronóstico.
-
-```
-shocks_validation_insample = 
-
-  struct with fields:
-
-          shocks: [36x9x36 tseries]
-      shockNames: {'s_d4_ln_y_star'  's_d4_ln_ipei'  's_i_star'  's_d4_ln_cpi_nosub'  's_d4_ln_y'  's_d4_ln_cpi_sub'  's_d4_ln_s'  's_d4_ln_bm'  's_i'}
-    endoVarNames: {'d4_ln_y_star'  'd4_ln_ipei'  'i_star'  'd4_ln_cpi_nosub'  'd4_ln_y'  'd4_ln_cpi_sub'  'd4_ln_s'  'd4_ln_bm'  'i'}
-```
-
----
-
-Según la tabla correspondiente a la *primera iteración*, los choques dentro de la muestra de validación son:
-
-```
- 2016Q1:  -0.6046    0.9709    0.2188    1.1539   -1.3111    0.5382    0.7542   -2.9350    0.0204
- 2016Q2:  -0.9014    2.7006    0.3937    0.9465    0.8271    0.1889    0.1269   -4.9688    0.0155
- 2016Q3:  -0.5943    5.1293    0.5832    1.0761   -1.2360   -0.0550   -1.6036   -5.2540    0.0897
- 2016Q4:  -0.2254    7.6406    0.8705    0.5948   -0.7459   -0.2594   -2.3028   -5.1908    0.1157
- 2017Q1:  -0.3181   10.9839    1.4112   -0.8011    0.2054   -0.5238   -4.1583   -5.2312    0.0913
- 2017Q2:  -0.0804    9.3140    1.5202   -0.3850   -2.2726   -0.5859   -5.8113   -6.2981   -0.0218
- 2017Q3:  -0.0012    9.0939    1.6589    0.3145   -1.8253   -0.8812   -5.0481   -6.1010   -0.0272
-    .        .          .         .         .         .         .         .         .         .
-    .        .          .         .         .         .         .         .         .         .
-    .        .          .         .         .         .         .         .         .         .
- 2024Q4:   0.1181    8.2650    5.1690   -5.6416   -4.0656   -1.9441   -7.9841  -10.2653    0.6685
-```
-
-Para replicar estos resultados, se pueden aplicar las fórmulas correspondientes, junto a las matrices y los datos provistos en la Sección -@sec-estimation_validation.
-
----
-
-En cuanto a la implementación, el método público `computeForwardShocks` toma los siguientes argumentos:
-
-```matlab
-    shocks_validation_insample = computeForwardShocks( ...
-        obj_validation, ...
-        obj_validation.validationStart:obj_validation.validationEnd, ...
-        model_observables, ...
-        smoothing_start_date ...
-    );
-```
-
-1. `obj_validation`: El objeto de tipo `SubsampleModel` que contiene la parametrización dentro de la muestra de validación.  
-2. `obj_validation.validationStart:obj_validation.validationEnd`: Rango en donde se computarán los choques.  
-3. `model_observables`: Observaciones sin filtrar.  
-4. `smoothing_start_date`: Fecha a partir de donde se aplicará el filtro para calcular las condiciones iniciales.
-
----
-
-En su implementación, dado que la parametrización se encuentra almacenada usando las estructuras de `iris`, primero se obtienen los parámetros del SVAR en forma matricial.
-
-```matlab
-function forward_shocks = computeForwardShocks( ...
-        obj, ...
-        forward_shocks_rng, ...
-        model_observables, ...
-        smoothing_start_date ...
-)
-    ...
-
-    svar_order = obj.p;
-    num_svar_variables = length(obj.irisModelEndogenousVariables);
-    
-    %% Getting the SVAR matrices
-    svar_matrices = obj.getSVARMatrices(svar_order, num_svar_variables);
-```
-
----
-
-En segundo lugar, se filtran los datos observados para generar todas las condiciones iniciales. En el ejemplo, esto es equivalente a filtrar desde el inicio de los datos hasta *2015Q4*.
-
-```matlab
- 
-    %% Getting the initial conditions
-    [~, data_model] = filter( ...
-        obj.irisModel, ...
-        model_observables, ...
-        smoothing_start_date:forward_shocks_rng(end), ...
-        'meanOnly=', true ...
-    );
-
-    data_model = data_model * obj.irisModelEndogenousVariables;
-
-    data_model = struct2array(data_model);
-```
-
----
-
-De forma iterativa, y conociendo las condiciones iniciales, se procede a calcular los pronósticos incondicionales en la muestra de validación (dentro de muestra).
-
-```matlab
-    cube_forecast = [];
-    for depth = 1:length(forward_shocks_rng)
-        % defining the dates for each iteration
-        hist_date = forward_shocks_rng(depth) - svar_order:forward_shocks_rng(depth) - 1;
-        first_forecast_date = forward_shocks_rng(depth);
-        last_forecast_date = forward_shocks_rng(end);
-        forecast_range = first_forecast_date:last_forecast_date;
-        
-        forecast = [];
-        for t = 1:length(forecast_range)
-            % setting the initial conditions for the forecast. the flip orders 
-            % the colums from the most updated to the oldest
-            if depth == 1
-                initial_condition = data_model(flip(hist_date))';
-            else
-                initial_condition = [y_t, initial_condition(:, 1:end-1)];
-            end
-
-            y_t = svar_matrices.VAR.C;
-            
-            for i = 1:svar_order
-                tmp_phi_name = sprintf('PHI%i', i);
-                tmp_phi = svar_matrices.VAR.(tmp_phi_name);
-                y_t = y_t + tmp_phi * initial_condition(:, i);
-            end
-```
-
----
-
-
-```matlab           
-            forecast = [forecast; y_t'];
-        end
-
-        forecast = tseries(first_forecast_date:last_forecast_date, forecast);
-        cube_forecast = cat(3, cube_forecast, forecast);
-    end
-```
-
----
-
-Con los pronósticos incondicionales, se calculan los errores de pronóstico (dentro de muestra) en la muestra de validación.
-
-```matlab
-    cube_forecast_errors = [];
-    for depth = 1:size(cube_forecast, 3)
-        e_t = data_model(forward_shocks_rng) - cube_forecast.Data(:, :, depth);
-    
-        cube_forecast_errors = cat(3, cube_forecast_errors, e_t);
-    end
-```
-
-Finalmente, se computa los choques (dentro de muestra) en la muestra de validación a partir de los errores de pronóstico.
-
-```matlab
-
-    cube_forecast_shocks = [];
-    for depth = 1:size(cube_forecast, 3)
-        % e_t is the forecast error at time t, for the iteration depth
-        e_t = cube_forecast_errors(:, :, depth)'; 
-        
-        % w_t is the conditional shock at time t
-        w_t = svar_matrices.SVAR.GAMMA0 * e_t;
-        w_t = w_t'; % transpose to match the shape of the data
-        w_t = tseries(forward_shocks_rng, w_t);
-
-        cube_forecast_shocks = cat(3, cube_forecast_shocks, w_t);
-    end
-
-...
-
-end
-```
-
----
-
-### `computeConditionalForecast`
-
-Método correspondiente al *paso 3*, utilizado para computar los pronósticos condicionados por los choques calculados en la muestra de validación (dentro de muestra).
-
----
-
-El método aplica la siguiente fórmula:
+El pronóstico incondicional a horizonte 1, usando la parametrización de
+$\mathcal{A}$ y evaluando observaciones en $\mathcal{U}$, parte del origen
+$t$ y pronostica la observación en $t+1$:
 
 $$
-\hat{y}_{t+h-1|t-1,c,\mathcal{T},\mathcal{V},\mathcal{V}} = 
-    \hat{y}_{t+h-1|t-1,u,\mathcal{T},\mathcal{V}} +
-    \hat{B}_{0,\mathcal{T}}^{-1} \hat{w}_{t+h-1|t-1,\mathcal{V},\mathcal{V}}
+\hat{y}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+=
+\hat{A}_{0,\mathcal{A}}
++
+\hat{A}_{1,\mathcal{A}} y_t,
+\qquad t+1 \in \mathcal{U}.
+$$ {#eq-os-forecast-one-step}
+
+De forma paralela, el pronóstico incondicional usando la parametrización de
+$\mathcal{B}$ y evaluando observaciones en $\mathcal{U}$ es
+
 $$
+\hat{y}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+=
+\hat{A}_{0,\mathcal{B}}
++
+\hat{A}_{1,\mathcal{B}} y_t,
+\qquad t+1 \in \mathcal{U}.
+$$ {#eq-is-forecast-one-step}
 
-Esta requiere los pronósticos incondicionales (fuera de muestra) y los choques estructurales (dentro de muestra) computados en la muestra de validación.
+#### Errores Incondicionales
 
-El proceso iterativo genera dichos pronósticos actualizando las condiciones iniciales de los pronósticos.
+Los errores incondicionales asociados a cada parametrización se calculan como
+la diferencia entre la observación realizada y el pronóstico incondicional
+correspondiente. Para la parametrización estimada en $\mathcal{A}$:
 
----
+$$
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+=
+y_{t+1} - \hat{y}_{t+1|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+$$ {#eq-os-error-one-step}
 
-Siguiendo con el ejemplo, a continuación se muestra de forma tabular las magnitudes que son computadas en cada una de las iteraciones. Recordemos que las iteraciones corresponden a la actualización de las condiciones iniciales.
+Para la parametrización estimada en $\mathcal{B}$:
 
-: *Primera* iteración para el cómputo de los pronósticos condicionales. 
+$$
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+=
+y_{t+1} - \hat{y}_{t+1|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+$$ {#eq-is-error-one-step}
 
-|Pronóstico Incondicional|Choque Impuesto|Pronósito Condicional|
-|-|-|-|
-|$\hat{y}_{2016Q1|2015Q4,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2016Q1|2015Q4,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2016Q1|2015Q4,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
-|$\hat{y}_{2016Q2|2015Q4,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2016Q2|2015Q4,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2016Q2|2015Q4,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
-|$\vdots$|$\vdots$|$\vdots$|
-|$\hat{y}_{2024Q4|2015Q4,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2024Q4|2015Q4,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2024Q4|2015Q4,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
+#### Desviaciones en la Recuperación de Choques Estructurales
 
----
+La desviación en la dirección $\mathcal{A} \to \mathcal{B}$ compara el error
+incondicional obtenido con la parametrización de $\mathcal{A}$ contra el error
+incondicional obtenido con la parametrización de $\mathcal{B}$, ambos evaluados
+sobre $\mathcal{U}$:
 
-: *Segunda* iteración para el cómputo de los pronósticos condicionales. 
+$$
+\begin{align}
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
+&=
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+-
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+\end{align}
+$$ {#eq-conditional-error-one-step}
 
-|Pronóstico Incondicional|Choque Impuesto|Pronósito Condicional|
-|-|-|-|
-|$\hat{y}_{2016Q2|2016Q1,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2016Q2|2016Q1,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2016Q2|2016Q1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
-|$\hat{y}_{2016Q3|2016Q1,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2016Q3|2016Q1,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2016Q3|2016Q1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
-|$\vdots$|$\vdots$|$\vdots$|
-|$\hat{y}_{2024Q4|2016Q1,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2024Q4|2016Q1,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2024Q4|2016Q1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
+En la dirección opuesta, la desviación es
 
----
+$$
+\begin{align}
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+-
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}.
+\end{align}
+$$ {#eq-reverse-conditional-error-one-step}
 
-: *Segunda* iteración para el cómputo de los pronósticos condicionales. 
+Por construcción, ambas desviaciones tienen el mismo tamaño y signo
+contrario:
 
-|Pronóstico Incondicional|Choque Impuesto|Pronósito Condicional|
-|-|-|-|
-|$\hat{y}_{2016Q2|2016Q1,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2016Q2|2016Q1,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2016Q2|2016Q1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
-|$\hat{y}_{2016Q3|2016Q1,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2016Q3|2016Q1,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2016Q3|2016Q1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
-|$\vdots$|$\vdots$|$\vdots$|
-|$\hat{y}_{2024Q4|2016Q1,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2024Q4|2016Q1,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2024Q4|2016Q1,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
+$$
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+-
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}.
+$$ {#eq-one-step-conditional-symmetry}
 
----
+Estas desviaciones cuantifican cuánto cambia la recuperación implícita de los
+choques estructurales al parametrizar el mismo bloque de observaciones con una
+u otra submuestra.
 
-: *Ultima* iteración para el cómputo de los pronósticos condicionales. 
+### Horizonte de Pronóstico Mayor a 1
 
-|Pronóstico Incondicional|Choque Impuesto|Pronósito Condicional|
-|-|-|-|
-|$\hat{y}_{2024Q4|2024Q3,u,\mathcal{T},\mathcal{V}}$|$\hat{w}_{2024Q4|2024Q3,\mathcal{V},\mathcal{V}}$|$\hat{y}_{2024Q4|2024Q3,c,\mathcal{T},\mathcal{V},\mathcal{V}}$|
+Para horizontes $h > 1$, el desarrollo parte de una última observación
+disponible en $t$ y evalúa el resultado en $t+h$. Por lo tanto, el
+horizonte debe ser factible dentro del conjunto común de evaluación:
 
----
+$$
+t+h \in \mathcal{U}.
+$$ {#eq-feasible-conditional-horizon}
 
-El resultado de este procedimiento, y siguiendo con el ejemplo, es un arreglo con dimensión $36 \times 9 \times 36$, en donde la primera dimensión corresponde a los horizontes de pronóstico, las columnas a las variables en el SVAR y la tercera dimensión corresponde a las iteraciones actualizando las condiciones iniciales del pronóstico.
+El cómputo sigue la misma lógica del horizonte 1, pero reemplaza los
+pronósticos de un paso por pronósticos acumulados a $h$ pasos. Para cada origen
+temporal $t$, se generan dos pronósticos sobre la misma observación
+$y_{t+h}$: uno con la parametrización de $\mathcal{A}$ y otro con la
+parametrización de $\mathcal{B}$. Al restar ambos pronósticos de la misma
+observación realizada se obtienen dos errores incondicionales comparables.
 
-```
-          ln_y_star: [36x1x36 tseries]
-       ln_y_star_sm: [36x1x36 tseries]
-            ln_ipei: [36x1x36 tseries]
-       ln_cpi_nosub: [36x1x36 tseries]
-               ln_y: [36x1x36 tseries]
-            ln_y_sm: [36x1x36 tseries]
-                .
-                .
-                .
-         d4_ln_y_sm: [36x1x36 tseries]
-      d4_ln_cpi_sub: [36x1x36 tseries]
-            d4_ln_s: [36x1x36 tseries]
-           d4_ln_bm: [36x1x36 tseries]
-                  i: [36x1x36 tseries]
-                  .
-                  .
-                  .
-```
+El pronóstico incondicional con parametrización en $\mathcal{A}$, para un
+VAR(1), se calcula como
 
----
+$$
+\hat{y}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+=
+\hat{A}_{1,\mathcal{A}}^h y_t
++
+\sum_{j=1}^{h}
+\hat{A}_{1,\mathcal{A}}^{j-1}
+\hat{A}_{0,\mathcal{A}}.
+$$ {#eq-os-forecast-h}
 
-Extracto de los resultados de los pronósticos condicionales para las 9 variables del SVAR en el ejemplo, para la iteración 1.
+De manera análoga, el pronóstico incondicional con parametrización en
+$\mathcal{B}$ es
 
-```
- 2016Q1:   1.4032   -4.8773    0.2082    0.9828    2.9809    3.4835   -0.4467   10.2973    3.0515
- 2016Q2:   1.1063   -3.7327    0.3018    0.9206    5.0055    3.1017   -1.3738    8.8732    3.1316
- 2016Q3:   1.4135   -0.6986    0.5240    1.4448    3.0667    2.9897   -3.0563    6.2401    3.3640
- 2016Q4:   1.7823    2.5396    0.8554    1.3701    3.4942    2.7196   -3.7992    6.2955    3.5047
- 2017Q1:   1.6896    5.7003    1.3366    0.3437    3.9767    2.0635   -4.5306    6.6576    3.5811
- 2017Q2:   1.9274    4.4990    1.5142    0.5633    1.5478    1.9867   -5.5281    3.5664    3.4657
- 2017Q3:   2.0065    4.4348    1.6716    1.2293    2.1366    1.8270   -5.3416    3.8915    3.4274
- .         .         .         .         .         .         .        .          .         .
- .         .         .         .         .         .         .        .          .         .
- .         .         .         .         .         .         .        .          .         .
- 2024Q4:   2.1258    3.8412    5.2159   -5.3706   -3.0949   -2.2604    2.5423    4.5341    3.4268
-```
+$$
+\hat{y}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+=
+\hat{A}_{1,\mathcal{B}}^h y_t
++
+\sum_{j=1}^{h}
+\hat{A}_{1,\mathcal{B}}^{j-1}
+\hat{A}_{0,\mathcal{B}}.
+$$ {#eq-is-forecast-h}
 
----
+Los errores incondicionales asociados se calculan restando cada pronóstico de
+la misma observación realizada $y_{t+h}$:
 
-Una dificultad de este procedimiento es que, si bien se obtienen los pronósticos de las variables en el SVAR, no se computan las reconstrucciones ni las variables de medida.
+$$
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+=
+y_{t+h}
+-
+\hat{y}_{t+h|t,u,\mathcal{A},\mathcal{U}},
+$$ {#eq-os-error-h}
 
-Para esto se utiliza la rutina `endogenize/exogenize`, exogeneizando los pronósticos previamente generados (anclando), de tal modo que se computen el resto de variables acorde a estas trayectorias.
+$$
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+=
+y_{t+h}
+-
+\hat{y}_{t+h|t,u,\mathcal{B},\mathcal{U}}.
+$$ {#eq-is-error-h}
 
----
+La desviación se obtiene comparando esos errores incondicionales. En la
+dirección $\mathcal{A} \to \mathcal{B}$ se define como
 
-En la implementación, primero se recuperan los parámetros estructurales de la estimación en la muestra de estimación $\mathcal{T}$.
+$$
+\begin{align}
+\hat{e}_{t+h|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
+&=
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+-
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+h \in \mathcal{U}.
+\end{align}
+$$ {#eq-conditional-error-h}
 
-Notemos que, en los argumentos de la función, se requieren los choques previamente calculados en `computeForwardShocks`.
+En la dirección opuesta,
 
-```matlab
-function conditional_forecasted_variables = computeConditionalForecast(...
-        obj, ...
-        model_observables, ...
-        shocks_validation_insample, ...
-        smoothing_start_date ...
-)
+$$
+\begin{align}
+\hat{e}_{t+h|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+&=
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+-
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+h \in \mathcal{U}.
+\end{align}
+$$ {#eq-reverse-conditional-error-h}
 
-    svar_order = obj.p;
-    num_svar_variables = length(obj.irisModelEndogenousVariables);
-    conditional_forecast_rng = obj.validationStart:obj.validationEnd;
-    
-    mustBeEstimated(obj);
+Por construcción, invertir el orden de las parametrizaciones solo cambia el
+signo de la desviación:
 
-    %% Getting the SVAR matrices
-    
-    svar_matrices = obj.getSVARMatrices(svar_order, num_svar_variables);
-```
+$$
+\hat{e}_{t+h|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+-
+\hat{e}_{t+h|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}.
+$$ {#eq-conditional-symmetry-h}
 
----
+Así, para horizontes mayores a uno, no se introduce una noción distinta de
+desviación. Lo único que cambia es que los errores incondicionales provienen de
+pronósticos acumulados a $h$ pasos, por lo que la comparación incorpora la
+dinámica del modelo durante varios periodos.
 
-Al igual que en `computeForwardShocks`, se calculan las observaciones para las condiciones iniciales del pronóstico.
 
-```matlab
-    %% Getting the initial conditions
-    [~, smoothed_data] = filter( ...
-        obj.irisModel, ...
-        model_observables, ...
-        smoothing_start_date:conditional_forecast_rng(end), ...
-        'meanOnly=', true ...
-    );
+## Procedimiento Operativo
 
-    data_model = smoothed_data * shocks_validation_insample.endoVarNames;
+En la aplicación concreta, se toma
+$\mathcal{A}=\mathcal{E}^{(i)}$ y
+$\mathcal{B}=\mathcal{V}^{(i)}$ para cada partición $i$. El conjunto común de
+evaluación es entonces
 
-    data_model = struct2array(data_model);
-```
+$$
+\mathcal{U}^{(i)} =
+\mathcal{E}^{(i)} \cup \mathcal{V}^{(i)}.
+$$ {#eq-operational-union}
 
----
+El procedimiento operativo puede resumirse en cuatro objetos matemáticos:
 
-Posterimente, se procede a computar los pronósticos incondionales (fuera de muestra) en la muestra de validación.
+1. La parametrización estimada en $\mathcal{E}^{(i)}$:
+   $\hat{A}_{0,\mathcal{E}^{(i)}}$,
+   $\hat{A}_{1,\mathcal{E}^{(i)}}$ y
+   $\hat{B}_{0,\mathcal{E}^{(i)}}$.
+2. La parametrización estimada en $\mathcal{V}^{(i)}$:
+   $\hat{A}_{0,\mathcal{V}^{(i)}}$,
+   $\hat{A}_{1,\mathcal{V}^{(i)}}$ y
+   $\hat{B}_{0,\mathcal{V}^{(i)}}$.
+3. Los errores incondicionales sobre $\mathcal{U}^{(i)}$ usando la
+   parametrización de $\mathcal{E}^{(i)}$.
+4. Los errores incondicionales sobre $\mathcal{U}^{(i)}$ usando la
+   parametrización de $\mathcal{V}^{(i)}$.
 
-```matlab
-    cube_forecast = [];
-    for depth = 1:length(conditional_forecast_rng)
+El resultado final es el error condicional, definido como la diferencia entre
+ambos errores incondicionales sobre $\mathcal{U}^{(i)}$:
 
-        % defining the dates for each iteration
-        hist_date = conditional_forecast_rng(depth) - svar_order:conditional_forecast_rng(depth) - 1;
-        first_forecast_date = conditional_forecast_rng(depth);
-        last_forecast_date = conditional_forecast_rng(end);
-        forecast_range = first_forecast_date:last_forecast_date;
-        
-        forecast = [];
-        for t = 1:length(forecast_range)
-            % setting the initial conditions for the forecast. the flip orders 
-            % the colums from the most updated to the oldest
-            if depth == 1
-                initial_condition = data_model(flip(hist_date))';
-            else
-                initial_condition = [y_t, initial_condition(:, 1:end-1)];
-            end
+$$
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+=
+\hat{e}_{t+h|t,u,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+-
+\hat{e}_{t+h|t,u,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}.
+$$ {#eq-operational-conditional-error}
 
-            y_t = svar_matrices.VAR.C;
+Este error condicional es la desviación observable asociada a recuperar choques
+estructurales con dos parametrizaciones distintas sobre el mismo conjunto de
+fechas.
 
-```
+## Tuplas de Desviaciones en la Recuperación de Choques
 
----
+Una vez calculadas las desviaciones para cada partición, el siguiente paso es
+organizarlas como tuplas empíricas. La tupla no introduce una nueva definición
+de error: únicamente recopila las desviaciones obtenidas al comparar dos
+parametrizaciones sobre el conjunto común de evaluación
+$\mathcal{U}^{(i)}$.
 
-```matlab
-            for i = 1:svar_order
-                tmp_phi_name = sprintf('PHI%i', i);
-                tmp_phi = svar_matrices.VAR.(tmp_phi_name);
-                y_t = y_t + tmp_phi * initial_condition(:, i);
-            end
-            
-            forecast = [forecast; y_t'];
-        end
+Sea $\mathcal{I}$ el conjunto de particiones consideradas. Para una partición
+$i$ y un horizonte $h$, definimos el conjunto de orígenes admisibles como
 
-        forecast = tseries(first_forecast_date:last_forecast_date, forecast);
-        cube_forecast = cat(3, cube_forecast, forecast);
-    end
-```
+$$
+\mathcal{S}_{h}^{(i)}
+=
+\left\{
+t :
+t+h \in \mathcal{U}^{(i)}
+\ \text{y}\
+y_t\ \text{está disponible}
+\right\}.
+$$ {#eq-admissible-origins}
 
----
+Para cada $t \in \mathcal{S}_{h}^{(i)}$ se calcula una desviación
 
-Finalmente se generan los pronósticos condicionales.
+$$
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+=
+\hat{e}_{t+h|t,u,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+-
+\hat{e}_{t+h|t,u,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}.
+$$ {#eq-deviation-by-partition}
 
-```matlab
-    %% Computing the conditional forecast with the shocks_validation_insample
-    cube_conditional_forecast = NaN(size(cube_forecast));
-    for depth = 1:size(cube_forecast, 3)
-        y_t = cube_forecast(:, :, depth) + (svar_matrices.SVAR.GAMMA0 \ ...
-            shocks_validation_insample.shocks(:, :, depth)')';
-        cube_conditional_forecast(:, :, depth) = y_t;
-    end
-    %% Now transforming the cube of structural shocks into a struct
-    svar_conditional_forecast = struct();
-    for v = 1:length(shocks_validation_insample.endoVarNames)
-        v_name = shocks_validation_insample.endoVarNames{v};
-        svar_conditional_forecast.(v_name) = tseries( ...
-            conditional_forecast_rng, ...
-            cube_conditional_forecast(:, v, :) ...
-        );
-    end
-```
+La tupla de desviaciones a horizonte $h$ se conforma agrupando esos objetos a
+través de todas las particiones:
 
----
+$$
+\mathcal{D}_{c,h}
+=
+\left(
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+:
+i \in \mathcal{I},\
+t \in \mathcal{S}_{h}^{(i)}
+\right).
+$$ {#eq-conditional-deviation-tuple-h}
 
-Al contar con los pronósticos condicionales para las variables del SVAR, se procede a computar el resto de los pronósticos a través de la rutina `endogenize/exogenize`.
+Si el SVAR contiene $K$ variables, cada elemento de
+$\mathcal{D}_{c,h}$ es un vector en $\mathbb{R}^{K}$. Cuando se requiere
+trabajar variable por variable, la tupla correspondiente al componente $k$ es
 
-```matlab
-    %% Calculating the extra variables using endogenize/exogenize
-    all_variables = get(obj.irisModel, 'xlist') + ...
-        get(obj.irisModel, 'ylist') + ...
-        get(obj.irisModel, 'elist');
+$$
+\mathcal{D}_{c,h,k}
+=
+\left(
+\hat{e}_{t+h|t,c,k,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+:
+i \in \mathcal{I},\
+t \in \mathcal{S}_{h}^{(i)}
+\right),
+\qquad k = 1,\dots,K.
+$$ {#eq-conditional-deviation-tuple-component}
 
-    non_svar_variables = all_variables - obj.irisModelEndogenousVariables;
+Debido a la simetría entre los errores expuesta en
+@sec-symmetry-justification, la tupla total de desviaciones condicionales a
+horizonte $h$, $\tilde{\mathcal{D}}_{c,h}$, se define a partir de la tupla
+original $\mathcal{D}_{c,h}$ como
 
-    conditional_forecasted_variables = struct();
-    for i = 1:length(conditional_forecast_rng)
-        smoothed_init_data = dbclip(...
-            smoothed_data, ...
-            smoothing_start_date:conditional_forecast_rng(i) - 1 ...
-        );
+$$
+\tilde{\mathcal{D}}_{c,h}
+=
+\mathcal{D}_{c,h} \Vert -\mathcal{D}_{c,h}.
+$$ {#eq-symmetric-conditional-errors}
 
-        svar_cf = structfun(...
-            @(x) tseries(conditional_forecast_rng, x.Data(:,:,i)), ...
-            svar_conditional_forecast, ...
-            'UniformOutput', false ...
-        );
-```
+El operador $\Vert$ denota concatenación. Es decir, la tupla original se
+extiende agregando una copia de sus elementos multiplicados por $-1$. Esta
+transformación fuerza simetría alrededor de cero y conserva la magnitud de los
+errores condicionales.
 
----
+## Justificación por Simetría entre Submuestras {#sec-symmetry-justification}
 
-Es en esta porción donde se define el plan de simulación que exogeniza los pronósticos condicionales de las variables del SVAR previamente calculados.
+Una forma de motivar la simetrización es estudiar qué ocurre al intercambiar
+los roles de las submuestras $\mathcal{E}(i)$ y $\mathcal{V}(i)$. Para evitar
+cargar la notación, en esta sección escribimos simplemente $\mathcal{E}$ y
+$\mathcal{V}$.
 
-```matlab
-        smoothed_condition_data = dboverlay(smoothed_init_data, svar_cf);
+La definición del error condicional puede expresarse como
 
-        simrng = conditional_forecast_rng(i):conditional_forecast_rng(end);
-        simPlan = plan(obj.irisModel, simrng);
-        simPlan = exogenize(...
-            simPlan, simrng, ...
-            obj.irisModelEndogenousVariables...
-        );
-        simPlan = endogenize( ...
-            simPlan, ...
-            simrng, ...
-            non_svar_variables ...
-        );
+$$
+\begin{align}
+    \hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{V}} &=
+        y_{t+h} - y_{t+h|t, c, \mathcal{E}, \mathcal{V}, \mathcal{V}} \\
+    &=
+    y_{t+h} - \left(
+        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}
+    \right) \\
+    &=
+        \left(
+        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
+        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{V}}
+        \right)
+        -
+        \left(
+        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}
+    \right) \\
+    &=
+        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{V}}
+        -
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}.
+\end{align}
+$$ {#eq-conditional-as-difference}
 
-        tmp_forecast = simulate(...
-            obj.irisModel, ...
-            smoothed_condition_data, ...
-            simrng, ...
-            'Plan=', simPlan ...
-        );
-        tmp_forecast = tmp_forecast * get(obj.irisModel, 'xlist');
-        tmp_forecast = dbclip(tmp_forecast, simrng);
-```
+Como el error condicional puede expresarse como una diferencia de errores
+incondicionales, una primera conjetura sería esperar que
 
----
+$$
+\hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{V}}
+\stackrel{?}{=}
+-\hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E}, \mathcal{E}}.
+$$ {#eq-false-symmetry}
 
-```matlab
-        if i == 1
-            conditional_forecasted_variables = tmp_forecast;
-        else
-            for ii = get(obj.irisModel, 'xlist')
-                conditional_forecasted_variables.(ii{1}) = cat(...
-                    3, ...
-                    conditional_forecasted_variables.(ii{1}), ...
-                    tmp_forecast.(ii{1}) ...
-                );
-            end
-        end
-    end
-end
+Esa conjetura no es válida tal como está escrita, porque en el lado izquierdo
+$t+h \in \mathcal{V}$, mientras que en el lado derecho
+$t+h \in \mathcal{E}$. Dado que
+$\mathcal{E} \cap \mathcal{V} = \varnothing$, ambas expresiones no se evalúan
+sobre las mismas observaciones.
 
-```
+La simetría sí aparece cuando los errores condicionales se calculan sobre la
+unión $\mathcal{E} \cup \mathcal{V}$ en lugar de restringirse únicamente a
+$\mathcal{V}$:
+
+$$
+\hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{E} \cup \mathcal{V}}
+    =
+- \hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E}, \mathcal{V} \cup \mathcal{E}}.
+$$ {#eq-valid-symmetry}
+
+En efecto,
+
+$$
+    \hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V},  \mathcal{E} \cup \mathcal{V}} =
+        \hat{e}_{t+h|t, u, \mathcal{E},\mathcal{E} \cup \mathcal{V}}
+        -
+        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{E} \cup \mathcal{V}},
+$$ {#eq-forward-conditional-error}
+
+mientras que
+
+$$
+    \hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E},  \mathcal{E} \cup \mathcal{V}} =
+        \hat{e}_{t+h|t, u, \mathcal{V},\mathcal{E} \cup \mathcal{V}}
+        -
+        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{E} \cup \mathcal{V}}.
+$$ {#eq-reverse-conditional-error}
+
+Por lo tanto, si la validación condicional se computa sobre
+$\mathcal{E}(i) \cup \mathcal{V}(i)$, la tupla relevante es la tupla de
+desviaciones construida en la sección anterior.
+
+La versión simetrizada queda entonces dada por
+
+$$
+\tilde{\mathcal{D}}_{c,h}
+= \mathcal{D}_{c,h} \Vert -\mathcal{D}_{c,h}.
+$$ {#eq-union-symmetric-conditional-errors}
+
+Esta construcción provee una justificación operacional para la simetrización:
+al evaluar ambas direcciones sobre el mismo conjunto de observaciones,
+intercambiar las submuestras cambia el signo del error condicional.

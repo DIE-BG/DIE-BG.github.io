@@ -59,18 +59,20 @@ website:
                   href: hefm/results/SVAR53/index.qmd  
                 - text: "Calibración de hiperparámetros"
                   href: hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.qmd
-        #- section: "Resources"
-          #contents:
-            #- text: "Slides"
-              #href: hefm/resources/slides/index.qmd
-            #- section: "Articles"
-              #contents:
-                #- text: "Article Placeholder"
-                  #href: hefm/resources/articles/articlePlaceholder.qmd
-        #- section: "Documentation"
-          #contents:
-            #- text: "Getting Started"
-              #href: hefm/documentation/index.qmd
+        - section: "Resources"
+          contents:
+            - text: "Index"
+              href: hefm/resources/index.qmd
+            - section: "Articles"
+              contents:
+                - text: "Model Selection Methodology"
+                  href: hefm/resources/articles/Monetary note of Models Selection/Monetary note of Models Selection.qmd
+        - section: "Documentation"
+          contents:
+            - text: "Index"
+              href: hefm/documentation/index.qmd
+            - text: "Estabilidad en la Recuperación de Choques"
+              href: hefm/documentation/conditional_validation_errors/conditional_validation_errors.qmd
 
     #- id: projects 
       #title: "Projects"

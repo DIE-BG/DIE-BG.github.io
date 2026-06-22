@@ -1,139 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://DIE-BG.github.io/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
+    <loc>https://DIE-BG.github.io/team.html</loc>
+    <lastmod>2025-09-09T17:41:03.635Z</lastmod>
   </url>
   <url>
-    <loc>https://DIE-BG.github.io/projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html</loc>
-    <lastmod>2026-06-22T17:56:01.745Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/about.html</loc>
-    <lastmod>2026-06-22T17:56:01.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/documentation/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR52/SVAR52_doc.html</loc>
-    <lastmod>2026-06-22T17:56:01.723Z</lastmod>
+    <loc>https://DIE-BG.github.io/tmp/slides.html</loc>
+    <lastmod>2026-06-22T15:16:36.099Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/hefm/results/slidePlaceholder/slidePlaceholder.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html</loc>
-    <lastmod>2026-06-22T17:56:01.719Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.718Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html</loc>
-    <lastmod>2026-06-22T17:56:01.709Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html</loc>
-    <lastmod>2026-06-22T17:56:01.701Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html</loc>
-    <lastmod>2026-06-22T17:56:01.697Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.634Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/hefm/results/SVAR53/Lambdas/SVAR53_pst.html</loc>
-    <lastmod>2026-06-22T17:56:01.738Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/resources/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.688Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/resources/slides/slidePlaceholder/slidePlaceholder.html</loc>
-    <lastmod>2026-06-22T17:56:01.688Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/resources/articles/Monetary note of Models Selection/Monetary note of Models Selection.html</loc>
-    <lastmod>2026-06-22T17:56:01.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/resources/articles/articlePlaceholder.html</loc>
-    <lastmod>2026-06-22T17:56:01.688Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/resources/slides/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.688Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR53/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.html</loc>
-    <lastmod>2026-06-22T17:56:01.738Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.701Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.709Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.718Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html</loc>
-    <lastmod>2026-06-22T17:56:01.688Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html</loc>
-    <lastmod>2026-06-22T17:56:01.718Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.621Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/hefm/results/SVAR51/SVAR51.html</loc>
-    <lastmod>2026-06-22T17:56:01.721Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.589Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/hefm/results/SVAR52/SVAR52_pst.html</loc>
-    <lastmod>2026-06-22T17:56:01.723Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_HV/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.534Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.564Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_AR1/SVAR_AR1_OS_doc.html</loc>
+    <lastmod>2025-09-09T17:41:03.583Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/hefm/results/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.634Z</lastmod>
   </url>
   <url>
-    <loc>https://DIE-BG.github.io/hefm/documentation/conditional_validation_errors/conditional_validation_errors.html</loc>
-    <lastmod>2026-06-22T17:56:01.682Z</lastmod>
+    <loc>https://DIE-BG.github.io/hefm/resources/articles/Monetary note of Models Selection/Monetary note of Models Selection.html</loc>
+    <lastmod>2026-06-22T15:09:43.270Z</lastmod>
   </url>
   <url>
-    <loc>https://DIE-BG.github.io/team.html</loc>
-    <lastmod>2026-06-22T17:56:01.745Z</lastmod>
+    <loc>https://DIE-BG.github.io/hefm/resources/slides/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/index.html</loc>
+    <lastmod>2026-06-22T15:09:43.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/documentation/index.html</loc>
+    <lastmod>2026-06-22T17:55:45.034Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/projects/nowcasting/articles/articlePlaceholder.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.635Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/projects/nowcasting/slides/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.635Z</lastmod>
   </url>
   <url>
     <loc>https://DIE-BG.github.io/projects/index.html</loc>
-    <lastmod>2026-06-22T17:56:01.744Z</lastmod>
+    <lastmod>2025-09-09T17:41:03.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/projects/nowcasting/slides/slidePlaceholder/slidePlaceholder.html</loc>
+    <lastmod>2025-09-09T17:41:03.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/about.html</loc>
+    <lastmod>2025-09-09T17:41:03.505Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/documentation/conditional_validation_errors/conditional_validation_errors.html</loc>
+    <lastmod>2026-06-22T17:55:45.029Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/resources/index.html</loc>
+    <lastmod>2026-06-22T15:09:43.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/resources/slides/slidePlaceholder/slidePlaceholder.html</loc>
+    <lastmod>2025-09-09T17:41:03.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/resources/articles/articlePlaceholder.html</loc>
+    <lastmod>2025-09-09T17:41:03.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_AR1/SVAR_AR1_OS_pst.html</loc>
+    <lastmod>2025-09-09T17:41:03.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_IS_initialEstPeriod/forecast_IS_initialEstPeriod.html</loc>
+    <lastmod>2026-06-22T15:09:43.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_HV/SVAR50_4B_HV.html</loc>
+    <lastmod>2026-06-22T15:09:43.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_4B_forecast_OS_finalEstPeriod/SVAR50_4B_forecast_OS_finalEstPeriod.html</loc>
+    <lastmod>2025-09-09T17:41:03.534Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR50_4B/SVAR50_forecast_OS_initialEstPeriod/forecast_OS_initialEstPeriod.html</loc>
+    <lastmod>2026-06-22T15:09:43.277Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR52/SVAR52_doc.html</loc>
+    <lastmod>2025-09-09T17:41:03.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR53/index.html</loc>
+    <lastmod>2025-09-09T17:41:03.634Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/hefm/results/SVAR53/Lambdas/SVAR53_lambdas_doc.html</loc>
+    <lastmod>2025-09-09T17:41:03.621Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DIE-BG.github.io/tmp/PROMPT.html</loc>
+    <lastmod>2026-06-22T15:20:45.930Z</lastmod>
   </url>
 </urlset>

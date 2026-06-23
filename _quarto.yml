@@ -71,8 +71,12 @@ website:
           contents:
             - text: "Index"
               href: hefm/documentation/index.qmd
-            - text: "Estabilidad en la Recuperación de Choques"
-              href: hefm/documentation/conditional_validation_errors/conditional_validation_errors.qmd
+            - section: "Estabilidad en la Recuperación de Choques Estructurales"
+              contents:
+                - text: "Sobre la Simetría de la Distribución Empírica"
+                  href: hefm/documentation/conditional_validation_errors/symmetry_justification.qmd
+                - text: "Procedimiento de Cómputo"
+                  href: hefm/documentation/conditional_validation_errors/conditional_validation_errors.qmd
 
     #- id: projects 
       #title: "Projects"

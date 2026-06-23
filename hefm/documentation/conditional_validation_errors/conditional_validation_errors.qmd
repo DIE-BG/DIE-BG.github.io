@@ -1,5 +1,5 @@
 ---
-title: "Estabilidad en la Recuperación de Choques Estructurales"
+title: "Procedimiento de Cómputo de la Estabilidad en la Recuperación de Choques Estructurales"
 author: "Departamento de Investigaciones Económicas"
 format:
   html:
@@ -142,9 +142,9 @@ gantt
     Resto de T (2024Q1-2025Q4) :p3r1, 2024-01-01, 2y
 ```
 
-La expresión @eq-ordered-partition muestra que $\mathcal{E}^{(i)}$ siempre
+La @eq-ordered-partition muestra que $\mathcal{E}^{(i)}$ siempre
 precede a $\mathcal{G}^{(i)}$ y que $\mathcal{G}^{(i)}$ siempre precede a
-$\mathcal{V}^{(i)}$. A su vez, @eq-partition-sizes garantiza que las
+$\mathcal{V}^{(i)}$. A su vez, la @eq-partition-sizes garantiza que las
 particiones comparables usan un mismo tamaño para los tres bloques, variando
 únicamente su posición dentro de la muestra completa.
 

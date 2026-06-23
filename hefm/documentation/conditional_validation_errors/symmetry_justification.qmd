@@ -1,0 +1,428 @@
+---
+title: "Sobre la Simetría de la Distribución Empírica de los Errores Condicionales"
+author: "Departamento de Investigaciones Económicas"
+format:
+  html:
+    toc: true
+    number-sections: true
+lang: es
+---
+
+## Problema que Motiva la Discusión
+
+La idea de generar una distribución simétrica de los errores
+condicionales parte de una dificultad en la construcción del MSE conjunto.
+
+Si los errores condicionales tienen una esperanza condicional distinta de cero
+dado el error incondicional, el término cruzado puede generar una compensación
+artificial.
+
+La definición previa partía de un error conjunto dado por
+
+$$
+e_{t+1|t,j}
+=
+e_{t+1|t,u}
++
+e_{t+1|t,c}
+$$ {#eq-symmetry-joint-error}
+
+Por definición, el MSE conjunto es el valor esperado del cuadrado elemento a
+elemento del error conjunto:
+
+$$
+MSE_{\odot,j}
+=
+\mathbb{E}\left[
+e_{t+1|t,j}^{\odot 2}
+\right]
+$$ {#eq-symmetry-joint-mse-definition}
+
+Sustituyendo la @eq-symmetry-joint-error:
+
+$$
+MSE_{\odot,j}
+=
+\mathbb{E}\left[
+\left(
+e_{t+1|t,u}
++
+e_{t+1|t,c}
+\right)^{\odot 2}
+\right]
+$$ {#eq-symmetry-joint-mse-substitution}
+
+Al expandir el cuadrado elemento a elemento se obtiene
+
+$$
+MSE_{\odot,j}
+=
+\underbrace{
+\mathbb{E}\left[
+e_{t+1|t,u}^{\odot 2}
+\right]
++
+\mathbb{E}\left[
+e_{t+1|t,c}^{\odot 2}
+\right]
+}_{A}
++
+\underbrace{
+2
+\mathbb{E}\left[
+e_{t+1|t,u}
+\odot
+\underbrace{
+\mathbb{E}
+\left[
+e_{t+1|t,c}
+\mid
+e_{t+1|t,u}
+\right]
+}_{C}
+\right]
+}_{B}
+$$ {#eq-symmetry-joint-mse-expansion}
+
+El bloque $A$ representa el MSE combinado del error incondicional y del error
+condicional. Es la suma de las contribuciones cuadráticas de ambas fuentes de
+error.
+
+El bloque $B$ es el término cruzado. Este término captura cómo interactúan el
+error incondicional y el error condicional dentro del MSE conjunto.
+
+Dentro de ese bloque, $C$ representa la esperanza condicional del error
+condicional dado el error incondicional. En la práctica, este objeto corresponde
+al sesgo de la distribución de errores condicionales que antes se aproximaba
+mediante promedios empíricos.
+
+::: {.callout-warning title="Problema de compensación"}
+Debido a la forma en que se computaba la distribución empírica de los errores
+condicionales, el término $C$ no tenía por qué ser cero. Por lo tanto, el
+término cruzado $B$ tampoco tenía por qué anularse.
+
+Más aún, $B$ podía tomar signo negativo y compensar parte del bloque $A$. Esa
+compensación no refleja necesariamente una menor incertidumbre en la
+recuperación de choques; puede reflejar un sesgo en la distribución de errores
+condicionales.
+:::
+
+La pregunta metodológica es entonces si tiene sentido que la distribución de
+errores condicionales tenga un sesgo propio, representado por $C$. Si el signo
+del error condicional depende del orden en que se comparan las submuestras,
+entonces ese sesgo puede ser una consecuencia de haber elegido una dirección
+particular para construir la distribución.
+
+## Partición de la Muestra
+
+Sea $\mathcal{T}$ la muestra completa de índices temporales,
+
+$$
+\mathcal{T} = \{1, \dots, t, \dots, T\}
+$$ {#eq-symmetry-full-sample}
+
+Consideramos una partición simple de $\mathcal{T}$ en tres bloques ordenados:
+
+$$
+\mathcal{T}
+=
+\mathcal{A}
+\cup
+\mathcal{G}
+\cup
+\mathcal{B}
+$$ {#eq-symmetry-partition}
+
+En esta partición:
+
+- $\mathcal{A}$ y $\mathcal{B}$ son dos submuestras de $\mathcal{T}$.
+- $\mathcal{A}$ es una primera submuestra usada para parametrizar el modelo.
+- $\mathcal{B}$ es una segunda submuestra usada para construir la comparación.
+- $\mathcal{G}$ es una brecha temporal entre ambas submuestras.
+
+Los tres bloques no se traslapan:
+
+$$
+\mathcal{A} \cap \mathcal{G}
+=
+\mathcal{A} \cap \mathcal{B}
+=
+\mathcal{G} \cap \mathcal{B}
+=
+\varnothing
+$$ {#eq-symmetry-disjoint-blocks}
+
+Además, respetan el orden temporal de la muestra. Todo índice en
+$\mathcal{A}$ ocurre antes que cualquier índice en $\mathcal{G}$, y todo índice
+en $\mathcal{G}$ ocurre antes que cualquier índice en $\mathcal{B}$:
+
+$$
+a < g < b,
+\qquad
+a \in \mathcal{A},\
+g \in \mathcal{G},\
+b \in \mathcal{B}
+$$ {#eq-symmetry-ordered-blocks}
+
+::: {.callout-note title="Papel del gap"}
+La brecha $\mathcal{G}$ separa temporalmente a $\mathcal{A}$ y
+$\mathcal{B}$. Su función es reducir la dependencia mecánica entre los bloques
+comparados.
+:::
+
+Un ejemplo de una partición es:
+
+```{mermaid}
+gantt
+    title Ejemplo de partición A-G-B
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y
+
+    section Partición
+    A:done, a, 2010-01-01, 5y
+    G:crit, g, 2015-01-01, 1y
+    B:active, b, 2016-01-01, 5y
+```
+
+La brecha $\mathcal{G}$ ordena la partición, pero no forma parte del conjunto
+de fechas donde se calculan las desviaciones.
+
+## Cómputo del Error Condicional
+
+Para mostrar la mecánica del cómputo, tomemos el caso en que el modelo base se
+parametriza con la submuestra $\mathcal{A}$ y los errores se computan sobre la
+submuestra $\mathcal{B}$.
+
+Para cada fecha $t+1 \in \mathcal{B}$, el error incondicional asociado a la
+parametrización en $\mathcal{A}$ se define como
+
+$$
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+=
+y_{t+1}
+-
+\hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+$$ {#eq-conditional-computation-unconditional-a}
+
+El error incondicional asociado a la parametrización en $\mathcal{B}$,
+calculado sobre ese mismo bloque de fechas, es
+
+$$
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+=
+y_{t+1}
+-
+\hat{y}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+$$ {#eq-conditional-computation-unconditional-b}
+
+Este es un error dentro de muestra: el modelo se parametriza con
+$\mathcal{B}$ y el error se evalúa sobre observaciones que también pertenecen a
+$\mathcal{B}$.
+
+La construcción condicional toma como punto de partida el pronóstico
+incondicional parametrizado en $\mathcal{A}$ y lo ajusta con el error
+incondicional obtenido al parametrizar en $\mathcal{B}$:
+
+$$
+\hat{y}_{t+1|t,c,\mathcal{A},\mathcal{B}}
+=
+\hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
++
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+$$ {#eq-conditional-computation-forecast}
+
+Siguiendo la definición del documento "Criteria for SVAR Model Selection: A
+Proposal", el error condicional es la diferencia entre la observación realizada
+y el pronóstico condicional. Sustituyendo la
+@eq-conditional-computation-forecast:
+
+$$
+\begin{aligned}
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B}}
+&=
+y_{t+1}
+-
+\hat{y}_{t+1|t,c,\mathcal{A},\mathcal{B}}
+\\
+&=
+y_{t+1}
+-
+\left(
+\hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
++
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\right)
+\\
+&=
+\left(
+y_{t+1}
+-
+\hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+\right)
+-
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\\
+&=
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+-
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\end{aligned}
+$$ {#eq-conditional-as-unconditional-difference}
+
+Por lo tanto, el error condicional se computa como la diferencia entre dos
+errores incondicionales evaluados sobre el mismo conjunto de fechas:
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B}}
+=
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+-
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\qquad
+t+1 \in \mathcal{B}
+$$ {#eq-conditional-difference-summary}
+
+La lectura de los subíndices en
+$\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B}}$ es:
+
+- $t+1|t$ indica que el error se evalúa en $t+1$ usando información disponible
+  hasta $t$.
+- $c$ indica que se trata de un error condicional.
+- $\mathcal{A}$ identifica la submuestra usada para parametrizar el pronóstico
+  base.
+- $\mathcal{B}$ identifica la submuestra donde se calculan los errores.
+
+En los errores incondicionales
+$\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}$ y
+$\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}$, el subíndice $u$ indica que no se
+ha aplicado el ajuste condicional. El primer subíndice de muestra indica dónde
+se parametriza el modelo, y el segundo indica dónde se calculan los errores.
+
+## Sobre la Simetría
+
+En este documento, la simetría no es un supuesto adicional sobre el modelo. Es
+una propiedad algebraica de cómo se define la desviación entre dos
+parametrizaciones cuando ambas se evalúan sobre el mismo conjunto de fechas.
+
+### Por Qué No Basta Evaluar en una Sola Submuestra
+
+Supongamos que se quiere comparar dos submuestras, $\mathcal{A}$ y
+$\mathcal{B}$, con $\mathcal{A} \cap \mathcal{B} = \varnothing$.
+
+Una primera estrategia podría ser:
+
+1. Parametrizar el modelo con $\mathcal{A}$ y calcular errores condicionales
+   únicamente en $\mathcal{B}$.
+2. Parametrizar el modelo con $\mathcal{B}$ y calcular errores condicionales
+   únicamente en $\mathcal{A}$.
+
+::: {.callout-warning title="Problema"}
+Estas dos comparaciones no usan el mismo conjunto de fechas. Por construcción,
+los pronósticos y los errores del primer caso pertenecen a $\mathcal{B}$,
+mientras que los del segundo pertenecen a $\mathcal{A}$.
+:::
+
+En el primer caso, los errores condicionales se calculan para fechas en
+$\mathcal{B}$:
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{B}},
+\qquad
+t+1 \in \mathcal{B}
+$$ {#eq-nonsymmetric-error-b}
+
+En el segundo caso, los errores condicionales se calculan para fechas en
+$\mathcal{A}$:
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{A}},
+\qquad
+t+1 \in \mathcal{A}
+$$ {#eq-nonsymmetric-error-a}
+
+Como $\mathcal{A} \cap \mathcal{B} = \varnothing$, las dos expresiones no se
+evalúan sobre las mismas observaciones ni sobre los mismos pronósticos. La
+primera expresión compara errores generados para fechas en $\mathcal{B}$; la
+segunda compara errores generados para fechas en $\mathcal{A}$. Dadas las
+definiciones de la partición, esos conjuntos no se traslapan.
+
+Por lo tanto, no es posible imponer la igualdad
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{A}}
+=
+-
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{B}}
+$$ {#eq-false-symmetry-single-sample}
+
+La igualdad falla porque no solo se cambia la parametrización. También se
+cambia el bloque de fechas al que pertenecen los pronósticos y sobre el que se
+calculan los errores condicionales.
+
+### Conjunto Común de Evaluación
+
+Para aislar el efecto de la parametrización, definimos el conjunto común de
+evaluación como
+
+$$
+\mathcal{U} = \mathcal{A} \cup \mathcal{B}
+$$ {#eq-symmetry-evaluation-set}
+
+La @eq-symmetry-evaluation-set reúne las fechas de $\mathcal{A}$ y
+$\mathcal{B}$, pero mantiene fuera la brecha $\mathcal{G}$.
+
+::: {.callout-note title="Qué cambia y qué queda fijo"}
+- Cambia: la parametrización usada para pronosticar.
+- Queda fijo: el conjunto de observaciones evaluadas.
+- Evaluamos siempre sobre: $\mathcal{U}$.
+:::
+
+### Simetría de la Desviación
+
+::: {.callout-note title="Mensaje central"}
+La simetría relevante es esta: se comparan los choques estructurales
+recuperados en $\mathcal{U}$ cuando el modelo se parametriza con
+$\mathcal{A}$ contra los choques recuperados en $\mathcal{U}$ cuando el modelo
+se parametriza con $\mathcal{B}$. Al invertir el orden de la comparación, la
+desviación debe conservar su magnitud y cambiar solo de signo.
+:::
+
+Cuando el modelo se parametriza con $\mathcal{A}$ y se compara contra la
+parametrización en $\mathcal{B}$, la desviación es
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
+=
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+-
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+$$ {#eq-symmetry-forward}
+
+Si el modelo se parametriza con $\mathcal{B}$ y se compara contra la
+parametrización en $\mathcal{A}$, la desviación es
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+-
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+$$ {#eq-symmetry-reverse}
+
+Al comparar ambas expresiones:
+
+$$
+\hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
+=
+-
+\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
+$$ {#eq-symmetry-result}
+
+::: {.callout-important title="Conclusión"}
+Invertir el orden de las submuestras cambia el signo de la desviación, pero no
+su magnitud.
+:::
+
+Esta propiedad no requiere que las parametrizaciones sean iguales. Tampoco
+requiere que los errores sean pequeños. Requiere únicamente que ambas
+direcciones se calculen sobre el mismo conjunto de evaluación.

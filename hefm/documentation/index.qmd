@@ -6,4 +6,7 @@ Esta sección reúne notas de implementación y documentación técnica de HEFM.
 
 ## Documentos disponibles
 
-- [**Estabilidad en la Recuperación de Choques Estructurales**](./conditional_validation_errors/conditional_validation_errors.qmd): exposición teórica de la relación entre errores condicionales y estabilidad en la recuperación de choques.
+### Estabilidad en la Recuperación de Choques Estructurales
+
+- [**Sobre la Simetría de la Distribución Empírica de los Errores Condicionales**](./conditional_validation_errors/symmetry_justification.qmd): explicación didáctica de por qué la validación debe evaluarse sobre la unión de submuestras para obtener simetría.
+- [**Procedimiento de Cómputo de la Estabilidad en la Recuperación de Choques Estructurales**](./conditional_validation_errors/conditional_validation_errors.qmd): exposición teórica de la relación entre errores condicionales y estabilidad en la recuperación de choques.

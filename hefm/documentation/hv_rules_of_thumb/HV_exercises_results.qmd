@@ -1,0 +1,551 @@
+---
+title: "Fundamentación de parámetros para método de validación cruzada HV"
+author: "DIE"
+format: 
+    revealjs:
+        scrollable: true
+        incremental: false
+        slide-number: true
+        smaller: true
+        progress: true
+        controls: true
+        controls-back-arrows: faded  
+bibliography: reference.bib
+nocite: '@*'
+lang: es
+---
+
+# Introducción
+
+## Introducción
+Esta presentación contiene las principales conclusiones de la **revisión literaria, análisis matemáticos y una propuesta práctica del equipo de evaluación** relacionadas al método de validación cruzada por bloques HV (*HV-block*).
+
+El objetivo de dichas acciones se divide en dos: 
+
+1. Determinar un tamaño mínimo de muestra de estimación en el contexto de los modelos VAR estructurales (*SVAR*) 
+
+2. Establecer un valor plausible (o un conjunto de valores) para el parámetro $H$ en el método de validación $HV$ con el propósito de su posterior implementación en la metodología de selección de modelos del DIE.
+
+## Contenido
+
+1. Determinación del tamaño mínimo de la muestra de estimación.
+2. Selección del parámetro $H$
+    - Revisión literaria
+    - Análisis de correlogramas
+    - Ejercicio práctico para la selección del parámetro
+3. Comparación de las propuestas para la selección del parámetro $H$
+4. Resultados comparativos del método $HV$ y el esquema de validación **OS Multiple**
+5. Propuesta del ejercicio de simulación
+5. Conclusiones
+
+## Notación general
+Dentro del contexto del método $HV$
+
+:::{.incremental}
+- $N$ es el número total de observaciones.
+- $H$ es el parámetro que controla la dependencia temporal de los datos.
+- $V$ es el parámetro que se utiliza para establecer el tamaño de la muestra de validación.
+- $N_T$ es el tamaño de la muestra de entrenamiento. Bajo este método el tamaño de muestra esta dado por: 
+- $N_T = N - 2H - 2V -1$
+:::
+
+# Determinación del tamaño mínimo de estimación
+
+## Determinación del tamaño mínimo de estimación
+
+La determinación del tamaño mínimo de la muestra de estimación tiene dos grandes implicaciones dentro del método de validación por bloques $HV$: 
+
+1. En primera instancia, un número relativamente pequeño aumenta el número de submuestras posibles.
+2. Una vez definido el tamaño mínimo de muestra automáticamente se define el valor máximo que puede tomar el parámetro $H$ dentro del método $HV$.
+
+## Revisión de Literatura
+- Según la revisión de literatura realizada, no se encontró
+un umbral teórico justificado y general del tamaño mínimo de muestra para estimar el modelo en función de la cantidad de parámetros.
+
+## Estimación del modelo
++ Siguiendo a Lutkepöhl, para estimar un modelo VAR con 
+parámetros restringidos,  se tiene la siguiente
+ecuación 
+
+$$
+\hat{\gamma}=\left[R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R\right]^{-1}R^{\prime}\left(Z\otimes\Sigma_{u}^{-1}\right)\mathbf{z}
+$$
+
+
+En particular la matriz $$ R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R $$ de 
+tamaño $M\times M$, donde $M$ es la cantidad 
+de párametros libres, 
+debe ser invertible, 
+por lo tanto es necesario que el $\text{rank}(R\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R)=M$.  
+
+## Propiedades de matrices
+Con algunas propiedades de matrices y suponiendo que la matriz $\Sigma_u$ es invertible.
+$$
+\begin{aligned}
+\text{rank}(R^{\prime}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R)  &\leq \text{min}\{\text{rank}(R), \text{rank}\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right) \}\\
+ & \leq \text{min}\{\text{rank}(R), \text{rank}\left(ZZ^{\prime}\right)\text{rank}\left(\Sigma_{u}^{-1}\right)\} \\
+&\leq\text{min}\{M,  \text{rank}(ZZ')\cdot K\}\\
+&\leq\text{min}\{M,  \text{rank}(Z)\cdot K\}\\
+\end{aligned}
+$$
+
+En el caso que $\text{rank}(Z)\cdot K<M$ la estimación 
+de $\gamma$ no se puede realizar. Notar que, el rango de $Z$ depende del número de observaciones.
+
+
+## Caso particular, SVAR50-4B
+
++ En específico para el SVAR50_4B, $M=29$, $K=9$.
+Por lo tanto el número de observaciones téorico 
+necesario mínimo es $T=4$, 
+(con 3 el rango de $R\left(ZZ^{\prime}\otimes\Sigma_{u}^{-1}\right)R$
+será menor o igual a $27<29=M$).  
++ Sin embargo, $T=4$ no es suficiente para 
+asegurar la invertibilidad de la matriz.
+ 
+
+
+## Estimaciones
+
++ Concretamente para este modelo y estos datos se realizaron prubas empríricas, para buscar cuál es un mínimo suficiente para poder estimar este modelo. 
+  
++ En esta pruebas se varió $T$ se estimó iteradamente el modelo. Con $3 \leq T \leq 20$, se observa el rango y el determinante de las matrices $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$.
+  
+
+
+## Resultados
+
+|    |$R'(ZZ'\otimes \Sigma_u^{-1})R$|            | $\Sigma_u$ |             |
+|----|----------------------------|------------|---------|-------------|
+| **T**  | rank                       | det        | rank    | det         |
+| **3**  | 18                         | 3.76E+81   | 3       | -5.28E+03   |
+| **4**  | 12                         | -1.11E-95  | 4       | 9.26E+74    |
+| **5**  | 5                          | 2.13E-116  | 1       | 7.89E+78    |
+| **6**  | 6                          | -2.22E-215 | 1       | -1.59E+101  |
+| **7**  | 22                         | -8.55E+278 | 6       | 2.47E-41    |
+| **8**  | 22                         | 1.14E+265  | 6       | -1.34E-47   |
+| **9**  | 21                         | 6.23E+249  | 7       | 5.59E-28    |
+| **10** | 17                         | 8.45E+262  | 7       | 2.79E-27    |
+| **11** | 22                         | 1.05E+122  | 8       | 3.34E-10    |
+
+
+## Resultados ...
+|    |$R'(ZZ'\otimes \Sigma_u^{-1})R$|            | $\Sigma_u$ |             |
+|----|----------------------------|------------|---------|-------------|
+| **T**  | rank                       | det        | rank    | det         |
+| **12** | 13                         | -3.86E+163 | 8       | 5.67E+03    |
+| **13** | 19                         | 1.55E+144  | 8       | 4.62E-16    |
+| **14** | 11                         | -6.67E+206 | 8       | 5.96E-07    |
+| **15** | 19                         | -4.10E+154 | 8       | 3.10E-10    |
+| **16** | 29                         | 1.81E+80   | 9       | 1.18E-07    |
+| **17** | 29                         | 8.30E+74   | 9       | 1.02E-05    |
+| **18** | 29                         | 1.30E+78   | 9       | 4.36E-05    |
+| **19** | 29                         | 4.78E+77   | 9       | 8.20E-05    |
+| **20** | 29                         | 1.86E+75   | 9       | 2.98E-04    |
+
+## Mínimo de observaciones para las estimaciones
++ Al realizar la estimación con pocas observaciones $T<16$, se obtienen matrices con rango incompleto, y con determinantes muy grandes, para $R'(ZZ'\otimes \Sigma_u^{-1})R$ y $\Sigma_u$.  
+
++ De esta manera se concluye que para *estos datos y este modelo*, el mínimo de observaciones asegurando que sea posible realizar la estimación matemáticamente, es $T=16$.
+
+# Selección del parámetro $H$
+
+Dentro de esta sección se presentan tres métodologias para la selección del valor razonable del parámetro $H$ (o un conjunto de valores). En especifico se presenta la calibración del parámetro con base en la revisión literaria, un análaisis de correlogramas y los resultados de un ejercicio práctico con el SVAR50_4B.
+
+# Revisión literaria
+
+Nuestra referencia para la elección de un valor para $H$ proviene de @burman1994cross como fuente principal, y de @racine2000consistent como fuente complementaria, quien extiende dicho enfoque a una validación tipo $HV$.
+
+## Ideas Principales
+
+- Se recomienda usar una proporción fija entre el bloque de datos a descartar $H$ y el número total de observaciones $N$, es decir, $H/N = p$, para determinar el tamaño del bloque $H$.  
+- La proporción $p$ debe estar en el rango $0 < p < 0.5$.  
+
+---
+
+- Con base en simulaciones con muestras cortas y procesos autorregresivos univariados, @burman1994cross encuentran que $p \approx 0.15$ ofrece un buen equilibrio entre la precisión en la estimación del error de pronóstico y la pérdida de observaciones en la muestra.
+- Para un valor de $p = 0.15$, las simulaciones en @burman1994cross prueban únicamente valores de $H$ entre 4 y 9:
+  - El ejercicio con la muestra más pequeña utiliza $N = 25$ observaciones, lo que implica $H = 25 \times 0.15 \approx 4$.
+  - En cambio, el ejercicio con la muestra más grande utiliza $N = 64$ observaciones, lo que implica $H = 64 \times 0.15 \approx 9$.
+
+
+---
+
+- A partir de los resultados de las simulaciones de @burman1994cross, presentados en la @tbl-results, se observa, en términos generales, que valores pequeños de $H$ tienden a subestimar el MSE obtenido por validación cruzada, mientras que valores grandes de $H$ tienden a sobreestimarlo.
+
+---
+
+![Resultados de las Simulaciones. Source: @burman1994cross](images/results.png){#tbl-results}
+
+---
+
+- Cuando $H$ es pequeño, las muestras de validación y estimación están altamente correlacionadas, lo que incrementa la probabilidad de acertar en el pronóstico a un paso adelante y sesga a la baja la estimación del MSE por validación cruzada para ese horizonte.
+
+
+![Ejemplo cuando $H = 0$](images/loo.png)
+
+---
+
+- Cuando se impone un valor de $H$ muy grande, la estimación del MSE por validación cruzada a un paso tiende a sobrestimar el verdadero MSE.
+
+En los ejercicios de simulación de @burman1994cross, esto se debe a una reducción excesiva en el tamaño de la muestra de estimación.
+
+En la práctica, también existe el riesgo de sobreestimar el MSE, ya que un bloque $H$ demasiado grande podría excluir información relevante sobre un cambio en la dinámica conjunta de los datos.
+
+
+![Ejemplo cuando $H$ es muy grande](images/hcv_big_h.png)
+
+---
+
+## Consecuencias para nuestro ejercicio de selección de modelos
+
+- Lo anterior respalda la elección de un $H$ entre 4 y 9 para nuestro esquema de selección de modelos.  
+- Usar un factor fijo de $p = 0.15$ es menos recomendable a medida que crece la muestra, ya que se descartan más observaciones de las necesarias para mejorar la independencia entre los bloques de estimación y validación.
+
+
+# Análisis de correlogramas
+En este caso se observaron los correlogramas de las variables utilizadas en la estimación del SVAR50_4B e intuir de ellos el rezago a partir del cual se pierde la dependencia temporal de las mismas.
+
+## Correlogramas
+
+![Correlograma de variables del modelo](./images/correlograms/correlogram_SVAR50_4B_HV.png){#fig-correlograma}
+
+## Correlogramas 
+
++ Tomando en cuenta los correlogramas de las variables del modelo, se observa que la dependencia temporal es relativamente baja, entre los periodos 1 y 4 para todas las variables. 
+  
++ Esto sugiere que el mínimo $H$ *podría* ser 4.
+
+# Propuesta práctica para selección de $H$ en la HEFM
+
+Este ejercicio tomó de base los resultados obtenidos en el análisis de tamáño mínimo de muestra de estimación, así como la calibración del parámetro $H$ propuesta en @burman1994cross. 
+
+---
+
++ El objetivo de nuestro ejercicio consistió en observar la evolución del $RMSE$ en la medida en la cual aumentaba el tamaño de muestra. 
+
++ El ejercicio se construyó tomando de referencia el SVAR50-4B.
+
++ Pese a que el ejercicio se construyó teniendo de referencia un modelo específico, la elección del parámetro $H$ no depende de un modelo específico, más bien **depende de la relación de dependencia temporal entre las series utilizadas**.
+
+
+## Consideraciones generales del ejercicio
+
+:::{.incremental}
+- Considramos que 6 es un valor plausible para el parámetro $V$ ya que brinda una ventana de validación de 3 años.^[Es normal que en los corrimientos la ventana de interés de los pronósticos no es mayor a 3 años.]
+- Dado el valor mínimo de la muestra de estimación $N_T = 16$, el tamaño de muestra actual $N = 76$, así como el valor de parámetro $V = 6$, el valor máximo que puede tomar $H$ es igual a 23.^[El tamaño de muestra está dado por $N_T = N - 2H - 2V - 1$]  
+- Por lo anterior, en el presente ejercicio $H$ se estableció en el rango de 0 a 23.
+:::
+
+## Ejercicio
+Dado que $H$ se estableció en el intervalo de 0 a 23, generamos todas las combinaciones posibles para cada $H$ con $V = 6$ fijo, por lo que las combinaciones posibles fueron 24.
+
+$$
+    \begin{align}
+    \text{Combinación 1, } H=0, V=6, N_T=63\\
+    \text{Combinación 2, } H=1, V=6, N_T=61\\
+    \text{Combinación 3, } H=2, V=6, N_T=59\\
+    \vdots \\
+    \text{Combinación 24, } H=23, V=6, N_T=17
+    \end{align}
+$$
+
+Para cada combinación generamos todas las submuestras posibles obteniendo sus $RMSEs$ fuera de muestra. El objetivo es comparar el comportamiento del error a medida que el tamaño de la muestra aumenta^[Hay una relación inversa entre $H$ y $N_T$].
+
+## Resultados del RMSE por Variable Objetivo
+![RMSE por Variable Objetivo](images/hv_exercise/RMSEByVariables.png)
+
+## Resultados del RMSE promedio de las variables objetivo
+![Promedio de RMSE](images/hv_exercise/RMSEAverage.png)
+
+## Hallazgos de las variables objetivo
+- Para la mayoría de las variables objetivo, el $RMSE$ disminuye a medida que el tamaño de la muestra aumenta.
+- La inflación total muestra un patrón diferente en los dos primeros horizontes de validación.
+- El $RMSE$ de la inflación total muestra el mismo patrón que el resto de variables objetivo a partir del horizonte tres.
+- A medida que el parámetro $H$ aumenta, el $RMSE$ también aumenta.^[Como se observa en los resultados de @burman1994cross (@tbl-results). Creemos que valores bajos de $H$ tienden a subestimar el *error* verdadero y valores altos tienden a sobreestimarlo.]
+
+## Hallazgos del promedio de variables objetivo
+- En los dos primeros horizontes el promedio estuvo dominado por el tipo de cambio, el producto y la tasa de interés.
+- El promedio en todos los horizontes tiende a disminuir a medida que aumenta el tamaño de muestra.
+- **Dado que el RMSE tiende a subestimarse con valores bajos de $H$ y sobreestimarse con valores altos, probablemente sea más apropiado seleccionar $H$ dentro de un rango de valores.**
+
+## Propuesta práctica con base en análisis del RMSE
+Con base en los resultados, intentamos encontrar un conjunto razonable de valores para $H$. Para hacerlo, procedimos de la siguiente manera:
+
+:::{.incremental}
+- Se obtuvo el rango intercuartílico de los valores de $RMSE$ para cada variable objetivo.
+- Se identificaron los valores de $H$ dentro de este rango.
+- Se determinó la intersección de los valores de $H$ entre todas las variables objetivo.
+- Finalmente, este proceso se realizó para los horizontes de validación 1, 2, 3 y 4.
+:::
+
+## Ejemplo
+
+- Se presenta un ejemplo a horizonte 1 con dos variables objetivo.
+
+|    d4_ln_cpi     |             |    d4_ln_s      |             |
+|:----------------:|:--------:   |:---------------:|:-----------:|
+|   Ejercicio H    |  RMSE       |   Ejercicio H   |  RMSE       |
+|  $H = 0, N_t = 63$          |  1.2084     |  $H = 0, N_t = 63$         |  1.6575     |
+|  $H = 3, N_t = 57$          |  1.2088     |  $H = 1, N_t = 61$         |  1.6588     |
+|  $H = 4, N_t = 55$          |  1.2079     |  $H = 2, N_t = 59$         |  1.6521     |
+|  $H = 5, N_t = 53$          |  1.2072     |  $H = 5, N_t = 53$         |  1.6543     |
+|  $H = 6, N_t = 51$          |  1.2061     |  $H = 6, N_t = 51$         |  1.6677     |
+|  $H = 7, N_t = 49$          |  1.2057     |  $H = 7, N_t = 49$         |  1.6871     |
+|  $H = 8, N_t = 47$          |  1.2053     |  $H = 8, N_t = 47$         |  1.7076     |
+|          $\vdots$           | $\vdots$    |           $\vdots$         | $\vdots$    |
+|  $H = 23, N_t = 17$         |  1.2061     |  $H = 21, N_t = 21$        |  1.9238     |
+: RMSE dentro del rango intercuartílico.
+
+Como se puede ver en la tabla, algunos valores de $H$ están en ambas variables. Hicimos esto para todas las variables y seleccionamos aquellos valores de $H$ que están en todas las variables^[En cada variable los resultados del ejercicio de H fueron identificados con base en el rango intercuartílico del RMSE].
+
+## Resultados del análisis de intersección
+
+- Horizonte 1: $H$ entre 6 y 14, $N_T$ entre 51 y 35. 
+- Horizonte 2: $H$ entre 11 y 16, $N_T$  entre 41 y 31.
+- Horizonte 3: $H$ entre 10 y 16, $N_t$  entre 43 y 31
+- Horizonte 4: $H$ entre 10 y 16, $N_t$  entre 43 y 31
+
+Lo anterior sugiere algunos rangos plausibles para los valores de $H$. Con el fin de fundamentar de mejor manera la propuesta de un rango de valores, se muestran un conjunto de graficas que identifican la posición de los valores de $H$ en los rangos intercuartílicos de las variables objetivo.
+
+---
+
+**Valores pequeños de H**
+![H de 1 a 4 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_1_4.png)
+
+---
+
+**Valores de H sugeridos en la literatura**
+![H de 4 a 9 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_4_9.png)
+
+---
+
+**Resultados de la propuesta práctica**
+![H de 6 a 14 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_6_14.png)
+
+---
+
+**Propuesta inicial del DIE**
+![H de 4 a 16 dentro de Q1 y Q3](images/hv_exercise/RMSE_hv_h_4_16.png)
+
+
+## Resultados del análisis de intersección
+
+Como se observó en las primeras dos gráficas, un número relativamente bajo de valores de $H$ de 1 a 9 están contenidos en el rango intercuartílico, mientras que para valores entre 6 y 14 el número crece considerablemente. 
+
+Lo anterior da mayor sustento a nuestra propuesta, la cual es utilizar el rango de valores de 6 a 14.^[Al igual que @burman1994cross centramos nuestra elección en el horizonte 1 de pronóstico]
+
+# Comparación de las propuestas para la selección del parámetro $H$
+
+## Comparación de las propuestas para la selección del parámetro $H$
+- El proceso de calibración obtenido de la literatura sugiere que $H$ sea un valor entre 4 y 9.
+- El análisis de correlogramas sugiere que el valor mínimo de $H$ posiblemente sea 4
+- En cuanto al ejercicio práctico este muestra que $H$ puede estar en un rango entre 6 y 14.
+
+Los resultados apuntan a que el posible valor mínimo de $H$ sea 4 y el máximo 14. Con ello se procedió a realizar un ejercicio comparativo entre el método $HV$ y el OS Múltiple implementado actualmente en el DIE.
+
+## Ejercicio comparativo entre método $HV$ y el esquema de validación **OS Multiple**
+
+Comparamos el rendimiento del método HV Block con el método OS Multiple. Para este ejercicio definimos tres rangos de valores de $H$.
+
+1. $H$ de 4 a 9 - total de submuestras 408^[Como proponen @burman1994cross.]
+2. $H$ de 4 a 16 - total de submuestras 884^[Propuesta inicial del DIE.]
+3. $H$ de 6 a 14 - total de submuestras 612^[Rango de la propuestra práctica para la selección de $H$.]
+
+La muestra total cubre desde 2005Q1 hasta 2024Q4.
+
+--- 
+
+**Coeficiente de variación promedio**
+![](images/hv_exercise/ComparativeDispersion.png)
+
+---
+
+**RMSE**
+![](images/hv_exercise/ComparativeLoss.png)
+
+## Ejercicios adicionales
+Con el propósito de brindar una regla sencilla para la determinación del valor $H$ (o conjunto de valores) a utilizar en la herramienta de selección de modelos se realizaron tres ejercicios utilizando el SVAR50-4B. Estos ejercicios consistieron en lo siguiente: 
+
+1. $H$ en un rango de *4 a 20* con pasos de 4. Esto implica que los valores de $H$ utilizados remueven años completos de observaciones a cada lado del conjunto de validación.
+
+2. Definimos $H$ siguiendo la regla propuesta por @burman1994cross. Considerando que el tamaño de la muestra es de $N = 76$ y la proporción $p = 0.15$ nuestro valor para el parámetro queda fijado en $H = 11$.
+
+3. El tercer ejercicio consistió en que $H$ tome valores de 8, 11 y 16. Este ejercicio se pensó como un punto medio entre el 1 y 2.
+
+---
+
+![](images/hv_exercise/HV%20simple%20proposal/ComparativeDispersion.png)
+
+---
+
+![](images/hv_exercise/HV%20simple%20proposal/ComparativeLoss.png)
+
+# Propuesta de simulación basada en la literatura para la selección $H$
+
+## Ejercicio de simulación basada en la literatura para la selección $H$
+
+El siguiente ejercicio de simulación se basa en los propuestos por @burman1994cross para la determinación de un valor $h$ en los ejercicios de validación cruzada. 
+
+---
+
+Aunque los ejercicios de validación cruzada propuestos por los autores exploran diferentes formas de dependencia temporal y múltiples especificaciones de autocorrelación, nos planteamos las siguientes preguntas:
+
+- ¿En un contexto multivariado, los valores de $H$ recomendados son capaces de generar una buena estimación del MSE a horizonte uno?
+- ¿Utilizando los valores recomendados de $H$ es posible estimar correctamente el MSE para horizontes mayores a uno?
+- ¿Cómo se ve afectada la estimación del MSE con diferentes valores de $H$ si el término de error no es Gaussiano?
+- ¿Los valores recomendados de $H$ son compatibles con el esquema de validación cruzada usado en la HEFM?
+
+---
+
+Para explorar estas preguntas, se plantea un ejercicios de simulación con las siguientes características:
+
+Todos los ejercicios de simulación utilizarán como base la estructura del VAR reducido del SVAR50-4B; es decir, los coeficientes $C$ y $A_1$ del modelo poblacional provendrán de la estimación del SVAR50-4B en la muestra completa de los datos observados para Guatemala.
+
+$$
+y_t = C + A_1 y_{t-1} + u_t
+$${#eq-svar504b}
+
+En lugar de suponer un proceso gaussiano para $u_t$, se propone utilizar una distribución empírica derivada de los residuos de la estimación del SVAR50-4B; es decir,
+
+$$
+u_t \sim F_{\hat{u}}
+$$
+
+---
+
+Una muestra aleatoria $\mathcal{Y} = \lbrace y_1, \dots, y_t, \dots, y_T \rbrace$ se utilizará para computar el MSE de validación cruzada bajo el esquema de la HEFM.^[Este esquema de validación cruzada no es exactamente el propuesto por @burman1994cross.]
+
+El tamaño de la muestra $\mathcal{Y}$ será uno de los componentes que variarán en los ejercicios de simulación, ya que se busca explorar el efecto que tiene el tamaño muestral en la estimación del MSE real.
+
+---
+
+Nos interesa estudiar el MSE de validación cruzada para horizontes de pronóstico de hasta 8 periodos; esto implica que el bloque $v$ del esquema de validación será igual a 8.
+
+Denotamos el MSE de validación cruzada según el enfoque HEFM como:^[La fórmula explícita de esta magnitud forma parte del esfuerzo actual en la documentación del HEFM.]
+
+$$
+CV_{HEFM}(H,v,j)
+$$
+
+donde:
+
+- $H$ es el tamaño del bloque de descarte,  
+- $v$ es el horizonte de pronóstico máximo a evaluar, que se define como 6,  
+- $j$ es el horizonte de pronóstico al que corresponde la magnitud calculada. Este valor debe cumplir siempre $j \leq v$.
+
+---
+
+El MSE real al estimar sobre la muestra completa $\mathcal{Y}$ solo puede calcularse si se dispone de una muestra independiente $\tilde{\mathcal{Y}} = \lbrace \tilde{y}_{0}, \tilde{y}_2, \dots, \tilde{y}_{v} \rbrace$, distinta a la utilizada para la estimación.
+
+Primero definimos el vector de errores como:
+
+$$
+    e(j)
+        = 
+        \tilde{y}_{j} 
+        - \sum_{i=1}^j \hat{A}_{1} \hat{C} -
+        \hat{A}_{1}^j \tilde{y}_{0}
+$$
+
+El MSE se define como:
+
+$$
+E \left[ PE(j) \right] = E \left[ 
+        e(j) \odot e(j)
+\right]
+$$
+
+Esta magnitud presenta dos fuentes de aleatoriedad: una proveniente de la muestra de estimación $\mathcal{Y}$ y otra de la muestra utilizada para medir el error, $\tilde{\mathcal{Y}}$.
+
+Para poder aproximarla mediante simulación, es necesario aplicar la ley de la esperanza iterada:
+
+$$
+E \left[ PE(j) \right] 
+=
+E \left[ 
+    E \left[
+        PE(j) \mid \mathcal{Y}
+    \right]
+\right]
+= 
+E \left[ 
+    E \left[
+        e(j) \odot e(j)
+        \mid
+        \mathcal{Y}
+    \right]
+\right]
+$$
+
+Recordemos que $j$ representa el horizonte de pronóstico y $j = 1, 2, \dots, v$.
+
+---
+
+Los pasos para realizar la simulación son los siguientes:
+
+0. Elegir el tamaño de muestra $T$ para la simulación.
+
+1. Simular 10,000 realizaciones de la muestra aleatoria $\mathcal{Y}$, indexada por $m$ y denotada como $\lbrace y_1^{(m)}, \dots, y_T^{(m)} \rbrace$.
+
+2. Simular 10,000 realizaciones de la muestra aleatoria $\tilde{\mathcal{Y}}$, indexada por $w$ y denotada como $\lbrace \tilde{y}_{0}^{(w)}, \dots, \tilde{y}_{v}^{(w)} \rbrace$.
+
+Estas simulaciones deben seguir el proceso definido por @eq-svar504b.
+
+---
+
+3. Se estima el valor esperado del MSE por validación cruzada a la HEFM, $E\left[CV_{HEFM}(h,v,j)\right]$.
+
+$$
+\hat{E}\left[CV_{HEFM}(h,v,j)\right] 
+=
+\dfrac{1}{10,000} {
+    \sum_{i = 1}^{n} {
+        CV_{HEFM}^{(m)}(h,v,j)
+    }
+}
+$$
+
+Esta magnitud de computaría $h \times v$ veces, una por cada combinación de $h$ y $j$.
+
+---
+
+4. Se estima el valor esperado del MSE real, $E\left[PE(j)\right]$.
+
+$$
+\hat{E}\left[PE(j)\right]
+=
+\dfrac{1}{100 \times 10^6} \sum_{m=1}^{10,000}{ 
+    \sum_{w=1}^{10,000} {
+        \left( 
+            \tilde{y}_{j}^{(w)} 
+            - \sum_{i=1}^j \hat{A}_1^{(m) i-1} \hat{C}^{(m)} - \hat{A}_1^{(m) j} \tilde{y}_0^{(w)}
+        \right)^2
+    }
+}
+$$
+
+Esta magnitud se computaría $v$ veces.
+
+---
+
+Finalmente, se comparan las distribuciones de $\hat{E}\left[PE(j)\right]$ y $\hat{E}\left[CV_{HEFM}(h,v,j)\right]$ con el fin de:
+
+- Diagnosticar posibles sesgos en la estimación del MSE real fuera de muestra.  
+- Seleccionar el valor de $h$ que ofrezca la estimación más eficiente del MSE fuera de muestra.
+
+
+# Comentarios Finales
+
+:::{.incremental}
+- Valores bajos del parámetro $H$ están asociados con valores bajos del RMSE (posiblemente subestimado), el cual aumenta conforme incrementa $H$. A su vez, valores muy altos de $H$ podrían sobreestimar el RMSE.
+- Creemos que no hay un valor único óptimo de $H$; en su lugar, **preferimos un rango de valores**.
+- El rango de valores de $H$ fue identificado considerando los resultados de las tres metodologías propuestas.
+- Creemos que los valores de $H$ contenidos entre **de 6 y 14** son adecuados para los ejercicios de selección de modelos dentro del esquema HV.
+- La comparación muestra que el método HV Block y el Método OS Multiple presentan un patrón similar en los resultados agregados del CVr y del RMSE a lo largo de los horizontes relevantes de validación.
+:::
+
+# Referencias
+
+::: {#refs}
+:::

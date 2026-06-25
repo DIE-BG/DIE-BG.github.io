@@ -1,0 +1,193 @@
+---
+title: $h-v$ Cross Validation Rule of Thumb
+bibliography: reference.bib
+format:
+    html:
+        math: mathjax
+nocite: |
+    @*
+---
+
+The $h$–$v$ block is a cross-validation setting that aims to estimate the forecasting error in an unbiased manner. The $h$ block represents the portion of observations discarded from the sample in order to separate the estimation and validation sets (the validation set includes the observations required to initialize the forecast), so that the estimation is nearly independent from the forecasting error calculation. The $v$ block represents the forecast horizon we aim to evaluate. If we are interested in a one-step-ahead forecast, $v$ can be set to one, resembling the leave-one-out cross-validation setting, but adapted to allow for a more reliable estimation. For a graphical representation of both cross validation settings, see @sec-appendix_diagrams.
+
+@racine2000consistent argues an additional purpose for the $v$ block. If the entire block is used to compute a single prediction performance metric, such as the MSE, they claim that this approach improves the estimation of the prediction error. However, this view is incompatible with our model selection framework, given that we are interested in accurately estimating the forecasting error at a specific horizon.
+
+Ideally, we select $h$ as big as possible, in order to increase our chances of having independence between the estimation and validation sets.
+
+Specifically, if $\lbrace X_1, \cdots, X_N \rbrace$ is a section from a stationary process,
+
+$$
+\text{Cov}(X_i, X_{i+h}) \to 0 \quad \text{as} \quad  h \to \infty
+$$
+
+@burman1994cross recognizes that, since the data-generating process is unknown and practical samples are often small, it is preferable to select $h$ as small as possible. To this end, they suggest using a fixed fraction of the sample, $p = h/N$, where $0 < p < 0.5$. The estimation of the forecasting error should then be adjusted by a correction term that accounts for the underuse of the available sample.
+
+Based on simulations, they conclude that $p = \frac{1}{6}$ proves to be a sensible choice in their results. It is important to note that their simulations consider sample sizes of 25, 36, 60, and 64 observations, testing a range of $h$ values from 0 to 17. This implies that, even though they evaluate $p$ values as large as 0.30, they effectively remove a maximum of 34 observations ($2 \times 17$) from the full sample in each step of the $h$ cross-validation. 
+
+Following their recommended value of $p = \frac{1}{6}$, the minimum and maximum values of $h$ are 4 and 9, respectively. This conclusion is supported by @tbl-results, where column 4 of each simulation exercise reports the results corresponding to the suggested value of $p$.
+
+<!--
+only short range dependence are considered
+six simulations
+10,000 per simulation
+N obs
+variance 3
+least squares
+one step prediction
+-->
+
+
+
+## References
+
+::: {#refs}
+:::
+
+## Appendix {.appendix #sec-appendix}
+
+### Leave-One-Out and $h$ Cross Validation {.appendix #sec-appendix_diagrams}
+
+In the leave-one-out cross-validation setting, the validation set—which includes both the initial conditions and the point to be evaluated—is immediately surrounded by the estimation set (@fig-loo). This configuration can compromise the estimation of the forecasting error due to the correlation between the estimation and validation sets.
+
+In contrast, in the $h$ cross-validation setting, the $h$ discarded observations surrounding the validation set help reduce the likelihood of bias in the estimation of the forecasting error caused by correlation with the estimation set (@fig-hcv).
+
+
+::: {#fig-loo}
+
+{{< include loocv.qmd >}}
+
+Leave-One-Out Cross Validation Setting
+:::
+
+::: {#fig-hcv}
+
+{{< include hcv.qmd >}}
+
+$h$ Cross Validation Setting
+:::
+
+### Definition of Prediction Error One Step Ahead {.appendix #sec-appendix_error_def}
+
+For a random process that follows @eq-random_process and is estimated using the sample $\lbrace X_1, \dots, X_N \rbrace$, the one-step-ahead prediction error is defined as:
+
+$$
+E \lbrace PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \rbrace = 
+E \lbrace
+    (\tilde{X}_{k+1} - \hat{\theta}_0 - \sum_{i=1}^{k} \hat{\theta}_i \tilde{X}_{i-k})^2
+\rbrace
+$$
+
+where $\lbrace \tilde{X}_{k+1}, \dots, \tilde{X}_1 \rbrace$ follows the same process as the random sample used for estimation but is independent of it.
+
+By the law of iterated expectations:
+
+$$
+E \lbrace PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \rbrace = 
+E \lbrace
+    E \lbrace 
+        PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \mid \hat{\theta}_0, \dots, \hat{\theta}_k
+    \rbrace
+\rbrace
+$$
+
+which allows us to compute this magnitude through simulation.
+
+### Simulation Exercise {.appendix #sec-appendix_sim}
+
+The following description is based on @burman1994cross.
+
+The simulation exercise begins by imposing the following random stationary process:
+
+$$
+x_i = \theta_0 + \sum_{i=1}^{k} \theta_i x_{i-k} + \epsilon_i
+$${#eq-random_process}
+
+$$
+\epsilon_i \sim N(\mu_{\epsilon} = 0, \sigma_{\epsilon} = 3)
+$$
+
+where $\theta_0, \dots, \theta_k$ are known parameters.
+
+First, we simulate the data $\lbrace X_1, \dots, X_N \rbrace$ required to fit the model. Independently, we also simulate an additional sample $\lbrace \tilde{X}_{k+1}, \tilde{X}_k, \dots, \tilde{X}_1 \rbrace$, which will be used to estimate the true prediction error $E\lbrace PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \rbrace$.
+
+Let us denote $\lbrace x_1^{(m)}, \dots, x_N^{(m)} \rbrace$^[Instead of simulating $N$ observations, consider simulating $N + \delta$ observations, where the first $\delta$ values are discarded to eliminate the effect of initial conditions in the simulation.] as the $m$-th simulated realization of $\lbrace X_1, \dots, X_N \rbrace$ following @eq-random_process, and $\lbrace \tilde{x}_1^{(w)}, \dots, \tilde{x}_N^{(w)} \rbrace$ as the $w$-th realization of $\lbrace \tilde{X}_{k+1}, \tilde{X}_k, \dots, \tilde{X}_1 \rbrace$. According to @burman1994cross, the exercise is repeated 10,000 times, meaning $m, w = 1, \dots, 10{,}000$.
+
+For each $m$-th simulation:
+
+1. Estimate the model to obtain $\hat{\theta}_0^{(m)}, \dots, \hat{\theta}_k^{(m)}$.
+2. Compute the one-step-ahead $h$-block cross-validation forecasting error $CV_n^{(m)}(h)$, for $h = 0, \frac{1}{6}, \frac{1}{4}, \frac{1}{3}, \frac{1}{2}$.
+3. Compute the expected prediction error conditional on the estimated parameters:
+
+$$
+\hat{E}^{(m)} \lbrace 
+    PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \mid \hat{\theta}_0, \dots, \hat{\theta}_k
+\rbrace
+=
+\frac{1}{10{,}000} \sum_{w=1}^{10{,}000} 
+    \left(
+        \tilde{x}^{(w)}_{k+1} - \hat{\theta}_0^{(m)} - \sum_{i=1}^{k} \hat{\theta}_i^{(m)} \tilde{x}^{(w)}_{i-k}
+    \right)^2
+$$
+
+After repeating the procedure 10,000 times, the following simulated statistics are computed:
+
+**Expected cross-validation error:**
+
+$$
+\hat{E} \lbrace CV_n(h) \rbrace =
+    \dfrac{1}{10{,}000} \sum_{m = 1}^{10{,}000} CV_n^{(m)}(h)
+$$
+
+**Variance of cross-validation error:**
+
+$$
+\hat{\text{Var}} \lbrace CV_n(h) \rbrace =
+    \dfrac{1}{10{,}000} \sum_{m = 1}^{10{,}000} 
+        \left( 
+            CV_n^{(m)}(h) - \hat{E} \lbrace CV_n(h) \rbrace
+        \right)^2
+$$
+
+**Expected prediction error:**
+
+$$
+\hat{E}\lbrace 
+    PE(\hat{\theta}_0, \dots, \hat{\theta}_k) 
+\rbrace
+=
+\frac{1}{10{,}000} \sum_{m=1}^{10{,}000} 
+    \hat{E}^{(m)} \lbrace 
+        PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \mid \hat{\theta}_0, \dots, \hat{\theta}_k
+    \rbrace
+$$
+
+**Variance of the estimated prediction error:**
+
+$$
+\hat{\text{Var}}\lbrace 
+    PE(\hat{\theta}_0, \dots, \hat{\theta}_k) 
+\rbrace
+=
+\frac{1}{10{,}000} \sum_{m=1}^{10{,}000} 
+    \left(
+        \hat{E}^{(m)} \lbrace 
+            PE(\hat{\theta}_0, \dots, \hat{\theta}_k) \mid \hat{\theta}_0, \dots, \hat{\theta}_k
+        \rbrace
+        -
+        \hat{E}\lbrace 
+            PE(\hat{\theta}_0, \dots, \hat{\theta}_k) 
+        \rbrace
+    \right)^2
+$$
+
+### Simulation Results {.appendix #sec-appendix_results}
+
+Los resultados en @burman1994cross utilizan la siguiente nomeclatura:
+
+- $E(PE_n)$: Valor esperado del error de predicción a un paso para una estimación basada en $n$ observaciones.  
+- $E(CV_n)$: Valor esperado del error de predicción a un paso bajo un esquema de validación cruzada tipo $h$, usando $n$ observaciones para la estimación.  
+- $E(CCV_n)$: Valor esperado del error de predicción a un paso bajo el esquema de validación cruzada tipo $h$ con corrección, usando $n$ observaciones para la estimación.
+
+---
+
+![Simulation Results. Source: @burman1994cross](images/results.png){#tbl-results}

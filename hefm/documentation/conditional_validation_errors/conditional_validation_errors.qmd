@@ -35,8 +35,9 @@ El documento organiza esta idea en tres partes. Primero se describe la
 construcción de las particiones de muestra y la notación para los errores
 incondicionales y condicionales. Luego se desarrolla el cómputo operativo:
 estimación en la muestra de validación, recuperación de choques, construcción
-de pronósticos condicionales y cálculo final de errores. Finalmente se explica
-por qué el MSE conjunto requiere simetrizar la distribución de errores
+de pronósticos condicionales y cálculo final de errores. Finalmente se distingue
+entre la simetría que aparece en la escala de choques estructurales y la
+simetría que no necesariamente se conserva en la escala observable de errores
 condicionales.
 
 ## Particiones de la Muestra
@@ -166,19 +167,19 @@ El cálculo requiere dos parametrizaciones del mismo SVAR:
   $\hat{A}_{0,\mathcal{B}}$, $\hat{A}_{1,\mathcal{B}}$ y
   $\hat{B}_{0,\mathcal{B}}$.
 
-Para que la comparación sea simétrica, ambas parametrizaciones deben evaluarse
-sobre el mismo conjunto de observaciones. Por ello definimos el conjunto común
-de evaluación como
+Para que pueda aparecer una relación antisimétrica en la escala de choques
+estructurales, ambas parametrizaciones deben evaluarse sobre el mismo conjunto
+de observaciones. Por ello definimos el conjunto común de evaluación como
 
 $$
 \mathcal{U} = \mathcal{A} \cup \mathcal{B}.
 $$ {#eq-ab-union}
 
 La razón para trabajar sobre $\mathcal{U}$ es que el intercambio de los roles de
-$\mathcal{A}$ y $\mathcal{B}$ solo produce una relación simétrica si las dos
-direcciones se evalúan sobre las mismas fechas. Esta propiedad se desarrolla en
-@sec-symmetry-justification y se usa para justificar la simetrización de los
-errores condicionales.
+$\mathcal{A}$ y $\mathcal{B}$ solo produce una relación antisimétrica para la
+diferencia de choques si las dos direcciones se evalúan sobre las mismas fechas.
+Esta propiedad se desarrolla en @sec-symmetry-justification. Esa relación no
+implica, por sí sola, que los errores condicionales observables sean simétricos.
 
 ### Horizonte de Pronóstico 1
 
@@ -237,48 +238,78 @@ $$ {#eq-is-error-one-step}
 
 #### Desviaciones en la Recuperación de Choques Estructurales
 
-La desviación en la dirección $\mathcal{A} \to \mathcal{B}$ compara el error
-incondicional obtenido con la parametrización de $\mathcal{A}$ contra el error
-incondicional obtenido con la parametrización de $\mathcal{B}$, ambos evaluados
-sobre $\mathcal{U}$:
+Los errores incondicionales permiten recuperar los choques estructurales
+asociados a cada parametrización. Para la parametrización en $\mathcal{A}$:
 
 $$
-\begin{align}
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
+=
+\hat{B}_{0,\mathcal{A}}
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}
+$$ {#eq-shock-a-one-step}
+
+Para la parametrización en $\mathcal{B}$:
+
+$$
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
+=
+\hat{B}_{0,\mathcal{B}}
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}},
+\qquad t+1 \in \mathcal{U}
+$$ {#eq-shock-b-one-step}
+
+La desviación en la dirección $\mathcal{A} \to \mathcal{B}$ compara los choques
+recuperados bajo ambas parametrizaciones y expresa esa diferencia en unidades
+observables usando la matriz de impacto inversa de $\mathcal{A}$:
+
+$$
+\begin{aligned}
 \hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
 &=
-\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\left(
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
 -
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}},
-\qquad t+1 \in \mathcal{U}.
-\end{align}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
+\right),
+\qquad t+1 \in \mathcal{U}
+\end{aligned}
 $$ {#eq-conditional-error-one-step}
 
 En la dirección opuesta, la desviación es
 
 $$
-\begin{align}
+\begin{aligned}
 \hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
 =
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+\hat{B}_{0,\mathcal{B}}^{-1}
+\left(
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
 -
-\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}},
-\qquad t+1 \in \mathcal{U}.
-\end{align}
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
+\right),
+\qquad t+1 \in \mathcal{U}
+\end{aligned}
 $$ {#eq-reverse-conditional-error-one-step}
 
-Por construcción, ambas desviaciones tienen el mismo tamaño y signo
-contrario:
+Por construcción, la relación antisimétrica no se afirma para
+$\hat{e}_{t+1|t,c}$ en escala observable. Aparece al llevar las desviaciones a
+la escala de choques estructurales:
 
 $$
+\hat{B}_{0,\mathcal{B}}
 \hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
 =
 -
+\hat{B}_{0,\mathcal{A}}
 \hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}.
 $$ {#eq-one-step-conditional-symmetry}
 
-Estas desviaciones cuantifican cuánto cambia la recuperación implícita de los
-choques estructurales al parametrizar el mismo bloque de observaciones con una
-u otra submuestra.
+Estas desviaciones cuantifican cuánto cambia la recuperación de choques
+estructurales al parametrizar el mismo bloque de observaciones con una u otra
+submuestra. En escala observable, cada dirección conserva la matriz de impacto
+inversa de la parametrización usada como base.
 
 ### Horizonte de Pronóstico Mayor a 1
 
@@ -295,7 +326,8 @@ pronósticos de un paso por pronósticos acumulados a $h$ pasos. Para cada orige
 temporal $t$, se generan dos pronósticos sobre la misma observación
 $y_{t+h}$: uno con la parametrización de $\mathcal{A}$ y otro con la
 parametrización de $\mathcal{B}$. Al restar ambos pronósticos de la misma
-observación realizada se obtienen dos errores incondicionales comparables.
+observación realizada se obtienen dos errores incondicionales comparables, a
+partir de los cuales se recuperan los choques estructurales.
 
 El pronóstico incondicional con parametrización en $\mathcal{A}$, para un
 VAR(1), se calcula como
@@ -342,47 +374,74 @@ y_{t+h}
 \hat{y}_{t+h|t,u,\mathcal{B},\mathcal{U}}.
 $$ {#eq-is-error-h}
 
-La desviación se obtiene comparando esos errores incondicionales. En la
-dirección $\mathcal{A} \to \mathcal{B}$ se define como
+Los choques estructurales recuperados a horizonte $h$ son
 
 $$
-\begin{align}
+\hat{w}_{t+h|t,\mathcal{A},\mathcal{U}}
+=
+\hat{B}_{0,\mathcal{A}}
+\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+$$ {#eq-shock-a-h}
+
+$$
+\hat{w}_{t+h|t,\mathcal{B},\mathcal{U}}
+=
+\hat{B}_{0,\mathcal{B}}
+\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+$$ {#eq-shock-b-h}
+
+La desviación se obtiene comparando esos choques estructurales. En la dirección
+$\mathcal{A} \to \mathcal{B}$ se define como
+
+$$
+\begin{aligned}
 \hat{e}_{t+h|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
 &=
-\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\left(
+\hat{w}_{t+h|t,\mathcal{A},\mathcal{U}}
 -
-\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}},
-\qquad t+h \in \mathcal{U}.
-\end{align}
+\hat{w}_{t+h|t,\mathcal{B},\mathcal{U}}
+\right),
+\qquad t+h \in \mathcal{U}
+\end{aligned}
 $$ {#eq-conditional-error-h}
 
 En la dirección opuesta,
 
 $$
-\begin{align}
+\begin{aligned}
 \hat{e}_{t+h|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
 &=
-\hat{e}_{t+h|t,u,\mathcal{B},\mathcal{U}}
+\hat{B}_{0,\mathcal{B}}^{-1}
+\left(
+\hat{w}_{t+h|t,\mathcal{B},\mathcal{U}}
 -
-\hat{e}_{t+h|t,u,\mathcal{A},\mathcal{U}},
-\qquad t+h \in \mathcal{U}.
-\end{align}
+\hat{w}_{t+h|t,\mathcal{A},\mathcal{U}}
+\right),
+\qquad t+h \in \mathcal{U}
+\end{aligned}
 $$ {#eq-reverse-conditional-error-h}
 
-Por construcción, invertir el orden de las parametrizaciones solo cambia el
-signo de la desviación:
+Por construcción, invertir el orden de las parametrizaciones cambia el signo de
+la diferencia de choques estructurales. Esto equivale a la siguiente relación en
+escala de choques, no a una igualdad directa entre errores condicionales
+observables:
 
 $$
+\hat{B}_{0,\mathcal{B}}
 \hat{e}_{t+h|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
 =
 -
+\hat{B}_{0,\mathcal{A}}
 \hat{e}_{t+h|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}.
 $$ {#eq-conditional-symmetry-h}
 
 Así, para horizontes mayores a uno, no se introduce una noción distinta de
-desviación. Lo único que cambia es que los errores incondicionales provienen de
-pronósticos acumulados a $h$ pasos, por lo que la comparación incorpora la
-dinámica del modelo durante varios periodos.
+desviación. Lo único que cambia es que los choques estructurales se recuperan a
+partir de errores incondicionales provenientes de pronósticos acumulados a $h$
+pasos, por lo que la comparación incorpora la dinámica del modelo durante varios
+periodos.
 
 
 ## Procedimiento Operativo
@@ -407,20 +466,24 @@ El procedimiento operativo puede resumirse en cuatro objetos matemáticos:
    $\hat{A}_{0,\mathcal{V}^{(i)}}$,
    $\hat{A}_{1,\mathcal{V}^{(i)}}$ y
    $\hat{B}_{0,\mathcal{V}^{(i)}}$.
-3. Los errores incondicionales sobre $\mathcal{U}^{(i)}$ usando la
+3. Los choques estructurales recuperados sobre $\mathcal{U}^{(i)}$ usando la
    parametrización de $\mathcal{E}^{(i)}$.
-4. Los errores incondicionales sobre $\mathcal{U}^{(i)}$ usando la
+4. Los choques estructurales recuperados sobre $\mathcal{U}^{(i)}$ usando la
    parametrización de $\mathcal{V}^{(i)}$.
 
 El resultado final es el error condicional, definido como la diferencia entre
-ambos errores incondicionales sobre $\mathcal{U}^{(i)}$:
+ambos choques estructurales recuperados sobre $\mathcal{U}^{(i)}$, expresada en
+unidades observables con la matriz de impacto inversa de $\mathcal{E}^{(i)}$:
 
 $$
 \hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
 =
-\hat{e}_{t+h|t,u,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+\hat{B}_{0,\mathcal{E}^{(i)}}^{-1}
+\left(
+\hat{w}_{t+h|t,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
 -
-\hat{e}_{t+h|t,u,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}.
+\hat{w}_{t+h|t,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+\right)
 $$ {#eq-operational-conditional-error}
 
 Este error condicional es la desviación observable asociada a recuperar choques
@@ -430,10 +493,10 @@ fechas.
 ## Tuplas de Desviaciones en la Recuperación de Choques
 
 Una vez calculadas las desviaciones para cada partición, el siguiente paso es
-organizarlas como tuplas empíricas. La tupla no introduce una nueva definición
-de error: únicamente recopila las desviaciones obtenidas al comparar dos
-parametrizaciones sobre el conjunto común de evaluación
-$\mathcal{U}^{(i)}$.
+organizarlas como tuplas empíricas. La tupla no recopila directamente el error
+condicional observable $\hat{e}_{c}$, sino la desviación en escala de choques
+estructurales asociada a ese error. Esa escala es la que permite aplicar la
+simetrización por cambio de signo.
 
 Sea $\mathcal{I}$ el conjunto de particiones consideradas. Para una partición
 $i$ y un horizonte $h$, definimos el conjunto de orígenes admisibles como
@@ -449,15 +512,32 @@ y_t\ \text{está disponible}
 \right\}.
 $$ {#eq-admissible-origins}
 
-Para cada $t \in \mathcal{S}_{h}^{(i)}$ se calcula una desviación
+Para cada $t \in \mathcal{S}_{h}^{(i)}$ se calcula primero el error condicional
+observable
 
 $$
 \hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
 =
-\hat{e}_{t+h|t,u,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+\hat{B}_{0,\mathcal{E}^{(i)}}^{-1}
+\left(
+\hat{w}_{t+h|t,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
 -
-\hat{e}_{t+h|t,u,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}.
+\hat{w}_{t+h|t,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+\right)
 $$ {#eq-deviation-by-partition}
+
+La desviación que entra en la tupla empírica se expresa en escala de choques:
+
+$$
+\hat{d}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+=
+\hat{B}_{0,\mathcal{E}^{(i)}}
+\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+=
+\hat{w}_{t+h|t,\mathcal{E}^{(i)},\mathcal{U}^{(i)}}
+-
+\hat{w}_{t+h|t,\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+$$ {#eq-shock-scale-deviation-by-partition}
 
 La tupla de desviaciones a horizonte $h$ se conforma agrupando esos objetos a
 través de todas las particiones:
@@ -466,7 +546,7 @@ $$
 \mathcal{D}_{c,h}
 =
 \left(
-\hat{e}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+\hat{d}_{t+h|t,c,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
 :
 i \in \mathcal{I},\
 t \in \mathcal{S}_{h}^{(i)}
@@ -481,7 +561,7 @@ $$
 \mathcal{D}_{c,h,k}
 =
 \left(
-\hat{e}_{t+h|t,c,k,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
+\hat{d}_{t+h|t,c,k,\mathcal{E}^{(i)},\mathcal{V}^{(i)},\mathcal{U}^{(i)}}
 :
 i \in \mathcal{I},\
 t \in \mathcal{S}_{h}^{(i)}
@@ -489,9 +569,9 @@ t \in \mathcal{S}_{h}^{(i)}
 \qquad k = 1,\dots,K.
 $$ {#eq-conditional-deviation-tuple-component}
 
-Debido a la simetría entre los errores expuesta en
-@sec-symmetry-justification, la tupla total de desviaciones condicionales a
-horizonte $h$, $\tilde{\mathcal{D}}_{c,h}$, se define a partir de la tupla
+Debido a la simetría entre los choques estructurales expuesta en
+@sec-symmetry-justification, la tupla total de desviaciones en escala de choques
+a horizonte $h$, $\tilde{\mathcal{D}}_{c,h}$, se define a partir de la tupla
 original $\mathcal{D}_{c,h}$ como
 
 $$
@@ -502,90 +582,86 @@ $$ {#eq-symmetric-conditional-errors}
 
 El operador $\Vert$ denota concatenación. Es decir, la tupla original se
 extiende agregando una copia de sus elementos multiplicados por $-1$. Esta
-transformación fuerza simetría alrededor de cero y conserva la magnitud de los
-errores condicionales.
+transformación representa la simetría de la desviación en la recuperación de
+choques estructurales, no una simetría automática de los errores condicionales
+observables.
 
 ## Justificación por Simetría entre Submuestras {#sec-symmetry-justification}
 
-Una forma de motivar la simetrización es estudiar qué ocurre al intercambiar
-los roles de las submuestras $\mathcal{E}(i)$ y $\mathcal{V}(i)$. Para evitar
-cargar la notación, en esta sección escribimos simplemente $\mathcal{E}$ y
-$\mathcal{V}$.
+Una forma de motivar la simetrización en escala de choques es estudiar qué
+ocurre al intercambiar los roles de las submuestras $\mathcal{E}^{(i)}$ y
+$\mathcal{V}^{(i)}$. Para evitar cargar la notación, en esta sección escribimos
+simplemente $\mathcal{E}$ y $\mathcal{V}$.
 
-La definición del error condicional puede expresarse como
-
-$$
-\begin{align}
-    \hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{V}} &=
-        y_{t+h} - y_{t+h|t, c, \mathcal{E}, \mathcal{V}, \mathcal{V}} \\
-    &=
-    y_{t+h} - \left(
-        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
-        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}
-    \right) \\
-    &=
-        \left(
-        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
-        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{V}}
-        \right)
-        -
-        \left(
-        y_{t+h|t, u, \mathcal{E}, \mathcal{V}} +
-        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}
-    \right) \\
-    &=
-        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{V}}
-        -
-        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{V}}.
-\end{align}
-$$ {#eq-conditional-as-difference}
-
-Como el error condicional puede expresarse como una diferencia de errores
-incondicionales, una primera conjetura sería esperar que
+La desviación observable en la dirección $\mathcal{E} \to \mathcal{V}$ puede
+expresarse como
 
 $$
-\hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{V}}
+\hat{e}_{t+h|t,c,\mathcal{E},\mathcal{V},\mathcal{V}}
+=
+\hat{B}_{0,\mathcal{E}}^{-1}
+\left(
+\hat{w}_{t+h|t,\mathcal{E},\mathcal{V}}
+-
+\hat{w}_{t+h|t,\mathcal{V},\mathcal{V}}
+\right)
+$$ {#eq-conditional-as-shock-difference}
+
+Como la desviación observable se construye a partir de choques estructurales
+recuperados bajo dos parametrizaciones, una primera conjetura sería esperar que
+
+$$
+\hat{e}_{t+h|t,c,\mathcal{E},\mathcal{V},\mathcal{V}}
 \stackrel{?}{=}
--\hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E}, \mathcal{E}}.
+-\hat{e}_{t+h|t,c,\mathcal{V},\mathcal{E},\mathcal{E}}.
 $$ {#eq-false-symmetry}
 
-Esa conjetura no es válida tal como está escrita, porque en el lado izquierdo
-$t+h \in \mathcal{V}$, mientras que en el lado derecho
-$t+h \in \mathcal{E}$. Dado que
-$\mathcal{E} \cap \mathcal{V} = \varnothing$, ambas expresiones no se evalúan
-sobre las mismas observaciones.
+Esa conjetura no es válida tal como está escrita por dos razones. Primero, en el
+lado izquierdo $t+h \in \mathcal{V}$, mientras que en el lado derecho
+$t+h \in \mathcal{E}$. Dado que $\mathcal{E} \cap \mathcal{V} = \varnothing$,
+ambas expresiones no se evalúan sobre las mismas observaciones. Segundo, aun si
+las fechas fueran las mismas, en escala observable cada dirección queda
+premultiplicada por una matriz de impacto inversa distinta.
 
-La simetría sí aparece cuando los errores condicionales se calculan sobre la
-unión $\mathcal{E} \cup \mathcal{V}$ en lugar de restringirse únicamente a
-$\mathcal{V}$:
+La simetría que sí se obtiene aparece cuando las desviaciones se calculan sobre
+la unión $\mathcal{E} \cup \mathcal{V}$ y se expresan en la escala de choques
+estructurales:
 
 $$
-\hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V}, \mathcal{E} \cup \mathcal{V}}
-    =
-- \hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E}, \mathcal{V} \cup \mathcal{E}}.
+\hat{B}_{0,\mathcal{V}}
+\hat{e}_{t+h|t,c,\mathcal{V},\mathcal{E},\mathcal{E} \cup \mathcal{V}}
+=
+-
+\hat{B}_{0,\mathcal{E}}
+\hat{e}_{t+h|t,c,\mathcal{E},\mathcal{V},\mathcal{E} \cup \mathcal{V}}
 $$ {#eq-valid-symmetry}
 
 En efecto,
 
 $$
-    \hat{e}_{t+h|t, c,\mathcal{E}, \mathcal{V},  \mathcal{E} \cup \mathcal{V}} =
-        \hat{e}_{t+h|t, u, \mathcal{E},\mathcal{E} \cup \mathcal{V}}
-        -
-        \hat{e}_{t+h|t, u, \mathcal{V}, \mathcal{E} \cup \mathcal{V}},
+\hat{B}_{0,\mathcal{E}}
+\hat{e}_{t+h|t,c,\mathcal{E},\mathcal{V},\mathcal{E} \cup \mathcal{V}}
+=
+\hat{w}_{t+h|t,\mathcal{E},\mathcal{E} \cup \mathcal{V}}
+-
+\hat{w}_{t+h|t,\mathcal{V},\mathcal{E} \cup \mathcal{V}}
 $$ {#eq-forward-conditional-error}
 
 mientras que
 
 $$
-    \hat{e}_{t+h|t, c,\mathcal{V}, \mathcal{E},  \mathcal{E} \cup \mathcal{V}} =
-        \hat{e}_{t+h|t, u, \mathcal{V},\mathcal{E} \cup \mathcal{V}}
-        -
-        \hat{e}_{t+h|t, u, \mathcal{E}, \mathcal{E} \cup \mathcal{V}}.
+\hat{B}_{0,\mathcal{V}}
+\hat{e}_{t+h|t,c,\mathcal{V},\mathcal{E},\mathcal{E} \cup \mathcal{V}}
+=
+\hat{w}_{t+h|t,\mathcal{V},\mathcal{E} \cup \mathcal{V}}
+-
+\hat{w}_{t+h|t,\mathcal{E},\mathcal{E} \cup \mathcal{V}}
 $$ {#eq-reverse-conditional-error}
 
 Por lo tanto, si la validación condicional se computa sobre
-$\mathcal{E}(i) \cup \mathcal{V}(i)$, la tupla relevante es la tupla de
-desviaciones construida en la sección anterior.
+$\mathcal{E}^{(i)} \cup \mathcal{V}^{(i)}$, la tupla que puede simetrizarse de
+forma directa es la tupla de desviaciones en escala de choques construida en la
+sección anterior.
 
 La versión simetrizada queda entonces dada por
 
@@ -594,6 +670,13 @@ $$
 = \mathcal{D}_{c,h} \Vert -\mathcal{D}_{c,h}.
 $$ {#eq-union-symmetric-conditional-errors}
 
-Esta construcción provee una justificación operacional para la simetrización:
-al evaluar ambas direcciones sobre el mismo conjunto de observaciones,
-intercambiar las submuestras cambia el signo del error condicional.
+::: {.callout-warning title="Advertencia"}
+Aunque la simetría exista en la escala de choques estructurales, no
+necesariamente se conserva al trasladar esas desviaciones a la escala observable
+de los errores condicionales. Cada dirección puede estar asociada a una matriz
+de impacto inversa distinta.
+
+Por esta razón, concatenar los errores condicionales con su negativo no genera
+necesariamente una distribución simétrica de errores condicionales. La simetría
+debe interpretarse sobre la diferencia de choques estructurales.
+:::

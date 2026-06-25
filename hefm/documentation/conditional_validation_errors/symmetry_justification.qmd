@@ -204,8 +204,19 @@ y_{t+1}
 \hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
 $$ {#eq-conditional-computation-unconditional-a}
 
-El error incondicional asociado a la parametrización en $\mathcal{B}$,
-calculado sobre ese mismo bloque de fechas, es
+La parametrización en $\mathcal{A}$ también tiene asociada una matriz
+$\hat{B}_{0,\mathcal{A}}$, que permite recuperar los choques estructurales a
+partir de los errores incondicionales:
+
+$$
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{B}}
+=
+\hat{B}_{0,\mathcal{A}}
+\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+$$ {#eq-conditional-computation-shock-a}
+
+De forma análoga, el error incondicional asociado a la parametrización en
+$\mathcal{B}$, calculado sobre ese mismo bloque de fechas, es
 
 $$
 \hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
@@ -215,24 +226,42 @@ y_{t+1}
 \hat{y}_{t+1|t,u,\mathcal{B},\mathcal{B}}
 $$ {#eq-conditional-computation-unconditional-b}
 
-Este es un error dentro de muestra: el modelo se parametriza con
+El choque estructural asociado a ese error se define como
+
+$$
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}
+=
+\hat{B}_{0,\mathcal{B}}
+\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+$$ {#eq-conditional-computation-shock-b}
+
+Este choque se recupera dentro de muestra: el modelo se parametriza con
 $\mathcal{B}$ y el error se evalúa sobre observaciones que también pertenecen a
 $\mathcal{B}$.
 
-La construcción condicional toma como punto de partida el pronóstico
-incondicional parametrizado en $\mathcal{A}$ y lo ajusta con el error
-incondicional obtenido al parametrizar en $\mathcal{B}$:
+La construcción del pronóstico condicional toma como punto de partida el
+pronóstico incondicional parametrizado en $\mathcal{A}$ y lo ajusta con el choque
+estructural obtenido al parametrizar en $\mathcal{B}$:
 
 $$
 \hat{y}_{t+1|t,c,\mathcal{A},\mathcal{B}}
 =
 \hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
 +
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}
 $$ {#eq-conditional-computation-forecast}
 
-Siguiendo la definición del documento "Criteria for SVAR Model Selection: A
-Proposal", el error condicional es la diferencia entre la observación realizada
+Es decir, el pronóstico condicional ajusta el pronóstico incondicional
+parametrizado en $\mathcal{A}$ con el choque estructural obtenido al
+parametrizar en $\mathcal{B}$. Nótese que el impacto del choque modifica el
+pronóstico incondicional a través del producto
+$\hat{B}_{0,\mathcal{A}}^{-1}\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}$; por eso
+el choque recuperado con $\mathcal{B}$ se expresa en unidades observables usando
+la matriz de impacto inversa parametrizada en $\mathcal{A}$.
+
+Siguiendo la definición del documento *"Criteria for SVAR Model Selection: A
+Proposal"*, el error condicional es la diferencia entre la observación realizada
 y el pronóstico condicional. Sustituyendo la
 @eq-conditional-computation-forecast:
 
@@ -250,7 +279,8 @@ y_{t+1}
 \left(
 \hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
 +
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}
 \right)
 \\
 &=
@@ -260,27 +290,36 @@ y_{t+1}
 \hat{y}_{t+1|t,u,\mathcal{A},\mathcal{B}}
 \right)
 -
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}
 \\
 &=
-\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\left(
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{B}}
 -
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}
+\right)
 \end{aligned}
-$$ {#eq-conditional-as-unconditional-difference}
+$$ {#eq-conditional-as-shock-difference}
 
-Por lo tanto, el error condicional se computa como la diferencia entre dos
-errores incondicionales evaluados sobre el mismo conjunto de fechas:
+El error condicional se computa, entonces, como la diferencia entre el choque
+recuperado al parametrizar en $\mathcal{A}$ y el choque recuperado dentro de
+$\mathcal{B}$, expresada en unidades observables mediante la matriz
+$\hat{B}_{0,\mathcal{A}}^{-1}$:
 
 $$
 \hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B}}
 =
-\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{B}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\left(
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{B}}
 -
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}
+\right)
 \qquad
 t+1 \in \mathcal{B}
-$$ {#eq-conditional-difference-summary}
+$$ {#eq-conditional-shock-difference-summary}
 
 La lectura de los subíndices en
 $\hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B}}$ es:
@@ -298,11 +337,14 @@ $\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{B}}$, el subíndice $u$ indica que no se
 ha aplicado el ajuste condicional. El primer subíndice de muestra indica dónde
 se parametriza el modelo, y el segundo indica dónde se calculan los errores.
 
+En los choques estructurales
+$\hat{w}_{t+1|t,\mathcal{A},\mathcal{B}}$ y
+$\hat{w}_{t+1|t,\mathcal{B},\mathcal{B}}$, el primer subíndice de muestra indica
+qué matriz $\hat{B}_0$ se usa para recuperar el choque, y el segundo indica el
+bloque de fechas sobre el que se realiza la recuperación.
+
 ## Sobre la Simetría
 
-En este documento, la simetría no es un supuesto adicional sobre el modelo. Es
-una propiedad algebraica de cómo se define la desviación entre dos
-parametrizaciones cuando ambas se evalúan sobre el mismo conjunto de fechas.
 
 ### Por Qué No Basta Evaluar en una Sola Submuestra
 
@@ -384,7 +426,7 @@ La simetría relevante es esta: se comparan los choques estructurales
 recuperados en $\mathcal{U}$ cuando el modelo se parametriza con
 $\mathcal{A}$ contra los choques recuperados en $\mathcal{U}$ cuando el modelo
 se parametriza con $\mathcal{B}$. Al invertir el orden de la comparación, la
-desviación debe conservar su magnitud y cambiar solo de signo.
+diferencia de choques estructurales debe cambiar de signo.
 :::
 
 Cuando el modelo se parametriza con $\mathcal{A}$ y se compara contra la
@@ -393,9 +435,12 @@ parametrización en $\mathcal{B}$, la desviación es
 $$
 \hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
 =
-\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+\hat{B}_{0,\mathcal{A}}^{-1}
+\left(
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
 -
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
+\right)
 $$ {#eq-symmetry-forward}
 
 Si el modelo se parametriza con $\mathcal{B}$ y se compara contra la
@@ -404,25 +449,45 @@ parametrización en $\mathcal{A}$, la desviación es
 $$
 \hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
 =
-\hat{e}_{t+1|t,u,\mathcal{B},\mathcal{U}}
+\hat{B}_{0,\mathcal{B}}^{-1}
+\left(
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
 -
-\hat{e}_{t+1|t,u,\mathcal{A},\mathcal{U}}
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
+\right)
 $$ {#eq-symmetry-reverse}
 
-Al comparar ambas expresiones:
+Usando la @eq-symmetry-forward y la @eq-symmetry-reverse, y llevando cada
+desviación a la escala de choques estructurales, se obtiene
 
 $$
+\hat{B}_{0,\mathcal{B}}
 \hat{e}_{t+1|t,c,\mathcal{B},\mathcal{A},\mathcal{U}}
 =
 -
+\hat{B}_{0,\mathcal{A}}
 \hat{e}_{t+1|t,c,\mathcal{A},\mathcal{B},\mathcal{U}}
 $$ {#eq-symmetry-result}
 
-::: {.callout-important title="Conclusión"}
-Invertir el orden de las submuestras cambia el signo de la desviación, pero no
-su magnitud.
-:::
+La @eq-symmetry-result descansa en la siguiente identidad algebraica:
 
-Esta propiedad no requiere que las parametrizaciones sean iguales. Tampoco
-requiere que los errores sean pequeños. Requiere únicamente que ambas
-direcciones se calculen sobre el mismo conjunto de evaluación.
+$$
+\begin{aligned}
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
+-
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
+&=
+-
+\left(
+\hat{w}_{t+1|t,\mathcal{B},\mathcal{U}}
+-
+\hat{w}_{t+1|t,\mathcal{A},\mathcal{U}}
+\right)
+\end{aligned}
+$$ {#eq-shock-difference-antisymmetry}
+
+::: {.callout-important title="Conclusión"}
+La simetría se interpreta en la escala de los choques estructurales. En la escala
+observable del error condicional, la matriz de impacto inversa que acompaña a
+cada parametrización también forma parte de la comparación.
+:::
